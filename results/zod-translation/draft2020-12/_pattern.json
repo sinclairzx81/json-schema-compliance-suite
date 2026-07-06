@@ -1,0 +1,16 @@
+[
+  {
+    "description": "pattern validation",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "pattern": "^a*$"
+    },
+    "tests": [
+      {
+        "description": "a non-matching pattern is invalid",
+        "data": "abc",
+        "valid": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "description": "uniqueItems with an array of items and additionalItems=false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "items": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "boolean"
+        }
+      ],
+      "uniqueItems": true,
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "extra items are invalid even if unique",
+        "data": [
+          false,
+          true,
+          null
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "uniqueItems=false with an array of items and additionalItems=false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "items": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "boolean"
+        }
+      ],
+      "uniqueItems": false,
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "extra items are invalid even if unique",
+        "data": [
+          false,
+          true,
+          null
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

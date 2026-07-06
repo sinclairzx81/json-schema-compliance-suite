@@ -1,0 +1,35 @@
+[
+  {
+    "description": "validation of date-time strings",
+    "schema": {
+      "format": "date-time"
+    },
+    "tests": [
+      {
+        "description": "a valid date-time with a leap second, UTC",
+        "data": "1998-12-31T23:59:60Z",
+        "valid": true
+      },
+      {
+        "description": "a valid date-time with a leap second, with minus offset",
+        "data": "1998-12-31T15:59:60.123-08:00",
+        "valid": true
+      },
+      {
+        "description": "an invalid hour in date-time string",
+        "data": "1990-12-31T24:00:00Z",
+        "valid": false
+      },
+      {
+        "description": "an invalid day in date-time string",
+        "data": "1990-02-31T15:59:59.123-08:00",
+        "valid": false
+      },
+      {
+        "description": "case-insensitive T and Z",
+        "data": "1963-06-19t08:30:06.283185z",
+        "valid": true
+      }
+    ]
+  }
+]

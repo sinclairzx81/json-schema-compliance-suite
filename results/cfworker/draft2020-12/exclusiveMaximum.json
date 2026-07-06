@@ -1,0 +1,21 @@
+[
+  {
+    "description": "exclusiveMaximum validation",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "exclusiveMaximum": 3
+    },
+    "tests": [
+      {
+        "description": "below the exclusiveMaximum is valid",
+        "data": 2.2,
+        "valid": true
+      },
+      {
+        "description": "ignores non-numbers",
+        "data": "x",
+        "valid": true
+      }
+    ]
+  }
+]

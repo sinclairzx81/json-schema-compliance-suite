@@ -1,0 +1,54 @@
+[
+  {
+    "description": "remote ref, containing refs itself",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$ref": "https://json-schema.org/draft/2019-09/schema"
+    },
+    "tests": [
+      {
+        "description": "remote ref valid",
+        "data": {
+          "minLength": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "remote ref invalid",
+        "data": {
+          "minLength": -1
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "order of evaluation: $id and $anchor and $ref",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
+      "$id": "https://example.com/draft2019-09/ref-and-id2/base.json",
+      "$ref": "#bigint",
+      "$defs": {
+        "bigint": {
+          "$comment": "canonical uri: https://example.com/draft2019-09/ref-and-id2/base.json#/$defs/bigint; another valid uri for this location: https://example.com/ref-and-id2/base.json#bigint",
+          "$anchor": "bigint",
+          "maximum": 10
+        },
+        "smallint": {
+          "$comment": "canonical uri: https://example.com/draft2019-09/ref-and-id2#/$defs/smallint; another valid uri for this location: https://example.com/ref-and-id2/#bigint",
+          "$id": "/draft2019-09/ref-and-id2/",
+          "$anchor": "bigint",
+          "maximum": 2
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "data is valid against first definition",
+        "data": 5,
+        "valid": true
+      }
+    ]
+  }
+]

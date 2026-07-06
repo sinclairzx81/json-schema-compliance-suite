@@ -1,0 +1,30 @@
+[
+  {
+    "description": "validation of URI References",
+    "schema": {
+      "format": "uri-reference"
+    },
+    "tests": [
+      {
+        "description": "an invalid URI Reference",
+        "data": "\\\\WINDOWS\\fileshare",
+        "valid": false
+      },
+      {
+        "description": "an invalid URI fragment",
+        "data": "#frag\\ment",
+        "valid": false
+      },
+      {
+        "description": "unescaped non US-ASCII characters",
+        "data": "/foobar®.txt",
+        "valid": false
+      },
+      {
+        "description": "invalid backslash character",
+        "data": "https://example.org/foobar\\.txt",
+        "valid": false
+      }
+    ]
+  }
+]

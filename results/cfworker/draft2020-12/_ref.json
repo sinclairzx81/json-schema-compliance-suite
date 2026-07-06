@@ -1,0 +1,154 @@
+[
+  {
+    "description": "ref applies alongside sibling keywords",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$defs": {
+        "reffed": {
+          "type": "array"
+        }
+      },
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/reffed",
+          "maxItems": 2
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "ref valid, maxItems invalid",
+        "data": {
+          "foo": [
+            1,
+            2,
+            3
+          ]
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "remote ref, containing refs itself",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$ref": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "tests": [
+      {
+        "description": "remote ref valid",
+        "data": {
+          "minLength": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "remote ref invalid",
+        "data": {
+          "minLength": -1
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "refs with relative uris and defs",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "http://example.com/schema-relative-uri-defs1.json",
+      "properties": {
+        "foo": {
+          "$id": "schema-relative-uri-defs2.json",
+          "$defs": {
+            "inner": {
+              "properties": {
+                "bar": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "$ref": "#/$defs/inner"
+        }
+      },
+      "$ref": "schema-relative-uri-defs2.json"
+    },
+    "tests": [
+      {
+        "description": "invalid on inner field",
+        "data": {
+          "foo": {
+            "bar": 1
+          },
+          "bar": "a"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "relative refs with absolute uris and defs",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "http://example.com/schema-refs-absolute-uris-defs1.json",
+      "properties": {
+        "foo": {
+          "$id": "http://example.com/schema-refs-absolute-uris-defs2.json",
+          "$defs": {
+            "inner": {
+              "properties": {
+                "bar": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "$ref": "#/$defs/inner"
+        }
+      },
+      "$ref": "schema-refs-absolute-uris-defs2.json"
+    },
+    "tests": [
+      {
+        "description": "invalid on inner field",
+        "data": {
+          "foo": {
+            "bar": 1
+          },
+          "bar": "a"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "order of evaluation: $id and $anchor and $ref",
+    "schema": {
+      "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://example.com/draft2020-12/ref-and-id2/base.json",
+      "$ref": "#bigint",
+      "$defs": {
+        "bigint": {
+          "$comment": "canonical uri: /ref-and-id2/base.json#/$defs/bigint; another valid uri for this location: /ref-and-id2/base.json#bigint",
+          "$anchor": "bigint",
+          "maximum": 10
+        },
+        "smallint": {
+          "$comment": "canonical uri: https://example.com/ref-and-id2#/$defs/smallint; another valid uri for this location: https://example.com/ref-and-id2/#bigint",
+          "$id": "https://example.com/draft2020-12/ref-and-id2/",
+          "$anchor": "bigint",
+          "maximum": 2
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "data is valid against first definition",
+        "data": 5,
+        "valid": true
+      }
+    ]
+  }
+]

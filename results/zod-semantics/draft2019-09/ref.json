@@ -1,0 +1,537 @@
+[
+  {
+    "description": "root pointer ref",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "properties": {
+        "foo": {
+          "$ref": "#"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "foo": false
+        },
+        "valid": true
+      },
+      {
+        "description": "recursive match",
+        "data": {
+          "foo": {
+            "foo": false
+          }
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "relative pointer ref to object",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "properties": {
+        "foo": {
+          "type": "integer"
+        },
+        "bar": {
+          "$ref": "#/properties/foo"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "bar": 3
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "relative pointer ref to array",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "items": [
+        {
+          "type": "integer"
+        },
+        {
+          "$ref": "#/items/0"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "match array",
+        "data": [
+          1,
+          2
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "escaped pointer ref",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$defs": {
+        "tilde~field": {
+          "type": "integer"
+        },
+        "slash/field": {
+          "type": "integer"
+        },
+        "percent%field": {
+          "type": "integer"
+        }
+      },
+      "properties": {
+        "tilde": {
+          "$ref": "#/$defs/tilde~0field"
+        },
+        "slash": {
+          "$ref": "#/$defs/slash~1field"
+        },
+        "percent": {
+          "$ref": "#/$defs/percent%25field"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "slash valid",
+        "data": {
+          "slash": 123
+        },
+        "valid": true
+      },
+      {
+        "description": "tilde valid",
+        "data": {
+          "tilde": 123
+        },
+        "valid": true
+      },
+      {
+        "description": "percent valid",
+        "data": {
+          "percent": 123
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "nested refs",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$defs": {
+        "a": {
+          "type": "integer"
+        },
+        "b": {
+          "$ref": "#/$defs/a"
+        },
+        "c": {
+          "$ref": "#/$defs/b"
+        }
+      },
+      "$ref": "#/$defs/c"
+    },
+    "tests": [
+      {
+        "description": "nested ref valid",
+        "data": 5,
+        "valid": true
+      },
+      {
+        "description": "nested ref invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "ref applies alongside sibling keywords",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$defs": {
+        "reffed": {
+          "type": "array"
+        }
+      },
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/reffed",
+          "maxItems": 2
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "ref valid, maxItems valid",
+        "data": {
+          "foo": []
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "property named $ref that is not a reference",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "properties": {
+        "$ref": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "property named $ref valid",
+        "data": {
+          "$ref": "a"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "property named $ref, containing an actual $ref",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "properties": {
+        "$ref": {
+          "$ref": "#/$defs/is-string"
+        }
+      },
+      "$defs": {
+        "is-string": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "property named $ref valid",
+        "data": {
+          "$ref": "a"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "$ref to boolean schema true",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$ref": "#/$defs/bool",
+      "$defs": {
+        "bool": true
+      }
+    },
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "refs with quote",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "properties": {
+        "foo\"bar": {
+          "$ref": "#/$defs/foo%22bar"
+        }
+      },
+      "$defs": {
+        "foo\"bar": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "object with numbers is valid",
+        "data": {
+          "foo\"bar": 1
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "naive replacement of $ref with its destination is not correct",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$defs": {
+        "a_string": {
+          "type": "string"
+        }
+      },
+      "enum": [
+        {
+          "$ref": "#/$defs/a_string"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "do not evaluate the $ref inside the enum, matching any string",
+        "data": "this is a string",
+        "valid": false
+      },
+      {
+        "description": "do not evaluate the $ref inside the enum, definition exact match",
+        "data": {
+          "type": "string"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "simple URN base URI with $ref via the URN",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$comment": "URIs do not have to have HTTP(s) schemes",
+      "$id": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed",
+      "minimum": 30,
+      "properties": {
+        "foo": {
+          "$ref": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "valid under the URN IDed schema",
+        "data": {
+          "foo": 37
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "simple URN base URI with JSON pointer",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$comment": "URIs do not have to have HTTP(s) schemes",
+      "$id": "urn:uuid:deadbeef-1234-00ff-ff00-4321feebdaed",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with NSS",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$comment": "RFC 8141 §2.2",
+      "$id": "urn:example:1/406/47452/2",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with r-component",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$comment": "RFC 8141 §2.3.1",
+      "$id": "urn:example:foo-bar-baz-qux?+CCResolve:cc=uk",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with q-component",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$comment": "RFC 8141 §2.3.2",
+      "$id": "urn:example:weather?=op=map&lat=39.56&lon=-104.85&datetime=1969-07-21T02:56:15Z",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with URN and JSON pointer ref",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$id": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed",
+      "properties": {
+        "foo": {
+          "$ref": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with URN and anchor ref",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$id": "urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed",
+      "properties": {
+        "foo": {
+          "$ref": "urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed#something"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "$anchor": "something",
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - *nix",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$id": "file:///folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - windows",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$id": "file:///c:/folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  }
+]

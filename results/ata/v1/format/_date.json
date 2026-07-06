@@ -1,0 +1,53 @@
+[
+  {
+    "description": "validation of date strings",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "date"
+    },
+    "tests": [
+      {
+        "description": "a invalid date string with 30 days in February (leap)",
+        "data": "2020-02-30",
+        "valid": false
+      },
+      {
+        "description": "a invalid date string with 31 days in April",
+        "data": "2020-04-31",
+        "valid": false
+      },
+      {
+        "description": "a invalid date string with 31 days in June",
+        "data": "2020-06-31",
+        "valid": false
+      },
+      {
+        "description": "a invalid date string with 31 days in September",
+        "data": "2020-09-31",
+        "valid": false
+      },
+      {
+        "description": "a invalid date string with 31 days in November",
+        "data": "2020-11-31",
+        "valid": false
+      },
+      {
+        "description": "2021 is not a leap year",
+        "data": "2021-02-29",
+        "valid": false
+      },
+      {
+        "description": "century year 0100 is not a leap year",
+        "comment": "https://www.rfc-editor.org/rfc/rfc3339#appendix-C — 100 % 100 == 0 but 100 % 400 != 0",
+        "data": "0100-02-29",
+        "valid": false
+      },
+      {
+        "description": "century year 2100 is not a leap year",
+        "comment": "https://www.rfc-editor.org/rfc/rfc3339#appendix-C — future century year",
+        "data": "2100-02-29",
+        "valid": false
+      }
+    ]
+  }
+]

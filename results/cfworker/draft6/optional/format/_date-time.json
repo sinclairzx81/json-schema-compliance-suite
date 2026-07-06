@@ -1,0 +1,25 @@
+[
+  {
+    "description": "validation of date-time strings",
+    "schema": {
+      "format": "date-time"
+    },
+    "tests": [
+      {
+        "description": "a valid date-time with a leap second, with minus offset",
+        "data": "1998-12-31T15:59:60.123-08:00",
+        "valid": true
+      },
+      {
+        "description": "an invalid offset minute in date-time string",
+        "data": "1990-12-31T10:00:00+10:60",
+        "valid": false
+      },
+      {
+        "description": "an invalid offset in date-time string",
+        "data": "1990-12-31T15:59:59-24:00",
+        "valid": false
+      }
+    ]
+  }
+]

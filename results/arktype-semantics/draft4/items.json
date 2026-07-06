@@ -1,0 +1,118 @@
+[
+  {
+    "description": "nested items",
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "valid nested array",
+        "data": [
+          [
+            [
+              [
+                1
+              ]
+            ],
+            [
+              [
+                2
+              ],
+              [
+                3
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ]
+          ]
+        ],
+        "valid": true
+      },
+      {
+        "description": "nested array with invalid type",
+        "data": [
+          [
+            [
+              [
+                "1"
+              ]
+            ],
+            [
+              [
+                2
+              ],
+              [
+                3
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ]
+            ]
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "not deep enough",
+        "data": [
+          [
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          [
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ]
+          ]
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

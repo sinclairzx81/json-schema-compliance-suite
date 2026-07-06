@@ -1,0 +1,21 @@
+[
+  {
+    "description": "const with object",
+    "schema": {
+      "const": {
+        "foo": "bar",
+        "baz": "bax"
+      }
+    },
+    "tests": [
+      {
+        "description": "same object with different property order is valid",
+        "data": {
+          "baz": "bax",
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,178 @@
+[
+  {
+    "description": "root pointer ref",
+    "schema": {
+      "properties": {
+        "foo": {
+          "$ref": "#"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "foo": false
+        },
+        "valid": true
+      },
+      {
+        "description": "recursive match",
+        "data": {
+          "foo": {
+            "foo": false
+          }
+        },
+        "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": false
+        },
+        "valid": false
+      },
+      {
+        "description": "recursive mismatch",
+        "data": {
+          "foo": {
+            "bar": false
+          }
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "relative pointer ref to array",
+    "schema": {
+      "items": [
+        {
+          "type": "integer"
+        },
+        {
+          "$ref": "#/items/0"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "match array",
+        "data": [
+          1,
+          2
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "Location-independent identifier",
+    "schema": {
+      "allOf": [
+        {
+          "$ref": "#foo"
+        }
+      ],
+      "definitions": {
+        "A": {
+          "id": "#foo",
+          "type": "integer"
+        }
+      }
+    },
+    "tests": [
+      {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "naive replacement of $ref with its destination is not correct",
+    "schema": {
+      "definitions": {
+        "a_string": {
+          "type": "string"
+        }
+      },
+      "enum": [
+        {
+          "$ref": "#/definitions/a_string"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "do not evaluate the $ref inside the enum, matching any string",
+        "data": "this is a string",
+        "valid": false
+      },
+      {
+        "description": "match the enum exactly",
+        "data": {
+          "$ref": "#/definitions/a_string"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "id with file URI still resolves pointers - *nix",
+    "schema": {
+      "id": "file:///folder/file.json",
+      "definitions": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/foo"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "id with file URI still resolves pointers - windows",
+    "schema": {
+      "id": "file:///c:/folder/file.json",
+      "definitions": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/foo"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  }
+]

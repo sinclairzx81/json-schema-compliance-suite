@@ -1,0 +1,134 @@
+[
+  {
+    "description": "unevaluatedItems with $ref",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$ref": "#/$defs/bar",
+      "prefixItems": [
+        {
+          "type": "string"
+        }
+      ],
+      "unevaluatedItems": false,
+      "$defs": {
+        "bar": {
+          "prefixItems": [
+            true,
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with unevaluated items",
+        "data": [
+          "foo",
+          "bar",
+          "baz"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems before $ref",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "unevaluatedItems": false,
+      "prefixItems": [
+        {
+          "type": "string"
+        }
+      ],
+      "$ref": "#/$defs/bar",
+      "$defs": {
+        "bar": {
+          "prefixItems": [
+            true,
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with unevaluated items",
+        "data": [
+          "foo",
+          "bar",
+          "baz"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with $dynamicRef",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "https://example.com/unevaluated-items-with-dynamic-ref/derived",
+      "$ref": "./baseSchema",
+      "$defs": {
+        "derived": {
+          "$dynamicAnchor": "addons",
+          "prefixItems": [
+            true,
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "baseSchema": {
+          "$id": "./baseSchema",
+          "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+          "unevaluatedItems": false,
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string"
+            }
+          ],
+          "$dynamicRef": "#addons"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems can see annotations from if without then and else",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "if": {
+        "prefixItems": [
+          {
+            "const": "a"
+          }
+        ]
+      },
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "invalid in case if is evaluated",
+        "data": [
+          "b"
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

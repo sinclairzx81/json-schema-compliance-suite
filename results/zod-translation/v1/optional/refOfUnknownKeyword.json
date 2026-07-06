@@ -1,0 +1,98 @@
+[
+  {
+    "description": "reference of a root arbitrary keyword ",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "unknown-keyword": {
+        "type": "integer"
+      },
+      "properties": {
+        "bar": {
+          "$ref": "#/unknown-keyword"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "bar": 3
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "reference of a root arbitrary keyword with encoded ref",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "unknown/keyword": {
+        "type": "integer"
+      },
+      "properties": {
+        "bar": {
+          "$ref": "#/unknown~1keyword"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "bar": 3
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "reference of an arbitrary keyword of a sub-schema",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "properties": {
+        "foo": {
+          "unknown-keyword": {
+            "type": "integer"
+          }
+        },
+        "bar": {
+          "$ref": "#/properties/foo/unknown-keyword"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "bar": 3
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "reference of an arbitrary keyword of a sub-schema with encoded ref",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "properties": {
+        "foo": {
+          "unknown/keyword": {
+            "type": "integer"
+          }
+        },
+        "bar": {
+          "$ref": "#/properties/foo/unknown~1keyword"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "bar": 3
+        },
+        "valid": true
+      }
+    ]
+  }
+]

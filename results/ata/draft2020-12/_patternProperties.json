@@ -1,0 +1,76 @@
+[
+  {
+    "description": "patternProperties with boolean schemas",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "patternProperties": {
+        "f.*": true,
+        "b.*": false
+      }
+    },
+    "tests": [
+      {
+        "description": "object with property matching schema true is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "object with property matching schema false is invalid",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "object with both properties is invalid",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "object with a property matching both true and false is invalid",
+        "data": {
+          "foobar": 1
+        },
+        "valid": false
+      },
+      {
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "patternProperties with Unicode property escape",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "patternProperties": {
+        "^\\p{Letter}+$": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "Unicode letter property name matches",
+        "data": {
+          "π": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "Non-letter property name does not match pattern",
+        "data": {
+          "123": 1
+        },
+        "valid": true
+      }
+    ]
+  }
+]

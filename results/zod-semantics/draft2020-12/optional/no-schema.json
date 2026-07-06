@@ -1,0 +1,21 @@
+[
+  {
+    "description": "validation without $schema",
+    "comment": "minLength is the same across all drafts",
+    "schema": {
+      "minLength": 2
+    },
+    "tests": [
+      {
+        "description": "a 3-character string is valid",
+        "data": "foo",
+        "valid": true
+      },
+      {
+        "description": "a non-string is valid",
+        "data": 5,
+        "valid": true
+      }
+    ]
+  }
+]

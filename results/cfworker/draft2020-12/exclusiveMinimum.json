@@ -1,0 +1,21 @@
+[
+  {
+    "description": "exclusiveMinimum validation",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "exclusiveMinimum": 1.1
+    },
+    "tests": [
+      {
+        "description": "above the exclusiveMinimum is valid",
+        "data": 1.2,
+        "valid": true
+      },
+      {
+        "description": "ignores non-numbers",
+        "data": "x",
+        "valid": true
+      }
+    ]
+  }
+]

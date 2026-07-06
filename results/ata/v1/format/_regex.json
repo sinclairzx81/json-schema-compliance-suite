@@ -1,0 +1,16 @@
+[
+  {
+    "description": "validation of regular expressions",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "regex"
+    },
+    "tests": [
+      {
+        "description": "a regular expression with unclosed parens is invalid",
+        "data": "^(abc]",
+        "valid": false
+      }
+    ]
+  }
+]

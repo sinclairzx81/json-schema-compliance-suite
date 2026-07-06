@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Location-independent identifier",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$ref": "#foo",
+      "$defs": {
+        "A": {
+          "$anchor": "foo",
+          "type": "integer"
+        }
+      }
+    },
+    "tests": [
+      {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      },
+      {
+        "data": "a",
+        "description": "mismatch",
+        "valid": false
+      }
+    ]
+  }
+]

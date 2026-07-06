@@ -1,0 +1,63 @@
+[
+  {
+    "description": "allOf with boolean schemas, all true",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "allOf": [
+        true,
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "allOf with boolean schemas, all false",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "allOf": [
+        false,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "nested allOf, to check validation semantics",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "type": "null"
+            }
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "null is valid",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "anything non-null is invalid",
+        "data": 123,
+        "valid": false
+      }
+    ]
+  }
+]

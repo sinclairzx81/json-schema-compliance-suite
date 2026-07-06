@@ -1,0 +1,19 @@
+[
+  {
+    "description": "unevaluatedItems with boolean schemas",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        true
+      ],
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [],
+        "valid": true
+      }
+    ]
+  }
+]

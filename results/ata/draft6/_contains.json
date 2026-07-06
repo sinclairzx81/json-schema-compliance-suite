@@ -1,0 +1,27 @@
+[
+  {
+    "description": "contains keyword with boolean schema false",
+    "schema": {
+      "contains": false
+    },
+    "tests": [
+      {
+        "description": "any non-empty array is invalid",
+        "data": [
+          "foo"
+        ],
+        "valid": false
+      },
+      {
+        "description": "empty array is invalid",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "non-arrays are valid",
+        "data": "contains does not apply to strings",
+        "valid": true
+      }
+    ]
+  }
+]

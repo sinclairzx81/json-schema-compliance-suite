@@ -1,0 +1,16 @@
+[
+  {
+    "description": "validation of URIs",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "uri"
+    },
+    "tests": [
+      {
+        "description": "non-numeric port is invalid",
+        "data": "http://example.com:abc/path",
+        "valid": false
+      }
+    ]
+  }
+]

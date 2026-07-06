@@ -1,0 +1,46 @@
+[
+  {
+    "description": "a schema given for prefixItems",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "wrong types",
+        "data": [
+          "foo",
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "prefixItems with boolean schemas",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "prefixItems": [
+        true,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "array with two items is invalid",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

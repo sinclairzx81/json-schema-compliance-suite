@@ -1,0 +1,121 @@
+[
+  {
+    "description": "any type matches any type",
+    "schema": {
+      "type": "any"
+    },
+    "tests": [
+      {
+        "description": "any type includes integers",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "any type includes float",
+        "data": 1.1,
+        "valid": true
+      },
+      {
+        "description": "any type includes string",
+        "data": "foo",
+        "valid": true
+      },
+      {
+        "description": "any type includes object",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "any type includes array",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "any type includes boolean",
+        "data": true,
+        "valid": true
+      },
+      {
+        "description": "any type includes null",
+        "data": null,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "types can include schemas",
+    "schema": {
+      "type": [
+        "array",
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "an object is valid",
+        "data": {},
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "applies a nested schema",
+    "schema": {
+      "type": [
+        "integer",
+        {
+          "properties": {
+            "foo": {
+              "type": "null"
+            }
+          }
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "an object is valid only if it is fully valid",
+        "data": {
+          "foo": null
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "types from separate schemas are merged",
+    "schema": {
+      "type": [
+        {
+          "type": [
+            "string"
+          ]
+        },
+        {
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": "foo",
+        "valid": true
+      },
+      {
+        "description": "an array is valid",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "description": "base URI change",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$id": "http://localhost:1234/draft2019-09/",
+      "items": {
+        "$id": "baseUriChange/",
+        "items": {
+          "$ref": "folderInteger.json"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "base URI change ref valid",
+        "data": [
+          [
+            1
+          ]
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "retrieved nested refs resolve relative to their URI not $id",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$id": "http://localhost:1234/draft2019-09/some-id",
+      "properties": {
+        "name": {
+          "$ref": "nested/foo-ref-string.json"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "string is valid",
+        "data": {
+          "name": {
+            "foo": "a"
+          }
+        },
+        "valid": true
+      }
+    ]
+  }
+]

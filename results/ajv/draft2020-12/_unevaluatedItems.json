@@ -1,0 +1,261 @@
+[
+  {
+    "description": "unevaluatedItems with nested items",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "unevaluatedItems": {
+        "type": "boolean"
+      },
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          }
+        },
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "with no additional items",
+        "data": [
+          "yes",
+          "no"
+        ],
+        "valid": true
+      },
+      {
+        "description": "with invalid additional item",
+        "data": [
+          "yes",
+          false
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with $dynamicRef",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://example.com/unevaluated-items-with-dynamic-ref/derived",
+      "$ref": "./baseSchema",
+      "$defs": {
+        "derived": {
+          "$dynamicAnchor": "addons",
+          "prefixItems": [
+            true,
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "baseSchema": {
+          "$id": "./baseSchema",
+          "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+          "unevaluatedItems": false,
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string"
+            }
+          ],
+          "$dynamicRef": "#addons",
+          "$defs": {
+            "defaultAddons": {
+              "$comment": "Needed to satisfy the bookending requirement",
+              "$dynamicAnchor": "addons"
+            }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      },
+      {
+        "description": "with unevaluated items",
+        "data": [
+          "foo",
+          "bar",
+          "baz"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems depends on adjacent contains",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "prefixItems": [
+        true
+      ],
+      "contains": {
+        "type": "string"
+      },
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "contains passes, second item is not evaluated",
+        "data": [
+          1,
+          2,
+          "foo"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems depends on multiple nested contains",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "contains": {
+            "multipleOf": 2
+          }
+        },
+        {
+          "contains": {
+            "multipleOf": 3
+          }
+        }
+      ],
+      "unevaluatedItems": {
+        "multipleOf": 5
+      }
+    },
+    "tests": [
+      {
+        "description": "7 not evaluated, fails unevaluatedItems",
+        "data": [
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems and contains interact to control item dependency relationship",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "if": {
+        "contains": {
+          "const": "a"
+        }
+      },
+      "then": {
+        "if": {
+          "contains": {
+            "const": "b"
+          }
+        },
+        "then": {
+          "if": {
+            "contains": {
+              "const": "c"
+            }
+          }
+        }
+      },
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "only b's are invalid",
+        "data": [
+          "b",
+          "b"
+        ],
+        "valid": false
+      },
+      {
+        "description": "only c's are invalid",
+        "data": [
+          "c",
+          "c"
+        ],
+        "valid": false
+      },
+      {
+        "description": "only b's and c's are invalid",
+        "data": [
+          "c",
+          "b",
+          "c",
+          "b",
+          "c"
+        ],
+        "valid": false
+      },
+      {
+        "description": "only a's and c's are invalid",
+        "data": [
+          "c",
+          "a",
+          "c",
+          "a",
+          "c"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with minContains = 0",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "contains": {
+        "type": "string"
+      },
+      "minContains": 0,
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "all items evaluated by contains",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems can see annotations from if without then and else",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "if": {
+        "prefixItems": [
+          {
+            "const": "a"
+          }
+        ]
+      },
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "valid in case if is evaluated",
+        "data": [
+          "a"
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

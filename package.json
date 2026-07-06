@@ -1,0 +1,24 @@
+{
+  "name": "JSON Schema compliance suite",
+  "description": "JSON Schema compliance suite for JavaScript validation libraries",
+  "type": "module",
+  "scripts": {
+    "upgrade": "npm install -D $(node -p \"Object.keys(require('./package.json').devDependencies).map(p=>p+'@latest').join(' ')\")",
+    "clean": "rm -rf results && rm -rf clone",
+    "test": "node tests.ts"
+  },
+  "devDependencies": {
+    "@ark/json-schema": "^0.0.6",
+    "@cfworker/json-schema": "^4.1.1",
+    "@types/node": "^26.1.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "arktype": "^2.2.2",
+    "ata-validator": "^0.21.0",
+    "typebox": "^1.3.4",
+    "zod": "^4.4.3"
+  },
+  "allowScripts": {
+    "ata-validator@0.21.0": true
+  }
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "description": "minProperties validation",
+    "schema": {
+      "minProperties": 1
+    },
+    "tests": [
+      {
+        "description": "too short is invalid",
+        "data": {},
+        "valid": false
+      }
+    ]
+  }
+]

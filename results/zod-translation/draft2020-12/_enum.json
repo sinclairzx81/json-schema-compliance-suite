@@ -1,0 +1,145 @@
+[
+  {
+    "description": "heterogeneous enum validation",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "enum": [
+        6,
+        "foo",
+        [],
+        true,
+        {
+          "foo": 12
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "one of the enum is valid",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "something else is invalid",
+        "data": null,
+        "valid": false
+      },
+      {
+        "description": "objects are deep compared",
+        "data": {
+          "foo": false
+        },
+        "valid": false
+      },
+      {
+        "description": "valid object matches",
+        "data": {
+          "foo": 12
+        },
+        "valid": true
+      },
+      {
+        "description": "extra properties in object is invalid",
+        "data": {
+          "foo": 12,
+          "boo": 42
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "enum with [false] does not match [0]",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "enum": [
+        [
+          false
+        ]
+      ]
+    },
+    "tests": [
+      {
+        "description": "[false] is valid",
+        "data": [
+          false
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "enum with [true] does not match [1]",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "enum": [
+        [
+          true
+        ]
+      ]
+    },
+    "tests": [
+      {
+        "description": "[true] is valid",
+        "data": [
+          true
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "enum with [0] does not match [false]",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "enum": [
+        [
+          0
+        ]
+      ]
+    },
+    "tests": [
+      {
+        "description": "[0] is valid",
+        "data": [
+          0
+        ],
+        "valid": true
+      },
+      {
+        "description": "[0.0] is valid",
+        "data": [
+          0
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "enum with [1] does not match [true]",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "enum": [
+        [
+          1
+        ]
+      ]
+    },
+    "tests": [
+      {
+        "description": "[1] is valid",
+        "data": [
+          1
+        ],
+        "valid": true
+      },
+      {
+        "description": "[1.0] is valid",
+        "data": [
+          1
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

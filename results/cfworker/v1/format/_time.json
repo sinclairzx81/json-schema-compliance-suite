@@ -1,0 +1,71 @@
+[
+  {
+    "description": "validation of time strings",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "time"
+    },
+    "tests": [
+      {
+        "description": "valid leap second, positive time-offset",
+        "data": "01:29:60+01:30",
+        "valid": true
+      },
+      {
+        "description": "valid leap second, large positive time-offset",
+        "data": "23:29:60+23:30",
+        "valid": true
+      },
+      {
+        "description": "invalid leap second, positive time-offset (wrong hour)",
+        "data": "23:59:60+01:00",
+        "valid": false
+      },
+      {
+        "description": "invalid leap second, positive time-offset (wrong minute)",
+        "data": "23:59:60+00:30",
+        "valid": false
+      },
+      {
+        "description": "valid leap second, negative time-offset",
+        "data": "15:59:60-08:00",
+        "valid": true
+      },
+      {
+        "description": "valid leap second, large negative time-offset",
+        "data": "00:29:60-23:30",
+        "valid": true
+      },
+      {
+        "description": "invalid leap second, negative time-offset (wrong hour)",
+        "data": "23:59:60-01:00",
+        "valid": false
+      },
+      {
+        "description": "invalid leap second, negative time-offset (wrong minute)",
+        "data": "23:59:60-00:30",
+        "valid": false
+      },
+      {
+        "description": "an invalid time string with invalid time numoffset hour",
+        "data": "01:02:03+24:00",
+        "valid": false
+      },
+      {
+        "description": "an invalid time string with invalid time numoffset minute",
+        "data": "01:02:03+00:60",
+        "valid": false
+      },
+      {
+        "description": "no time offset",
+        "data": "12:00:00",
+        "valid": false
+      },
+      {
+        "description": "no time offset with second fraction",
+        "data": "12:00:00.52",
+        "valid": false
+      }
+    ]
+  }
+]

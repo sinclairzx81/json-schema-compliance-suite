@@ -1,0 +1,15 @@
+[
+  {
+    "description": "minItems validation",
+    "schema": {
+      "minItems": 1
+    },
+    "tests": [
+      {
+        "description": "too short is invalid",
+        "data": [],
+        "valid": false
+      }
+    ]
+  }
+]

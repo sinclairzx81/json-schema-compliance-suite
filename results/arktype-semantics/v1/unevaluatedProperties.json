@@ -1,0 +1,435 @@
+[
+  {
+    "description": "unevaluatedProperties true",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "unevaluatedProperties": true
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated properties",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "with unevaluated properties",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties schema",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "unevaluatedProperties": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated properties",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "with valid unevaluated properties",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties false",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated properties",
+        "data": {},
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with adjacent properties",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "properties": {
+        "foo": {
+          "type": "string"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated properties",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with adjacent patternProperties",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "patternProperties": {
+        "^foo": {
+          "type": "string"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated properties",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with adjacent bool additionalProperties",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "properties": {
+        "foo": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true,
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "with no additional properties",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": true
+      },
+      {
+        "description": "with additional properties",
+        "data": {
+          "foo": "foo",
+          "bar": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with adjacent non-bool additionalProperties",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "properties": {
+        "foo": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "type": "string"
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "with no additional properties",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": true
+      },
+      {
+        "description": "with additional properties",
+        "data": {
+          "foo": "foo",
+          "bar": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with if/then/else",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "if": {
+        "properties": {
+          "foo": {
+            "const": "then"
+          }
+        },
+        "required": [
+          "foo"
+        ]
+      },
+      "then": {
+        "properties": {
+          "bar": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bar"
+        ]
+      },
+      "else": {
+        "properties": {
+          "baz": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "baz"
+        ]
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "when if is true and has no unevaluated properties",
+        "data": {
+          "foo": "then",
+          "bar": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "when if is false and has no unevaluated properties",
+        "data": {
+          "baz": "baz"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with if/then/else, then not defined",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "if": {
+        "properties": {
+          "foo": {
+            "const": "then"
+          }
+        },
+        "required": [
+          "foo"
+        ]
+      },
+      "else": {
+        "properties": {
+          "baz": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "baz"
+        ]
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "when if is true and has no unevaluated properties",
+        "data": {
+          "foo": "then"
+        },
+        "valid": true
+      },
+      {
+        "description": "when if is false and has no unevaluated properties",
+        "data": {
+          "baz": "baz"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with if/then/else, else not defined",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "if": {
+        "properties": {
+          "foo": {
+            "const": "then"
+          }
+        },
+        "required": [
+          "foo"
+        ]
+      },
+      "then": {
+        "properties": {
+          "bar": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bar"
+        ]
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "when if is true and has no unevaluated properties",
+        "data": {
+          "foo": "then",
+          "bar": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with dependentSchemas",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "properties": {
+        "foo": {
+          "type": "string"
+        }
+      },
+      "dependentSchemas": {
+        "foo": {
+          "properties": {
+            "bar": {
+              "const": "bar"
+            }
+          },
+          "required": [
+            "bar"
+          ]
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated properties",
+        "data": {
+          "foo": "foo",
+          "bar": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with boolean schemas",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "properties": {
+        "foo": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        true
+      ],
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated properties",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with $ref",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "$ref": "#/$defs/bar",
+      "properties": {
+        "foo": {
+          "type": "string"
+        }
+      },
+      "unevaluatedProperties": false,
+      "$defs": {
+        "bar": {
+          "properties": {
+            "bar": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated properties",
+        "data": {
+          "foo": "foo",
+          "bar": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties before $ref",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "unevaluatedProperties": false,
+      "properties": {
+        "foo": {
+          "type": "string"
+        }
+      },
+      "$ref": "#/$defs/bar",
+      "$defs": {
+        "bar": {
+          "properties": {
+            "bar": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated properties",
+        "data": {
+          "foo": "foo",
+          "bar": "bar"
+        },
+        "valid": true
+      }
+    ]
+  }
+]

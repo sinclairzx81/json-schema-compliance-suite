@@ -1,0 +1,43 @@
+[
+  {
+    "description": "if and else without then",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "if": {
+        "exclusiveMaximum": 0
+      },
+      "else": {
+        "multipleOf": 2
+      }
+    },
+    "tests": [
+      {
+        "description": "invalid through else",
+        "data": 3,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "validate against correct branch, then vs else",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "if": {
+        "exclusiveMaximum": 0
+      },
+      "then": {
+        "minimum": -10
+      },
+      "else": {
+        "multipleOf": 2
+      }
+    },
+    "tests": [
+      {
+        "description": "invalid through else",
+        "data": 3,
+        "valid": false
+      }
+    ]
+  }
+]

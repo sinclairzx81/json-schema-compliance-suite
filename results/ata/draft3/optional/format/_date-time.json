@@ -1,0 +1,15 @@
+[
+  {
+    "description": "validation of date-time strings",
+    "schema": {
+      "format": "date-time"
+    },
+    "tests": [
+      {
+        "description": "case-insensitive T and Z",
+        "data": "1963-06-19t08:30:06.283185z",
+        "valid": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "description": "forbidden property",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "properties": {
+        "foo": {
+          "not": {}
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "property absent",
+        "data": {
+          "bar": 1,
+          "baz": 2
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "forbid everything with empty schema",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "not": {}
+    },
+    "tests": [
+      {
+        "description": "number is invalid",
+        "data": 1,
+        "valid": false
+      },
+      {
+        "description": "string is invalid",
+        "data": "foo",
+        "valid": false
+      },
+      {
+        "description": "boolean true is invalid",
+        "data": true,
+        "valid": false
+      },
+      {
+        "description": "boolean false is invalid",
+        "data": false,
+        "valid": false
+      },
+      {
+        "description": "null is invalid",
+        "data": null,
+        "valid": false
+      },
+      {
+        "description": "object is invalid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": false
+      },
+      {
+        "description": "empty object is invalid",
+        "data": {},
+        "valid": false
+      },
+      {
+        "description": "array is invalid",
+        "data": [
+          "foo"
+        ],
+        "valid": false
+      },
+      {
+        "description": "empty array is invalid",
+        "data": [],
+        "valid": false
+      }
+    ]
+  }
+]

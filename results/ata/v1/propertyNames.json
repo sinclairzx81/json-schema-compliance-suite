@@ -1,0 +1,64 @@
+[
+  {
+    "description": "propertyNames validation",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "propertyNames": {
+        "maxLength": 3
+      }
+    },
+    "tests": [
+      {
+        "description": "all property names valid",
+        "data": {
+          "f": {},
+          "foo": {}
+        },
+        "valid": true
+      },
+      {
+        "description": "some property names invalid",
+        "data": {
+          "foo": {},
+          "foobar": {}
+        },
+        "valid": false
+      },
+      {
+        "description": "object without properties is valid",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobar",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "ignores null",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "ignores booleans",
+        "data": true,
+        "valid": true
+      }
+    ]
+  }
+]

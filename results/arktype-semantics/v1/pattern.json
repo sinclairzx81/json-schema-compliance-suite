@@ -1,0 +1,17 @@
+[
+  {
+    "description": "pattern with Unicode property escape",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "string",
+      "pattern": "^\\p{Letter}+$"
+    },
+    "tests": [
+      {
+        "description": "an invalid case where the string contains digits",
+        "data": "123",
+        "valid": false
+      }
+    ]
+  }
+]

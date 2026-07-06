@@ -1,0 +1,25 @@
+[
+  {
+    "description": "an array of schemas for items",
+    "schema": {
+      "items": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "wrong types",
+        "data": [
+          "foo",
+          1
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

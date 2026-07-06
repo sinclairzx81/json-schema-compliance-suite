@@ -1,0 +1,30 @@
+[
+  {
+    "description": "validation of IPv6 addresses",
+    "schema": {
+      "format": "ipv6"
+    },
+    "tests": [
+      {
+        "description": "a group with 5 hex digits is invalid",
+        "data": "12345::",
+        "valid": false
+      },
+      {
+        "description": "two sets of double colons is invalid",
+        "data": "1::d6::42",
+        "valid": false
+      },
+      {
+        "description": "mixed format with the ipv4 section as decimal octets",
+        "data": "1::d6:192.168.0.1",
+        "valid": true
+      },
+      {
+        "description": "mixed format with double colons between the sections",
+        "data": "1:2::192.168.0.1",
+        "valid": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "description": "propertyNames validation",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "propertyNames": {
+        "maxLength": 3
+      }
+    },
+    "tests": [
+      {
+        "description": "some property names invalid",
+        "data": {
+          "foo": {},
+          "foobar": {}
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "propertyNames with boolean schema false",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "propertyNames": false
+    },
+    "tests": [
+      {
+        "description": "object with any properties is invalid",
+        "data": {
+          "foo": 1
+        },
+        "valid": false
+      }
+    ]
+  }
+]

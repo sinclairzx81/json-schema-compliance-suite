@@ -1,0 +1,70 @@
+[
+  {
+    "description": "unevaluatedProperties with if/then/else, then not defined",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "type": "object",
+      "if": {
+        "properties": {
+          "foo": {
+            "const": "then"
+          }
+        },
+        "required": [
+          "foo"
+        ]
+      },
+      "else": {
+        "properties": {
+          "baz": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "baz"
+        ]
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "when if is true and has no unevaluated properties",
+        "data": {
+          "foo": "then"
+        },
+        "valid": true
+      },
+      {
+        "description": "when if is false and has unevaluated properties",
+        "data": {
+          "foo": "else",
+          "baz": "baz"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties can see annotations from if without then and else",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "if": {
+        "patternProperties": {
+          "foo": {
+            "type": "string"
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "valid in case if is evaluated",
+        "data": {
+          "foo": "a"
+        },
+        "valid": true
+      }
+    ]
+  }
+]

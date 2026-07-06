@@ -1,0 +1,28 @@
+[
+  {
+    "description": "maxLength validation",
+    "schema": {
+      "maxLength": 2
+    },
+    "tests": [
+      {
+        "description": "too long is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxLength validation with a decimal",
+    "schema": {
+      "maxLength": 2
+    },
+    "tests": [
+      {
+        "description": "too long is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  }
+]

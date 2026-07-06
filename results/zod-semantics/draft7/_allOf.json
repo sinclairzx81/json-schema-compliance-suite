@@ -1,0 +1,198 @@
+[
+  {
+    "description": "allOf",
+    "schema": {
+      "allOf": [
+        {
+          "properties": {
+            "bar": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "bar"
+          ]
+        },
+        {
+          "properties": {
+            "foo": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "foo"
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "mismatch second",
+        "data": {
+          "foo": "baz"
+        },
+        "valid": false
+      },
+      {
+        "description": "mismatch first",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "wrong type",
+        "data": {
+          "foo": "baz",
+          "bar": "quux"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "allOf with base schema",
+    "schema": {
+      "properties": {
+        "bar": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bar"
+      ],
+      "allOf": [
+        {
+          "properties": {
+            "foo": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "foo"
+          ]
+        },
+        {
+          "properties": {
+            "baz": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "baz"
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "mismatch base schema",
+        "data": {
+          "foo": "quux",
+          "baz": null
+        },
+        "valid": false
+      },
+      {
+        "description": "mismatch first allOf",
+        "data": {
+          "bar": 2,
+          "baz": null
+        },
+        "valid": false
+      },
+      {
+        "description": "mismatch second allOf",
+        "data": {
+          "foo": "quux",
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "mismatch both",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "allOf simple types",
+    "schema": {
+      "allOf": [
+        {
+          "maximum": 30
+        },
+        {
+          "minimum": 20
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "mismatch one",
+        "data": 35,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "allOf combined with anyOf, oneOf",
+    "schema": {
+      "allOf": [
+        {
+          "multipleOf": 2
+        }
+      ],
+      "anyOf": [
+        {
+          "multipleOf": 3
+        }
+      ],
+      "oneOf": [
+        {
+          "multipleOf": 5
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "allOf: false, anyOf: false, oneOf: false",
+        "data": 1,
+        "valid": false
+      },
+      {
+        "description": "allOf: false, anyOf: false, oneOf: true",
+        "data": 5,
+        "valid": false
+      },
+      {
+        "description": "allOf: false, anyOf: true, oneOf: false",
+        "data": 3,
+        "valid": false
+      },
+      {
+        "description": "allOf: false, anyOf: true, oneOf: true",
+        "data": 15,
+        "valid": false
+      },
+      {
+        "description": "allOf: true, anyOf: false, oneOf: false",
+        "data": 2,
+        "valid": false
+      },
+      {
+        "description": "allOf: true, anyOf: false, oneOf: true",
+        "data": 10,
+        "valid": false
+      },
+      {
+        "description": "allOf: true, anyOf: true, oneOf: false",
+        "data": 6,
+        "valid": false
+      }
+    ]
+  }
+]

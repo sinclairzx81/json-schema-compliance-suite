@@ -1,0 +1,19 @@
+[
+  {
+    "description": "maxProperties validation",
+    "schema": {
+      "maxProperties": 2
+    },
+    "tests": [
+      {
+        "description": "ignores arrays",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

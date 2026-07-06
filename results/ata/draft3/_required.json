@@ -1,0 +1,29 @@
+[
+  {
+    "description": "required validation",
+    "schema": {
+      "properties": {
+        "foo": {
+          "required": true
+        },
+        "bar": {}
+      }
+    },
+    "tests": [
+      {
+        "description": "present required property is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "non-present required property is invalid",
+        "data": {
+          "bar": 1
+        },
+        "valid": false
+      }
+    ]
+  }
+]

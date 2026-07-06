@@ -1,0 +1,25 @@
+[
+  {
+    "description": "base URI change",
+    "schema": {
+      "id": "http://localhost:1234/",
+      "items": {
+        "id": "baseUriChange/",
+        "items": {
+          "$ref": "folderInteger.json"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "base URI change ref valid",
+        "data": [
+          [
+            1
+          ]
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

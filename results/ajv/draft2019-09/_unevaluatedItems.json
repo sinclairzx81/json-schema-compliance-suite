@@ -1,0 +1,60 @@
+[
+  {
+    "description": "unevaluatedItems with nested items",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "unevaluatedItems": {
+        "type": "boolean"
+      },
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          }
+        },
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "with no additional items",
+        "data": [
+          "yes",
+          "no"
+        ],
+        "valid": true
+      },
+      {
+        "description": "with invalid additional item",
+        "data": [
+          "yes",
+          false
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems can see annotations from if without then and else",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "if": {
+        "items": [
+          {
+            "const": "a"
+          }
+        ]
+      },
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "valid in case if is evaluated",
+        "data": [
+          "a"
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

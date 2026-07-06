@@ -1,0 +1,80 @@
+[
+  {
+    "description": "anyOf with boolean schemas, all true",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "anyOf": [
+        true,
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "anyOf with boolean schemas, some true",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "anyOf": [
+        true,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "anyOf with boolean schemas, all false",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "anyOf": [
+        false,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "nested anyOf, to check validation semantics",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "anyOf": [
+        {
+          "anyOf": [
+            {
+              "type": "null"
+            }
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "null is valid",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "anything non-null is invalid",
+        "data": 123,
+        "valid": false
+      }
+    ]
+  }
+]

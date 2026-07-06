@@ -1,0 +1,30 @@
+[
+  {
+    "description": "patternProperties with Unicode property escape",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "object",
+      "patternProperties": {
+        "^\\p{Letter}+$": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "Unicode letter property name matches",
+        "data": {
+          "π": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "Non-letter property name does not match pattern",
+        "data": {
+          "123": 1
+        },
+        "valid": true
+      }
+    ]
+  }
+]

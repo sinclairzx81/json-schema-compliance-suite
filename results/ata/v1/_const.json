@@ -1,0 +1,22 @@
+[
+  {
+    "description": "const with object",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": {
+        "foo": "bar",
+        "baz": "bax"
+      }
+    },
+    "tests": [
+      {
+        "description": "same object with different property order is valid",
+        "data": {
+          "baz": "bax",
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  }
+]

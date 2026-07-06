@@ -1,0 +1,51 @@
+[
+  {
+    "description": "integer",
+    "schema": {
+      "type": "integer"
+    },
+    "tests": [
+      {
+        "description": "a bignum is an integer",
+        "data": 1.2345678910111214e+52,
+        "valid": true
+      },
+      {
+        "description": "a negative bignum is an integer",
+        "data": -1.2345678910111214e+52,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "number",
+    "schema": {
+      "type": "number"
+    },
+    "tests": [
+      {
+        "description": "a bignum is a number",
+        "data": 9.824928374923492e+52,
+        "valid": true
+      },
+      {
+        "description": "a negative bignum is a number",
+        "data": -9.824928374923492e+52,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "string",
+    "schema": {
+      "type": "string"
+    },
+    "tests": [
+      {
+        "description": "a bignum is not a string",
+        "data": 9.824928374923492e+52,
+        "valid": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "description": "property is evaluated in an uncle schema to unevaluatedProperties",
+    "comment": "see https://stackoverflow.com/questions/66936884/deeply-nested-unevaluatedproperties-and-their-expectations",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "properties": {
+        "foo": {
+          "properties": {
+            "bar": {
+              "type": "string"
+            }
+          },
+          "unevaluatedProperties": false
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "foo": {
+              "properties": {
+                "faz": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "no extra properties",
+        "data": {
+          "foo": {
+            "bar": "test"
+          }
+        },
+        "valid": true
+      }
+    ]
+  }
+]

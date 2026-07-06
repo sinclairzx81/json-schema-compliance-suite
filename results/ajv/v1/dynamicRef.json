@@ -1,0 +1,54 @@
+[
+  {
+    "description": "after leaving a dynamic scope, it is not used by a $dynamicRef",
+    "schema": {
+      "$id": "https://test.json-schema.org/dynamic-ref-leaving-dynamic-scope/main",
+      "if": {
+        "$id": "first_scope",
+        "$defs": {
+          "thingy": {
+            "$comment": "this is first_scope#thingy",
+            "$dynamicAnchor": "thingy",
+            "type": "number"
+          }
+        }
+      },
+      "then": {
+        "$id": "second_scope",
+        "$ref": "start",
+        "$defs": {
+          "thingy": {
+            "$comment": "this is second_scope#thingy, the final destination of the $dynamicRef",
+            "$dynamicAnchor": "thingy",
+            "type": "null"
+          }
+        }
+      },
+      "$defs": {
+        "start": {
+          "$comment": "this is the landing spot from $ref",
+          "$id": "start",
+          "$ref": "inner_scope"
+        },
+        "thingy": {
+          "$id": "inner_scope",
+          "$dynamicRef": "#thingy",
+          "$defs": {
+            "": {
+              "$comment": "this is the first stop for the $dynamicRef",
+              "$dynamicAnchor": "thingy",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "/then/$defs/thingy is the final stop for the $dynamicRef",
+        "data": null,
+        "valid": true
+      }
+    ]
+  }
+]

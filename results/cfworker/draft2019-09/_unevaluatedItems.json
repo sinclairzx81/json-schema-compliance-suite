@@ -1,0 +1,25 @@
+[
+  {
+    "description": "unevaluatedItems can see annotations from if without then and else",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "if": {
+        "items": [
+          {
+            "const": "a"
+          }
+        ]
+      },
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "invalid in case if is evaluated",
+        "data": [
+          "b"
+        ],
+        "valid": false
+      }
+    ]
+  }
+]
