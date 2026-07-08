@@ -1,0 +1,71 @@
+[
+  {
+    "description": "validation of IPv6 addresses",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "format": "ipv6"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "trailing 4 hex symbols is valid",
+        "data": "::abef",
+        "valid": true
+      },
+      {
+        "description": "leading colons is valid",
+        "data": "::42:ff:1",
+        "valid": true
+      },
+      {
+        "description": "trailing colons is valid",
+        "data": "d6::",
+        "valid": true
+      },
+      {
+        "description": "single set of double colons in the middle is valid",
+        "data": "1:d6::42",
+        "valid": true
+      },
+      {
+        "description": "mixed format with the ipv4 section as decimal octets",
+        "data": "1::d6:192.168.0.1",
+        "valid": true
+      },
+      {
+        "description": "mixed format with leading double colons (ipv4-mapped ipv6 address)",
+        "data": "::ffff:192.168.0.1",
+        "valid": true
+      }
+    ]
+  }
+]

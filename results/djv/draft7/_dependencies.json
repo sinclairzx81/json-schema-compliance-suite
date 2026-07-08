@@ -1,0 +1,27 @@
+[
+  {
+    "description": "dependent subschema incompatible with root",
+    "schema": {
+      "properties": {
+        "foo": {}
+      },
+      "dependencies": {
+        "foo": {
+          "properties": {
+            "bar": {}
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "matches root",
+        "data": {
+          "foo": 1
+        },
+        "valid": false
+      }
+    ]
+  }
+]

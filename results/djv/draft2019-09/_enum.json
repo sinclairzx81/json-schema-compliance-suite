@@ -1,0 +1,105 @@
+[
+  {
+    "description": "enum with false does not match 0",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "enum": [
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "false is valid",
+        "data": false,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "enum with true does not match 1",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "enum": [
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "true is valid",
+        "data": true,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "enum with 0 does not match false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "enum": [
+        0
+      ]
+    },
+    "tests": [
+      {
+        "description": "false is invalid",
+        "data": false,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "enum with 1 does not match true",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "enum": [
+        1
+      ]
+    },
+    "tests": [
+      {
+        "description": "true is invalid",
+        "data": true,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "empty enum",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "enum": []
+    },
+    "tests": [
+      {
+        "description": "string is invalid",
+        "data": "foo",
+        "valid": false
+      },
+      {
+        "description": "number is invalid",
+        "data": 42,
+        "valid": false
+      },
+      {
+        "description": "null is invalid",
+        "data": null,
+        "valid": false
+      },
+      {
+        "description": "object is invalid",
+        "data": {},
+        "valid": false
+      },
+      {
+        "description": "array is invalid",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "boolean is invalid",
+        "data": false,
+        "valid": false
+      }
+    ]
+  }
+]

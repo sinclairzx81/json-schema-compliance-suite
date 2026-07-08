@@ -1,0 +1,164 @@
+[
+  {
+    "description": "const with false does not match 0",
+    "schema": {
+      "const": false
+    },
+    "tests": [
+      {
+        "description": "false is valid",
+        "data": false,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with true does not match 1",
+    "schema": {
+      "const": true
+    },
+    "tests": [
+      {
+        "description": "true is valid",
+        "data": true,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with [false] does not match [0]",
+    "schema": {
+      "const": [
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "[false] is valid",
+        "data": [
+          false
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with [true] does not match [1]",
+    "schema": {
+      "const": [
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "[true] is valid",
+        "data": [
+          true
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with {\"a\": false} does not match {\"a\": 0}",
+    "schema": {
+      "const": {
+        "a": false
+      }
+    },
+    "tests": [
+      {
+        "description": "{\"a\": false} is valid",
+        "data": {
+          "a": false
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with {\"a\": true} does not match {\"a\": 1}",
+    "schema": {
+      "const": {
+        "a": true
+      }
+    },
+    "tests": [
+      {
+        "description": "{\"a\": true} is valid",
+        "data": {
+          "a": true
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with 0 does not match other zero-like types",
+    "schema": {
+      "const": 0
+    },
+    "tests": [
+      {
+        "description": "false is invalid",
+        "data": false,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "const with 1 does not match true",
+    "schema": {
+      "const": 1
+    },
+    "tests": [
+      {
+        "description": "true is invalid",
+        "data": true,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "characters with the same visual representation but different codepoint",
+    "schema": {
+      "const": "μ",
+      "$comment": "U+03BC"
+    },
+    "tests": [
+      {
+        "description": "character uses the same codepoint",
+        "data": "μ",
+        "comment": "U+03BC",
+        "valid": true
+      },
+      {
+        "description": "character looks the same but uses a different codepoint",
+        "data": "µ",
+        "comment": "U+00B5",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "characters with the same visual representation, but different number of codepoints",
+    "schema": {
+      "const": "ä",
+      "$comment": "U+00E4"
+    },
+    "tests": [
+      {
+        "description": "character uses the same codepoint",
+        "data": "ä",
+        "comment": "U+00E4",
+        "valid": true
+      },
+      {
+        "description": "character looks the same but uses combining marks",
+        "data": "ä",
+        "comment": "a, U+0308",
+        "valid": false
+      }
+    ]
+  }
+]

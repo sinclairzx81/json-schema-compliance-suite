@@ -1,0 +1,15 @@
+[
+  {
+    "description": "format: uri-template",
+    "schema": {
+      "format": "uri-template"
+    },
+    "tests": [
+      {
+        "description": "an invalid uri-template",
+        "data": "http://example.com/dictionary/{term:1}/{term",
+        "valid": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "description": "hostname format",
+    "schema": {
+      "format": "hostname"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      }
+    ]
+  }
+]

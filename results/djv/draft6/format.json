@@ -1,0 +1,104 @@
+[
+  {
+    "description": "hostname format",
+    "schema": {
+      "format": "hostname"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "json-pointer format",
+    "schema": {
+      "format": "json-pointer"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "uri-reference format",
+    "schema": {
+      "format": "uri-reference"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "uri-template format",
+    "schema": {
+      "format": "uri-template"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      }
+    ]
+  }
+]

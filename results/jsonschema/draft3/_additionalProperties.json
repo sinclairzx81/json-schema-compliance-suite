@@ -1,0 +1,27 @@
+[
+  {
+    "description": "additionalProperties does not look in applicators",
+    "schema": {
+      "extends": [
+        {
+          "properties": {
+            "foo": {}
+          }
+        }
+      ],
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "tests": [
+      {
+        "description": "properties defined in extends are not examined",
+        "data": {
+          "foo": 1,
+          "bar": true
+        },
+        "valid": false
+      }
+    ]
+  }
+]

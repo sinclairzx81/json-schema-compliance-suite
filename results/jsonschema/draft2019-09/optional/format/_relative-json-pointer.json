@@ -1,0 +1,21 @@
+[
+  {
+    "description": "validation of Relative JSON Pointers (RJP)",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "format": "relative-json-pointer"
+    },
+    "tests": [
+      {
+        "description": "zero cannot be followed by other digits, plus json-pointer",
+        "data": "01/a",
+        "valid": false
+      },
+      {
+        "description": "zero cannot be followed by other digits, plus octothorpe",
+        "data": "01#",
+        "valid": false
+      }
+    ]
+  }
+]

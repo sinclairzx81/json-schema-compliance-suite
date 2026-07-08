@@ -1,0 +1,86 @@
+[
+  {
+    "description": "uniqueItems with an array of items and additionalItems=false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "prefixItems": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "boolean"
+        }
+      ],
+      "uniqueItems": true,
+      "items": false
+    },
+    "tests": [
+      {
+        "description": "[false, true] from items array is valid",
+        "data": [
+          false,
+          true
+        ],
+        "valid": true
+      },
+      {
+        "description": "[true, false] from items array is valid",
+        "data": [
+          true,
+          false
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "uniqueItems=false with an array of items and additionalItems=false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "prefixItems": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "boolean"
+        }
+      ],
+      "uniqueItems": false,
+      "items": false
+    },
+    "tests": [
+      {
+        "description": "[false, true] from items array is valid",
+        "data": [
+          false,
+          true
+        ],
+        "valid": true
+      },
+      {
+        "description": "[true, false] from items array is valid",
+        "data": [
+          true,
+          false
+        ],
+        "valid": true
+      },
+      {
+        "description": "[false, false] from items array is valid",
+        "data": [
+          false,
+          false
+        ],
+        "valid": true
+      },
+      {
+        "description": "[true, true] from items array is valid",
+        "data": [
+          true,
+          true
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "description": "dependencies",
+    "schema": {
+      "dependencies": {
+        "bar": "foo"
+      }
+    },
+    "tests": [
+      {
+        "description": "with dependency",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      }
+    ]
+  }
+]

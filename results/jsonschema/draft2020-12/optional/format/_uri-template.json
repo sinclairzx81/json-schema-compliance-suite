@@ -1,0 +1,16 @@
+[
+  {
+    "description": "format: uri-template",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "format": "uri-template"
+    },
+    "tests": [
+      {
+        "description": "an invalid uri-template",
+        "data": "http://example.com/dictionary/{term:1}/{term",
+        "valid": false
+      }
+    ]
+  }
+]

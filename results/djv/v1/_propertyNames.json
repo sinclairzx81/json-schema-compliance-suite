@@ -1,0 +1,18 @@
+[
+  {
+    "description": "propertyNames validation",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "propertyNames": {
+        "maxLength": 3
+      }
+    },
+    "tests": [
+      {
+        "description": "ignores null",
+        "data": null,
+        "valid": true
+      }
+    ]
+  }
+]

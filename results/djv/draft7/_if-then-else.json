@@ -1,0 +1,160 @@
+[
+  {
+    "description": "if and then without else",
+    "schema": {
+      "if": {
+        "exclusiveMaximum": 0
+      },
+      "then": {
+        "minimum": -10
+      }
+    },
+    "tests": [
+      {
+        "description": "invalid through then",
+        "data": -100,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "if and else without then",
+    "schema": {
+      "if": {
+        "exclusiveMaximum": 0
+      },
+      "else": {
+        "multipleOf": 2
+      }
+    },
+    "tests": [
+      {
+        "description": "invalid through else",
+        "data": 3,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "validate against correct branch, then vs else",
+    "schema": {
+      "if": {
+        "exclusiveMaximum": 0
+      },
+      "then": {
+        "minimum": -10
+      },
+      "else": {
+        "multipleOf": 2
+      }
+    },
+    "tests": [
+      {
+        "description": "invalid through then",
+        "data": -100,
+        "valid": false
+      },
+      {
+        "description": "invalid through else",
+        "data": 3,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "if with boolean schema true",
+    "schema": {
+      "if": true,
+      "then": {
+        "const": "then"
+      },
+      "else": {
+        "const": "else"
+      }
+    },
+    "tests": [
+      {
+        "description": "boolean schema true in if always chooses the then path (invalid)",
+        "data": "else",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "if with boolean schema false",
+    "schema": {
+      "if": false,
+      "then": {
+        "const": "then"
+      },
+      "else": {
+        "const": "else"
+      }
+    },
+    "tests": [
+      {
+        "description": "boolean schema false in if always chooses the else path (invalid)",
+        "data": "then",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "if appears at the end when serialized (keyword processing sequence)",
+    "schema": {
+      "then": {
+        "const": "yes"
+      },
+      "else": {
+        "const": "other"
+      },
+      "if": {
+        "maxLength": 4
+      }
+    },
+    "tests": [
+      {
+        "description": "no redirects to then and fails",
+        "data": "no",
+        "valid": false
+      },
+      {
+        "description": "invalid redirects to else and fails",
+        "data": "invalid",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "then: false fails when condition matches",
+    "schema": {
+      "if": {
+        "const": 1
+      },
+      "then": false
+    },
+    "tests": [
+      {
+        "description": "matches if → then=false → invalid",
+        "data": 1,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "else: false fails when condition does not match",
+    "schema": {
+      "if": {
+        "const": 1
+      },
+      "else": false
+    },
+    "tests": [
+      {
+        "description": "does not match if → else executes → invalid",
+        "data": 2,
+        "valid": false
+      }
+    ]
+  }
+]

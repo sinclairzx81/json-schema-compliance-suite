@@ -43,6 +43,7 @@ export type ProcessCallback = (
 
 export interface RefreshOptions {
   library: string
+  repository: string
   category: string
   message: string
   directory: string
@@ -260,11 +261,16 @@ export function updateReadme(): void {
   output.push(`## Results`)
   output.push(`Updated: ${new Date().toDateString()}`)
   output.push('\n')
-  output.push(`| Library | Test      | Passed  | Failed | Coverage |`)
-  output.push(`| :--     | :--       | :--     | :--    | :--      |`)
+  output.push(`| Library | Results     | Test      | Passed  | Failed | Coverage |`)
+  output.push(`| :--     | :--        | :--       | :--     | :--    | :--      |`)
+  const visited = new Set()
+  const anchor = (report: Report) => `${report.library}-${report.category}`
   for(const report of reports) {
+    const library = !visited.has(report.library) ? `[${report.library}](${report.repository})` : ''
+    const pagelink = `[Results](#${anchor(report)})`
+    visited.add(report.library)
     const coverage = `${((report.metrics.passed / report.metrics.total) * 100).toFixed(1)}%`
-    output.push(`| [${report.library}](#${report.library}) | ${report.category} | ${report.metrics.passed} | ${report.metrics.failed} | ${coverage} |`)
+    output.push(`| ${library} | ${pagelink} | ${report.category} | ${report.metrics.passed} | ${report.metrics.failed} | ${coverage} |`)
   }
   output.push('\n')
   output.push(`## Coverage`)
@@ -273,6 +279,8 @@ export function updateReadme(): void {
   output.push('\n')
   for(const report of reports) {
     output.push(`---`)
+    output.push('\n')
+    output.push(`<a name="${anchor(report)}"></a>`)
     output.push('\n')
     output.push(`\n### ${report.library}\n\n${report.message}\n\n`)
     output.push('<details>')

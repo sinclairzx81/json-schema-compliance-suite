@@ -1,0 +1,15 @@
+[
+  {
+    "description": "minProperties validation",
+    "schema": {
+      "minProperties": 1
+    },
+    "tests": [
+      {
+        "description": "ignores null",
+        "data": null,
+        "valid": true
+      }
+    ]
+  }
+]

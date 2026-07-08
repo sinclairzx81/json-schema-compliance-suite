@@ -1,0 +1,20 @@
+[
+  {
+    "description": "validation of IPv6 addresses",
+    "schema": {
+      "format": "ipv6"
+    },
+    "tests": [
+      {
+        "description": "trailing colons is valid",
+        "data": "d6::",
+        "valid": true
+      },
+      {
+        "description": "mixed format with the ipv4 section as decimal octets",
+        "data": "1::d6:192.168.0.1",
+        "valid": true
+      }
+    ]
+  }
+]

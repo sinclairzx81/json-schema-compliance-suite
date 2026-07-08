@@ -1,0 +1,25 @@
+[
+  {
+    "description": "items + contains",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "items": {
+        "multipleOf": 2
+      },
+      "contains": {
+        "multipleOf": 3
+      }
+    },
+    "tests": [
+      {
+        "description": "matches items, does not match contains",
+        "data": [
+          2,
+          4,
+          8
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

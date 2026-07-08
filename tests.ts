@@ -7,11 +7,12 @@ console.log('running: clone-test-suite')
 Test.cloneTestSuite()
 
 // ------------------------------------------------------------------
-// TypeBox
+// TypeBox: Validation
 // ------------------------------------------------------------------
 import TypeBox from 'typebox/schema'
 await Test.runTestSuite({
   library: 'TypeBox',
+  repository: 'https://github.com/sinclairzx81/typebox',
   category: 'Validation',
   message: 'Results for the TypeBox validation library.',
   directory: './results/typebox'
@@ -19,7 +20,7 @@ await Test.runTestSuite({
   return TypeBox.Check(schema, value)
 })
 // ------------------------------------------------------------------
-// CFWorker
+// CFWorker: Validation
 // ------------------------------------------------------------------
 import * as CFWorker from '@cfworker/json-schema'
 function createCFWorkerValidator(schema: boolean | Record<string, unknown>, draft: string) {
@@ -33,14 +34,30 @@ function createCFWorkerValidator(schema: boolean | Record<string, unknown>, draf
 }
 await Test.runTestSuite({
   library: 'CFWorker',
+  repository: 'https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md',
   category: 'Validation',
   directory: './results/cfworker',
   message: 'Results for the @cfworker/json-schema validation library.'
 }, (draft, schema, value) => {
   return createCFWorkerValidator(schema, draft).validate(value).valid
 })
+// ---------------------------------------------------------------
+// JsonSchema: Validation
+// ---------------------------------------------------------------
+import { Validator } from 'jsonschema'
+await Test.runTestSuite({
+  library: 'JsonSchema',
+  repository: 'https://github.com/tdegrunt/jsonschema',
+  category: 'Validation',
+  message: 'Results for the jsonschema validation library.',
+  directory: './results/jsonschema'
+}, (_draft, schema, value) => {
+  const v = new Validator()
+  const result = v.validate(value, schema as never)
+  return result.valid
+})
 // ------------------------------------------------------------------
-// Ajv
+// Ajv: Validation
 // ------------------------------------------------------------------
 import * as Ajv7 from 'ajv'
 import * as Ajv2019 from 'ajv/dist/2019.js'
@@ -63,6 +80,7 @@ function createAjvValidator(draft: string) {
 }
 await Test.runTestSuite({
   library: 'Ajv',
+  repository: 'https://github.com/ajv-validator/ajv',
   category: 'Validation',
   message: "Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.",
   directory: './results/ajv',
@@ -70,11 +88,12 @@ await Test.runTestSuite({
   return createAjvValidator(draft).validate(schema, value)
 })
 // ---------------------------------------------------------------
-// Ata
+// Ata: Validation
 // ---------------------------------------------------------------
 import * as Ata from 'ata-validator'
 await Test.runTestSuite({
   library: 'Ata',
+  repository: 'https://github.com/ata-core/ata-validator',
   category: 'Validation',
   message: 'Results for the Ata validator using the `isValidObject(...)` function.',
   directory: './results/ata',
@@ -82,11 +101,30 @@ await Test.runTestSuite({
   return (new Ata.Validator(schema as never)).isValidObject(value)
 })
 // ---------------------------------------------------------------
-// Zod-Semantics
+// Djv: Validation
+// ---------------------------------------------------------------
+// @ts-ignore
+import djv from 'djv'
+await Test.runTestSuite({
+  library: 'Djv',
+  repository: 'https://github.com/korzio/djv',
+  category: 'Validation',
+  message: 'Results for the djv validation library.',
+  directory: './results/djv'
+}, (draft, schema, value) => {
+  const version = (draft === 'draft-04') ? 'draft-04' : 'draft-06';
+  const env = new djv({ version })
+  const schemaName = 'test-schema'
+  env.addSchema(schemaName, schema as any)
+  return env.validate(schemaName, value) === undefined
+})
+// ---------------------------------------------------------------
+// Zod: Semantics
 // ---------------------------------------------------------------
 import Zod from 'zod'
 await Test.runTestSuite({
   library: 'Zod',
+  repository: 'https://github.com/colinhacks/zod',
   category: 'Semantics',
   message: "Results using `fromJSONSchema(...)` to test Zod semantics against the Json Schema specification.",
   directory: './results/zod-semantics'
@@ -94,23 +132,25 @@ await Test.runTestSuite({
   return Zod.fromJSONSchema(schema).safeParse(value).success
 })
 // ---------------------------------------------------------------
-// Zod-Translation
+// Zod: RoundTrip
 // ---------------------------------------------------------------
 await Test.runTestSuite({
   library: 'Zod',
-  category: 'Translation',
+  category: 'RoundTrip',
+  repository: 'https://github.com/colinhacks/zod',
   message: "Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directionally transform JSON Schema. The transformed schema is passed to Cfworker for testing.",
-  directory: './results/zod-translation'
+  directory: './results/zod-roundtrip'
 }, (draft, schema, value) => {
   const transformedSchema = Zod.fromJSONSchema(schema).toJSONSchema()
   return createCFWorkerValidator(transformedSchema, draft).validate(value).valid
 })
 // ---------------------------------------------------------------
-// ArkType-Semantics
+// ArkType: Semantics
 // ---------------------------------------------------------------
 import * as Ark from '@ark/json-schema'
 await Test.runTestSuite({
   library: 'ArkType',
+  repository: 'https://github.com/arktypeio/arktype',
   category: 'Semantics',
   directory: './results/arktype-semantics',
   message: "Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json Schema specification.",
@@ -118,12 +158,13 @@ await Test.runTestSuite({
   return Ark.jsonSchemaToType(schema).allows(value)
 })
 // ---------------------------------------------------------------
-// ArkType-Translation
+// ArkType: RoundTrip
 // ---------------------------------------------------------------
 await Test.runTestSuite({
   library: 'ArkType',
-  category: 'Translation',
-  directory: './results/arktype-translation',
+  repository: 'https://github.com/arktypeio/arktype',
+  category: 'RoundTrip',
+  directory: './results/arktype-roundtrip',
   message: "Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The transformed schema is passed to Cfworker for testing.",
 }, (draft, schema, value) => {
   const transformedSchema: any = Ark.jsonSchemaToType(schema).toJsonSchema()

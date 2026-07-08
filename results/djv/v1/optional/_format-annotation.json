@@ -1,0 +1,328 @@
+[
+  {
+    "description": "email format",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "email"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "invalid email string is only an annotation by default",
+        "data": "2962",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "ipv4 format",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "ipv4"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "invalid ipv4 string is only an annotation by default",
+        "data": "127.0.0.0.1",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "ipv6 format",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "ipv6"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "invalid ipv6 string is only an annotation by default",
+        "data": "12345::",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "hostname format",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "hostname"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "invalid hostname string is only an annotation by default",
+        "data": "-a-host-name-that-starts-with--",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "date-time format",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "date-time"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "invalid date-time string is only an annotation by default",
+        "data": "1990-02-31T15:59:60.123-08:00",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "json-pointer format",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "json-pointer"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "invalid json-pointer string is only an annotation by default",
+        "data": "/foo/bar~",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "uri format",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "uri"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "invalid uri string is only an annotation by default",
+        "data": "//foo.bar/?baz=qux#quux",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "uri-reference format",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "uri-reference"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "invalid uri-reference string is only an annotation by default",
+        "data": "\\\\WINDOWS\\fileshare",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "uri-template format",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "uri-template"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "invalid uri-template string is only an annotation by default",
+        "data": "http://example.com/dictionary/{term:1}/{term",
+        "valid": true
+      }
+    ]
+  }
+]

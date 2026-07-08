@@ -1,0 +1,16 @@
+[
+  {
+    "description": "validation of JSON-pointers (JSON String Representation)",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "format": "json-pointer"
+    },
+    "tests": [
+      {
+        "description": "valid JSON-pointer (Unicode characters allowed by RFC 6901)",
+        "data": "/foo/bar/😎",
+        "valid": true
+      }
+    ]
+  }
+]

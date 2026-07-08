@@ -1,0 +1,15 @@
+[
+  {
+    "description": "format: uri-template",
+    "schema": {
+      "format": "uri-template"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      }
+    ]
+  }
+]

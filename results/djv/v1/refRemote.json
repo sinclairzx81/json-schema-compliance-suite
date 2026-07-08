@@ -1,0 +1,63 @@
+[
+  {
+    "description": "base URI change",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "http://localhost:1234/v1/",
+      "items": {
+        "$id": "baseUriChange/",
+        "items": {
+          "$ref": "folderInteger.json"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "base URI change ref valid",
+        "data": [
+          [
+            1
+          ]
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "base URI change - change folder in subschema",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "http://localhost:1234/v1/scope_change_defs2.json",
+      "type": "object",
+      "properties": {
+        "list": {
+          "$ref": "baseUriChangeFolderInSubschema/#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "baz": {
+          "$id": "baseUriChangeFolderInSubschema/",
+          "$defs": {
+            "bar": {
+              "type": "array",
+              "items": {
+                "$ref": "folderInteger.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "string is invalid",
+        "data": {
+          "list": [
+            "a"
+          ]
+        },
+        "valid": false
+      }
+    ]
+  }
+]

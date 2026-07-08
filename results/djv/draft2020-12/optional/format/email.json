@@ -1,0 +1,71 @@
+[
+  {
+    "description": "validation of e-mail addresses",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "format": "email"
+    },
+    "tests": [
+      {
+        "description": "a valid e-mail address",
+        "data": "joe.bloggs@example.com",
+        "valid": true
+      },
+      {
+        "description": "an invalid e-mail address",
+        "data": "2962",
+        "valid": false
+      },
+      {
+        "description": "tilde in local part is valid",
+        "data": "te~st@example.com",
+        "valid": true
+      },
+      {
+        "description": "tilde before local part is valid",
+        "data": "~test@example.com",
+        "valid": true
+      },
+      {
+        "description": "tilde after local part is valid",
+        "data": "test~@example.com",
+        "valid": true
+      },
+      {
+        "description": "a quoted string with a space in the local part is valid",
+        "data": "\"joe bloggs\"@example.com",
+        "valid": true
+      },
+      {
+        "description": "a quoted string with a double dot in the local part is valid",
+        "data": "\"joe..bloggs\"@example.com",
+        "valid": true
+      },
+      {
+        "description": "an IPv4-address-literal after the @ is valid",
+        "data": "joe.bloggs@[127.0.0.1]",
+        "valid": true
+      },
+      {
+        "description": "two separated dots inside local part are valid",
+        "data": "te.s.t@example.com",
+        "valid": true
+      },
+      {
+        "description": "two email addresses is not valid",
+        "data": "user1@oceania.org, user2@oceania.org",
+        "valid": false
+      },
+      {
+        "description": "local part is required",
+        "data": "@example.com",
+        "valid": false
+      },
+      {
+        "description": "domain is required",
+        "data": "joe.bloggs@",
+        "valid": false
+      }
+    ]
+  }
+]

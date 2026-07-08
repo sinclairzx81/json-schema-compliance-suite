@@ -1,0 +1,16 @@
+[
+  {
+    "description": "validation of an internationalized e-mail addresses",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "idn-email"
+    },
+    "tests": [
+      {
+        "description": "a local part with a lone UTF-16 surrogate is invalid",
+        "data": "\ud800@example.com",
+        "valid": false
+      }
+    ]
+  }
+]

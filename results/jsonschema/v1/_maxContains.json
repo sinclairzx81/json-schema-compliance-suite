@@ -1,0 +1,99 @@
+[
+  {
+    "description": "maxContains with contains",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "contains": {
+        "const": 1
+      },
+      "maxContains": 1
+    },
+    "tests": [
+      {
+        "description": "all elements match, invalid maxContains",
+        "data": [
+          1,
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "some elements match, invalid maxContains",
+        "data": [
+          1,
+          2,
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxContains with contains, value with a decimal",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "contains": {
+        "const": 1
+      },
+      "maxContains": 1
+    },
+    "tests": [
+      {
+        "description": "too many elements match, invalid maxContains",
+        "data": [
+          1,
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "minContains < maxContains",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "contains": {
+        "const": 1
+      },
+      "minContains": 1,
+      "maxContains": 3
+    },
+    "tests": [
+      {
+        "description": "array with minContains < maxContains < actual",
+        "data": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxContains = 0 with minContains = 0",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "contains": {
+        "const": 1
+      },
+      "minContains": 0,
+      "maxContains": 0
+    },
+    "tests": [
+      {
+        "description": "empty array",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "one matching item",
+        "data": [
+          1
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

@@ -25,6 +25,6 @@ This tool peforms the following tests
 | Test | Description |
 |:-----|:------------|
 | **Validation** | JSON Schema is passed directly to the library and used for validation. Results indicate compliance with the official JSON Schema test suite. |
-| **Semantics** | JSON Schema is decoded to library type and validated using the libraries own validator. Results indicate how aligned the library is to the validation semantics of JSON Schema. |
-| **Translation** | JSON Schema is encoded/decoded through the library, then passed to CfWorker for validation testing. Failed tests indicate either lossy translation or serialization error. |
+| **Semantics** | The JSON Schema is decoded into library types and validated using the library’s internal logic. Results indicate how closely the library aligns with the formal semantics of JSON Schema. |
+| **RoundTrip** | JSON Schema is decoded then re-encoded using library provided translation API. The translated JSON Schema is then passed to CfWorker for validation. Failed tests indicate either lossy translation or serialization error.  |
 

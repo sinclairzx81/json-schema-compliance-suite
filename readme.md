@@ -25,24 +25,26 @@ This tool peforms the following tests
 | Test | Description |
 |:-----|:------------|
 | **Validation** | JSON Schema is passed directly to the library and used for validation. Results indicate compliance with the official JSON Schema test suite. |
-| **Semantics** | JSON Schema is decoded to library type and validated using the libraries own validator. Results indicate how aligned the library is to the validation semantics of JSON Schema. |
-| **Translation** | JSON Schema is encoded/decoded through the library, then passed to CfWorker for validation testing. Failed tests indicate either lossy translation or serialization error. |
+| **Semantics** | The JSON Schema is decoded into library types and validated using the library’s internal logic. Results indicate how closely the library aligns with the formal semantics of JSON Schema. |
+| **RoundTrip** | JSON Schema is decoded then re-encoded using library provided translation API. The translated JSON Schema is then passed to CfWorker for validation. Failed tests indicate either lossy translation or serialization error.  |
 
 
 ## Results
-Updated: Mon Jul 06 2026
+Updated: Wed Jul 08 2026
 
 
-| Library | Test      | Passed  | Failed | Coverage |
-| :--     | :--       | :--     | :--    | :--      |
-| [TypeBox](#TypeBox) | Validation | 10252 | 354 | 96.7% |
-| [CFWorker](#CFWorker) | Validation | 9714 | 892 | 91.6% |
-| [Ajv](#Ajv) | Validation | 7822 | 2784 | 73.8% |
-| [Ata](#Ata) | Validation | 8093 | 2513 | 76.3% |
-| [Zod](#Zod) | Semantics | 6036 | 4570 | 56.9% |
-| [Zod](#Zod) | Translation | 6165 | 4441 | 58.1% |
-| [ArkType](#ArkType) | Semantics | 1783 | 8823 | 16.8% |
-| [ArkType](#ArkType) | Translation | 1514 | 9092 | 14.3% |
+| Library | Results     | Test      | Passed  | Failed | Coverage |
+| :--     | :--        | :--       | :--     | :--    | :--      |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10252 | 354 | 96.7% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 9714 | 892 | 91.6% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9103 | 1503 | 85.8% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 7822 | 2784 | 73.8% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 8093 | 2513 | 76.3% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 7861 | 2745 | 74.1% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6036 | 4570 | 56.9% |
+|  | [Results](#Zod-RoundTrip) | RoundTrip | 6165 | 4441 | 58.1% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 8823 | 16.8% |
+|  | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9092 | 14.3% |
 
 
 ## Coverage
@@ -52,6 +54,9 @@ Coverage reports for each library are shown below:
 
 
 ---
+
+
+<a name="TypeBox-Validation"></a>
 
 
 
@@ -182,6 +187,9 @@ Results for the TypeBox validation library.
 ---
 
 
+<a name="CFWorker-Validation"></a>
+
+
 
 ### CFWorker
 
@@ -308,6 +316,140 @@ Results for the @cfworker/json-schema validation library.
 
 
 ---
+
+
+<a name="JsonSchema-Validation"></a>
+
+
+
+### JsonSchema
+
+Results for the jsonschema validation library.
+
+
+<details>
+<summary>Specification Coverage</summary>
+
+
+| Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
+|:-----|:--|:--|:--|:--|:--|:--|:--|
+| additionalItems | ✅ | ✅ | ✅ | ✅ | ✅ | - | - |
+| additionalProperties | 15/16 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| anchor | - | - | - | - | 0/8 | 0/8 | 0/8 |
+| anyOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| boolean_schema | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| const | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| contains | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| content | - | - | - | - | ✅ | ✅ | ✅ |
+| default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| definitions | - | 0/2 | 0/2 | 0/2 | - | - | - |
+| defs | - | - | - | - | 0/2 | 0/2 | - |
+| dependencies | ✅ | ✅ | ✅ | ✅ | - | - | - |
+| dependentRequired | - | - | - | - | 14/20 | 14/20 | 14/20 |
+| dependentSchemas | - | - | - | - | 10/20 | 10/20 | 10/20 |
+| disallow | ✅ | - | - | - | - | - | - |
+| divisibleBy | ✅ | - | - | - | - | - | - |
+| dynamicRef | - | - | - | - | - | 4/44 | 1/27 |
+| enum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| extends | ✅ | - | - | - | - | - | - |
+| format | ✅ | ✅ | ✅ | ✅ | ✅ | 118/133 | - |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| items | ✅ | ✅ | ✅ | ✅ | ✅ | 22/29 | 22/29 |
+| maxContains | - | - | - | - | 8/14 | 8/14 | 8/14 |
+| maximum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minContains | - | - | - | - | 16/28 | 16/28 | 16/28 |
+| minimum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| multipleOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| not | - | ✅ | ✅ | ✅ | 39/40 | 39/40 | 39/40 |
+| oneOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| pattern | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| prefixItems | - | - | - | - | - | 9/11 | 9/11 |
+| properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| recursiveRef | - | - | - | - | 22/34 | - | - |
+| ref | 25/27 | 43/45 | 54/70 | 56/78 | 35/81 | 34/79 | 34/79 |
+| refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
+| required | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| type | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| unevaluatedItems | - | - | - | - | 34/56 | 43/71 | 43/71 |
+| unevaluatedProperties | - | - | - | - | 82/129 | 82/129 | 82/129 |
+| uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | 63/69 | 63/69 |
+| vocabulary | - | - | - | - | 4/5 | 4/5 | - |
+
+
+</details>
+
+
+<details>
+<summary>Optional Formats and Proposals</summary>
+
+
+| Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
+|:-----|:--|:--|:--|:--|:--|:--|:--|
+| anchor | - | - | - | - | 1/4 | 1/4 | 1/4 |
+| bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| content | - | - | - | 6/10 | - | - | - |
+| cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
+| dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
+| dynamicRef | - | - | - | - | - | 0/2 | 0/2 |
+| ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| float-overflow | - | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 |
+| format-annotation | - | - | - | - | - | - | 118/133 |
+| format-assertion | - | - | - | - | - | ✅ | - |
+| format/color | ✅ | - | - | - | - | - | - |
+| format/date | 27/33 | - | - | 60/69 | 60/69 | 60/69 | 60/69 |
+| format/date-time | ✅ | 23/29 | 23/29 | 23/29 | 23/29 | 23/29 | 23/29 |
+| format/duration | - | - | - | - | 34/42 | 34/42 | 34/42 |
+| format/ecmascript-regex | ✅ | - | - | - | - | 0/1 | 0/1 |
+| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 23/27 | 23/27 |
+| format/host-name | ✅ | - | - | - | - | - | - |
+| format/hostname | - | 27/28 | 27/28 | 37/61 | 37/61 | 37/61 | 37/61 |
+| format/idn-email | - | - | - | 11/12 | 11/12 | 11/12 | 12/13 |
+| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/ip-address | ✅ | - | - | - | - | - | - |
+| format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/ipv6 | ✅ | 37/40 | 37/40 | 37/40 | 37/40 | 37/40 | 37/40 |
+| format/iri | - | - | - | 14/15 | 14/15 | 14/15 | 14/15 |
+| format/iri-reference | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/json-pointer | - | - | 39/40 | 39/40 | 39/40 | 39/40 | 39/40 |
+| format/regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/relative-json-pointer | - | - | - | 18/20 | 18/20 | 18/20 | 18/20 |
+| format/time | ✅ | - | - | 33/47 | 33/47 | 33/47 | 33/47 |
+| format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
+| format/uri | ✅ | 31/44 | 31/44 | 31/44 | 31/44 | 31/44 | 31/44 |
+| format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/uri-template | - | - | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
+| format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
+| id | - | ✅ | ✅ | ✅ | 1/3 | 1/3 | 1/3 |
+| no-schema | - | - | - | - | ✅ | ✅ | - |
+| non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
+| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
+| proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
+| proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 2/6 |
+| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
+| unknownKeyword | - | - | ✅ | ✅ | 0/3 | 0/3 | 0/3 |
+| zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
+
+
+</details>
+
+
+---
+
+
+<a name="Ajv-Validation"></a>
 
 
 
@@ -438,6 +580,9 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 ---
 
 
+<a name="Ata-Validation"></a>
+
+
 
 ### Ata
 
@@ -564,6 +709,140 @@ Results for the Ata validator using the `isValidObject(...)` function.
 
 
 ---
+
+
+<a name="Djv-Validation"></a>
+
+
+
+### Djv
+
+Results for the djv validation library.
+
+
+<details>
+<summary>Specification Coverage</summary>
+
+
+| Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
+|:-----|:--|:--|:--|:--|:--|:--|:--|
+| additionalItems | ✅ | ✅ | ✅ | ✅ | ✅ | - | - |
+| additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| anchor | - | - | - | - | 0/8 | 0/8 | 0/8 |
+| anyOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| boolean_schema | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| const | - | - | 42/54 | 42/54 | 42/54 | 42/54 | 42/54 |
+| contains | - | - | 18/19 | 20/21 | 20/21 | 20/21 | 24/25 |
+| content | - | - | - | - | ✅ | ✅ | ✅ |
+| default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| definitions | - | 0/2 | 0/2 | 0/2 | - | - | - |
+| defs | - | - | - | - | 0/2 | 0/2 | - |
+| dependencies | 17/18 | 28/29 | 35/36 | 35/36 | - | - | - |
+| dependentRequired | - | - | - | - | 14/20 | 14/20 | 14/20 |
+| dependentSchemas | - | - | - | - | 10/20 | 10/20 | 10/20 |
+| disallow | 4/9 | - | - | - | - | - | - |
+| divisibleBy | 6/9 | - | - | - | - | - | - |
+| dynamicRef | - | - | - | - | - | 7/44 | 3/27 |
+| enum | 14/16 | 41/49 | 41/45 | 41/45 | 41/51 | 41/51 | 41/51 |
+| exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| extends | 4/10 | - | - | - | - | - | - |
+| format | 36/60 | 3/36 | 14/54 | 62/102 | 74/114 | 84/133 | - |
+| if-then-else | - | - | - | 20/30 | 20/30 | 20/30 | 18/26 |
+| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| items | ✅ | ✅ | ✅ | ✅ | ✅ | 22/29 | 22/29 |
+| maxContains | - | - | - | - | 8/14 | 8/14 | 8/14 |
+| maximum | 11/14 | 11/14 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minContains | - | - | - | - | 16/28 | 16/28 | 16/28 |
+| minimum | 12/13 | 16/17 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minProperties | - | 7/8 | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
+| multipleOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| not | - | ✅ | ✅ | ✅ | 39/40 | 39/40 | 39/40 |
+| oneOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| pattern | ✅ | ✅ | ✅ | ✅ | ✅ | 10/12 | 10/12 |
+| patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 25/26 |
+| prefixItems | - | - | - | - | - | 9/11 | 9/11 |
+| properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| propertyNames | - | - | 21/22 | 21/22 | 21/22 | 21/22 | 11/12 |
+| recursiveRef | - | - | - | - | 23/34 | - | - |
+| ref | 23/27 | 35/45 | 51/70 | 51/78 | 49/81 | 48/79 | 48/79 |
+| refRemote | 1/8 | 3/17 | 3/23 | 3/23 | 2/31 | 2/31 | 2/31 |
+| required | 3/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| unevaluatedItems | - | - | - | - | 34/56 | 43/71 | 43/71 |
+| unevaluatedProperties | - | - | - | - | 82/129 | 82/129 | 82/129 |
+| uniqueItems | 37/62 | 39/69 | 39/69 | 39/69 | 39/69 | 37/69 | 37/69 |
+| vocabulary | - | - | - | - | 4/5 | 4/5 | - |
+
+
+</details>
+
+
+<details>
+<summary>Optional Formats and Proposals</summary>
+
+
+| Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
+|:-----|:--|:--|:--|:--|:--|:--|:--|
+| anchor | - | - | - | - | 1/4 | 1/4 | 1/4 |
+| bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| content | - | - | - | 6/10 | - | - | - |
+| cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
+| dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
+| dynamicRef | - | - | - | - | - | 1/2 | 1/2 |
+| ecmascript-regex | - | 64/74 | 64/74 | 64/74 | 64/74 | 64/74 | 64/74 |
+| float-overflow | - | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 |
+| format-annotation | - | - | - | - | - | - | 84/133 |
+| format-assertion | - | - | - | - | - | ✅ | - |
+| format/color | 3/6 | - | - | - | - | - | - |
+| format/date | 14/33 | - | - | 22/69 | 22/69 | 22/69 | 22/69 |
+| format/date-time | ✅ | 19/29 | 19/29 | 19/29 | 19/29 | 19/29 | 19/29 |
+| format/duration | - | - | - | - | 25/42 | 25/42 | 25/42 |
+| format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
+| format/email | 7/11 | 9/20 | 9/20 | 9/20 | 9/20 | 12/27 | 12/27 |
+| format/host-name | 2/12 | - | - | - | - | - | - |
+| format/hostname | - | 25/28 | 25/28 | 35/61 | 35/61 | 35/61 | 35/61 |
+| format/idn-email | - | - | - | 10/12 | 10/12 | 10/12 | 10/13 |
+| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/ip-address | 1/3 | - | - | - | - | - | - |
+| format/ipv4 | - | 31/38 | 31/38 | 31/38 | 31/38 | 31/38 | 31/38 |
+| format/ipv6 | 10/12 | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
+| format/iri | - | - | - | 11/15 | 11/15 | 11/15 | 11/15 |
+| format/iri-reference | - | - | - | 11/13 | 11/13 | 11/13 | 11/13 |
+| format/json-pointer | - | - | 35/40 | 35/40 | 35/40 | 35/40 | 35/40 |
+| format/regex | 1/2 | - | - | 7/8 | 7/8 | 7/8 | 7/8 |
+| format/relative-json-pointer | - | - | - | 12/20 | 12/20 | 12/20 | 12/20 |
+| format/time | 1/3 | - | - | 19/47 | 19/47 | 19/47 | 19/47 |
+| format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
+| format/uri | ✅ | 38/44 | 38/44 | 38/44 | 38/44 | 38/44 | 38/44 |
+| format/uri-reference | - | - | 16/17 | 16/17 | 16/17 | 16/17 | 16/17 |
+| format/uri-template | - | - | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
+| format/uuid | - | - | - | - | 14/25 | 14/25 | 14/25 |
+| id | - | 1/3 | 5/7 | 3/7 | 1/3 | 1/3 | 1/3 |
+| no-schema | - | - | - | - | ✅ | ✅ | - |
+| non-bmp-regex | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 |
+| proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
+| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
+| proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
+| proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 2/6 |
+| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
+| unknownKeyword | - | - | 0/3 | 0/3 | 0/3 | 0/3 | 0/3 |
+| zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
+
+
+</details>
+
+
+---
+
+
+<a name="Zod-Semantics"></a>
 
 
 
@@ -694,6 +973,9 @@ Results using `fromJSONSchema(...)` to test Zod semantics against the Json Schem
 ---
 
 
+<a name="Zod-RoundTrip"></a>
+
+
 
 ### Zod
 
@@ -822,6 +1104,9 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 ---
 
 
+<a name="ArkType-Semantics"></a>
+
+
 
 ### ArkType
 
@@ -948,6 +1233,9 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 
 
 ---
+
+
+<a name="ArkType-RoundTrip"></a>
 
 
 
