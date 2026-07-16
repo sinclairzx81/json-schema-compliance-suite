@@ -30,21 +30,21 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Wed Jul 08 2026
+Updated: Fri Jul 17 2026
 
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10252 | 354 | 96.7% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 9714 | 892 | 91.6% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9103 | 1503 | 85.8% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 7822 | 2784 | 73.8% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 8093 | 2513 | 76.3% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 7861 | 2745 | 74.1% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6036 | 4570 | 56.9% |
-|  | [Results](#Zod-RoundTrip) | RoundTrip | 6165 | 4441 | 58.1% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 8823 | 16.8% |
-|  | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9092 | 14.3% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10252 | 362 | 96.6% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 9722 | 892 | 91.6% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9111 | 1503 | 85.8% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 7828 | 2786 | 73.8% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 8101 | 2513 | 76.3% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 7869 | 2745 | 74.1% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6044 | 4570 | 56.9% |
+|  | [Results](#Zod-RoundTrip) | RoundTrip | 6173 | 4441 | 58.2% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 8831 | 16.8% |
+|  | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9100 | 14.3% |
 
 
 ## Coverage
@@ -153,7 +153,7 @@ Results for the TypeBox validation library.
 | format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 22/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 27/28 | 27/28 | ✅ | ✅ | ✅ | ✅ |
-| format/idn-email | - | - | - | 11/12 | 11/12 | 11/12 | 12/13 |
+| format/idn-email | - | - | - | 11/14 | 11/14 | 11/14 | 12/15 |
 | format/idn-hostname | - | - | - | 81/89 | 82/90 | 82/90 | 82/90 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -284,7 +284,7 @@ Results for the @cfworker/json-schema validation library.
 | format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 22/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 27/28 | 27/28 | 37/61 | 37/61 | 37/61 | 37/61 |
-| format/idn-email | - | - | - | 10/12 | 10/12 | 10/12 | 10/13 |
+| format/idn-email | - | - | - | 12/14 | 12/14 | 12/14 | 12/15 |
 | format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -415,7 +415,7 @@ Results for the jsonschema validation library.
 | format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 23/27 | 23/27 |
 | format/host-name | ✅ | - | - | - | - | - | - |
 | format/hostname | - | 27/28 | 27/28 | 37/61 | 37/61 | 37/61 | 37/61 |
-| format/idn-email | - | - | - | 11/12 | 11/12 | 11/12 | 12/13 |
+| format/idn-email | - | - | - | 13/14 | 13/14 | 13/14 | 14/15 |
 | format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
 | format/ip-address | ✅ | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -546,7 +546,7 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 | format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 0/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 27/28 | 27/28 | 37/61 | 37/61 | 37/61 | 0/61 |
-| format/idn-email | - | - | - | 10/12 | 10/12 | 10/12 | 0/13 |
+| format/idn-email | - | - | - | 12/14 | 12/14 | 12/14 | 0/15 |
 | format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 0/90 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/38 |
@@ -677,7 +677,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format/email | 6/11 | 14/20 | 14/20 | 14/20 | 14/20 | 18/27 | 18/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | ✅ | ✅ | 37/61 | 37/61 | 37/61 | 37/61 |
-| format/idn-email | - | - | - | 10/12 | 10/12 | 10/12 | 10/13 |
+| format/idn-email | - | - | - | 12/14 | 12/14 | 12/14 | 12/15 |
 | format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -808,7 +808,7 @@ Results for the djv validation library.
 | format/email | 7/11 | 9/20 | 9/20 | 9/20 | 9/20 | 12/27 | 12/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 25/28 | 25/28 | 35/61 | 35/61 | 35/61 | 35/61 |
-| format/idn-email | - | - | - | 10/12 | 10/12 | 10/12 | 10/13 |
+| format/idn-email | - | - | - | 12/14 | 12/14 | 12/14 | 12/15 |
 | format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 31/38 | 31/38 | 31/38 | 31/38 | 31/38 | 31/38 |
@@ -939,7 +939,7 @@ Results using `fromJSONSchema(...)` to test Zod semantics against the Json Schem
 | format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/28 | 14/28 | 28/61 | 28/61 | 28/61 | 28/61 |
-| format/idn-email | - | - | - | 10/12 | 10/12 | 10/12 | 10/13 |
+| format/idn-email | - | - | - | 12/14 | 12/14 | 12/14 | 12/15 |
 | format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 9/38 | 9/38 | 9/38 | 9/38 | 9/38 | 9/38 |
@@ -1070,7 +1070,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/28 | 14/28 | 28/61 | 28/61 | 28/61 | 28/61 |
-| format/idn-email | - | - | - | 10/12 | 10/12 | 10/12 | 10/13 |
+| format/idn-email | - | - | - | 12/14 | 12/14 | 12/14 | 12/15 |
 | format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 9/38 | 9/38 | 9/38 | 9/38 | 9/38 | 9/38 |
@@ -1201,7 +1201,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | format/email | 0/11 | 0/20 | 0/20 | 0/20 | 0/20 | 0/27 | 0/27 |
 | format/host-name | 0/12 | - | - | - | - | - | - |
 | format/hostname | - | 0/28 | 0/28 | 0/61 | 0/61 | 0/61 | 0/61 |
-| format/idn-email | - | - | - | 0/12 | 0/12 | 0/12 | 0/13 |
+| format/idn-email | - | - | - | 0/14 | 0/14 | 0/14 | 0/15 |
 | format/idn-hostname | - | - | - | 0/89 | 0/90 | 0/90 | 0/90 |
 | format/ip-address | 0/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 0/38 | 0/38 | 0/38 | 0/38 | 0/38 | 0/38 |
@@ -1332,7 +1332,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | format/email | 0/11 | 0/20 | 0/20 | 0/20 | 0/20 | 0/27 | 0/27 |
 | format/host-name | 0/12 | - | - | - | - | - | - |
 | format/hostname | - | 0/28 | 0/28 | 0/61 | 0/61 | 0/61 | 0/61 |
-| format/idn-email | - | - | - | 0/12 | 0/12 | 0/12 | 0/13 |
+| format/idn-email | - | - | - | 0/14 | 0/14 | 0/14 | 0/15 |
 | format/idn-hostname | - | - | - | 0/89 | 0/90 | 0/90 | 0/90 |
 | format/ip-address | 0/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 0/38 | 0/38 | 0/38 | 0/38 | 0/38 | 0/38 |
