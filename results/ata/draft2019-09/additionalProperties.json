@@ -59,6 +59,32 @@
     ]
   },
   {
+    "description": "non-ASCII pattern with additionalProperties",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "patternProperties": {
+        "^á": {}
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "matching the pattern is valid",
+        "data": {
+          "ármányos": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "not matching the pattern is invalid",
+        "data": {
+          "élmény": 2
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "additionalProperties with schema",
     "schema": {
       "$schema": "https://json-schema.org/draft/2019-09/schema",
@@ -141,6 +167,32 @@
           "quux": true
         },
         "valid": true
+      }
+    ]
+  },
+  {
+    "description": "additionalProperties does not look in applicators",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "allOf": [
+        {
+          "properties": {
+            "foo": {}
+          }
+        }
+      ],
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "tests": [
+      {
+        "description": "properties defined in allOf are not examined",
+        "data": {
+          "foo": 1,
+          "bar": true
+        },
+        "valid": false
       }
     ]
   },

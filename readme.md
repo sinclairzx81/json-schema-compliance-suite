@@ -30,21 +30,21 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Fri Jul 17 2026
+Updated: Fri Jul 24 2026
 
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10252 | 362 | 96.6% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 9722 | 892 | 91.6% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9111 | 1503 | 85.8% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 7828 | 2786 | 73.8% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 8101 | 2513 | 76.3% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 7869 | 2745 | 74.1% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6044 | 4570 | 56.9% |
-|  | [Results](#Zod-RoundTrip) | RoundTrip | 6173 | 4441 | 58.2% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 8831 | 16.8% |
-|  | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9100 | 14.3% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10288 | 350 | 96.7% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 9746 | 892 | 91.6% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9135 | 1503 | 85.9% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 7846 | 2792 | 73.8% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9276 | 1362 | 87.2% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 7869 | 2769 | 74.0% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6044 | 4594 | 56.8% |
+|  | [Results](#Zod-RoundTrip) | RoundTrip | 6173 | 4465 | 58.0% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 8855 | 16.8% |
+|  | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9124 | 14.2% |
 
 
 ## Coverage
@@ -120,7 +120,7 @@ Results for the TypeBox validation library.
 | refRemote | 4/8 | 8/17 | 11/23 | 11/23 | 15/31 | 15/31 | 15/31 |
 | required | 3/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | 73/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| unevaluatedItems | - | - | - | - | ✅ | 65/71 | 64/71 |
+| unevaluatedItems | - | - | - | - | ✅ | ✅ | 70/71 |
 | unevaluatedProperties | - | - | - | - | ✅ | ✅ | 128/129 |
 | uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
@@ -408,7 +408,7 @@ Results for the jsonschema validation library.
 | format-annotation | - | - | - | - | - | - | 118/133 |
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | ✅ | - | - | - | - | - | - |
-| format/date | 27/33 | - | - | 60/69 | 60/69 | 60/69 | 60/69 |
+| format/date | 27/33 | - | - | 66/75 | 66/75 | 66/75 | 66/75 |
 | format/date-time | ✅ | 23/29 | 23/29 | 23/29 | 23/29 | 23/29 | 23/29 |
 | format/duration | - | - | - | - | 34/42 | 34/42 | 34/42 |
 | format/ecmascript-regex | ✅ | - | - | - | - | 0/1 | 0/1 |
@@ -539,7 +539,7 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 | format-annotation | - | - | - | - | - | - | 0/133 |
 | format-assertion | - | - | - | - | - | 0/4 | - |
 | format/color | 3/6 | - | - | - | - | - | - |
-| format/date | ✅ | - | - | ✅ | ✅ | ✅ | 0/69 |
+| format/date | ✅ | - | - | ✅ | ✅ | ✅ | 0/75 |
 | format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/29 |
 | format/duration | - | - | - | - | 40/42 | 40/42 | 0/42 |
 | format/ecmascript-regex | ✅ | - | - | - | - | 0/1 | 0/1 |
@@ -596,31 +596,31 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
 | additionalItems | 11/14 | 12/17 | 14/19 | 14/19 | 14/19 | - | - |
-| additionalProperties | 14/16 | 13/16 | 13/16 | 13/16 | 18/21 | 18/21 | 18/21 |
-| allOf | - | ✅ | 28/30 | 28/30 | 28/30 | 28/30 | 28/30 |
-| anchor | - | - | - | - | 2/8 | 2/8 | 2/8 |
-| anyOf | - | ✅ | 16/18 | 16/18 | 16/18 | 16/18 | 16/18 |
+| additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| anchor | - | - | - | - | ✅ | ✅ | ✅ |
+| anyOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | boolean_schema | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | const | - | - | 53/54 | 53/54 | 53/54 | 53/54 | 53/54 |
-| contains | - | - | 16/19 | 16/21 | 16/21 | 16/21 | 16/25 |
+| contains | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | - | ✅ | ✅ | ✅ |
 | default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| definitions | - | 0/2 | 0/2 | 0/2 | - | - | - |
-| defs | - | - | - | - | 0/2 | 0/2 | - |
+| definitions | - | 1/2 | 1/2 | 1/2 | - | - | - |
+| defs | - | - | - | - | 1/2 | 1/2 | - |
 | dependencies | 11/18 | 16/29 | 21/36 | 21/36 | - | - | - |
 | dependentRequired | - | - | - | - | ✅ | ✅ | ✅ |
-| dependentSchemas | - | - | - | - | 15/20 | 15/20 | 15/20 |
+| dependentSchemas | - | - | - | - | 19/20 | 19/20 | 19/20 |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 8/44 | 2/27 |
+| dynamicRef | - | - | - | - | - | 39/44 | 22/27 |
 | enum | 10/16 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | extends | 1/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 124/133 | - |
-| if-then-else | - | - | - | 24/30 | 24/30 | 24/30 | 24/26 |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| items | 6/7 | 16/21 | 18/28 | 18/28 | 18/28 | 11/29 | 11/29 |
+| items | 6/7 | 16/21 | 22/28 | 22/28 | 22/28 | 28/29 | 28/29 |
 | maxContains | - | - | - | - | ✅ | ✅ | ✅ |
 | maximum | 11/14 | 11/14 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -632,22 +632,22 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | minLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | minProperties | - | 7/8 | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
 | multipleOf | - | 9/11 | 9/11 | 9/11 | 9/11 | 9/11 | 9/11 |
-| not | - | ✅ | 29/38 | 29/38 | 31/40 | 31/40 | 31/40 |
-| oneOf | - | ✅ | 24/27 | 24/27 | 24/27 | 24/27 | 24/27 |
-| pattern | ✅ | ✅ | ✅ | ✅ | ✅ | 9/12 | 9/12 |
-| patternProperties | ✅ | ✅ | 18/23 | 18/23 | 18/23 | 18/25 | 18/26 |
-| prefixItems | - | - | - | - | - | 8/11 | 8/11 |
-| properties | 7/15 | 9/24 | 9/28 | 9/28 | 9/28 | 9/28 | 9/28 |
-| propertyNames | - | - | 18/22 | 18/22 | 18/22 | 18/22 | 8/12 |
-| recursiveRef | - | - | - | - | 3/34 | - | - |
-| ref | 8/27 | 12/45 | 22/70 | 22/78 | 21/81 | 20/79 | 20/79 |
-| refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
-| required | 2/4 | 5/17 | 6/18 | 6/18 | 6/18 | 6/18 | 6/18 |
+| not | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| oneOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| pattern | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| prefixItems | - | - | - | - | - | ✅ | ✅ |
+| properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| recursiveRef | - | - | - | - | 19/34 | - | - |
+| ref | 22/27 | 37/45 | 62/70 | 70/78 | 78/81 | 78/79 | 78/79 |
+| refRemote | 4/8 | 8/17 | 11/23 | 11/23 | 15/31 | 15/31 | 15/31 |
+| required | 2/4 | 12/17 | 13/18 | 13/18 | 13/18 | 13/18 | 13/18 |
 | type | 73/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| unevaluatedItems | - | - | - | - | 41/56 | 63/71 | 63/71 |
-| unevaluatedProperties | - | - | - | - | 126/129 | 126/129 | 126/129 |
-| uniqueItems | 60/62 | 67/69 | 67/69 | 67/69 | 67/69 | 59/69 | 59/69 |
-| vocabulary | - | - | - | - | 2/5 | 2/5 | - |
+| unevaluatedItems | - | - | - | - | 42/56 | ✅ | 70/71 |
+| unevaluatedProperties | - | - | - | - | 128/129 | ✅ | 128/129 |
+| uniqueItems | 60/62 | 67/69 | 67/69 | 67/69 | 67/69 | ✅ | ✅ |
+| vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
 
 </details>
@@ -662,15 +662,15 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | anchor | - | - | - | - | ✅ | ✅ | ✅ |
 | bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
+| cross-draft | - | - | - | 1/2 | 1/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | 22/36 | 22/36 | 22/36 |
 | dynamicRef | - | - | - | - | - | 0/2 | 0/2 |
-| ecmascript-regex | - | 42/74 | 42/74 | 42/74 | 42/74 | 42/74 | 42/74 |
+| ecmascript-regex | - | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 |
 | float-overflow | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format-annotation | - | - | - | - | - | - | 124/133 |
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
-| format/date | 27/33 | - | - | 61/69 | 61/69 | 61/69 | 61/69 |
+| format/date | 27/33 | - | - | 67/75 | 67/75 | 67/75 | 67/75 |
 | format/date-time | 6/7 | 24/29 | 24/29 | 24/29 | 24/29 | 24/29 | 24/29 |
 | format/duration | - | - | - | - | 36/42 | 36/42 | 36/42 |
 | format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
@@ -693,15 +693,15 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
 | format/uri-template | - | - | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
-| id | - | 0/3 | 4/7 | 4/7 | 0/3 | 0/3 | 0/3 |
+| id | - | 2/3 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
 | proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
 | proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 4/6 |
-| refOfUnknownKeyword | - | - | - | - | 0/10 | 0/10 | 0/10 |
-| unknownKeyword | - | - | 0/3 | 0/3 | 0/3 | 0/3 | 0/3 |
+| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
+| unknownKeyword | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
 
 
@@ -801,7 +801,7 @@ Results for the djv validation library.
 | format-annotation | - | - | - | - | - | - | 84/133 |
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
-| format/date | 14/33 | - | - | 22/69 | 22/69 | 22/69 | 22/69 |
+| format/date | 14/33 | - | - | 22/75 | 22/75 | 22/75 | 22/75 |
 | format/date-time | ✅ | 19/29 | 19/29 | 19/29 | 19/29 | 19/29 | 19/29 |
 | format/duration | - | - | - | - | 25/42 | 25/42 | 25/42 |
 | format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
@@ -932,7 +932,7 @@ Results using `fromJSONSchema(...)` to test Zod semantics against the Json Schem
 | format-annotation | - | - | - | - | - | - | ✅ |
 | format-assertion | - | - | - | - | - | 2/4 | - |
 | format/color | 3/6 | - | - | - | - | - | - |
-| format/date | 14/33 | - | - | 22/69 | 22/69 | 22/69 | 22/69 |
+| format/date | 14/33 | - | - | 22/75 | 22/75 | 22/75 | 22/75 |
 | format/date-time | 2/7 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 |
 | format/duration | - | - | - | - | 25/42 | 25/42 | 25/42 |
 | format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
@@ -1063,7 +1063,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | format-annotation | - | - | - | - | - | - | ✅ |
 | format-assertion | - | - | - | - | - | 2/4 | - |
 | format/color | 3/6 | - | - | - | - | - | - |
-| format/date | 14/33 | - | - | 22/69 | 22/69 | 22/69 | 22/69 |
+| format/date | 14/33 | - | - | 22/75 | 22/75 | 22/75 | 22/75 |
 | format/date-time | 2/7 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 |
 | format/duration | - | - | - | - | 25/42 | 25/42 | 25/42 |
 | format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
@@ -1194,7 +1194,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | format-annotation | - | - | - | - | - | - | 0/133 |
 | format-assertion | - | - | - | - | - | 0/4 | - |
 | format/color | 0/6 | - | - | - | - | - | - |
-| format/date | 0/33 | - | - | 0/69 | 0/69 | 0/69 | 0/69 |
+| format/date | 0/33 | - | - | 0/75 | 0/75 | 0/75 | 0/75 |
 | format/date-time | 0/7 | 0/29 | 0/29 | 0/29 | 0/29 | 0/29 | 0/29 |
 | format/duration | - | - | - | - | 0/42 | 0/42 | 0/42 |
 | format/ecmascript-regex | 0/3 | - | - | - | - | 0/1 | 0/1 |
@@ -1325,7 +1325,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | format-annotation | - | - | - | - | - | - | 0/133 |
 | format-assertion | - | - | - | - | - | 0/4 | - |
 | format/color | 0/6 | - | - | - | - | - | - |
-| format/date | 0/33 | - | - | 0/69 | 0/69 | 0/69 | 0/69 |
+| format/date | 0/33 | - | - | 0/75 | 0/75 | 0/75 | 0/75 |
 | format/date-time | 0/7 | 0/29 | 0/29 | 0/29 | 0/29 | 0/29 | 0/29 |
 | format/duration | - | - | - | - | 0/42 | 0/42 | 0/42 |
 | format/ecmascript-regex | 0/3 | - | - | - | - | 0/1 | 0/1 |

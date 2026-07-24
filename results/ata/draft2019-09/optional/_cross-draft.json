@@ -8,16 +8,6 @@
     },
     "tests": [
       {
-        "description": "first item not a string is invalid",
-        "comment": "if the implementation is not processing the $ref as a 2020-12 schema, this test will fail",
-        "data": [
-          1,
-          2,
-          3
-        ],
-        "valid": false
-      },
-      {
         "description": "first item is a string is valid",
         "data": [
           "a string",

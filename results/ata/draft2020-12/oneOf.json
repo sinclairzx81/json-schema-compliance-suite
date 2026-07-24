@@ -86,6 +86,60 @@
     ]
   },
   {
+    "description": "oneOf with boolean schemas, one true",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "oneOf": [
+        true,
+        false,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "oneOf with boolean schemas, more than one true",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "oneOf": [
+        true,
+        true,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "oneOf with boolean schemas, all false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "oneOf": [
+        false,
+        false,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "oneOf complex types",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",

@@ -119,6 +119,32 @@
     ]
   },
   {
+    "description": "contains keyword with boolean schema false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "contains": false
+    },
+    "tests": [
+      {
+        "description": "any non-empty array is invalid",
+        "data": [
+          "foo"
+        ],
+        "valid": false
+      },
+      {
+        "description": "empty array is invalid",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "non-arrays are valid",
+        "data": "contains does not apply to strings",
+        "valid": true
+      }
+    ]
+  },
+  {
     "description": "items + contains",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -162,6 +188,30 @@
           1,
           5
         ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "contains with false if subschema",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "contains": {
+        "if": false,
+        "else": true
+      }
+    },
+    "tests": [
+      {
+        "description": "any non-empty array is valid",
+        "data": [
+          "foo"
+        ],
+        "valid": true
+      },
+      {
+        "description": "empty array is invalid",
+        "data": [],
         "valid": false
       }
     ]

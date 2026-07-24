@@ -16,17 +16,6 @@
           }
         },
         "valid": true
-      },
-      {
-        "description": "invalid definition schema",
-        "data": {
-          "$defs": {
-            "foo": {
-              "type": 1
-            }
-          }
-        },
-        "valid": false
       }
     ]
   }

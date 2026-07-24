@@ -62,6 +62,38 @@
     ]
   },
   {
+    "description": "prefixItems with boolean schemas",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "prefixItems": [
+        true,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "array with one item is valid",
+        "data": [
+          1
+        ],
+        "valid": true
+      },
+      {
+        "description": "array with two items is invalid",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
+      },
+      {
+        "description": "empty array is valid",
+        "data": [],
+        "valid": true
+      }
+    ]
+  },
+  {
     "description": "additional items are allowed by default",
     "schema": {
       "$schema": "https://json-schema.org/v1",

@@ -879,6 +879,47 @@
     ]
   },
   {
+    "description": "unevaluatedProperties with $dynamicRef",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "https://example.com/unevaluated-properties-with-dynamic-ref/derived",
+      "$ref": "./baseSchema",
+      "$defs": {
+        "derived": {
+          "$dynamicAnchor": "addons",
+          "properties": {
+            "bar": {
+              "type": "string"
+            }
+          }
+        },
+        "baseSchema": {
+          "$id": "./baseSchema",
+          "$comment": "unevaluatedProperties comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+          "unevaluatedProperties": false,
+          "type": "object",
+          "properties": {
+            "foo": {
+              "type": "string"
+            }
+          },
+          "$dynamicRef": "#addons"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with unevaluated properties",
+        "data": {
+          "foo": "foo",
+          "bar": "bar",
+          "baz": "baz"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "unevaluatedProperties can't see inside cousins",
     "schema": {
       "$schema": "https://json-schema.org/v1",
@@ -1644,6 +1685,14 @@
           "foox": 1
         },
         "valid": true
+      },
+      {
+        "description": "xx + foo is invalid",
+        "data": {
+          "xx": 1,
+          "foo": 1
+        },
+        "valid": false
       },
       {
         "description": "xx + a is invalid",

@@ -181,6 +181,40 @@
     ]
   },
   {
+    "description": "allOf with boolean schemas, some false",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "allOf": [
+        true,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "allOf with boolean schemas, all false",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "allOf": [
+        false,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "allOf with one empty schema",
     "schema": {
       "$schema": "https://json-schema.org/v1",

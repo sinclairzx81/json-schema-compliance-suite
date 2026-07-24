@@ -9,11 +9,6 @@
         "description": "remote ref valid",
         "data": 1,
         "valid": true
-      },
-      {
-        "description": "remote ref invalid",
-        "data": "a",
-        "valid": false
       }
     ]
   },
@@ -27,11 +22,6 @@
         "description": "remote fragment valid",
         "data": 1,
         "valid": true
-      },
-      {
-        "description": "remote fragment invalid",
-        "data": "a",
-        "valid": false
       }
     ]
   },
@@ -45,11 +35,6 @@
         "description": "ref within ref valid",
         "data": 1,
         "valid": true
-      },
-      {
-        "description": "ref within ref invalid",
-        "data": "a",
-        "valid": false
       }
     ]
   },
@@ -73,15 +58,6 @@
           ]
         ],
         "valid": true
-      },
-      {
-        "description": "base URI change ref invalid",
-        "data": [
-          [
-            "a"
-          ]
-        ],
-        "valid": false
       }
     ]
   },
@@ -114,15 +90,6 @@
           ]
         },
         "valid": true
-      },
-      {
-        "description": "string is invalid",
-        "data": {
-          "list": [
-            "a"
-          ]
-        },
-        "valid": false
       }
     ]
   },
@@ -159,15 +126,6 @@
           ]
         },
         "valid": true
-      },
-      {
-        "description": "string is invalid",
-        "data": {
-          "list": [
-            "a"
-          ]
-        },
-        "valid": false
       }
     ]
   },
@@ -196,15 +154,6 @@
           "name": null
         },
         "valid": true
-      },
-      {
-        "description": "object is invalid",
-        "data": {
-          "name": {
-            "name": null
-          }
-        },
-        "valid": false
       }
     ]
   },
@@ -218,11 +167,6 @@
         "description": "integer is valid",
         "data": 1,
         "valid": true
-      },
-      {
-        "description": "string is invalid",
-        "data": "foo",
-        "valid": false
       }
     ]
   }
