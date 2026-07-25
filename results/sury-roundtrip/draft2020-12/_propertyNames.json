@@ -1,0 +1,94 @@
+[
+  {
+    "description": "propertyNames validation",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "propertyNames": {
+        "maxLength": 3
+      }
+    },
+    "tests": [
+      {
+        "description": "some property names invalid",
+        "data": {
+          "foo": {},
+          "foobar": {}
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "propertyNames validation with pattern",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "propertyNames": {
+        "pattern": "^a+$"
+      }
+    },
+    "tests": [
+      {
+        "description": "non-matching property name is invalid",
+        "data": {
+          "aaA": {}
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "propertyNames with boolean schema false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "propertyNames": false
+    },
+    "tests": [
+      {
+        "description": "object with any properties is invalid",
+        "data": {
+          "foo": 1
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "propertyNames with const",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "propertyNames": {
+        "const": "foo"
+      }
+    },
+    "tests": [
+      {
+        "description": "object with any other property is invalid",
+        "data": {
+          "bar": 1
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "propertyNames with enum",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "propertyNames": {
+        "enum": [
+          "foo",
+          "bar"
+        ]
+      }
+    },
+    "tests": [
+      {
+        "description": "object with any other property is invalid",
+        "data": {
+          "baz": 1
+        },
+        "valid": false
+      }
+    ]
+  }
+]

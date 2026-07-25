@@ -1,0 +1,216 @@
+[
+  {
+    "description": "oneOf",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "oneOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "minimum": 2
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "second oneOf valid",
+        "data": 2.5,
+        "valid": true
+      },
+      {
+        "description": "both oneOf valid",
+        "data": 3,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "oneOf with base schema",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "type": "string",
+      "oneOf": [
+        {
+          "minLength": 2
+        },
+        {
+          "maxLength": 4
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "one oneOf valid",
+        "data": "foobar",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "oneOf with boolean schemas, one true",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "oneOf": [
+        true,
+        false,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "oneOf complex types",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "oneOf": [
+        {
+          "properties": {
+            "bar": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "bar"
+          ]
+        },
+        {
+          "properties": {
+            "foo": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "foo"
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "first oneOf valid (complex)",
+        "data": {
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "second oneOf valid (complex)",
+        "data": {
+          "foo": "baz"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "oneOf with empty schema",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {}
+      ]
+    },
+    "tests": [
+      {
+        "description": "one valid - valid",
+        "data": "foo",
+        "valid": true
+      },
+      {
+        "description": "both valid - invalid",
+        "data": 123,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "oneOf with required",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [
+            "foo",
+            "bar"
+          ]
+        },
+        {
+          "required": [
+            "foo",
+            "baz"
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "both invalid - invalid",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "both valid - invalid",
+        "data": {
+          "foo": 1,
+          "bar": 2,
+          "baz": 3
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "oneOf with missing optional property",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "oneOf": [
+        {
+          "properties": {
+            "bar": true,
+            "baz": true
+          },
+          "required": [
+            "bar"
+          ]
+        },
+        {
+          "properties": {
+            "foo": true
+          },
+          "required": [
+            "foo"
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "first oneOf valid",
+        "data": {
+          "bar": 8
+        },
+        "valid": true
+      },
+      {
+        "description": "second oneOf valid",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": true
+      }
+    ]
+  }
+]

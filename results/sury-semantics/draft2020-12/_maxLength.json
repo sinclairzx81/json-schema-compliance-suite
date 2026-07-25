@@ -1,0 +1,30 @@
+[
+  {
+    "description": "maxLength validation",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "maxLength": 2
+    },
+    "tests": [
+      {
+        "description": "too long is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxLength validation with a decimal",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "maxLength": 2
+    },
+    "tests": [
+      {
+        "description": "too long is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  }
+]

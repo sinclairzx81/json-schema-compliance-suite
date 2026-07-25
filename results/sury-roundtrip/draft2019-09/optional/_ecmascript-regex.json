@@ -1,0 +1,213 @@
+[
+  {
+    "description": "patterns always use unicode semantics with pattern",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "pattern": "\\p{Letter}cole"
+    },
+    "tests": [
+      {
+        "description": "unicode matching is case-sensitive",
+        "data": "LES HIVERS DE MON ENFANCE ÉTAIENT DES SAISONS LONGUES, LONGUES. NOUS VIVIONS EN TROIS LIEUX: L'ÉCOLE, L'ÉGLISE ET LA PATINOIRE; MAIS LA VRAIE VIE ÉTAIT SUR LA PATINOIRE.",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "\\w in patterns matches [A-Za-z0-9_], not unicode letters",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "pattern": "\\wcole"
+    },
+    "tests": [
+      {
+        "description": "literal unicode character in json string",
+        "data": "Les hivers de mon enfance étaient des saisons longues, longues. Nous vivions en trois lieux: l'école, l'église et la patinoire; mais la vraie vie était sur la patinoire.",
+        "valid": false
+      },
+      {
+        "description": "unicode character in hex format in string",
+        "data": "Les hivers de mon enfance étaient des saisons longues, longues. Nous vivions en trois lieux: l'école, l'église et la patinoire; mais la vraie vie était sur la patinoire.",
+        "valid": false
+      },
+      {
+        "description": "unicode matching is case-sensitive",
+        "data": "LES HIVERS DE MON ENFANCE ÉTAIENT DES SAISONS LONGUES, LONGUES. NOUS VIVIONS EN TROIS LIEUX: L'ÉCOLE, L'ÉGLISE ET LA PATINOIRE; MAIS LA VRAIE VIE ÉTAIT SUR LA PATINOIRE.",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "pattern with ASCII ranges",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "pattern": "[a-z]cole"
+    },
+    "tests": [
+      {
+        "description": "literal unicode character in json string",
+        "data": "Les hivers de mon enfance étaient des saisons longues, longues. Nous vivions en trois lieux: l'école, l'église et la patinoire; mais la vraie vie était sur la patinoire.",
+        "valid": false
+      },
+      {
+        "description": "unicode character in hex format in string",
+        "data": "Les hivers de mon enfance étaient des saisons longues, longues. Nous vivions en trois lieux: l'école, l'église et la patinoire; mais la vraie vie était sur la patinoire.",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "\\d in pattern matches [0-9], not unicode digits",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "pattern": "^\\d+$"
+    },
+    "tests": [
+      {
+        "description": "ascii non-digits",
+        "data": "-%#",
+        "valid": false
+      },
+      {
+        "description": "non-ascii digits (BENGALI DIGIT FOUR, BENGALI DIGIT TWO)",
+        "data": "৪২",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "pattern with non-ASCII digits",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "pattern": "^\\p{digit}+$"
+    },
+    "tests": [
+      {
+        "description": "ascii non-digits",
+        "data": "-%#",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "patterns always use unicode semantics with patternProperties",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "type": "object",
+      "patternProperties": {
+        "\\p{Letter}cole": true
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "ascii character in json string",
+        "data": {
+          "l'ecole": "pas de vraie vie"
+        },
+        "valid": true
+      },
+      {
+        "description": "literal unicode character in json string",
+        "data": {
+          "l'école": "pas de vraie vie"
+        },
+        "valid": true
+      },
+      {
+        "description": "unicode character in hex format in string",
+        "data": {
+          "l'école": "pas de vraie vie"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "\\w in patternProperties matches [A-Za-z0-9_], not unicode letters",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "type": "object",
+      "patternProperties": {
+        "\\wcole": true
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "ascii character in json string",
+        "data": {
+          "l'ecole": "pas de vraie vie"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "patternProperties with ASCII ranges",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "type": "object",
+      "patternProperties": {
+        "[a-z]cole": true
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "ascii characters match",
+        "data": {
+          "l'ecole": "pas de vraie vie"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "\\d in patternProperties matches [0-9], not unicode digits",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "type": "object",
+      "patternProperties": {
+        "^\\d+$": true
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "ascii digits",
+        "data": {
+          "42": "life, the universe, and everything"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "patternProperties with non-ASCII digits",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "type": "object",
+      "patternProperties": {
+        "^\\p{digit}+$": true
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "ascii digits",
+        "data": {
+          "42": "life, the universe, and everything"
+        },
+        "valid": true
+      },
+      {
+        "description": "non-ascii digits (BENGALI DIGIT FOUR, BENGALI DIGIT TWO)",
+        "data": {
+          "৪২": "khajit has wares if you have coin"
+        },
+        "valid": true
+      }
+    ]
+  }
+]

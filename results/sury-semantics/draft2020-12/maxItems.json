@@ -1,0 +1,47 @@
+[
+  {
+    "description": "maxItems validation",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "maxItems": 2
+    },
+    "tests": [
+      {
+        "description": "shorter is valid",
+        "data": [
+          1
+        ],
+        "valid": true
+      },
+      {
+        "description": "exact length is valid",
+        "data": [
+          1,
+          2
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores non-arrays",
+        "data": "foobar",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "maxItems validation with a decimal",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "maxItems": 2
+    },
+    "tests": [
+      {
+        "description": "shorter is valid",
+        "data": [
+          1
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

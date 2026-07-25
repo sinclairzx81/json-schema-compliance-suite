@@ -1,0 +1,203 @@
+[
+  {
+    "description": "object properties validation",
+    "schema": {
+      "properties": {
+        "foo": {
+          "type": "integer"
+        },
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "one property invalid is invalid",
+        "data": {
+          "foo": 1,
+          "bar": {}
+        },
+        "valid": false
+      },
+      {
+        "description": "both properties invalid is invalid",
+        "data": {
+          "foo": [],
+          "bar": {}
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "properties, patternProperties, additionalProperties interaction",
+    "schema": {
+      "properties": {
+        "foo": {
+          "type": "array",
+          "maxItems": 3
+        },
+        "bar": {
+          "type": "array"
+        }
+      },
+      "patternProperties": {
+        "f.o": {
+          "minItems": 2
+        }
+      },
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "property invalidates property",
+        "data": {
+          "foo": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "valid": false
+      },
+      {
+        "description": "patternProperty invalidates property",
+        "data": {
+          "foo": []
+        },
+        "valid": false
+      },
+      {
+        "description": "patternProperty invalidates nonproperty",
+        "data": {
+          "fxo": []
+        },
+        "valid": false
+      },
+      {
+        "description": "additionalProperty invalidates others",
+        "data": {
+          "quux": "foo"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "properties with boolean schema",
+    "schema": {
+      "properties": {
+        "foo": true,
+        "bar": false
+      }
+    },
+    "tests": [
+      {
+        "description": "only 'false' property present is invalid",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "both properties present is invalid",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "properties with escaped characters",
+    "schema": {
+      "properties": {
+        "foo\nbar": {
+          "type": "number"
+        },
+        "foo\"bar": {
+          "type": "number"
+        },
+        "foo\\bar": {
+          "type": "number"
+        },
+        "foo\rbar": {
+          "type": "number"
+        },
+        "foo\tbar": {
+          "type": "number"
+        },
+        "foo\fbar": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "object with strings is invalid",
+        "data": {
+          "foo\nbar": "1",
+          "foo\"bar": "1",
+          "foo\\bar": "1",
+          "foo\rbar": "1",
+          "foo\tbar": "1",
+          "foo\fbar": "1"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "properties whose names are Javascript object property names",
+    "comment": "Ensure JS implementations don't universally consider e.g. __proto__ to always be present in an object.",
+    "schema": {
+      "properties": {
+        "__proto__": {
+          "type": "number"
+        },
+        "toString": {
+          "properties": {
+            "length": {
+              "type": "string"
+            }
+          }
+        },
+        "constructor": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "__proto__ not valid",
+        "data": {
+          "__proto__": "foo"
+        },
+        "valid": false
+      },
+      {
+        "description": "toString not valid",
+        "data": {
+          "toString": {
+            "length": 37
+          }
+        },
+        "valid": false
+      },
+      {
+        "description": "constructor not valid",
+        "data": {
+          "constructor": {
+            "length": 37
+          }
+        },
+        "valid": false
+      }
+    ]
+  }
+]

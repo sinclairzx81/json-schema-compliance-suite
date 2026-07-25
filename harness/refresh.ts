@@ -261,18 +261,31 @@ export function updateReadme(): void {
   output.push(`## Results`)
   output.push(`Updated: ${new Date().toDateString()}`)
   output.push('\n')
-  output.push(`| Library | Results     | Test      | Passed  | Failed | Coverage |`)
-  output.push(`| :--     | :--        | :--       | :--     | :--    | :--      |`)
-  const visited = new Set()
   const anchor = (report: Report) => `${report.library}-${report.category}`
-  for(const report of reports) {
-    const library = !visited.has(report.library) ? `[${report.library}](${report.repository})` : ''
-    const pagelink = `[Results](#${anchor(report)})`
-    visited.add(report.library)
-    const coverage = `${((report.metrics.passed / report.metrics.total) * 100).toFixed(1)}%`
-    output.push(`| ${library} | ${pagelink} | ${report.category} | ${report.metrics.passed} | ${report.metrics.failed} | ${coverage} |`)
+  // Preserve category order based on first appearance in `reports`
+  const categories: string[] = []
+  for (const report of reports) {
+    if (!categories.includes(report.category)) categories.push(report.category)
   }
-  output.push('\n')
+  for (const category of categories) {
+    const categoryReports = reports
+      .filter(report => report.category === category)
+      .sort((a, b) => b.metrics.passed - a.metrics.passed)
+    const visited = new Set()
+
+    output.push(`### ${category}`)
+    output.push('\n')
+    output.push(`| Library | Results     | Test      | Passed  | Failed | Coverage |`)
+    output.push(`| :--     | :--        | :--       | :--     | :--    | :--      |`)
+    for (const report of categoryReports) {
+      const library = !visited.has(report.library) ? `[${report.library}](${report.repository})` : ''
+      const pagelink = `[Results](#${anchor(report)})`
+      visited.add(report.library)
+      const coverage = `${((report.metrics.passed / report.metrics.total) * 100).toFixed(1)}%`
+      output.push(`| ${library} | ${pagelink} | ${report.category} | ${report.metrics.passed} | ${report.metrics.failed} | ${coverage} |`)
+    }
+    output.push('\n')
+  }
   output.push(`## Coverage`)
   output.push('\n')
   output.push('Coverage reports for each library are shown below:')

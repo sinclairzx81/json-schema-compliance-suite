@@ -56,6 +56,19 @@ await Test.runTestSuite({
   const result = v.validate(value, schema as never)
   return result.valid
 })
+// ---------------------------------------------------------------
+// Ata: Validation
+// ---------------------------------------------------------------
+import * as Ata from 'ata-validator'
+await Test.runTestSuite({
+  library: 'Ata',
+  repository: 'https://github.com/ata-core/ata-validator',
+  category: 'Validation',
+  message: 'Results for the Ata validator using the `isValidObject(...)` function.',
+  directory: './results/ata',
+}, (_draft, schema, value) => {
+  return (new Ata.Validator(schema as never)).isValidObject(value)
+})
 // ------------------------------------------------------------------
 // Ajv: Validation
 // ------------------------------------------------------------------
@@ -88,19 +101,6 @@ await Test.runTestSuite({
   return createAjvValidator(draft).validate(schema, value)
 })
 // ---------------------------------------------------------------
-// Ata: Validation
-// ---------------------------------------------------------------
-import * as Ata from 'ata-validator'
-await Test.runTestSuite({
-  library: 'Ata',
-  repository: 'https://github.com/ata-core/ata-validator',
-  category: 'Validation',
-  message: 'Results for the Ata validator using the `isValidObject(...)` function.',
-  directory: './results/ata',
-}, (_draft, schema, value) => {
-  return (new Ata.Validator(schema as never)).isValidObject(value)
-})
-// ---------------------------------------------------------------
 // Djv: Validation
 // ---------------------------------------------------------------
 // @ts-ignore
@@ -119,6 +119,32 @@ await Test.runTestSuite({
   return env.validate(schemaName, value) === undefined
 })
 // ---------------------------------------------------------------
+// Sury: Semantics
+// ---------------------------------------------------------------
+import * as Sury from 'sury'
+await Test.runTestSuite({
+  library: 'Sury',
+  repository: 'https://github.com/DZakh/sury',
+  category: 'Semantics',
+  message: "Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Schema specification.",
+  directory: './results/sury-semantics'
+}, (_draft, schema, value) => {
+  return Sury.safe(() => Sury.parser(Sury.fromJSONSchema(schema as never))(value)).success
+})
+// ---------------------------------------------------------------
+// Sury: RoundTrip
+// ---------------------------------------------------------------
+await Test.runTestSuite({
+  library: 'Sury',
+  category: 'RoundTrip',
+  repository: 'https://github.com/DZakh/sury',
+  message: "Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directionally transform JSON Schema. The transformed schema is passed to Cfworker for testing.",
+  directory: './results/sury-roundtrip'
+}, (draft, schema, value) => {
+  const transformedSchema = Sury.toJSONSchema(Sury.fromJSONSchema(schema as never))
+  return createCFWorkerValidator(transformedSchema as never, draft).validate(value).valid
+})
+// ---------------------------------------------------------------
 // Zod: Semantics
 // ---------------------------------------------------------------
 import Zod from 'zod'
@@ -126,7 +152,7 @@ await Test.runTestSuite({
   library: 'Zod',
   repository: 'https://github.com/colinhacks/zod',
   category: 'Semantics',
-  message: "Results using `fromJSONSchema(...)` to test Zod semantics against the Json Schema specification.",
+  message: "Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Schema specification.",
   directory: './results/zod-semantics'
 }, (_draft, schema, value) => {
   return Zod.fromJSONSchema(schema).safeParse(value).success

@@ -1,0 +1,21 @@
+[
+  {
+    "description": "exclusiveMaximum validation",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "exclusiveMaximum": 3
+    },
+    "tests": [
+      {
+        "description": "boundary point is invalid",
+        "data": 3,
+        "valid": false
+      },
+      {
+        "description": "above the exclusiveMaximum is invalid",
+        "data": 3.5,
+        "valid": false
+      }
+    ]
+  }
+]

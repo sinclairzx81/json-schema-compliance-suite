@@ -1,0 +1,20 @@
+[
+  {
+    "description": "exclusiveMinimum validation",
+    "schema": {
+      "exclusiveMinimum": 1.1
+    },
+    "tests": [
+      {
+        "description": "above the exclusiveMinimum is valid",
+        "data": 1.2,
+        "valid": true
+      },
+      {
+        "description": "ignores non-numbers",
+        "data": "x",
+        "valid": true
+      }
+    ]
+  }
+]

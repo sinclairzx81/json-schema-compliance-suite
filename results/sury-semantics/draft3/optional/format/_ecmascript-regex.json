@@ -1,0 +1,15 @@
+[
+  {
+    "description": "ECMA 262 regex dialect recognition",
+    "schema": {
+      "format": "regex"
+    },
+    "tests": [
+      {
+        "description": "ECMA 262 does not support Python-style named groups",
+        "data": "(?P<name>x)",
+        "valid": false
+      }
+    ]
+  }
+]

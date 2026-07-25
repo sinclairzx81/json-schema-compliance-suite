@@ -1,0 +1,38 @@
+[
+  {
+    "description": "maxItems validation",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "maxItems": 2
+    },
+    "tests": [
+      {
+        "description": "too long is invalid",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxItems validation with a decimal",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "maxItems": 2
+    },
+    "tests": [
+      {
+        "description": "too long is invalid",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

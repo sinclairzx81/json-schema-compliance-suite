@@ -1,0 +1,63 @@
+[
+  {
+    "description": "number",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "number"
+    },
+    "tests": [
+      {
+        "description": "a bignum is a number",
+        "data": 9.824928374923492e+52,
+        "valid": true
+      },
+      {
+        "description": "a negative bignum is a number",
+        "data": -9.824928374923492e+52,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "string",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "string"
+    },
+    "tests": [
+      {
+        "description": "a bignum is not a string",
+        "data": 9.824928374923492e+52,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maximum integer comparison",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "maximum": 18446744073709552000
+    },
+    "tests": [
+      {
+        "description": "comparison works for high numbers",
+        "data": 18446744073709552000,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "minimum integer comparison",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "minimum": -18446744073709552000
+    },
+    "tests": [
+      {
+        "description": "comparison works for very negative numbers",
+        "data": -18446744073709552000,
+        "valid": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,270 @@
+[
+  {
+    "description": "uniqueItems validation",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "uniqueItems": true
+    },
+    "tests": [
+      {
+        "description": "non-unique array of integers is invalid",
+        "data": [
+          1,
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "non-unique array of more than two integers is invalid",
+        "data": [
+          1,
+          2,
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "numbers are unique if mathematically unequal",
+        "data": [
+          1,
+          1,
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "non-unique array of strings is invalid",
+        "data": [
+          "foo",
+          "bar",
+          "foo"
+        ],
+        "valid": false
+      },
+      {
+        "description": "non-unique array of objects is invalid",
+        "data": [
+          {
+            "foo": "bar"
+          },
+          {
+            "foo": "bar"
+          }
+        ],
+        "valid": false
+      },
+      {
+        "description": "property order of array of objects is ignored",
+        "data": [
+          {
+            "foo": "bar",
+            "bar": "foo"
+          },
+          {
+            "bar": "foo",
+            "foo": "bar"
+          }
+        ],
+        "valid": false
+      },
+      {
+        "description": "non-unique array of nested objects is invalid",
+        "data": [
+          {
+            "foo": {
+              "bar": {
+                "baz": true
+              }
+            }
+          },
+          {
+            "foo": {
+              "bar": {
+                "baz": true
+              }
+            }
+          }
+        ],
+        "valid": false
+      },
+      {
+        "description": "non-unique array of arrays is invalid",
+        "data": [
+          [
+            "foo"
+          ],
+          [
+            "foo"
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "non-unique array of more than two arrays is invalid",
+        "data": [
+          [
+            "foo"
+          ],
+          [
+            "bar"
+          ],
+          [
+            "foo"
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "non-unique heterogeneous types are invalid",
+        "data": [
+          {},
+          [
+            1
+          ],
+          true,
+          null,
+          {},
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "objects are non-unique despite key order",
+        "data": [
+          {
+            "a": 1,
+            "b": 2
+          },
+          {
+            "b": 2,
+            "a": 1
+          }
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "uniqueItems with an array of items",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "items": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "boolean"
+        }
+      ],
+      "uniqueItems": true
+    },
+    "tests": [
+      {
+        "description": "[false, false] from items array is not valid",
+        "data": [
+          false,
+          false
+        ],
+        "valid": false
+      },
+      {
+        "description": "[true, true] from items array is not valid",
+        "data": [
+          true,
+          true
+        ],
+        "valid": false
+      },
+      {
+        "description": "non-unique array extended from [false, true] is not valid",
+        "data": [
+          false,
+          true,
+          "foo",
+          "foo"
+        ],
+        "valid": false
+      },
+      {
+        "description": "non-unique array extended from [true, false] is not valid",
+        "data": [
+          true,
+          false,
+          "foo",
+          "foo"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "uniqueItems with an array of items and additionalItems=false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "items": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "boolean"
+        }
+      ],
+      "uniqueItems": true,
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "[false, false] from items array is not valid",
+        "data": [
+          false,
+          false
+        ],
+        "valid": false
+      },
+      {
+        "description": "[true, true] from items array is not valid",
+        "data": [
+          true,
+          true
+        ],
+        "valid": false
+      },
+      {
+        "description": "extra items are invalid even if unique",
+        "data": [
+          false,
+          true,
+          null
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "uniqueItems=false with an array of items and additionalItems=false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "items": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "boolean"
+        }
+      ],
+      "uniqueItems": false,
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "extra items are invalid even if unique",
+        "data": [
+          false,
+          true,
+          null
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "description": "minProperties validation",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "minProperties": 1
+    },
+    "tests": [
+      {
+        "description": "too short is invalid",
+        "data": {},
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "minProperties validation with a decimal",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "minProperties": 1
+    },
+    "tests": [
+      {
+        "description": "too short is invalid",
+        "data": {},
+        "valid": false
+      }
+    ]
+  }
+]
