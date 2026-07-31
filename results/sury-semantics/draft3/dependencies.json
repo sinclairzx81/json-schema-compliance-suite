@@ -8,41 +8,11 @@
     },
     "tests": [
       {
-        "description": "neither",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "nondependant",
+        "description": "missing dependency",
         "data": {
-          "foo": 1
-        },
-        "valid": true
-      },
-      {
-        "description": "with dependency",
-        "data": {
-          "foo": 1,
           "bar": 2
         },
-        "valid": true
-      },
-      {
-        "description": "ignores arrays",
-        "data": [
-          "bar"
-        ],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foobar",
-        "valid": true
-      },
-      {
-        "description": "ignores other non-objects",
-        "data": 12,
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -58,26 +28,27 @@
     },
     "tests": [
       {
-        "description": "neither",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "nondependants",
+        "description": "missing dependency",
         "data": {
           "foo": 1,
-          "bar": 2
+          "quux": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "with dependencies",
+        "description": "missing other dependency",
         "data": {
-          "foo": 1,
-          "bar": 2,
-          "quux": 3
+          "bar": 1,
+          "quux": 2
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "missing both dependencies",
+        "data": {
+          "quux": 1
+        },
+        "valid": false
       }
     ]
   },
@@ -99,19 +70,28 @@
     },
     "tests": [
       {
-        "description": "valid",
+        "description": "wrong type",
         "data": {
-          "foo": 1,
+          "foo": "quux",
           "bar": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "no dependency",
+        "description": "wrong type other",
         "data": {
-          "foo": "quux"
+          "foo": 2,
+          "bar": "quux"
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "wrong type both",
+        "data": {
+          "foo": "quux",
+          "bar": "quux"
+        },
+        "valid": false
       }
     ]
   }

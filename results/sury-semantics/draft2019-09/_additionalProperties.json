@@ -14,13 +14,38 @@
     },
     "tests": [
       {
-        "description": "an additional property is invalid",
+        "description": "no additional properties is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobarbaz",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "patternProperties are not additional properties",
         "data": {
           "foo": 1,
-          "bar": 2,
-          "quux": "boom"
+          "vroom": 2
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -35,11 +60,11 @@
     },
     "tests": [
       {
-        "description": "not matching the pattern is invalid",
+        "description": "matching the pattern is valid",
         "data": {
-          "élmény": 2
+          "ármányos": 2
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -68,50 +93,6 @@
     ]
   },
   {
-    "description": "additionalProperties can exist by itself",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "additionalProperties": {
-        "type": "boolean"
-      }
-    },
-    "tests": [
-      {
-        "description": "an additional invalid property is invalid",
-        "data": {
-          "foo": 1
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "additionalProperties does not look in applicators",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "allOf": [
-        {
-          "properties": {
-            "foo": {}
-          }
-        }
-      ],
-      "additionalProperties": {
-        "type": "boolean"
-      }
-    },
-    "tests": [
-      {
-        "description": "properties defined in allOf are not examined",
-        "data": {
-          "foo": 1,
-          "bar": true
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "additionalProperties with propertyNames",
     "schema": {
       "$schema": "https://json-schema.org/draft/2019-09/schema",
@@ -124,54 +105,11 @@
     },
     "tests": [
       {
-        "description": "Valid against propertyNames, but not additionalProperties",
+        "description": "Valid against both keywords",
         "data": {
-          "fig": 2,
-          "pear": "available"
+          "apple": 4
         },
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "dependentSchemas with additionalProperties",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "properties": {
-        "foo2": {}
-      },
-      "dependentSchemas": {
-        "foo": {},
-        "foo2": {
-          "properties": {
-            "bar": {}
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    "tests": [
-      {
-        "description": "additionalProperties doesn't consider dependentSchemas",
-        "data": {
-          "foo": ""
-        },
-        "valid": false
-      },
-      {
-        "description": "additionalProperties can't see bar",
-        "data": {
-          "bar": ""
-        },
-        "valid": false
-      },
-      {
-        "description": "additionalProperties can't see bar even when foo2 is present",
-        "data": {
-          "foo2": "",
-          "bar": ""
-        },
-        "valid": false
+        "valid": true
       }
     ]
   }

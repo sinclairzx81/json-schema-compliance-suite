@@ -17,6 +17,14 @@
         "valid": true
       },
       {
+        "description": "wrong type of items",
+        "data": [
+          1,
+          "x"
+        ],
+        "valid": false
+      },
+      {
         "description": "ignores non-arrays",
         "data": {
           "foo": "bar"
@@ -55,25 +63,12 @@
         "valid": true
       },
       {
-        "description": "incomplete array of items",
+        "description": "wrong types",
         "data": [
+          "foo",
           1
         ],
-        "valid": true
-      },
-      {
-        "description": "array with additional items",
-        "data": [
-          1,
-          "foo",
-          true
-        ],
-        "valid": true
-      },
-      {
-        "description": "empty array",
-        "data": [],
-        "valid": true
+        "valid": false
       },
       {
         "description": "JavaScript pseudo-array is valid",
@@ -125,8 +120,16 @@
     },
     "tests": [
       {
-        "description": "valid items",
+        "description": "too many items",
         "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
           [
             {
               "foo": null
@@ -152,11 +155,22 @@
             }
           ]
         ],
-        "valid": true
+        "valid": false
       },
       {
-        "description": "too many items",
+        "description": "too many sub-items",
         "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
           [
             {
               "foo": null
@@ -169,6 +183,43 @@
             {
               "foo": null
             },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "wrong item",
+        "data": [
+          {
+            "foo": null
+          },
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "wrong sub-item",
+        "data": [
+          [
+            {},
             {
               "foo": null
             }

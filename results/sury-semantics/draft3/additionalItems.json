@@ -9,34 +9,14 @@
     },
     "tests": [
       {
-        "description": "additional items match schema",
+        "description": "additional items do not match schema",
         "data": [
           1,
           2,
           3,
-          4
+          "foo"
         ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "when items is schema, additionalItems does nothing",
-    "schema": {
-      "items": {},
-      "additionalItems": false
-    },
-    "tests": [
-      {
-        "description": "all items match schema",
-        "data": [
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -52,80 +32,14 @@
     },
     "tests": [
       {
-        "description": "empty array",
-        "data": [],
-        "valid": true
-      },
-      {
-        "description": "fewer number of items present (1)",
-        "data": [
-          1
-        ],
-        "valid": true
-      },
-      {
-        "description": "fewer number of items present (2)",
-        "data": [
-          1,
-          2
-        ],
-        "valid": true
-      },
-      {
-        "description": "equal number of items present",
-        "data": [
-          1,
-          2,
-          3
-        ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "additionalItems as false without items",
-    "schema": {
-      "additionalItems": false
-    },
-    "tests": [
-      {
-        "description": "items defaults to empty schema so everything is valid",
+        "description": "additional items are not permitted",
         "data": [
           1,
           2,
           3,
-          4,
-          5
+          4
         ],
-        "valid": true
-      },
-      {
-        "description": "ignores non-arrays",
-        "data": {
-          "foo": "bar"
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "additionalItems are allowed by default",
-    "schema": {
-      "items": [
-        {
-          "type": "integer"
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "only the first item is validated",
-        "data": [
-          1,
-          "foo",
-          false
-        ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -139,28 +53,13 @@
     },
     "tests": [
       {
-        "description": "valid instance",
+        "description": "heterogeneous invalid instance",
         "data": [
-          null
+          "foo",
+          "bar",
+          37
         ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "additionalItems with null instance elements",
-    "schema": {
-      "additionalItems": {
-        "type": "null"
-      }
-    },
-    "tests": [
-      {
-        "description": "allows null elements",
-        "data": [
-          null
-        ],
-        "valid": true
+        "valid": false
       }
     ]
   }

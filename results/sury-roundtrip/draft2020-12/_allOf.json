@@ -214,6 +214,28 @@
     ]
   },
   {
+    "description": "nested allOf, to check validation semantics",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "type": "null"
+            }
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "anything non-null is invalid",
+        "data": 123,
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "allOf combined with anyOf, oneOf",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -268,6 +290,11 @@
         "description": "allOf: true, anyOf: true, oneOf: false",
         "data": 6,
         "valid": false
+      },
+      {
+        "description": "allOf: true, anyOf: true, oneOf: true",
+        "data": 30,
+        "valid": true
       }
     ]
   }

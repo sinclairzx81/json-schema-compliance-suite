@@ -1,26 +1,5 @@
 [
   {
-    "description": "unevaluatedProperties true",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "unevaluatedProperties": true
-    },
-    "tests": [
-      {
-        "description": "with no unevaluated properties",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "with unevaluated properties",
-        "data": {
-          "foo": "foo"
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "unevaluatedProperties schema",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -31,16 +10,11 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "with valid unevaluated properties",
+        "description": "with invalid unevaluated properties",
         "data": {
-          "foo": "foo"
+          "foo": "fo"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -52,9 +26,11 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
-        "data": {},
-        "valid": true
+        "description": "with unevaluated properties",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": false
       }
     ]
   },
@@ -71,11 +47,12 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
+        "description": "with unevaluated properties",
         "data": {
-          "foo": "foo"
+          "foo": "foo",
+          "bar": "bar"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -92,75 +69,12 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
-        "data": {
-          "foo": "foo"
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "unevaluatedProperties with adjacent bool additionalProperties",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "foo": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": true,
-      "unevaluatedProperties": false
-    },
-    "tests": [
-      {
-        "description": "with no additional properties",
-        "data": {
-          "foo": "foo"
-        },
-        "valid": true
-      },
-      {
-        "description": "with additional properties",
+        "description": "with unevaluated properties",
         "data": {
           "foo": "foo",
           "bar": "bar"
         },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "unevaluatedProperties with adjacent non-bool additionalProperties",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "foo": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": {
-        "type": "string"
-      },
-      "unevaluatedProperties": false
-    },
-    "tests": [
-      {
-        "description": "with no additional properties",
-        "data": {
-          "foo": "foo"
-        },
-        "valid": true
-      },
-      {
-        "description": "with additional properties",
-        "data": {
-          "foo": "foo",
-          "bar": "bar"
-        },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -186,12 +100,13 @@
     },
     "tests": [
       {
-        "description": "with no additional properties",
+        "description": "with additional properties",
         "data": {
           "foo": "foo",
-          "bar": "bar"
+          "bar": "bar",
+          "baz": "baz"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -217,83 +132,13 @@
     },
     "tests": [
       {
-        "description": "with no additional properties",
-        "data": {
-          "foo": "foo",
-          "bar": "bar"
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "unevaluatedProperties with nested additionalProperties",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "properties": {
-        "foo": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "additionalProperties": true
-        }
-      ],
-      "unevaluatedProperties": false
-    },
-    "tests": [
-      {
-        "description": "with no additional properties",
-        "data": {
-          "foo": "foo"
-        },
-        "valid": true
-      },
-      {
         "description": "with additional properties",
         "data": {
           "foo": "foo",
-          "bar": "bar"
+          "bar": "bar",
+          "baz": "baz"
         },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "unevaluatedProperties with nested unevaluatedProperties",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "properties": {
-        "foo": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "unevaluatedProperties": true
-        }
-      ],
-      "unevaluatedProperties": {
-        "type": "string",
-        "maxLength": 2
-      }
-    },
-    "tests": [
-      {
-        "description": "with no nested unevaluated properties",
-        "data": {
-          "foo": "foo"
-        },
-        "valid": true
-      },
-      {
-        "description": "with nested unevaluated properties",
-        "data": {
-          "foo": "foo",
-          "bar": "bar"
-        },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -342,21 +187,23 @@
     },
     "tests": [
       {
-        "description": "when one matches and has no unevaluated properties",
-        "data": {
-          "foo": "foo",
-          "bar": "bar"
-        },
-        "valid": true
-      },
-      {
-        "description": "when two match and has no unevaluated properties",
+        "description": "when one matches and has unevaluated properties",
         "data": {
           "foo": "foo",
           "bar": "bar",
-          "baz": "baz"
+          "baz": "not-baz"
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "when two match and has unevaluated properties",
+        "data": {
+          "foo": "foo",
+          "bar": "bar",
+          "baz": "baz",
+          "quux": "not-quux"
+        },
+        "valid": false
       }
     ]
   },
@@ -400,6 +247,40 @@
           "foo": "foo",
           "bar": "bar",
           "quux": "quux"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedProperties with not",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "properties": {
+        "foo": {
+          "type": "string"
+        }
+      },
+      "not": {
+        "not": {
+          "properties": {
+            "bar": {
+              "const": "bar"
+            }
+          },
+          "required": [
+            "bar"
+          ]
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "with unevaluated properties",
+        "data": {
+          "foo": "foo",
+          "bar": "bar"
         },
         "valid": false
       }
@@ -489,18 +370,20 @@
     },
     "tests": [
       {
-        "description": "when if is true and has no unevaluated properties",
+        "description": "when if is true and has unevaluated properties",
         "data": {
-          "foo": "then"
+          "foo": "then",
+          "bar": "bar"
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "when if is false and has no unevaluated properties",
+        "description": "when if is false and has unevaluated properties",
         "data": {
+          "foo": "else",
           "baz": "baz"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -532,12 +415,28 @@
     },
     "tests": [
       {
-        "description": "when if is true and has no unevaluated properties",
+        "description": "when if is true and has unevaluated properties",
         "data": {
           "foo": "then",
-          "bar": "bar"
+          "bar": "bar",
+          "baz": "baz"
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "when if is false and has no unevaluated properties",
+        "data": {
+          "baz": "baz"
+        },
+        "valid": false
+      },
+      {
+        "description": "when if is false and has unevaluated properties",
+        "data": {
+          "foo": "else",
+          "baz": "baz"
+        },
+        "valid": false
       }
     ]
   },
@@ -566,12 +465,11 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
+        "description": "with unevaluated properties",
         "data": {
-          "foo": "foo",
           "bar": "bar"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -591,11 +489,11 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
+        "description": "with unevaluated properties",
         "data": {
-          "foo": "foo"
+          "bar": "bar"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -622,12 +520,13 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
+        "description": "with unevaluated properties",
         "data": {
           "foo": "foo",
-          "bar": "bar"
+          "bar": "bar",
+          "baz": "baz"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -654,12 +553,13 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
+        "description": "with unevaluated properties",
         "data": {
           "foo": "foo",
-          "bar": "bar"
+          "bar": "bar",
+          "baz": "baz"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -759,7 +659,7 @@
     ]
   },
   {
-    "description": "nested unevaluatedProperties, outer false, inner true, properties outside",
+    "description": "nested unevaluatedProperties, outer true, inner false, properties outside",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "properties": {
@@ -769,10 +669,10 @@
       },
       "allOf": [
         {
-          "unevaluatedProperties": true
+          "unevaluatedProperties": false
         }
       ],
-      "unevaluatedProperties": false
+      "unevaluatedProperties": true
     },
     "tests": [
       {
@@ -780,7 +680,7 @@
         "data": {
           "foo": "foo"
         },
-        "valid": true
+        "valid": false
       },
       {
         "description": "with nested unevaluated properties",
@@ -788,41 +688,7 @@
           "foo": "foo",
           "bar": "bar"
         },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "nested unevaluatedProperties, outer false, inner true, properties inside",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "allOf": [
-        {
-          "properties": {
-            "foo": {
-              "type": "string"
-            }
-          },
-          "unevaluatedProperties": true
-        }
-      ],
-      "unevaluatedProperties": false
-    },
-    "tests": [
-      {
-        "description": "with no nested unevaluated properties",
-        "data": {
-          "foo": "foo"
-        },
-        "valid": true
-      },
-      {
-        "description": "with nested unevaluated properties",
-        "data": {
-          "foo": "foo",
-          "bar": "bar"
-        },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -844,11 +710,12 @@
     },
     "tests": [
       {
-        "description": "with no nested unevaluated properties",
+        "description": "with nested unevaluated properties",
         "data": {
-          "foo": "foo"
+          "foo": "foo",
+          "bar": "bar"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -980,11 +847,19 @@
     },
     "tests": [
       {
-        "description": "in place applicator siblings, bar is missing",
+        "description": "base case: both properties present",
         "data": {
-          "foo": 1
+          "foo": 1,
+          "bar": 1
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "in place applicator siblings, foo is missing",
+        "data": {
+          "bar": 1
+        },
+        "valid": false
       }
     ]
   },
@@ -1010,11 +885,19 @@
     },
     "tests": [
       {
-        "description": "in place applicator siblings, foo is missing",
+        "description": "base case: both properties present",
         "data": {
+          "foo": 1,
           "bar": 1
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "in place applicator siblings, bar is missing",
+        "data": {
+          "foo": 1
+        },
+        "valid": false
       }
     ]
   },
@@ -1031,36 +914,34 @@
     },
     "tests": [
       {
-        "description": "Empty is valid",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "Single is valid",
+        "description": "Unevaluated on 1st level is invalid",
         "data": {
-          "x": {}
+          "x": {},
+          "y": {}
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "Nested is valid",
+        "description": "Unevaluated on 2nd level is invalid",
         "data": {
           "x": {
-            "x": {}
+            "x": {},
+            "y": {}
           }
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "Deep nested is valid",
+        "description": "Unevaluated on 3rd level is invalid",
         "data": {
           "x": {
             "x": {
-              "x": {}
+              "x": {},
+              "y": {}
             }
           }
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -1319,63 +1200,6 @@
     ]
   },
   {
-    "description": "non-object instances are valid",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "unevaluatedProperties": false
-    },
-    "tests": [
-      {
-        "description": "ignores booleans",
-        "data": true,
-        "valid": true
-      },
-      {
-        "description": "ignores integers",
-        "data": 123,
-        "valid": true
-      },
-      {
-        "description": "ignores floats",
-        "data": 1,
-        "valid": true
-      },
-      {
-        "description": "ignores arrays",
-        "data": [],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foo",
-        "valid": true
-      },
-      {
-        "description": "ignores null",
-        "data": null,
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "unevaluatedProperties with null valued instance properties",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "unevaluatedProperties": {
-        "type": "null"
-      }
-    },
-    "tests": [
-      {
-        "description": "allows null valued properties",
-        "data": {
-          "foo": null
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "unevaluatedProperties not affected by propertyNames",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -1388,11 +1212,11 @@
     },
     "tests": [
       {
-        "description": "allows only number properties",
+        "description": "string property is invalid",
         "data": {
-          "a": 1
+          "a": "b"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -1411,11 +1235,11 @@
     },
     "tests": [
       {
-        "description": "valid in case if is evaluated",
+        "description": "invalid in case if is evaluated",
         "data": {
-          "foo": "a"
+          "bar": "a"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -1438,12 +1262,46 @@
     },
     "tests": [
       {
-        "description": "unevaluatedProperties sees bar when foo2 is present",
+        "description": "unevaluatedProperties doesn't consider dependentSchemas",
         "data": {
-          "foo2": "",
+          "foo": ""
+        },
+        "valid": false
+      },
+      {
+        "description": "unevaluatedProperties doesn't see bar when foo2 is absent",
+        "data": {
           "bar": ""
         },
-        "valid": true
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "Evaluated properties collection needs to consider instance location",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "properties": {
+        "foo": {
+          "properties": {
+            "bar": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "with an unevaluated property that exists at another location",
+        "data": {
+          "foo": {
+            "bar": "foo"
+          },
+          "bar": "bar"
+        },
+        "valid": false
       }
     ]
   },
@@ -1464,13 +1322,14 @@
     },
     "tests": [
       {
-        "description": "with only the nested evaluated property",
+        "description": "with an unevaluated property that exists at another location",
         "data": {
           "foo": {
             "bar": "foo"
-          }
+          },
+          "bar": "bar"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -1489,13 +1348,14 @@
     },
     "tests": [
       {
-        "description": "with only the nested evaluated property",
+        "description": "with an unevaluated property that exists at another location",
         "data": {
           "foo": {
             "bar": "foo"
-          }
+          },
+          "bar": "bar"
         },
-        "valid": true
+        "valid": false
       }
     ]
   }

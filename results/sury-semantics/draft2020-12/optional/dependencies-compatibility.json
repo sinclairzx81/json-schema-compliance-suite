@@ -11,69 +11,11 @@
     },
     "tests": [
       {
-        "description": "neither",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "nondependant",
-        "data": {
-          "foo": 1
-        },
-        "valid": true
-      },
-      {
-        "description": "with dependency",
-        "data": {
-          "foo": 1,
-          "bar": 2
-        },
-        "valid": true
-      },
-      {
-        "description": "ignores arrays",
-        "data": [
-          "bar"
-        ],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foobar",
-        "valid": true
-      },
-      {
-        "description": "ignores other non-objects",
-        "data": 12,
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "empty dependents",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "dependencies": {
-        "bar": []
-      }
-    },
-    "tests": [
-      {
-        "description": "empty object",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "object with one property",
+        "description": "missing dependency",
         "data": {
           "bar": 2
         },
-        "valid": true
-      },
-      {
-        "description": "non-object is valid",
-        "data": 1,
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -90,26 +32,27 @@
     },
     "tests": [
       {
-        "description": "neither",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "nondependants",
+        "description": "missing dependency",
         "data": {
           "foo": 1,
-          "bar": 2
+          "quux": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "with dependencies",
+        "description": "missing other dependency",
         "data": {
-          "foo": 1,
-          "bar": 2,
-          "quux": 3
+          "bar": 1,
+          "quux": 2
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "missing both dependencies",
+        "data": {
+          "quux": 1
+        },
+        "valid": false
       }
     ]
   },
@@ -128,20 +71,19 @@
     },
     "tests": [
       {
-        "description": "CRLF",
+        "description": "CRLF missing dependent",
         "data": {
           "foo\nbar": 1,
-          "foo\rbar": 2
+          "foo": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "quoted quotes",
+        "description": "quoted quotes missing dependent",
         "data": {
-          "foo'bar": 1,
           "foo\"bar": 2
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -164,36 +106,28 @@
     },
     "tests": [
       {
-        "description": "valid",
+        "description": "wrong type",
         "data": {
-          "foo": 1,
+          "foo": "quux",
           "bar": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "no dependency",
+        "description": "wrong type other",
         "data": {
-          "foo": "quux"
+          "foo": 2,
+          "bar": "quux"
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "ignores arrays",
-        "data": [
-          "bar"
-        ],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foobar",
-        "valid": true
-      },
-      {
-        "description": "ignores other non-objects",
-        "data": 12,
-        "valid": true
+        "description": "wrong type both",
+        "data": {
+          "foo": "quux",
+          "bar": "quux"
+        },
+        "valid": false
       }
     ]
   },
@@ -208,16 +142,19 @@
     },
     "tests": [
       {
-        "description": "object with property having schema true is valid",
+        "description": "object with property having schema false is invalid",
         "data": {
-          "foo": 1
+          "bar": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "empty object is valid",
-        "data": {},
-        "valid": true
+        "description": "object with both properties is invalid",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": false
       }
     ]
   },
@@ -238,14 +175,28 @@
     },
     "tests": [
       {
-        "description": "quoted tab",
+        "description": "quoted quote",
+        "data": {
+          "foo'bar": {
+            "foo\"bar": 1
+          }
+        },
+        "valid": false
+      },
+      {
+        "description": "quoted tab invalid under dependent schema",
         "data": {
           "foo\tbar": 1,
-          "a": 2,
-          "b": 3,
-          "c": 4
+          "a": 2
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "quoted quote invalid under dependent schema",
+        "data": {
+          "foo'bar": 1
+        },
+        "valid": false
       }
     ]
   }

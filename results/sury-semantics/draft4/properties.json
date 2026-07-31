@@ -21,6 +21,22 @@
         "valid": true
       },
       {
+        "description": "one property invalid is invalid",
+        "data": {
+          "foo": 1,
+          "bar": {}
+        },
+        "valid": false
+      },
+      {
+        "description": "both properties invalid is invalid",
+        "data": {
+          "foo": [],
+          "bar": {}
+        },
+        "valid": false
+      },
+      {
         "description": "doesn't invalidate other properties",
         "data": {
           "quux": []
@@ -62,38 +78,37 @@
     },
     "tests": [
       {
-        "description": "property validates property",
+        "description": "property invalidates property",
         "data": {
           "foo": [
             1,
-            2
+            2,
+            3,
+            4
           ]
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "patternProperty validates nonproperty",
+        "description": "patternProperty invalidates property",
         "data": {
-          "fxo": [
-            1,
-            2
-          ]
+          "foo": []
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "additionalProperty ignores property",
+        "description": "patternProperty invalidates nonproperty",
         "data": {
-          "bar": []
+          "fxo": []
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "additionalProperty validates others",
+        "description": "additionalProperty invalidates others",
         "data": {
-          "quux": 3
+          "quux": "foo"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -123,16 +138,16 @@
     },
     "tests": [
       {
-        "description": "object with all numbers is valid",
+        "description": "object with strings is invalid",
         "data": {
-          "foo\nbar": 1,
-          "foo\"bar": 1,
-          "foo\\bar": 1,
-          "foo\rbar": 1,
-          "foo\tbar": 1,
-          "foo\fbar": 1
+          "foo\nbar": "1",
+          "foo\"bar": "1",
+          "foo\\bar": "1",
+          "foo\rbar": "1",
+          "foo\tbar": "1",
+          "foo\fbar": "1"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -187,20 +202,29 @@
         "valid": true
       },
       {
-        "description": "none of the properties mentioned",
-        "data": {},
-        "valid": true
+        "description": "__proto__ not valid",
+        "data": {
+          "__proto__": "foo"
+        },
+        "valid": false
       },
       {
-        "description": "all present and valid",
+        "description": "toString not valid",
         "data": {
-          "__proto__": 12,
           "toString": {
-            "length": "foo"
-          },
-          "constructor": 37
+            "length": 37
+          }
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "constructor not valid",
+        "data": {
+          "constructor": {
+            "length": 37
+          }
+        },
+        "valid": false
       }
     ]
   }

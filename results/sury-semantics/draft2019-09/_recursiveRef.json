@@ -12,13 +12,6 @@
     },
     "tests": [
       {
-        "description": "mismatch",
-        "data": {
-          "bar": false
-        },
-        "valid": false
-      },
-      {
         "description": "recursive mismatch",
         "data": {
           "foo": {
@@ -302,11 +295,11 @@
     },
     "tests": [
       {
-        "description": "recurse to integerNode - floats are not allowed",
+        "description": "recurse to anyLeafNode - floats are allowed",
         "data": {
-          "november": 1.1
+          "alpha": 1.1
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -349,11 +342,11 @@
     },
     "tests": [
       {
-        "description": "integer node",
+        "description": "numeric node",
         "data": {
-          "november": 1.1
+          "alpha": 1.1
         },
-        "valid": false
+        "valid": true
       }
     ]
   }

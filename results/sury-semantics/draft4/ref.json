@@ -25,6 +25,13 @@
           }
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": false
+        },
+        "valid": false
       }
     ]
   },
@@ -173,17 +180,6 @@
           "foo": []
         },
         "valid": true
-      },
-      {
-        "description": "ref valid, maxItems ignored",
-        "data": {
-          "foo": [
-            1,
-            2,
-            3
-          ]
-        },
-        "valid": true
       }
     ]
   },
@@ -249,6 +245,13 @@
           "$ref": "a"
         },
         "valid": true
+      },
+      {
+        "description": "property named $ref invalid",
+        "data": {
+          "$ref": 2
+        },
+        "valid": false
       }
     ]
   },

@@ -1,18 +1,5 @@
 [
   {
-    "description": "object type matches objects",
-    "schema": {
-      "type": "object"
-    },
-    "tests": [
-      {
-        "description": "an array is not an object",
-        "data": [],
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "any type matches any type",
     "schema": {
       "type": "any"

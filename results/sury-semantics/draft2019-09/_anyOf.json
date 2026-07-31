@@ -1,26 +1,5 @@
 [
   {
-    "description": "anyOf",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "anyOf": [
-        {
-          "type": "integer"
-        },
-        {
-          "minimum": 2
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "neither anyOf valid",
-        "data": 1.5,
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "anyOf with base schema",
     "schema": {
       "$schema": "https://json-schema.org/draft/2019-09/schema",
@@ -38,49 +17,6 @@
       {
         "description": "mismatch base schema",
         "data": 3,
-        "valid": false
-      },
-      {
-        "description": "both anyOf invalid",
-        "data": "foo",
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "anyOf complex types",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "anyOf": [
-        {
-          "properties": {
-            "bar": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "bar"
-          ]
-        },
-        {
-          "properties": {
-            "foo": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "foo"
-          ]
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "neither anyOf valid (complex)",
-        "data": {
-          "foo": 2,
-          "bar": "quux"
-        },
         "valid": false
       }
     ]

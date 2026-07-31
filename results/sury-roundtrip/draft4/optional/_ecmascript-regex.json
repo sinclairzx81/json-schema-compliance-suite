@@ -114,6 +114,13 @@
           "l'école": "pas de vraie vie"
         },
         "valid": true
+      },
+      {
+        "description": "unicode matching is case-sensitive",
+        "data": {
+          "L'ÉCOLE": "PAS DE VRAIE VIE"
+        },
+        "valid": false
       }
     ]
   },
@@ -133,6 +140,27 @@
           "l'ecole": "pas de vraie vie"
         },
         "valid": true
+      },
+      {
+        "description": "literal unicode character in json string",
+        "data": {
+          "l'école": "pas de vraie vie"
+        },
+        "valid": false
+      },
+      {
+        "description": "unicode character in hex format in string",
+        "data": {
+          "l'école": "pas de vraie vie"
+        },
+        "valid": false
+      },
+      {
+        "description": "unicode matching is case-sensitive",
+        "data": {
+          "L'ÉCOLE": "PAS DE VRAIE VIE"
+        },
+        "valid": false
       }
     ]
   },
@@ -146,6 +174,20 @@
       "additionalProperties": false
     },
     "tests": [
+      {
+        "description": "literal unicode character in json string",
+        "data": {
+          "l'école": "pas de vraie vie"
+        },
+        "valid": false
+      },
+      {
+        "description": "unicode character in hex format in string",
+        "data": {
+          "l'école": "pas de vraie vie"
+        },
+        "valid": false
+      },
       {
         "description": "ascii characters match",
         "data": {
@@ -171,6 +213,20 @@
           "42": "life, the universe, and everything"
         },
         "valid": true
+      },
+      {
+        "description": "ascii non-digits",
+        "data": {
+          "-%#": "spending the year dead for tax reasons"
+        },
+        "valid": false
+      },
+      {
+        "description": "non-ascii digits (BENGALI DIGIT FOUR, BENGALI DIGIT TWO)",
+        "data": {
+          "৪২": "khajit has wares if you have coin"
+        },
+        "valid": false
       }
     ]
   },
@@ -190,6 +246,13 @@
           "42": "life, the universe, and everything"
         },
         "valid": true
+      },
+      {
+        "description": "ascii non-digits",
+        "data": {
+          "-%#": "spending the year dead for tax reasons"
+        },
+        "valid": false
       },
       {
         "description": "non-ascii digits (BENGALI DIGIT FOUR, BENGALI DIGIT TWO)",

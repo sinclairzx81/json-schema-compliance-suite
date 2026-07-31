@@ -10,41 +10,11 @@
     },
     "tests": [
       {
-        "description": "neither",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "nondependant",
+        "description": "missing dependency",
         "data": {
-          "foo": 1
-        },
-        "valid": true
-      },
-      {
-        "description": "with dependency",
-        "data": {
-          "foo": 1,
           "bar": 2
         },
-        "valid": true
-      },
-      {
-        "description": "ignores arrays",
-        "data": [
-          "bar"
-        ],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foobar",
-        "valid": true
-      },
-      {
-        "description": "ignores other non-objects",
-        "data": 12,
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -60,26 +30,27 @@
     },
     "tests": [
       {
-        "description": "neither",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "nondependants",
+        "description": "missing dependency",
         "data": {
           "foo": 1,
-          "bar": 2
+          "quux": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "with dependencies",
+        "description": "missing other dependency",
         "data": {
-          "foo": 1,
-          "bar": 2,
-          "quux": 3
+          "bar": 1,
+          "quux": 2
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "missing both dependencies",
+        "data": {
+          "quux": 1
+        },
+        "valid": false
       }
     ]
   },
@@ -101,19 +72,28 @@
     },
     "tests": [
       {
-        "description": "valid",
+        "description": "wrong type",
         "data": {
-          "foo": 1,
+          "foo": "quux",
           "bar": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "no dependency",
+        "description": "wrong type other",
         "data": {
-          "foo": "quux"
+          "foo": 2,
+          "bar": "quux"
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "wrong type both",
+        "data": {
+          "foo": "quux",
+          "bar": "quux"
+        },
+        "valid": false
       }
     ]
   },
@@ -139,30 +119,34 @@
     },
     "tests": [
       {
-        "description": "valid object 1",
+        "description": "invalid object 1",
         "data": {
           "foo\nbar": 1,
-          "foo\rbar": 2
+          "foo": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "valid object 2",
+        "description": "invalid object 2",
         "data": {
           "foo\tbar": 1,
-          "a": 2,
-          "b": 3,
-          "c": 4
+          "a": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "valid object 3",
+        "description": "invalid object 3",
         "data": {
-          "foo'bar": 1,
+          "foo'bar": 1
+        },
+        "valid": false
+      },
+      {
+        "description": "invalid object 4",
+        "data": {
           "foo\"bar": 2
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -183,18 +167,19 @@
     },
     "tests": [
       {
-        "description": "matches dependency",
+        "description": "matches root",
         "data": {
-          "bar": 1
+          "foo": 1
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "no dependency",
+        "description": "matches both",
         "data": {
-          "baz": 1
+          "foo": 1,
+          "bar": 2
         },
-        "valid": true
+        "valid": false
       }
     ]
   }

@@ -39,6 +39,11 @@
     },
     "tests": [
       {
+        "description": "mismatch base schema",
+        "data": 3,
+        "valid": false
+      },
+      {
         "description": "one oneOf valid",
         "data": "foobar",
         "valid": true
@@ -219,11 +224,6 @@
         "description": "null is valid",
         "data": null,
         "valid": true
-      },
-      {
-        "description": "anything non-null is invalid",
-        "data": 123,
-        "valid": false
       }
     ]
   }

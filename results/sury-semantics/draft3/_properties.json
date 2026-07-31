@@ -1,36 +1,5 @@
 [
   {
-    "description": "object properties validation",
-    "schema": {
-      "properties": {
-        "foo": {
-          "type": "integer"
-        },
-        "bar": {
-          "type": "string"
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "one property invalid is invalid",
-        "data": {
-          "foo": 1,
-          "bar": {}
-        },
-        "valid": false
-      },
-      {
-        "description": "both properties invalid is invalid",
-        "data": {
-          "foo": [],
-          "bar": {}
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "properties, patternProperties, additionalProperties interaction",
     "schema": {
       "properties": {
@@ -53,37 +22,38 @@
     },
     "tests": [
       {
-        "description": "property invalidates property",
+        "description": "property validates property",
         "data": {
           "foo": [
             1,
-            2,
-            3,
-            4
+            2
           ]
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "patternProperty invalidates property",
+        "description": "patternProperty validates nonproperty",
         "data": {
-          "foo": []
+          "fxo": [
+            1,
+            2
+          ]
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "patternProperty invalidates nonproperty",
+        "description": "additionalProperty ignores property",
         "data": {
-          "fxo": []
+          "bar": []
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "additionalProperty invalidates others",
+        "description": "additionalProperty validates others",
         "data": {
-          "quux": "foo"
+          "quux": 3
         },
-        "valid": false
+        "valid": true
       }
     ]
   }

@@ -21,6 +21,14 @@
     },
     "tests": [
       {
+        "description": "allows bar if foo = foo1",
+        "data": {
+          "foo": "foo1",
+          "bar": 42
+        },
+        "valid": true
+      },
+      {
         "description": "disallows bar if foo != foo1",
         "data": {
           "foo": "foo2",
@@ -63,6 +71,14 @@
           "foo": "bar"
         },
         "valid": false
+      },
+      {
+        "description": "unevaluatedProperties sees buz when foo2 is present",
+        "data": {
+          "foo2": "bar",
+          "buz": ""
+        },
+        "valid": true
       },
       {
         "description": "unevaluatedProperties doesn't see buz when foo2 is absent",

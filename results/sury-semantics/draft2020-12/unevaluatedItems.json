@@ -1,26 +1,5 @@
 [
   {
-    "description": "unevaluatedItems true",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "unevaluatedItems": true
-    },
-    "tests": [
-      {
-        "description": "with no unevaluated items",
-        "data": [],
-        "valid": true
-      },
-      {
-        "description": "with unevaluated items",
-        "data": [
-          "foo"
-        ],
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "unevaluatedItems false",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -28,9 +7,11 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated items",
-        "data": [],
-        "valid": true
+        "description": "with unevaluated items",
+        "data": [
+          "foo"
+        ],
+        "valid": false
       }
     ]
   },
@@ -44,36 +25,11 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated items",
-        "data": [],
-        "valid": true
-      },
-      {
-        "description": "with valid unevaluated items",
+        "description": "with invalid unevaluated items",
         "data": [
-          "foo"
+          42
         ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "unevaluatedItems with uniform items",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "items": {
-        "type": "string"
-      },
-      "unevaluatedItems": false
-    },
-    "tests": [
-      {
-        "description": "unevaluatedItems doesn't apply",
-        "data": [
-          "foo",
-          "bar"
-        ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -90,34 +46,12 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated items",
-        "data": [
-          "foo"
-        ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "unevaluatedItems with items and prefixItems",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "prefixItems": [
-        {
-          "type": "string"
-        }
-      ],
-      "items": true,
-      "unevaluatedItems": false
-    },
-    "tests": [
-      {
-        "description": "unevaluatedItems doesn't apply",
+        "description": "with unevaluated items",
         "data": [
           "foo",
-          42
+          "bar"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -134,15 +68,13 @@
     },
     "tests": [
       {
-        "description": "valid under items",
-        "comment": "no elements are considered by unevaluatedItems",
+        "description": "invalid under items",
         "data": [
-          5,
-          6,
-          7,
-          8
+          "foo",
+          "bar",
+          "baz"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -169,12 +101,13 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated items",
+        "description": "with unevaluated items",
         "data": [
           "foo",
-          42
+          42,
+          true
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -196,55 +129,12 @@
     },
     "tests": [
       {
-        "description": "with only (valid) additional items",
-        "data": [
-          true,
-          false
-        ],
-        "valid": true
-      },
-      {
-        "description": "with no additional items",
+        "description": "with invalid additional item",
         "data": [
           "yes",
-          "no"
+          false
         ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "unevaluatedItems with nested prefixItems and items",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "allOf": [
-        {
-          "prefixItems": [
-            {
-              "type": "string"
-            }
-          ],
-          "items": true
-        }
-      ],
-      "unevaluatedItems": false
-    },
-    "tests": [
-      {
-        "description": "with no additional items",
-        "data": [
-          "foo"
-        ],
-        "valid": true
-      },
-      {
-        "description": "with additional items",
-        "data": [
-          "foo",
-          42,
-          true
-        ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -280,21 +170,23 @@
     },
     "tests": [
       {
-        "description": "when one schema matches and has no unevaluated items",
-        "data": [
-          "foo",
-          "bar"
-        ],
-        "valid": true
-      },
-      {
-        "description": "when two schemas match and has no unevaluated items",
+        "description": "when one schema matches and has unevaluated items",
         "data": [
           "foo",
           "bar",
-          "baz"
+          42
         ],
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "when two schemas match and has unevaluated items",
+        "data": [
+          "foo",
+          "bar",
+          "baz",
+          42
+        ],
+        "valid": false
       }
     ]
   },
@@ -334,6 +226,38 @@
           "foo",
           "bar",
           42
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with not",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "prefixItems": [
+        {
+          "const": "foo"
+        }
+      ],
+      "not": {
+        "not": {
+          "prefixItems": [
+            true,
+            {
+              "const": "bar"
+            }
+          ]
+        }
+      },
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "with unevaluated items",
+        "data": [
+          "foo",
+          "bar"
         ],
         "valid": false
       }
@@ -412,9 +336,11 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated items",
-        "data": [],
-        "valid": true
+        "description": "with unevaluated items",
+        "data": [
+          "foo"
+        ],
+        "valid": false
       }
     ]
   },
@@ -442,12 +368,13 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated items",
+        "description": "with unevaluated items",
         "data": [
           "foo",
-          "bar"
+          "bar",
+          "baz"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -475,12 +402,13 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated items",
+        "description": "with unevaluated items",
         "data": [
           "foo",
-          "bar"
+          "bar",
+          "baz"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -557,47 +485,6 @@
     ]
   },
   {
-    "description": "item is evaluated in an uncle schema to unevaluatedItems",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "properties": {
-        "foo": {
-          "prefixItems": [
-            {
-              "type": "string"
-            }
-          ],
-          "unevaluatedItems": false
-        }
-      },
-      "anyOf": [
-        {
-          "properties": {
-            "foo": {
-              "prefixItems": [
-                true,
-                {
-                  "type": "string"
-                }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "no extra items",
-        "data": {
-          "foo": [
-            "test"
-          ]
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "unevaluatedItems depends on adjacent contains",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -611,12 +498,21 @@
     },
     "tests": [
       {
-        "description": "second item is evaluated by contains",
+        "description": "contains fails, second item is not evaluated",
         "data": [
           1,
+          2
+        ],
+        "valid": false
+      },
+      {
+        "description": "contains passes, second item is not evaluated",
+        "data": [
+          1,
+          2,
           "foo"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -681,40 +577,42 @@
     },
     "tests": [
       {
-        "description": "empty array is valid",
-        "data": [],
-        "valid": true
-      },
-      {
-        "description": "only a's are valid",
+        "description": "only b's are invalid",
         "data": [
-          "a",
-          "a"
+          "b",
+          "b"
         ],
-        "valid": true
+        "valid": false
       },
       {
-        "description": "a's and b's are valid",
+        "description": "only c's are invalid",
         "data": [
-          "a",
-          "b",
-          "a",
-          "b",
-          "a"
+          "c",
+          "c"
         ],
-        "valid": true
+        "valid": false
       },
       {
-        "description": "a's, b's and c's are valid",
+        "description": "only b's and c's are invalid",
+        "data": [
+          "c",
+          "b",
+          "c",
+          "b",
+          "c"
+        ],
+        "valid": false
+      },
+      {
+        "description": "only a's and c's are invalid",
         "data": [
           "c",
           "a",
           "c",
-          "c",
-          "b",
-          "a"
+          "a",
+          "c"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -730,74 +628,19 @@
     },
     "tests": [
       {
-        "description": "empty array is valid",
-        "data": [],
-        "valid": true
+        "description": "no items evaluated by contains",
+        "data": [
+          0
+        ],
+        "valid": false
       },
       {
-        "description": "all items evaluated by contains",
+        "description": "some but not all items evaluated by contains",
         "data": [
           "foo",
-          "bar"
+          0
         ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "non-array instances are valid",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "unevaluatedItems": false
-    },
-    "tests": [
-      {
-        "description": "ignores booleans",
-        "data": true,
-        "valid": true
-      },
-      {
-        "description": "ignores integers",
-        "data": 123,
-        "valid": true
-      },
-      {
-        "description": "ignores floats",
-        "data": 1,
-        "valid": true
-      },
-      {
-        "description": "ignores objects",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foo",
-        "valid": true
-      },
-      {
-        "description": "ignores null",
-        "data": null,
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "unevaluatedItems with null instance elements",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "unevaluatedItems": {
-        "type": "null"
-      }
-    },
-    "tests": [
-      {
-        "description": "allows null elements",
-        "data": [
-          null
-        ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -816,11 +659,41 @@
     },
     "tests": [
       {
-        "description": "valid in case if is evaluated",
+        "description": "invalid in case if is evaluated",
         "data": [
-          "a"
+          "b"
         ],
-        "valid": true
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "Evaluated items collection needs to consider instance location",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "prefixItems": [
+        {
+          "prefixItems": [
+            true,
+            {
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "with an unevaluated item that exists at another location",
+        "data": [
+          [
+            "foo",
+            "bar"
+          ],
+          "bar"
+        ],
+        "valid": false
       }
     ]
   }

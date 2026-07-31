@@ -96,6 +96,14 @@
     },
     "tests": [
       {
+        "description": "property present",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
         "description": "property absent",
         "data": {
           "bar": 1,
@@ -113,8 +121,52 @@
     },
     "tests": [
       {
+        "description": "number is invalid",
+        "data": 1,
+        "valid": false
+      },
+      {
+        "description": "string is invalid",
+        "data": "foo",
+        "valid": false
+      },
+      {
+        "description": "boolean true is invalid",
+        "data": true,
+        "valid": false
+      },
+      {
+        "description": "boolean false is invalid",
+        "data": false,
+        "valid": false
+      },
+      {
         "description": "null is invalid",
         "data": null,
+        "valid": false
+      },
+      {
+        "description": "object is invalid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": false
+      },
+      {
+        "description": "empty object is invalid",
+        "data": {},
+        "valid": false
+      },
+      {
+        "description": "array is invalid",
+        "data": [
+          "foo"
+        ],
+        "valid": false
+      },
+      {
+        "description": "empty array is invalid",
+        "data": [],
         "valid": false
       }
     ]
@@ -127,8 +179,52 @@
     },
     "tests": [
       {
+        "description": "number is invalid",
+        "data": 1,
+        "valid": false
+      },
+      {
+        "description": "string is invalid",
+        "data": "foo",
+        "valid": false
+      },
+      {
+        "description": "boolean true is invalid",
+        "data": true,
+        "valid": false
+      },
+      {
+        "description": "boolean false is invalid",
+        "data": false,
+        "valid": false
+      },
+      {
         "description": "null is invalid",
         "data": null,
+        "valid": false
+      },
+      {
+        "description": "object is invalid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": false
+      },
+      {
+        "description": "empty object is invalid",
+        "data": {},
+        "valid": false
+      },
+      {
+        "description": "array is invalid",
+        "data": [
+          "foo"
+        ],
+        "valid": false
+      },
+      {
+        "description": "empty array is invalid",
+        "data": [],
         "valid": false
       }
     ]

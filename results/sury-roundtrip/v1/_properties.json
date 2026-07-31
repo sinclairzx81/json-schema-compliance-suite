@@ -55,6 +55,16 @@
     },
     "tests": [
       {
+        "description": "property validates property",
+        "data": {
+          "foo": [
+            1,
+            2
+          ]
+        },
+        "valid": true
+      },
+      {
         "description": "property invalidates property",
         "data": {
           "foo": [
@@ -74,11 +84,35 @@
         "valid": false
       },
       {
+        "description": "patternProperty validates nonproperty",
+        "data": {
+          "fxo": [
+            1,
+            2
+          ]
+        },
+        "valid": true
+      },
+      {
         "description": "patternProperty invalidates nonproperty",
         "data": {
           "fxo": []
         },
         "valid": false
+      },
+      {
+        "description": "additionalProperty ignores property",
+        "data": {
+          "bar": []
+        },
+        "valid": true
+      },
+      {
+        "description": "additionalProperty validates others",
+        "data": {
+          "quux": 3
+        },
+        "valid": true
       },
       {
         "description": "additionalProperty invalidates others",

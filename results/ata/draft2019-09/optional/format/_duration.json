@@ -8,16 +8,6 @@
     },
     "tests": [
       {
-        "description": "no time elements present",
-        "data": "P1YT",
-        "valid": false
-      },
-      {
-        "description": "no date or time elements present",
-        "data": "PT",
-        "valid": false
-      },
-      {
         "description": "weeks cannot be combined with other units",
         "data": "P1Y2W",
         "valid": false

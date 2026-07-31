@@ -16,6 +16,11 @@
         "valid": true
       },
       {
+        "description": "above the maximum is invalid",
+        "data": 3.5,
+        "valid": false
+      },
+      {
         "description": "ignores non-numbers",
         "data": "x",
         "valid": true
@@ -42,6 +47,11 @@
         "description": "boundary point float is valid",
         "data": 300,
         "valid": true
+      },
+      {
+        "description": "above the maximum is invalid",
+        "data": 300.5,
+        "valid": false
       }
     ]
   }

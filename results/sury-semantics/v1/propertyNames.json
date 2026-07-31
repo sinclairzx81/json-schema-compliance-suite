@@ -9,68 +9,12 @@
     },
     "tests": [
       {
-        "description": "all property names valid",
+        "description": "some property names invalid",
         "data": {
-          "f": {},
-          "foo": {}
+          "foo": {},
+          "foobar": {}
         },
-        "valid": true
-      },
-      {
-        "description": "object without properties is valid",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "ignores arrays",
-        "data": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foobar",
-        "valid": true
-      },
-      {
-        "description": "ignores other non-objects",
-        "data": 12,
-        "valid": true
-      },
-      {
-        "description": "ignores null",
-        "data": null,
-        "valid": true
-      },
-      {
-        "description": "ignores booleans",
-        "data": true,
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "propertyNames with boolean schema true",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "propertyNames": true
-    },
-    "tests": [
-      {
-        "description": "object with any properties is valid",
-        "data": {
-          "foo": 1
-        },
-        "valid": true
-      },
-      {
-        "description": "empty object is valid",
-        "data": {},
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -82,9 +26,11 @@
     },
     "tests": [
       {
-        "description": "empty object is valid",
-        "data": {},
-        "valid": true
+        "description": "object with any properties is invalid",
+        "data": {
+          "foo": 1
+        },
+        "valid": false
       }
     ]
   }

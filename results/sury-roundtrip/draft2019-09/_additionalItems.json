@@ -12,6 +12,16 @@
     },
     "tests": [
       {
+        "description": "additional items match schema",
+        "data": [
+          null,
+          2,
+          3,
+          4
+        ],
+        "valid": true
+      },
+      {
         "description": "additional items do not match schema",
         "data": [
           null,
@@ -36,6 +46,15 @@
     },
     "tests": [
       {
+        "description": "valid with a array of type integers",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      },
+      {
         "description": "invalid with a array of mixed types",
         "data": [
           1,
@@ -43,6 +62,27 @@
           "3"
         ],
         "valid": false
+      }
+    ]
+  },
+  {
+    "description": "when items is schema, boolean additionalItems does nothing",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "items": {},
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "all items match schema",
+        "data": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "valid": true
       }
     ]
   },
@@ -59,6 +99,35 @@
     },
     "tests": [
       {
+        "description": "empty array",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "fewer number of items present (1)",
+        "data": [
+          1
+        ],
+        "valid": true
+      },
+      {
+        "description": "fewer number of items present (2)",
+        "data": [
+          1,
+          2
+        ],
+        "valid": true
+      },
+      {
+        "description": "equal number of items present",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      },
+      {
         "description": "additional items are not permitted",
         "data": [
           1,
@@ -67,6 +136,33 @@
           4
         ],
         "valid": false
+      }
+    ]
+  },
+  {
+    "description": "additionalItems as false without items",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "items defaults to empty schema so everything is valid",
+        "data": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores non-arrays",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
       }
     ]
   },
@@ -121,6 +217,15 @@
     },
     "tests": [
       {
+        "description": "valid items",
+        "data": [
+          "x",
+          2,
+          3
+        ],
+        "valid": true
+      },
+      {
         "description": "wrong type of second item",
         "data": [
           "x",
@@ -148,6 +253,31 @@
           37
         ],
         "valid": false
+      },
+      {
+        "description": "valid instance",
+        "data": [
+          null
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "additionalItems with null instance elements",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "additionalItems": {
+        "type": "null"
+      }
+    },
+    "tests": [
+      {
+        "description": "allows null elements",
+        "data": [
+          null
+        ],
+        "valid": true
       }
     ]
   }

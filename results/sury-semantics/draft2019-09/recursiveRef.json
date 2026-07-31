@@ -26,6 +26,13 @@
           }
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": false
+        },
+        "valid": false
       }
     ]
   },
@@ -403,11 +410,11 @@
     },
     "tests": [
       {
-        "description": "recurse to anyLeafNode - floats are allowed",
+        "description": "recurse to integerNode - floats are not allowed",
         "data": {
-          "alpha": 1.1
+          "november": 1.1
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -450,11 +457,11 @@
     },
     "tests": [
       {
-        "description": "numeric node",
+        "description": "integer node",
         "data": {
-          "alpha": 1.1
+          "november": 1.1
         },
-        "valid": true
+        "valid": false
       }
     ]
   }

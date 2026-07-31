@@ -12,6 +12,11 @@
         "valid": true
       },
       {
+        "description": "a 1-character string is not valid",
+        "data": "a",
+        "valid": false
+      },
+      {
         "description": "a non-string is valid",
         "data": 5,
         "valid": true

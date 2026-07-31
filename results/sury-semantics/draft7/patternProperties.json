@@ -10,36 +10,20 @@
     },
     "tests": [
       {
-        "description": "a single valid match is valid",
+        "description": "a single invalid match is invalid",
         "data": {
-          "foo": 1
+          "foo": "bar",
+          "fooooo": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "multiple valid matches is valid",
+        "description": "multiple invalid matches is invalid",
         "data": {
-          "foo": 1,
-          "foooooo": 2
+          "foo": "bar",
+          "foooooo": "baz"
         },
-        "valid": true
-      },
-      {
-        "description": "ignores arrays",
-        "data": [
-          "foo"
-        ],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foo",
-        "valid": true
-      },
-      {
-        "description": "ignores other non-objects",
-        "data": 12,
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -57,26 +41,26 @@
     },
     "tests": [
       {
-        "description": "a single valid match is valid",
+        "description": "an invalid due to one is invalid",
         "data": {
-          "a": 21
+          "a": "bar"
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "a simultaneous match is valid",
+        "description": "an invalid due to the other is invalid",
         "data": {
-          "aaaa": 18
+          "aaaa": 31
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "multiple matches is valid",
+        "description": "an invalid due to both is invalid",
         "data": {
-          "a": 21,
-          "aaaa": 18
+          "aaa": "foo",
+          "aaaa": 31
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -94,18 +78,18 @@
     },
     "tests": [
       {
-        "description": "non recognized members are ignored",
+        "description": "recognized members are accounted for",
         "data": {
-          "answer 1": "42"
+          "a31b": null
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "regexes are case sensitive",
+        "description": "regexes are case sensitive, 2",
         "data": {
-          "a_x_3": 3
+          "a_X_3": 3
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -119,35 +103,26 @@
     },
     "tests": [
       {
-        "description": "object with property matching schema true is valid",
+        "description": "object with property matching schema false is invalid",
         "data": {
-          "foo": 1
+          "bar": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "empty object is valid",
-        "data": {},
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "patternProperties with null valued instance properties",
-    "schema": {
-      "patternProperties": {
-        "^.*bar$": {
-          "type": "null"
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "allows null values",
+        "description": "object with both properties is invalid",
         "data": {
-          "foobar": null
+          "foo": 1,
+          "bar": 2
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "object with a property matching both true and false is invalid",
+        "data": {
+          "foobar": 1
+        },
+        "valid": false
       }
     ]
   }

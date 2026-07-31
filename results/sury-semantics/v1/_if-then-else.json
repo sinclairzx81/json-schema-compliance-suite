@@ -1,24 +1,5 @@
 [
   {
-    "description": "if and then without else",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "if": {
-        "exclusiveMaximum": 0
-      },
-      "then": {
-        "minimum": -10
-      }
-    },
-    "tests": [
-      {
-        "description": "invalid through then",
-        "data": -100,
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "if and else without then",
     "schema": {
       "$schema": "https://json-schema.org/v1",
@@ -31,9 +12,14 @@
     },
     "tests": [
       {
-        "description": "invalid through else",
-        "data": 3,
-        "valid": false
+        "description": "valid when if test passes",
+        "data": -1,
+        "valid": true
+      },
+      {
+        "description": "valid through else",
+        "data": 4,
+        "valid": true
       }
     ]
   },
@@ -60,88 +46,6 @@
       {
         "description": "valid through else",
         "data": 4,
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "non-interference across combined schemas",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "allOf": [
-        {
-          "if": {
-            "exclusiveMaximum": 0
-          }
-        },
-        {
-          "then": {
-            "minimum": -10
-          }
-        },
-        {
-          "else": {
-            "multipleOf": 2
-          }
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "valid, but would have been invalid through then",
-        "data": -100,
-        "valid": true
-      },
-      {
-        "description": "valid, but would have been invalid through else",
-        "data": 3,
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "if with boolean schema true",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "if": true,
-      "then": {
-        "const": "then"
-      },
-      "else": {
-        "const": "else"
-      }
-    },
-    "tests": [
-      {
-        "description": "boolean schema true in if always chooses the then path (valid)",
-        "data": "then",
-        "valid": true
-      },
-      {
-        "description": "boolean schema true in if always chooses the then path (invalid)",
-        "data": "else",
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "if appears at the end when serialized (keyword processing sequence)",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "then": {
-        "const": "yes"
-      },
-      "else": {
-        "const": "other"
-      },
-      "if": {
-        "maxLength": 4
-      }
-    },
-    "tests": [
-      {
-        "description": "yes redirects to then and passes",
-        "data": "yes",
         "valid": true
       }
     ]

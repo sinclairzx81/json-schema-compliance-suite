@@ -11,11 +11,76 @@
     },
     "tests": [
       {
+        "description": "neither",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "nondependant",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "with dependency",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
         "description": "missing dependency",
         "data": {
           "bar": 2
         },
         "valid": false
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          "bar"
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobar",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "empty dependents",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "dependencies": {
+        "bar": []
+      }
+    },
+    "tests": [
+      {
+        "description": "empty object",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "object with one property",
+        "data": {
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "non-object is valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -31,6 +96,28 @@
       }
     },
     "tests": [
+      {
+        "description": "neither",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "nondependants",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "with dependencies",
+        "data": {
+          "foo": 1,
+          "bar": 2,
+          "quux": 3
+        },
+        "valid": true
+      },
       {
         "description": "missing dependency",
         "data": {
@@ -71,6 +158,22 @@
     },
     "tests": [
       {
+        "description": "CRLF",
+        "data": {
+          "foo\nbar": 1,
+          "foo\rbar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "quoted quotes",
+        "data": {
+          "foo'bar": 1,
+          "foo\"bar": 2
+        },
+        "valid": true
+      },
+      {
         "description": "CRLF missing dependent",
         "data": {
           "foo\nbar": 1,
@@ -106,6 +209,21 @@
     },
     "tests": [
       {
+        "description": "valid",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "no dependency",
+        "data": {
+          "foo": "quux"
+        },
+        "valid": true
+      },
+      {
         "description": "wrong type",
         "data": {
           "foo": "quux",
@@ -128,6 +246,23 @@
           "bar": "quux"
         },
         "valid": false
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          "bar"
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobar",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
       }
     ]
   },
@@ -142,6 +277,13 @@
     },
     "tests": [
       {
+        "description": "object with property having schema true is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
         "description": "object with property having schema false is invalid",
         "data": {
           "bar": 2
@@ -155,6 +297,11 @@
           "bar": 2
         },
         "valid": false
+      },
+      {
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true
       }
     ]
   },
@@ -174,6 +321,16 @@
       }
     },
     "tests": [
+      {
+        "description": "quoted tab",
+        "data": {
+          "foo\tbar": 1,
+          "a": 2,
+          "b": 3,
+          "c": 4
+        },
+        "valid": true
+      },
       {
         "description": "quoted quote",
         "data": {

@@ -11,13 +11,6 @@
     },
     "tests": [
       {
-        "description": "mismatch",
-        "data": {
-          "bar": false
-        },
-        "valid": false
-      },
-      {
         "description": "recursive mismatch",
         "data": {
           "foo": {
@@ -165,6 +158,17 @@
       }
     },
     "tests": [
+      {
+        "description": "remote ref valid, maxItems ignored",
+        "data": {
+          "foo": [
+            1,
+            2,
+            3
+          ]
+        },
+        "valid": true
+      },
       {
         "description": "ref invalid",
         "data": {

@@ -9,47 +9,12 @@
     },
     "tests": [
       {
-        "description": "all property names valid",
+        "description": "some property names invalid",
         "data": {
-          "f": {},
-          "foo": {}
+          "foo": {},
+          "foobar": {}
         },
-        "valid": true
-      },
-      {
-        "description": "object without properties is valid",
-        "data": {},
-        "valid": true
-      },
-      {
-        "description": "ignores arrays",
-        "data": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foobar",
-        "valid": true
-      },
-      {
-        "description": "ignores other non-objects",
-        "data": 12,
-        "valid": true
-      },
-      {
-        "description": "ignores null",
-        "data": null,
-        "valid": true
-      },
-      {
-        "description": "ignores booleans",
-        "data": true,
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -63,39 +28,11 @@
     },
     "tests": [
       {
-        "description": "matching property names valid",
+        "description": "non-matching property name is invalid",
         "data": {
-          "a": {},
-          "aa": {},
-          "aaa": {}
+          "aaA": {}
         },
-        "valid": true
-      },
-      {
-        "description": "object without properties is valid",
-        "data": {},
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "propertyNames with boolean schema true",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "propertyNames": true
-    },
-    "tests": [
-      {
-        "description": "object with any properties is valid",
-        "data": {
-          "foo": 1
-        },
-        "valid": true
-      },
-      {
-        "description": "empty object is valid",
-        "data": {},
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -107,9 +44,11 @@
     },
     "tests": [
       {
-        "description": "empty object is valid",
-        "data": {},
-        "valid": true
+        "description": "object with any properties is invalid",
+        "data": {
+          "foo": 1
+        },
+        "valid": false
       }
     ]
   },
@@ -123,16 +62,11 @@
     },
     "tests": [
       {
-        "description": "object with property foo is valid",
+        "description": "object with any other property is invalid",
         "data": {
-          "foo": 1
+          "bar": 1
         },
-        "valid": true
-      },
-      {
-        "description": "empty object is valid",
-        "data": {},
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -149,24 +83,11 @@
     },
     "tests": [
       {
-        "description": "object with property foo is valid",
+        "description": "object with any other property is invalid",
         "data": {
-          "foo": 1
+          "baz": 1
         },
-        "valid": true
-      },
-      {
-        "description": "object with property foo and bar is valid",
-        "data": {
-          "foo": 1,
-          "bar": 1
-        },
-        "valid": true
-      },
-      {
-        "description": "empty object is valid",
-        "data": {},
-        "valid": true
+        "valid": false
       }
     ]
   }

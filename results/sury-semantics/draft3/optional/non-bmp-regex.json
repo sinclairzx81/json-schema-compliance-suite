@@ -7,19 +7,29 @@
     },
     "tests": [
       {
-        "description": "matches empty",
-        "data": "",
-        "valid": true
-      },
-      {
         "description": "matches single",
         "data": "🐲",
         "valid": true
       },
       {
-        "description": "matches two",
-        "data": "🐲🐲",
-        "valid": true
+        "description": "doesn't match one",
+        "data": "🐉",
+        "valid": false
+      },
+      {
+        "description": "doesn't match two",
+        "data": "🐉🐉",
+        "valid": false
+      },
+      {
+        "description": "doesn't match one ASCII",
+        "data": "D",
+        "valid": false
+      },
+      {
+        "description": "doesn't match two ASCII",
+        "data": "DD",
+        "valid": false
       }
     ]
   },
@@ -35,25 +45,18 @@
     },
     "tests": [
       {
-        "description": "matches empty",
+        "description": "doesn't match one",
         "data": {
-          "": 1
+          "🐲": "hello"
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "matches single",
+        "description": "doesn't match two",
         "data": {
-          "🐲": 1
+          "🐲🐲": "hello"
         },
-        "valid": true
-      },
-      {
-        "description": "matches two",
-        "data": {
-          "🐲🐲": 1
-        },
-        "valid": true
+        "valid": false
       }
     ]
   }

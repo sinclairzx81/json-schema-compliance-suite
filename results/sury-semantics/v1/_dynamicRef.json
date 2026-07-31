@@ -160,15 +160,15 @@
     },
     "tests": [
       {
-        "description": "instance with misspelled field",
+        "description": "instance with correct field",
         "data": {
           "children": [
             {
-              "daat": 1
+              "data": 1
             }
           ]
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -239,15 +239,22 @@
     },
     "tests": [
       {
-        "description": "correct extended schema",
+        "description": "incorrect parent schema",
+        "data": {
+          "a": true
+        },
+        "valid": false
+      },
+      {
+        "description": "incorrect extended schema",
         "data": {
           "elements": [
             {
-              "a": 1
+              "b": 1
             }
           ]
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -278,15 +285,22 @@
     },
     "tests": [
       {
-        "description": "correct extended schema",
+        "description": "incorrect parent schema",
+        "data": {
+          "a": true
+        },
+        "valid": false
+      },
+      {
+        "description": "incorrect extended schema",
         "data": {
           "elements": [
             {
-              "a": 1
+              "b": 1
             }
           ]
         },
-        "valid": true
+        "valid": false
       }
     ]
   },

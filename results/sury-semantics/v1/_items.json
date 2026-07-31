@@ -1,42 +1,5 @@
 [
   {
-    "description": "a schema given for items",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "items": {
-        "type": "integer"
-      }
-    },
-    "tests": [
-      {
-        "description": "wrong type of items",
-        "data": [
-          1,
-          "x"
-        ],
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "items with boolean schema (false)",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "items": false
-    },
-    "tests": [
-      {
-        "description": "any non-empty array is invalid",
-        "data": [
-          1,
-          "foo",
-          true
-        ],
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "items and subitems",
     "schema": {
       "$schema": "https://json-schema.org/v1",
@@ -192,14 +155,24 @@
     },
     "tests": [
       {
-        "description": "additional items are not permitted",
+        "description": "empty array",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "fewer number of items present (1)",
+        "data": [
+          1
+        ],
+        "valid": true
+      },
+      {
+        "description": "fewer number of items present (2)",
         "data": [
           1,
-          2,
-          3,
-          4
+          2
         ],
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -222,12 +195,12 @@
     },
     "tests": [
       {
-        "description": "prefixItems in allOf does not constrain items, invalid case",
+        "description": "prefixItems in allOf does not constrain items, valid case",
         "data": [
-          3,
+          5,
           5
         ],
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -246,33 +219,13 @@
     },
     "tests": [
       {
-        "description": "wrong type of second item",
+        "description": "valid items",
         "data": [
           "x",
-          "y"
+          2,
+          3
         ],
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "items with heterogeneous array",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "prefixItems": [
-        {}
-      ],
-      "items": false
-    },
-    "tests": [
-      {
-        "description": "heterogeneous invalid instance",
-        "data": [
-          "foo",
-          "bar",
-          37
-        ],
-        "valid": false
+        "valid": true
       }
     ]
   }

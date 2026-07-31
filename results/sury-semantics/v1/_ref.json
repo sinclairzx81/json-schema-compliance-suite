@@ -12,13 +12,6 @@
     },
     "tests": [
       {
-        "description": "mismatch",
-        "data": {
-          "bar": false
-        },
-        "valid": false
-      },
-      {
         "description": "recursive mismatch",
         "data": {
           "foo": {
@@ -170,17 +163,6 @@
     },
     "tests": [
       {
-        "description": "ref valid, maxItems invalid",
-        "data": {
-          "foo": [
-            1,
-            2,
-            3
-          ]
-        },
-        "valid": false
-      },
-      {
         "description": "ref invalid",
         "data": {
           "foo": "string"
@@ -200,26 +182,6 @@
         "description": "remote ref invalid",
         "data": {
           "bar": 0
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "property named $ref that is not a reference",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "properties": {
-        "$ref": {
-          "type": "string"
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "property named $ref invalid",
-        "data": {
-          "$ref": 2
         },
         "valid": false
       }

@@ -1,32 +1,5 @@
 [
   {
-    "description": "minimum validation",
-    "schema": {
-      "minimum": 1.1
-    },
-    "tests": [
-      {
-        "description": "below the minimum is invalid",
-        "data": 0.6,
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "minimum validation (explicit false exclusivity)",
-    "schema": {
-      "minimum": 1.1,
-      "exclusiveMinimum": false
-    },
-    "tests": [
-      {
-        "description": "below the minimum is invalid",
-        "data": 0.6,
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "exclusiveMinimum validation",
     "schema": {
       "minimum": 1.1,
@@ -36,24 +9,6 @@
       {
         "description": "boundary point is invalid",
         "data": 1.1,
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "minimum validation with signed integer",
-    "schema": {
-      "minimum": -2
-    },
-    "tests": [
-      {
-        "description": "float below the minimum is invalid",
-        "data": -2.0001,
-        "valid": false
-      },
-      {
-        "description": "int below the minimum is invalid",
-        "data": -3,
         "valid": false
       }
     ]

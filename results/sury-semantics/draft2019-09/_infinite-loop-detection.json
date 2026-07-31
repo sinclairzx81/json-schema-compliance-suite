@@ -25,11 +25,11 @@
     },
     "tests": [
       {
-        "description": "passing case",
+        "description": "failing case",
         "data": {
-          "foo": 1
+          "foo": "a string"
         },
-        "valid": true
+        "valid": false
       }
     ]
   }

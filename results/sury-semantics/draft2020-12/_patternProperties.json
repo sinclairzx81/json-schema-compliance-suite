@@ -11,20 +11,36 @@
     },
     "tests": [
       {
-        "description": "a single invalid match is invalid",
+        "description": "a single valid match is valid",
         "data": {
-          "foo": "bar",
-          "fooooo": 2
+          "foo": 1
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "multiple invalid matches is invalid",
+        "description": "multiple valid matches is valid",
         "data": {
-          "foo": "bar",
-          "foooooo": "baz"
+          "foo": 1,
+          "foooooo": 2
         },
-        "valid": false
+        "valid": true
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          "foo"
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foo",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
       }
     ]
   },
@@ -43,26 +59,26 @@
     },
     "tests": [
       {
-        "description": "an invalid due to one is invalid",
+        "description": "a single valid match is valid",
         "data": {
-          "a": "bar"
+          "a": 21
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "an invalid due to the other is invalid",
+        "description": "a simultaneous match is valid",
         "data": {
-          "aaaa": 31
+          "aaaa": 18
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "an invalid due to both is invalid",
+        "description": "multiple matches is valid",
         "data": {
-          "aaa": "foo",
-          "aaaa": 31
+          "a": 21,
+          "aaaa": 18
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -81,18 +97,18 @@
     },
     "tests": [
       {
-        "description": "recognized members are accounted for",
+        "description": "non recognized members are ignored",
         "data": {
-          "a31b": null
+          "answer 1": "42"
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "regexes are case sensitive, 2",
+        "description": "regexes are case sensitive",
         "data": {
-          "a_X_3": 3
+          "a_x_3": 3
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -107,26 +123,64 @@
     },
     "tests": [
       {
-        "description": "object with property matching schema false is invalid",
+        "description": "object with property matching schema true is valid",
         "data": {
-          "bar": 2
+          "foo": 1
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "object with both properties is invalid",
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "patternProperties with null valued instance properties",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "patternProperties": {
+        "^.*bar$": {
+          "type": "null"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "allows null values",
         "data": {
-          "foo": 1,
-          "bar": 2
+          "foobar": null
         },
-        "valid": false
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "patternProperties with Unicode property escape",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "patternProperties": {
+        "^\\p{Letter}+$": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "Unicode letter property name matches",
+        "data": {
+          "π": 1
+        },
+        "valid": true
       },
       {
-        "description": "object with a property matching both true and false is invalid",
+        "description": "Non-letter property name does not match pattern",
         "data": {
-          "foobar": 1
+          "123": 1
         },
-        "valid": false
+        "valid": true
       }
     ]
   }

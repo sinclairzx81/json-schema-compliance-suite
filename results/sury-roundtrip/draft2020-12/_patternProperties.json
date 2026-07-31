@@ -11,6 +11,21 @@
     },
     "tests": [
       {
+        "description": "a single valid match is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "multiple valid matches is valid",
+        "data": {
+          "foo": 1,
+          "foooooo": 2
+        },
+        "valid": true
+      },
+      {
         "description": "a single invalid match is invalid",
         "data": {
           "foo": "bar",
@@ -25,6 +40,23 @@
           "foooooo": "baz"
         },
         "valid": false
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          "foo"
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foo",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
       }
     ]
   },
@@ -42,6 +74,28 @@
       }
     },
     "tests": [
+      {
+        "description": "a single valid match is valid",
+        "data": {
+          "a": 21
+        },
+        "valid": true
+      },
+      {
+        "description": "a simultaneous match is valid",
+        "data": {
+          "aaaa": 18
+        },
+        "valid": true
+      },
+      {
+        "description": "multiple matches is valid",
+        "data": {
+          "a": 21,
+          "aaaa": 18
+        },
+        "valid": true
+      },
       {
         "description": "an invalid due to one is invalid",
         "data": {
@@ -81,11 +135,25 @@
     },
     "tests": [
       {
+        "description": "non recognized members are ignored",
+        "data": {
+          "answer 1": "42"
+        },
+        "valid": true
+      },
+      {
         "description": "recognized members are accounted for",
         "data": {
           "a31b": null
         },
         "valid": false
+      },
+      {
+        "description": "regexes are case sensitive",
+        "data": {
+          "a_x_3": 3
+        },
+        "valid": true
       },
       {
         "description": "regexes are case sensitive, 2",
@@ -107,6 +175,13 @@
     },
     "tests": [
       {
+        "description": "object with property matching schema true is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
         "description": "object with property matching schema false is invalid",
         "data": {
           "bar": 2
@@ -127,6 +202,59 @@
           "foobar": 1
         },
         "valid": false
+      },
+      {
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "patternProperties with null valued instance properties",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "patternProperties": {
+        "^.*bar$": {
+          "type": "null"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "allows null values",
+        "data": {
+          "foobar": null
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "patternProperties with Unicode property escape",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "patternProperties": {
+        "^\\p{Letter}+$": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "Unicode letter property name matches",
+        "data": {
+          "π": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "Non-letter property name does not match pattern",
+        "data": {
+          "123": 1
+        },
+        "valid": true
       }
     ]
   }

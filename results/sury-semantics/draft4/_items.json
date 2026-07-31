@@ -1,23 +1,5 @@
 [
   {
-    "description": "a schema given for items",
-    "schema": {
-      "items": {
-        "type": "integer"
-      }
-    },
-    "tests": [
-      {
-        "description": "wrong type of items",
-        "data": [
-          1,
-          "x"
-        ],
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "an array of schemas for items",
     "schema": {
       "items": [
@@ -31,12 +13,25 @@
     },
     "tests": [
       {
-        "description": "wrong types",
+        "description": "incomplete array of items",
         "data": [
-          "foo",
           1
         ],
-        "valid": false
+        "valid": true
+      },
+      {
+        "description": "array with additional items",
+        "data": [
+          1,
+          "foo",
+          true
+        ],
+        "valid": true
+      },
+      {
+        "description": "empty array",
+        "data": [],
+        "valid": true
       }
     ]
   },
@@ -79,12 +74,9 @@
     },
     "tests": [
       {
-        "description": "too many sub-items",
+        "description": "valid items",
         "data": [
           [
-            {
-              "foo": null
-            },
             {
               "foo": null
             },
@@ -109,60 +101,7 @@
             }
           ]
         ],
-        "valid": false
-      },
-      {
-        "description": "wrong item",
-        "data": [
-          {
-            "foo": null
-          },
-          [
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            }
-          ],
-          [
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            }
-          ]
-        ],
-        "valid": false
-      },
-      {
-        "description": "wrong sub-item",
-        "data": [
-          [
-            {},
-            {
-              "foo": null
-            }
-          ],
-          [
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            }
-          ],
-          [
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            }
-          ]
-        ],
-        "valid": false
+        "valid": true
       },
       {
         "description": "fewer items is valid",

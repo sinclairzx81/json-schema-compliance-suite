@@ -121,6 +121,11 @@
         "valid": false
       },
       {
+        "description": "an invalid URI with spaces",
+        "data": "http:// shouldfail.com",
+        "valid": false
+      },
+      {
         "description": "an invalid URI with spaces and missing scheme",
         "data": ":// should fail",
         "valid": false
@@ -128,6 +133,11 @@
       {
         "description": "an invalid URI with comma in scheme",
         "data": "bar,baz:foo",
+        "valid": false
+      },
+      {
+        "description": "invalid SPACE character",
+        "data": "https://example.org/foo bar.txt",
         "valid": false
       },
       {

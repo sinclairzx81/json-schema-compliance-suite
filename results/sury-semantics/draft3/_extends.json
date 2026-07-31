@@ -31,14 +31,6 @@
           "bar": 2
         },
         "valid": false
-      },
-      {
-        "description": "wrong type",
-        "data": {
-          "foo": "baz",
-          "bar": "quux"
-        },
-        "valid": false
       }
     ]
   },

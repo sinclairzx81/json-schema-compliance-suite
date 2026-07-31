@@ -1025,6 +1025,18 @@
     },
     "tests": [
       {
+        "description": "extra items allowed for inner arrays",
+        "data": [
+          "foo",
+          [
+            "bar",
+            [],
+            8
+          ]
+        ],
+        "valid": true
+      },
+      {
         "description": "extra items disallowed for root",
         "data": [
           "foo",

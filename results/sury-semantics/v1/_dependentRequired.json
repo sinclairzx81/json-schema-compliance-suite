@@ -11,11 +11,69 @@
     },
     "tests": [
       {
-        "description": "missing dependency",
+        "description": "neither",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "nondependant",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "with dependency",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          "bar"
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobar",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "empty dependents",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "dependentRequired": {
+        "bar": []
+      }
+    },
+    "tests": [
+      {
+        "description": "empty object",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "object with one property",
         "data": {
           "bar": 2
         },
-        "valid": false
+        "valid": true
+      },
+      {
+        "description": "non-object is valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -32,27 +90,26 @@
     },
     "tests": [
       {
-        "description": "missing dependency",
+        "description": "neither",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "nondependants",
         "data": {
           "foo": 1,
-          "quux": 2
+          "bar": 2
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "missing other dependency",
+        "description": "with dependencies",
         "data": {
-          "bar": 1,
-          "quux": 2
+          "foo": 1,
+          "bar": 2,
+          "quux": 3
         },
-        "valid": false
-      },
-      {
-        "description": "missing both dependencies",
-        "data": {
-          "quux": 1
-        },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -71,19 +128,20 @@
     },
     "tests": [
       {
-        "description": "CRLF missing dependent",
+        "description": "CRLF",
         "data": {
           "foo\nbar": 1,
-          "foo": 2
+          "foo\rbar": 2
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "quoted quotes missing dependent",
+        "description": "quoted quotes",
         "data": {
+          "foo'bar": 1,
           "foo\"bar": 2
         },
-        "valid": false
+        "valid": true
       }
     ]
   }

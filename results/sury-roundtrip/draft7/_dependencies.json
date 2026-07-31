@@ -10,11 +10,75 @@
     },
     "tests": [
       {
+        "description": "neither",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "nondependant",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "with dependency",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
         "description": "missing dependency",
         "data": {
           "bar": 2
         },
         "valid": false
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          "bar"
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobar",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "dependencies with empty array",
+    "schema": {
+      "dependencies": {
+        "bar": []
+      }
+    },
+    "tests": [
+      {
+        "description": "empty object",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "object with one property",
+        "data": {
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "non-object is valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -29,6 +93,28 @@
       }
     },
     "tests": [
+      {
+        "description": "neither",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "nondependants",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "with dependencies",
+        "data": {
+          "foo": 1,
+          "bar": 2,
+          "quux": 3
+        },
+        "valid": true
+      },
       {
         "description": "missing dependency",
         "data": {
@@ -72,6 +158,21 @@
     },
     "tests": [
       {
+        "description": "valid",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "no dependency",
+        "data": {
+          "foo": "quux"
+        },
+        "valid": true
+      },
+      {
         "description": "wrong type",
         "data": {
           "foo": "quux",
@@ -107,6 +208,13 @@
     },
     "tests": [
       {
+        "description": "object with property having schema true is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
         "description": "object with property having schema false is invalid",
         "data": {
           "bar": 2
@@ -120,6 +228,11 @@
           "bar": 2
         },
         "valid": false
+      },
+      {
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true
       }
     ]
   },
@@ -144,6 +257,32 @@
       }
     },
     "tests": [
+      {
+        "description": "valid object 1",
+        "data": {
+          "foo\nbar": 1,
+          "foo\rbar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "valid object 2",
+        "data": {
+          "foo\tbar": 1,
+          "a": 2,
+          "b": 3,
+          "c": 4
+        },
+        "valid": true
+      },
+      {
+        "description": "valid object 3",
+        "data": {
+          "foo'bar": 1,
+          "foo\"bar": 2
+        },
+        "valid": true
+      },
       {
         "description": "invalid object 1",
         "data": {
@@ -200,12 +339,26 @@
         "valid": false
       },
       {
+        "description": "matches dependency",
+        "data": {
+          "bar": 1
+        },
+        "valid": true
+      },
+      {
         "description": "matches both",
         "data": {
           "foo": 1,
           "bar": 2
         },
         "valid": false
+      },
+      {
+        "description": "no dependency",
+        "data": {
+          "baz": 1
+        },
+        "valid": true
       }
     ]
   }

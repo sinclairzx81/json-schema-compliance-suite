@@ -58,6 +58,16 @@
         "valid": false
       },
       {
+        "description": "no time elements present",
+        "data": "P1YT",
+        "valid": false
+      },
+      {
+        "description": "no date or time elements present",
+        "data": "PT",
+        "valid": false
+      },
+      {
         "description": "elements out of order",
         "data": "P2D1Y",
         "valid": false

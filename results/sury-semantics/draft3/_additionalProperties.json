@@ -13,13 +13,38 @@
     },
     "tests": [
       {
-        "description": "an additional property is invalid",
+        "description": "no additional properties is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobarbaz",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "patternProperties are not additional properties",
         "data": {
           "foo": 1,
-          "bar": 2,
-          "quux": "boom"
+          "vroom": 2
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -33,11 +58,11 @@
     },
     "tests": [
       {
-        "description": "not matching the pattern is invalid",
+        "description": "matching the pattern is valid",
         "data": {
-          "élmény": 2
+          "ármányos": 2
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -59,48 +84,6 @@
           "foo": 1,
           "bar": 2,
           "quux": 12
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "additionalProperties can exist by itself",
-    "schema": {
-      "additionalProperties": {
-        "type": "boolean"
-      }
-    },
-    "tests": [
-      {
-        "description": "an additional invalid property is invalid",
-        "data": {
-          "foo": 1
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "additionalProperties does not look in applicators",
-    "schema": {
-      "extends": [
-        {
-          "properties": {
-            "foo": {}
-          }
-        }
-      ],
-      "additionalProperties": {
-        "type": "boolean"
-      }
-    },
-    "tests": [
-      {
-        "description": "properties defined in extends are not examined",
-        "data": {
-          "foo": 1,
-          "bar": true
         },
         "valid": false
       }

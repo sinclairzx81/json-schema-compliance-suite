@@ -81,11 +81,6 @@
         "description": "skip traversing definition for a valid result",
         "data": "skip not_a_real_anchor",
         "valid": true
-      },
-      {
-        "description": "const at const_not_anchor does not match",
-        "data": 1,
-        "valid": false
       }
     ]
   },
@@ -122,11 +117,6 @@
         "description": "skip traversing definition for a valid result",
         "data": "skip not_a_real_id",
         "valid": true
-      },
-      {
-        "description": "const at const_not_id does not match",
-        "data": 1,
-        "valid": false
       }
     ]
   }

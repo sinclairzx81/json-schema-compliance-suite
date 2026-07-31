@@ -8,6 +8,34 @@
     },
     "tests": [
       {
+        "description": "array with item matching schema (5) is valid",
+        "data": [
+          3,
+          4,
+          5
+        ],
+        "valid": true
+      },
+      {
+        "description": "array with item matching schema (6) is valid",
+        "data": [
+          3,
+          4,
+          6
+        ],
+        "valid": true
+      },
+      {
+        "description": "array with two items matching schema (5, 6) is valid",
+        "data": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "valid": true
+      },
+      {
         "description": "array without items matching schema is invalid",
         "data": [
           2,
@@ -20,6 +48,11 @@
         "description": "empty array is invalid",
         "data": [],
         "valid": false
+      },
+      {
+        "description": "not array is valid",
+        "data": {},
+        "valid": true
       }
     ]
   },
@@ -31,6 +64,25 @@
       }
     },
     "tests": [
+      {
+        "description": "array with item 5 is valid",
+        "data": [
+          3,
+          4,
+          5
+        ],
+        "valid": true
+      },
+      {
+        "description": "array with two items 5 is valid",
+        "data": [
+          3,
+          4,
+          5,
+          5
+        ],
+        "valid": true
+      },
       {
         "description": "array without item 5 is invalid",
         "data": [
@@ -49,6 +101,13 @@
       "contains": true
     },
     "tests": [
+      {
+        "description": "any non-empty array is valid",
+        "data": [
+          "foo"
+        ],
+        "valid": true
+      },
       {
         "description": "empty array is invalid",
         "data": [],
@@ -73,6 +132,11 @@
         "description": "empty array is invalid",
         "data": [],
         "valid": false
+      },
+      {
+        "description": "non-arrays are valid",
+        "data": "contains does not apply to strings",
+        "valid": true
       }
     ]
   },
@@ -106,6 +170,14 @@
         "valid": false
       },
       {
+        "description": "matches both items and contains",
+        "data": [
+          6,
+          12
+        ],
+        "valid": true
+      },
+      {
         "description": "matches neither items nor contains",
         "data": [
           1,
@@ -125,9 +197,33 @@
     },
     "tests": [
       {
+        "description": "any non-empty array is valid",
+        "data": [
+          "foo"
+        ],
+        "valid": true
+      },
+      {
         "description": "empty array is invalid",
         "data": [],
         "valid": false
+      }
+    ]
+  },
+  {
+    "description": "contains with null instance elements",
+    "schema": {
+      "contains": {
+        "type": "null"
+      }
+    },
+    "tests": [
+      {
+        "description": "allows null items",
+        "data": [
+          null
+        ],
+        "valid": true
       }
     ]
   }

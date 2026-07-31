@@ -6,9 +6,9 @@
     },
     "tests": [
       {
-        "description": "too long is invalid",
-        "data": "foo",
-        "valid": false
+        "description": "two graphemes is long enough",
+        "data": "💩💩",
+        "valid": true
       }
     ]
   }

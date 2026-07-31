@@ -21,19 +21,12 @@
     },
     "tests": [
       {
-        "description": "disallows bar if foo != foo1",
+        "description": "allows bar if foo = foo1",
         "data": {
-          "foo": "foo2",
+          "foo": "foo1",
           "bar": 42
         },
-        "valid": false
-      },
-      {
-        "description": "disallows bar if foo is absent",
-        "data": {
-          "bar": 42
-        },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -58,18 +51,12 @@
     },
     "tests": [
       {
-        "description": "unevaluatedProperties doesn't consider propertyDependencies",
+        "description": "unevaluatedProperties sees buz when foo2 is present",
         "data": {
-          "foo": "bar"
-        },
-        "valid": false
-      },
-      {
-        "description": "unevaluatedProperties doesn't see buz when foo2 is absent",
-        "data": {
+          "foo2": "bar",
           "buz": ""
         },
-        "valid": false
+        "valid": true
       }
     ]
   }

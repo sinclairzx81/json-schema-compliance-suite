@@ -23,40 +23,5 @@
         "valid": true
       }
     ]
-  },
-  {
-    "description": "Proper UTF-16 surrogate pair handling: patternProperties",
-    "comment": "Optional because .Net doesn't correctly handle 32-bit Unicode characters",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "patternProperties": {
-        "^🐲*$": {
-          "type": "integer"
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "matches empty",
-        "data": {
-          "": 1
-        },
-        "valid": true
-      },
-      {
-        "description": "matches single",
-        "data": {
-          "🐲": 1
-        },
-        "valid": true
-      },
-      {
-        "description": "matches two",
-        "data": {
-          "🐲🐲": 1
-        },
-        "valid": true
-      }
-    ]
   }
 ]

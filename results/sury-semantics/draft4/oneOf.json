@@ -18,6 +18,16 @@
         "valid": true
       },
       {
+        "description": "second oneOf valid",
+        "data": 2.5,
+        "valid": true
+      },
+      {
+        "description": "both oneOf valid",
+        "data": 3,
+        "valid": false
+      },
+      {
         "description": "neither oneOf valid",
         "data": 1.5,
         "valid": false
@@ -42,6 +52,11 @@
         "description": "mismatch base schema",
         "data": 3,
         "valid": false
+      },
+      {
+        "description": "one oneOf valid",
+        "data": "foobar",
+        "valid": true
       },
       {
         "description": "both oneOf valid",
@@ -78,6 +93,20 @@
     },
     "tests": [
       {
+        "description": "first oneOf valid (complex)",
+        "data": {
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "second oneOf valid (complex)",
+        "data": {
+          "foo": "baz"
+        },
+        "valid": true
+      },
+      {
         "description": "both oneOf valid (complex)",
         "data": {
           "foo": "baz",
@@ -91,6 +120,29 @@
           "foo": 2,
           "bar": "quux"
         },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "oneOf with empty schema",
+    "schema": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {}
+      ]
+    },
+    "tests": [
+      {
+        "description": "one valid - valid",
+        "data": "foo",
+        "valid": true
+      },
+      {
+        "description": "both valid - invalid",
+        "data": 123,
         "valid": false
       }
     ]
@@ -116,20 +168,20 @@
     },
     "tests": [
       {
-        "description": "first valid - valid",
+        "description": "both invalid - invalid",
         "data": {
-          "foo": 1,
           "bar": 2
         },
-        "valid": true
+        "valid": false
       },
       {
-        "description": "second valid - valid",
+        "description": "both valid - invalid",
         "data": {
           "foo": 1,
+          "bar": 2,
           "baz": 3
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -157,6 +209,20 @@
       ]
     },
     "tests": [
+      {
+        "description": "first oneOf valid",
+        "data": {
+          "bar": 8
+        },
+        "valid": true
+      },
+      {
+        "description": "second oneOf valid",
+        "data": {
+          "foo": "foo"
+        },
+        "valid": true
+      },
       {
         "description": "both oneOf valid",
         "data": {

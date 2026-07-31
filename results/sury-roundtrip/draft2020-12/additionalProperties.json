@@ -1,85 +1,5 @@
 [
   {
-    "description": "additionalProperties being false does not allow other properties",
-    "specification": [
-      {
-        "core": "10.3.2.3",
-        "quote": "The value of \"additionalProperties\" MUST be a valid JSON Schema. Boolean \"false\" forbids everything."
-      }
-    ],
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "properties": {
-        "foo": {},
-        "bar": {}
-      },
-      "patternProperties": {
-        "^v": {}
-      },
-      "additionalProperties": false
-    },
-    "tests": [
-      {
-        "description": "no additional properties is valid",
-        "data": {
-          "foo": 1
-        },
-        "valid": true
-      },
-      {
-        "description": "ignores arrays",
-        "data": [
-          1,
-          2,
-          3
-        ],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foobarbaz",
-        "valid": true
-      },
-      {
-        "description": "ignores other non-objects",
-        "data": 12,
-        "valid": true
-      },
-      {
-        "description": "patternProperties are not additional properties",
-        "data": {
-          "foo": 1,
-          "vroom": 2
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "non-ASCII pattern with additionalProperties",
-    "specification": [
-      {
-        "core": "10.3.2.3"
-      }
-    ],
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "patternProperties": {
-        "^á": {}
-      },
-      "additionalProperties": false
-    },
-    "tests": [
-      {
-        "description": "matching the pattern is valid",
-        "data": {
-          "ármányos": 2
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "additionalProperties with schema",
     "specification": [
       {
@@ -185,27 +105,6 @@
         "description": "allows null values",
         "data": {
           "foo": null
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "additionalProperties with propertyNames",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "propertyNames": {
-        "maxLength": 5
-      },
-      "additionalProperties": {
-        "type": "number"
-      }
-    },
-    "tests": [
-      {
-        "description": "Valid against both keywords",
-        "data": {
-          "apple": 4
         },
         "valid": true
       }

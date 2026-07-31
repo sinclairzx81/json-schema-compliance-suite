@@ -39,11 +39,6 @@
     },
     "tests": [
       {
-        "description": "mismatch base schema",
-        "data": 3,
-        "valid": false
-      },
-      {
         "description": "both oneOf valid",
         "data": "foo",
         "valid": false
@@ -239,6 +234,27 @@
         "data": {
           "baz": "quux"
         },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "nested oneOf, to check validation semantics",
+    "schema": {
+      "oneOf": [
+        {
+          "oneOf": [
+            {
+              "type": "null"
+            }
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "anything non-null is invalid",
+        "data": 123,
         "valid": false
       }
     ]

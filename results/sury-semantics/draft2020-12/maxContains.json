@@ -1,29 +1,5 @@
 [
   {
-    "description": "maxContains without contains is ignored",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "maxContains": 1
-    },
-    "tests": [
-      {
-        "description": "one item valid against lone maxContains",
-        "data": [
-          1
-        ],
-        "valid": true
-      },
-      {
-        "description": "two items still valid against lone maxContains",
-        "data": [
-          1,
-          2
-        ],
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "maxContains with contains",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -34,19 +10,26 @@
     },
     "tests": [
       {
-        "description": "all elements match, valid maxContains",
-        "data": [
-          1
-        ],
-        "valid": true
+        "description": "empty data",
+        "data": [],
+        "valid": false
       },
       {
-        "description": "some elements match, valid maxContains",
+        "description": "all elements match, invalid maxContains",
         "data": [
           1,
-          2
+          1
         ],
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "some elements match, invalid maxContains",
+        "data": [
+          1,
+          2,
+          1
+        ],
+        "valid": false
       }
     ]
   },
@@ -61,11 +44,12 @@
     },
     "tests": [
       {
-        "description": "one element matches, valid maxContains",
+        "description": "too many elements match, invalid maxContains",
         "data": [
+          1,
           1
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -81,12 +65,19 @@
     },
     "tests": [
       {
-        "description": "minContains < actual < maxContains",
+        "description": "actual < minContains < maxContains",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "minContains < maxContains < actual",
         "data": [
+          1,
+          1,
           1,
           1
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -102,9 +93,11 @@
     },
     "tests": [
       {
-        "description": "empty array",
-        "data": [],
-        "valid": true
+        "description": "one matching item",
+        "data": [
+          1
+        ],
+        "valid": false
       }
     ]
   }

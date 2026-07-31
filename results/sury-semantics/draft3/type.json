@@ -175,6 +175,11 @@
         "valid": true
       },
       {
+        "description": "an array is not an object",
+        "data": [],
+        "valid": false
+      },
+      {
         "description": "a boolean is not an object",
         "data": true,
         "valid": false

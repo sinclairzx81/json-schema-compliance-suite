@@ -7,6 +7,21 @@
     },
     "tests": [
       {
+        "description": "shorter is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "exact length is valid",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
         "description": "too long is invalid",
         "data": {
           "foo": 1,
@@ -14,6 +29,25 @@
           "baz": 3
         },
         "valid": false
+      },
+      {
+        "description": "ignores arrays",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobar",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
       }
     ]
   },
@@ -24,6 +58,13 @@
       "maxProperties": 2
     },
     "tests": [
+      {
+        "description": "shorter is valid",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
       {
         "description": "too long is invalid",
         "data": {
@@ -42,6 +83,11 @@
       "maxProperties": 0
     },
     "tests": [
+      {
+        "description": "no properties is valid",
+        "data": {},
+        "valid": true
+      },
       {
         "description": "one property is invalid",
         "data": {

@@ -41,11 +41,6 @@
     },
     "tests": [
       {
-        "description": "mismatch base schema",
-        "data": 3,
-        "valid": false
-      },
-      {
         "description": "both oneOf valid",
         "data": "foo",
         "valid": false
@@ -248,6 +243,28 @@
         "data": {
           "baz": "quux"
         },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "nested oneOf, to check validation semantics",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "oneOf": [
+        {
+          "oneOf": [
+            {
+              "type": "null"
+            }
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "anything non-null is invalid",
+        "data": 123,
         "valid": false
       }
     ]

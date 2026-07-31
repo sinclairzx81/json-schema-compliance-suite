@@ -11,14 +11,14 @@
     },
     "tests": [
       {
-        "description": "additional items match schema",
+        "description": "additional items do not match schema",
         "data": [
           null,
           2,
           3,
-          4
+          "foo"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -34,33 +34,13 @@
     },
     "tests": [
       {
-        "description": "valid with a array of type integers",
+        "description": "invalid with a array of mixed types",
         "data": [
           1,
-          2,
-          3
+          "2",
+          "3"
         ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "when items is schema, boolean additionalItems does nothing",
-    "schema": {
-      "items": {},
-      "additionalItems": false
-    },
-    "tests": [
-      {
-        "description": "all items match schema",
-        "data": [
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -76,80 +56,49 @@
     },
     "tests": [
       {
-        "description": "empty array",
-        "data": [],
-        "valid": true
-      },
-      {
-        "description": "fewer number of items present (1)",
-        "data": [
-          1
-        ],
-        "valid": true
-      },
-      {
-        "description": "fewer number of items present (2)",
-        "data": [
-          1,
-          2
-        ],
-        "valid": true
-      },
-      {
-        "description": "equal number of items present",
-        "data": [
-          1,
-          2,
-          3
-        ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "additionalItems as false without items",
-    "schema": {
-      "additionalItems": false
-    },
-    "tests": [
-      {
-        "description": "items defaults to empty schema so everything is valid",
+        "description": "additional items are not permitted",
         "data": [
           1,
           2,
           3,
-          4,
-          5
+          4
         ],
-        "valid": true
-      },
-      {
-        "description": "ignores non-arrays",
-        "data": {
-          "foo": "bar"
-        },
-        "valid": true
+        "valid": false
       }
     ]
   },
   {
-    "description": "additionalItems are allowed by default",
+    "description": "additionalItems does not look in applicators, invalid case",
     "schema": {
+      "allOf": [
+        {
+          "items": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "type": "integer"
         }
-      ]
+      ],
+      "additionalItems": {
+        "type": "boolean"
+      }
     },
     "tests": [
       {
-        "description": "only the first item is validated",
+        "description": "items defined in allOf are not examined",
         "data": [
           1,
-          "foo",
-          false
+          "hello"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -167,13 +116,12 @@
     },
     "tests": [
       {
-        "description": "valid items",
+        "description": "wrong type of second item",
         "data": [
           "x",
-          2,
-          3
+          "y"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -187,28 +135,13 @@
     },
     "tests": [
       {
-        "description": "valid instance",
+        "description": "heterogeneous invalid instance",
         "data": [
-          null
+          "foo",
+          "bar",
+          37
         ],
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "additionalItems with null instance elements",
-    "schema": {
-      "additionalItems": {
-        "type": "null"
-      }
-    },
-    "tests": [
-      {
-        "description": "allows null elements",
-        "data": [
-          null
-        ],
-        "valid": true
+        "valid": false
       }
     ]
   }

@@ -169,6 +169,17 @@
           ]
         },
         "valid": false
+      },
+      {
+        "description": "instance with correct field",
+        "data": {
+          "children": [
+            {
+              "data": 1
+            }
+          ]
+        },
+        "valid": true
       }
     ]
   },

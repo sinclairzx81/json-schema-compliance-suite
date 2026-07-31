@@ -218,6 +218,13 @@
     },
     "tests": [
       {
+        "description": "unevaluated property",
+        "data": {
+          "bar": 1
+        },
+        "valid": true
+      },
+      {
         "description": "annotations are still collected inside a 'not'",
         "data": {
           "foo": 1

@@ -18,28 +18,36 @@
     },
     "tests": [
       {
-        "description": "wrong type",
+        "description": "valid",
         "data": {
-          "foo": "quux",
+          "foo": 1,
           "bar": 2
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "wrong type other",
+        "description": "no dependency",
         "data": {
-          "foo": 2,
-          "bar": "quux"
+          "foo": "quux"
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "wrong type both",
-        "data": {
-          "foo": "quux",
-          "bar": "quux"
-        },
-        "valid": false
+        "description": "ignores arrays",
+        "data": [
+          "bar"
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores strings",
+        "data": "foobar",
+        "valid": true
+      },
+      {
+        "description": "ignores other non-objects",
+        "data": 12,
+        "valid": true
       }
     ]
   },
@@ -54,19 +62,16 @@
     },
     "tests": [
       {
-        "description": "object with property having schema false is invalid",
+        "description": "object with property having schema true is valid",
         "data": {
-          "bar": 2
+          "foo": 1
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "object with both properties is invalid",
-        "data": {
-          "foo": 1,
-          "bar": 2
-        },
-        "valid": false
+        "description": "empty object is valid",
+        "data": {},
+        "valid": true
       }
     ]
   },
@@ -87,28 +92,14 @@
     },
     "tests": [
       {
-        "description": "quoted quote",
-        "data": {
-          "foo'bar": {
-            "foo\"bar": 1
-          }
-        },
-        "valid": false
-      },
-      {
-        "description": "quoted tab invalid under dependent schema",
+        "description": "quoted tab",
         "data": {
           "foo\tbar": 1,
-          "a": 2
+          "a": 2,
+          "b": 3,
+          "c": 4
         },
-        "valid": false
-      },
-      {
-        "description": "quoted quote invalid under dependent schema",
-        "data": {
-          "foo'bar": 1
-        },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -130,19 +121,18 @@
     },
     "tests": [
       {
-        "description": "matches root",
+        "description": "matches dependency",
         "data": {
-          "foo": 1
+          "bar": 1
         },
-        "valid": false
+        "valid": true
       },
       {
-        "description": "matches both",
+        "description": "no dependency",
         "data": {
-          "foo": 1,
-          "bar": 2
+          "baz": 1
         },
-        "valid": false
+        "valid": true
       }
     ]
   }

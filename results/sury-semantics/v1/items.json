@@ -18,6 +18,14 @@
         "valid": true
       },
       {
+        "description": "wrong type of items",
+        "data": [
+          1,
+          "x"
+        ],
+        "valid": false
+      },
+      {
         "description": "ignores non-arrays",
         "data": {
           "foo": "bar"
@@ -64,6 +72,15 @@
       "items": false
     },
     "tests": [
+      {
+        "description": "any non-empty array is invalid",
+        "data": [
+          1,
+          "foo",
+          true
+        ],
+        "valid": false
+      },
       {
         "description": "empty array is valid",
         "data": [],
@@ -310,26 +327,6 @@
     },
     "tests": [
       {
-        "description": "empty array",
-        "data": [],
-        "valid": true
-      },
-      {
-        "description": "fewer number of items present (1)",
-        "data": [
-          1
-        ],
-        "valid": true
-      },
-      {
-        "description": "fewer number of items present (2)",
-        "data": [
-          1,
-          2
-        ],
-        "valid": true
-      },
-      {
         "description": "equal number of items present",
         "data": [
           1,
@@ -337,6 +334,16 @@
           3
         ],
         "valid": true
+      },
+      {
+        "description": "additional items are not permitted",
+        "data": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "valid": false
       }
     ]
   },
@@ -359,12 +366,12 @@
     },
     "tests": [
       {
-        "description": "prefixItems in allOf does not constrain items, valid case",
+        "description": "prefixItems in allOf does not constrain items, invalid case",
         "data": [
-          5,
+          3,
           5
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -383,13 +390,12 @@
     },
     "tests": [
       {
-        "description": "valid items",
+        "description": "wrong type of second item",
         "data": [
           "x",
-          2,
-          3
+          "y"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -403,6 +409,15 @@
       "items": false
     },
     "tests": [
+      {
+        "description": "heterogeneous invalid instance",
+        "data": [
+          "foo",
+          "bar",
+          37
+        ],
+        "valid": false
+      },
       {
         "description": "valid instance",
         "data": [

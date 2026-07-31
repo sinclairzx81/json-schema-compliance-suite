@@ -17,6 +17,11 @@
         "valid": true
       },
       {
+        "description": "below the minimum is invalid",
+        "data": 0.6,
+        "valid": false
+      },
+      {
         "description": "ignores non-numbers",
         "data": "x",
         "valid": true
@@ -49,6 +54,16 @@
         "description": "boundary point with float is valid",
         "data": -2,
         "valid": true
+      },
+      {
+        "description": "float below the minimum is invalid",
+        "data": -2.0001,
+        "valid": false
+      },
+      {
+        "description": "int below the minimum is invalid",
+        "data": -3,
+        "valid": false
       },
       {
         "description": "ignores non-numbers",

@@ -25,6 +25,14 @@
           "bar": 2
         },
         "valid": true
+      },
+      {
+        "description": "wrong type",
+        "data": {
+          "foo": "baz",
+          "bar": "quux"
+        },
+        "valid": false
       }
     ]
   },

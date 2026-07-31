@@ -6,11 +6,6 @@
     },
     "tests": [
       {
-        "description": "an invalid URI with spaces",
-        "data": "http:// shouldfail.com",
-        "valid": false
-      },
-      {
         "description": "invalid userinfo",
         "data": "https://[@example.org/test.txt",
         "valid": false
@@ -48,11 +43,6 @@
       {
         "description": "invalid ` character",
         "data": "https://example.org/foobar`.txt",
-        "valid": false
-      },
-      {
-        "description": "invalid SPACE character",
-        "data": "https://example.org/foo bar.txt",
         "valid": false
       },
       {
