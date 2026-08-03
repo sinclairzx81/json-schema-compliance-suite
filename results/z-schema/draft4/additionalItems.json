@@ -1,0 +1,189 @@
+[
+  {
+    "description": "additionalItems as schema",
+    "schema": {
+      "items": [
+        {}
+      ],
+      "additionalItems": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "additional items do not match schema",
+        "data": [
+          null,
+          2,
+          3,
+          "foo"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "when items is schema, additionalItems does nothing",
+    "schema": {
+      "items": {},
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "all items match schema",
+        "data": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "array of items with no additionalItems permitted",
+    "schema": {
+      "items": [
+        {},
+        {},
+        {}
+      ],
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "additional items are not permitted",
+        "data": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "additionalItems as false without items",
+    "schema": {
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "items defaults to empty schema so everything is valid",
+        "data": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "valid": true
+      },
+      {
+        "description": "ignores non-arrays",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "additionalItems does not look in applicators, invalid case",
+    "schema": {
+      "allOf": [
+        {
+          "items": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "type": "integer"
+        }
+      ],
+      "additionalItems": {
+        "type": "boolean"
+      }
+    },
+    "tests": [
+      {
+        "description": "items defined in allOf are not examined",
+        "data": [
+          1,
+          "hello"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "items validation adjusts the starting index for additionalItems",
+    "schema": {
+      "items": [
+        {
+          "type": "string"
+        }
+      ],
+      "additionalItems": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "wrong type of second item",
+        "data": [
+          "x",
+          "y"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "additionalItems with heterogeneous array",
+    "schema": {
+      "items": [
+        {}
+      ],
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "heterogeneous invalid instance",
+        "data": [
+          "foo",
+          "bar",
+          37
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "additionalItems with null instance elements",
+    "schema": {
+      "additionalItems": {
+        "type": "null"
+      }
+    },
+    "tests": [
+      {
+        "description": "allows null elements",
+        "data": [
+          null
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

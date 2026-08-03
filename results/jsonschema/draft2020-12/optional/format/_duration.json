@@ -46,6 +46,21 @@
         "description": "hours and seconds cannot appear without minutes",
         "data": "PT1H2S",
         "valid": false
+      },
+      {
+        "description": "a leading sign is not allowed",
+        "data": "-P1D",
+        "valid": false
+      },
+      {
+        "description": "a number before the time separator has no unit",
+        "data": "P1D2T3H",
+        "valid": false
+      },
+      {
+        "description": "a trailing newline is invalid",
+        "data": "P1D\n",
+        "valid": false
       }
     ]
   }

@@ -14,6 +14,11 @@
         "description": "case-insensitive T and Z",
         "data": "1963-06-19t08:30:06.283185z",
         "valid": true
+      },
+      {
+        "description": "a second fraction of fifteen nines is valid",
+        "data": "1985-04-12T00:59:59.999999999999999Z",
+        "valid": true
       }
     ]
   }

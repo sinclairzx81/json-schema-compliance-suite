@@ -194,9 +194,9 @@
     },
     "tests": [
       {
-        "data": "a",
-        "description": "mismatch",
-        "valid": false
+        "data": 1,
+        "description": "match",
+        "valid": true
       }
     ]
   },

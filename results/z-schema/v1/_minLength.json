@@ -1,0 +1,40 @@
+[
+  {
+    "description": "minLength validation",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "minLength": 2
+    },
+    "tests": [
+      {
+        "description": "longer is valid",
+        "data": "foo",
+        "valid": true
+      },
+      {
+        "description": "exact length is valid",
+        "data": "fo",
+        "valid": true
+      },
+      {
+        "description": "ignores non-strings",
+        "data": 1,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "minLength validation with a decimal",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "minLength": 2
+    },
+    "tests": [
+      {
+        "description": "longer is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  }
+]

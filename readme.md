@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Fri Jul 31 2026
+Updated: Mon Aug 03 2026
 
 
 ### Validation
@@ -38,12 +38,13 @@ Updated: Fri Jul 31 2026
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10284 | 350 | 96.7% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 9746 | 888 | 91.6% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9301 | 1333 | 87.5% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9135 | 1499 | 85.9% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 7869 | 2765 | 74.0% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 7846 | 2788 | 73.8% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10338 | 364 | 96.6% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 9807 | 895 | 91.6% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9359 | 1343 | 87.5% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9198 | 1504 | 85.9% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9187 | 1515 | 85.8% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 7907 | 2795 | 73.9% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 7875 | 2827 | 73.6% |
 
 
 ### Semantics
@@ -51,9 +52,9 @@ Updated: Fri Jul 31 2026
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 6591 | 4043 | 62.0% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6044 | 4590 | 56.8% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 8851 | 16.8% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 6610 | 4092 | 61.8% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6063 | 4639 | 56.7% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 8919 | 16.7% |
 
 
 ### RoundTrip
@@ -61,9 +62,9 @@ Updated: Fri Jul 31 2026
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6173 | 4461 | 58.0% |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 4970 | 5664 | 46.7% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9120 | 14.2% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6192 | 4510 | 57.9% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 4989 | 5713 | 46.6% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9188 | 14.1% |
 
 
 ## Coverage
@@ -166,9 +167,9 @@ Results for the TypeBox validation library.
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
-| format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/date-time | 9/11 | 31/33 | 31/33 | 31/33 | 31/33 | 31/33 | 31/33 |
 | format/duration | - | - | - | - | ✅ | ✅ | ✅ |
-| format/ecmascript-regex | ✅ | - | - | - | - | 0/1 | 0/1 |
+| format/ecmascript-regex | ✅ | - | - | - | - | 11/12 | 11/12 |
 | format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 22/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 27/28 | 27/28 | ✅ | ✅ | ✅ | ✅ |
@@ -297,8 +298,8 @@ Results for the @cfworker/json-schema validation library.
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
-| format/date-time | ✅ | 26/29 | 26/29 | 26/29 | 26/29 | 26/29 | 26/29 |
-| format/duration | - | - | - | - | 39/42 | 39/42 | 39/42 |
+| format/date-time | 10/11 | 29/33 | 29/33 | 29/33 | 29/33 | 29/33 | 29/33 |
+| format/duration | - | - | - | - | 43/46 | 43/46 | 43/46 |
 | format/ecmascript-regex | ✅ | - | - | - | - | ✅ | ✅ |
 | format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 22/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
@@ -318,7 +319,7 @@ Results for the @cfworker/json-schema validation library.
 | format/uri | ✅ | 43/44 | 43/44 | 43/44 | 43/44 | 43/44 | 43/44 |
 | format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/uuid | - | - | - | - | 24/25 | 24/25 | 24/25 |
+| format/uuid | - | - | - | - | 26/27 | 26/27 | 26/27 |
 | id | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -428,9 +429,9 @@ Results for the jsonschema validation library.
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | ✅ | - | - | - | - | - | - |
 | format/date | 27/33 | - | - | 66/75 | 66/75 | 66/75 | 66/75 |
-| format/date-time | ✅ | 23/29 | 23/29 | 23/29 | 23/29 | 23/29 | 23/29 |
-| format/duration | - | - | - | - | 34/42 | 34/42 | 34/42 |
-| format/ecmascript-regex | ✅ | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | 10/11 | 26/33 | 26/33 | 26/33 | 26/33 | 26/33 | 26/33 |
+| format/duration | - | - | - | - | 35/46 | 35/46 | 35/46 |
+| format/ecmascript-regex | ✅ | - | - | - | - | 11/12 | 11/12 |
 | format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 23/27 | 23/27 |
 | format/host-name | ✅ | - | - | - | - | - | - |
 | format/hostname | - | 27/28 | 27/28 | 37/61 | 37/61 | 37/61 | 37/61 |
@@ -559,9 +560,9 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 27/33 | - | - | 67/75 | 67/75 | 67/75 | 67/75 |
-| format/date-time | ✅ | 25/29 | 25/29 | 25/29 | 25/29 | 25/29 | 25/29 |
-| format/duration | - | - | - | - | 38/42 | 38/42 | 38/42 |
-| format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | ✅ | 29/33 | 29/33 | 29/33 | 29/33 | 29/33 | 29/33 |
+| format/duration | - | - | - | - | 42/46 | 42/46 | 42/46 |
+| format/ecmascript-regex | 2/3 | - | - | - | - | 6/12 | 6/12 |
 | format/email | 6/11 | 14/20 | 14/20 | 14/20 | 14/20 | 18/27 | 18/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | ✅ | ✅ | 37/61 | 37/61 | 37/61 | 37/61 |
@@ -590,6 +591,137 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 4/6 |
 | refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
 | unknownKeyword | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
+
+
+</details>
+
+
+---
+
+
+<a name="ZSchema-Validation"></a>
+
+
+
+### ZSchema
+
+Results for the z-schema validator using the `validate(...)` function wrapped in try/catch.
+
+
+<details>
+<summary>Specification Coverage</summary>
+
+
+| Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
+|:-----|:--|:--|:--|:--|:--|:--|:--|
+| additionalItems | 7/14 | 9/17 | 11/19 | 11/19 | ✅ | - | - |
+| additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 9/21 |
+| allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | 20/30 |
+| anchor | - | - | - | - | ✅ | ✅ | 4/8 |
+| anyOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | 6/18 |
+| boolean_schema | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| const | - | - | ✅ | ✅ | ✅ | ✅ | 32/54 |
+| contains | - | - | ✅ | ✅ | ✅ | ✅ | 10/25 |
+| content | - | - | - | - | ✅ | ✅ | 0/18 |
+| default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1/7 |
+| definitions | - | ✅ | ✅ | ✅ | - | - | - |
+| defs | - | - | - | - | ✅ | ✅ | - |
+| dependencies | 12/18 | ✅ | ✅ | ✅ | - | - | - |
+| dependentRequired | - | - | - | - | ✅ | ✅ | 6/20 |
+| dependentSchemas | - | - | - | - | ✅ | ✅ | 10/20 |
+| disallow | 4/9 | - | - | - | - | - | - |
+| divisibleBy | 6/9 | - | - | - | - | - | - |
+| dynamicRef | - | - | - | - | - | 39/44 | 16/27 |
+| enum | 14/16 | ✅ | ✅ | ✅ | ✅ | ✅ | 29/51 |
+| exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | 2/4 |
+| exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | 2/4 |
+| extends | 7/10 | - | - | - | - | - | - |
+| format | ✅ | ✅ | ✅ | ✅ | ✅ | 114/133 | - |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | 8/26 |
+| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1/2 |
+| items | 5/7 | 13/21 | 18/28 | 18/28 | ✅ | ✅ | 12/29 |
+| maxContains | - | - | - | - | ✅ | ✅ | 7/14 |
+| maximum | 10/14 | 10/14 | ✅ | ✅ | ✅ | ✅ | 2/8 |
+| maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 2/6 |
+| maxLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 2/7 |
+| maxProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | 3/10 |
+| minContains | - | - | - | - | ✅ | ✅ | 14/28 |
+| minimum | 12/13 | 13/17 | ✅ | ✅ | ✅ | ✅ | 3/11 |
+| minItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 2/6 |
+| minLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 3/7 |
+| minProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | 2/10 |
+| multipleOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | 4/11 |
+| not | - | ✅ | ✅ | ✅ | ✅ | ✅ | 24/40 |
+| oneOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | 15/27 |
+| pattern | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 2/12 |
+| patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 11/26 |
+| prefixItems | - | - | - | - | - | ✅ | 2/11 |
+| properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 12/28 |
+| propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | 2/12 |
+| recursiveRef | - | - | - | - | 17/34 | - | - |
+| ref | 22/27 | 41/45 | 62/70 | 70/78 | ✅ | ✅ | 42/79 |
+| refRemote | 4/8 | 8/17 | 11/23 | 11/23 | 15/31 | 15/31 | 15/31 |
+| required | 2/4 | ✅ | ✅ | ✅ | ✅ | ✅ | 6/18 |
+| type | 67/80 | ✅ | ✅ | ✅ | ✅ | ✅ | 59/80 |
+| unevaluatedItems | - | - | - | - | 55/56 | ✅ | 29/71 |
+| unevaluatedProperties | - | - | - | - | 128/129 | ✅ | 62/129 |
+| uniqueItems | 44/62 | 51/69 | 51/69 | 51/69 | ✅ | ✅ | 19/69 |
+| vocabulary | - | - | - | - | 2/5 | 2/5 | - |
+
+
+</details>
+
+
+<details>
+<summary>Optional Formats and Proposals</summary>
+
+
+| Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
+|:-----|:--|:--|:--|:--|:--|:--|:--|
+| anchor | - | - | - | - | ✅ | ✅ | 2/4 |
+| bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 3/9 |
+| content | - | - | - | 6/10 | - | - | - |
+| cross-draft | - | - | - | 1/2 | 1/3 | 0/1 | - |
+| dependencies-compatibility | - | - | - | - | ✅ | ✅ | 14/36 |
+| dynamicRef | - | - | - | - | - | ✅ | 1/2 |
+| ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | 38/74 |
+| float-overflow | - | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 |
+| format-annotation | - | - | - | - | - | - | 0/133 |
+| format-assertion | - | - | - | - | - | 2/4 | - |
+| format/color | 3/6 | - | - | - | - | - | - |
+| format/date | ✅ | - | - | ✅ | ✅ | ✅ | 53/75 |
+| format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 19/33 |
+| format/duration | - | - | - | - | ✅ | ✅ | 21/46 |
+| format/ecmascript-regex | ✅ | - | - | - | - | ✅ | 6/12 |
+| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 11/27 |
+| format/host-name | ✅ | - | - | - | - | - | - |
+| format/hostname | - | ✅ | ✅ | ✅ | ✅ | ✅ | 33/61 |
+| format/idn-email | - | - | - | ✅ | ✅ | ✅ | 2/14 |
+| format/idn-hostname | - | - | - | ✅ | ✅ | ✅ | 54/90 |
+| format/ip-address | 1/3 | - | - | - | - | - | - |
+| format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | 29/38 |
+| format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 23/40 |
+| format/iri | - | - | - | ✅ | ✅ | ✅ | 4/15 |
+| format/iri-reference | - | - | - | ✅ | ✅ | ✅ | 2/13 |
+| format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | 12/40 |
+| format/regex | ✅ | - | - | ✅ | ✅ | ✅ | 1/8 |
+| format/relative-json-pointer | - | - | - | ✅ | ✅ | ✅ | 8/20 |
+| format/time | 2/3 | - | - | ✅ | ✅ | ✅ | 28/47 |
+| format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
+| format/uri | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 23/44 |
+| format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | 4/17 |
+| format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | 1/10 |
+| format/uuid | - | - | - | - | ✅ | ✅ | 13/27 |
+| id | - | ✅ | ✅ | ✅ | ✅ | ✅ | 1/3 |
+| no-schema | - | - | - | - | ✅ | ✅ | - |
+| non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 6/12 |
+| proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
+| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
+| proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
+| proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 4/6 |
+| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | 5/10 |
+| unknownKeyword | - | - | ✅ | ✅ | ✅ | ✅ | 2/3 |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
 
 
@@ -690,9 +822,9 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 | format-assertion | - | - | - | - | - | 0/4 | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | ✅ | - | - | ✅ | ✅ | ✅ | 0/75 |
-| format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/29 |
-| format/duration | - | - | - | - | 40/42 | 40/42 | 0/42 |
-| format/ecmascript-regex | ✅ | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | 8/11 | 30/33 | 30/33 | 30/33 | 30/33 | 30/33 | 0/33 |
+| format/duration | - | - | - | - | 44/46 | 44/46 | 0/46 |
+| format/ecmascript-regex | ✅ | - | - | - | - | 11/12 | 0/12 |
 | format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 0/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 27/28 | 27/28 | 37/61 | 37/61 | 37/61 | 0/61 |
@@ -711,7 +843,7 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 | format/uri | ✅ | 43/44 | 43/44 | 43/44 | 43/44 | 43/44 | 0/44 |
 | format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | 0/17 |
 | format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | 0/10 |
-| format/uuid | - | - | - | - | 24/25 | 24/25 | 0/25 |
+| format/uuid | - | - | - | - | 26/27 | 26/27 | 0/27 |
 | id | - | 0/3 | ✅ | ✅ | ✅ | ✅ | 0/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/12 |
@@ -821,9 +953,9 @@ Results for the djv validation library.
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 22/75 | 22/75 | 22/75 | 22/75 |
-| format/date-time | ✅ | 19/29 | 19/29 | 19/29 | 19/29 | 19/29 | 19/29 |
-| format/duration | - | - | - | - | 25/42 | 25/42 | 25/42 |
-| format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | ✅ | 23/33 | 23/33 | 23/33 | 23/33 | 23/33 | 23/33 |
+| format/duration | - | - | - | - | 25/46 | 25/46 | 25/46 |
+| format/ecmascript-regex | 2/3 | - | - | - | - | 5/12 | 5/12 |
 | format/email | 7/11 | 9/20 | 9/20 | 9/20 | 9/20 | 12/27 | 12/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 25/28 | 25/28 | 35/61 | 35/61 | 35/61 | 35/61 |
@@ -842,7 +974,7 @@ Results for the djv validation library.
 | format/uri | ✅ | 38/44 | 38/44 | 38/44 | 38/44 | 38/44 | 38/44 |
 | format/uri-reference | - | - | 16/17 | 16/17 | 16/17 | 16/17 | 16/17 |
 | format/uri-template | - | - | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
-| format/uuid | - | - | - | - | 14/25 | 14/25 | 14/25 |
+| format/uuid | - | - | - | - | 14/27 | 14/27 | 14/27 |
 | id | - | 1/3 | 5/7 | 3/7 | 1/3 | 1/3 | 1/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 |
@@ -952,9 +1084,9 @@ Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Sc
 | format-assertion | - | - | - | - | - | 2/4 | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 22/75 | 22/75 | 22/75 | 22/75 |
-| format/date-time | 2/7 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 |
-| format/duration | - | - | - | - | 25/42 | 25/42 | 25/42 |
-| format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | 3/11 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 |
+| format/duration | - | - | - | - | 25/46 | 25/46 | 25/46 |
+| format/ecmascript-regex | 2/3 | - | - | - | - | 6/12 | 6/12 |
 | format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/28 | 14/28 | 28/61 | 28/61 | 28/61 | 28/61 |
@@ -973,7 +1105,7 @@ Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Sc
 | format/uri | 1/4 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 |
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
 | format/uri-template | - | - | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
-| format/uuid | - | - | - | - | 14/25 | 14/25 | 14/25 |
+| format/uuid | - | - | - | - | 14/27 | 14/27 | 14/27 |
 | id | - | 2/3 | 4/7 | 4/7 | 2/3 | 2/3 | 2/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | 7/12 | 7/12 | 7/12 | 7/12 | 7/12 | 7/12 | 7/12 |
@@ -1083,9 +1215,9 @@ Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directiona
 | format-assertion | - | - | - | - | - | 2/4 | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 22/75 | 22/75 | 22/75 | 22/75 |
-| format/date-time | 2/7 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 |
-| format/duration | - | - | - | - | 25/42 | 25/42 | 25/42 |
-| format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | 3/11 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 |
+| format/duration | - | - | - | - | 25/46 | 25/46 | 25/46 |
+| format/ecmascript-regex | 2/3 | - | - | - | - | 6/12 | 6/12 |
 | format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/28 | 14/28 | 28/61 | 28/61 | 28/61 | 28/61 |
@@ -1104,7 +1236,7 @@ Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directiona
 | format/uri | 1/4 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 |
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
 | format/uri-template | - | - | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
-| format/uuid | - | - | - | - | 14/25 | 14/25 | 14/25 |
+| format/uuid | - | - | - | - | 14/27 | 14/27 | 14/27 |
 | id | - | 2/3 | 4/7 | 4/7 | 2/3 | 2/3 | 2/3 |
 | no-schema | - | - | - | - | 2/3 | 2/3 | - |
 | non-bmp-regex | 3/12 | 3/12 | 3/12 | 3/12 | 3/12 | 3/12 | 3/12 |
@@ -1214,9 +1346,9 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | format-assertion | - | - | - | - | - | 2/4 | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 22/75 | 22/75 | 22/75 | 22/75 |
-| format/date-time | 2/7 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 |
-| format/duration | - | - | - | - | 25/42 | 25/42 | 25/42 |
-| format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | 3/11 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 |
+| format/duration | - | - | - | - | 25/46 | 25/46 | 25/46 |
+| format/ecmascript-regex | 2/3 | - | - | - | - | 6/12 | 6/12 |
 | format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/28 | 14/28 | 28/61 | 28/61 | 28/61 | 28/61 |
@@ -1235,7 +1367,7 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | format/uri | 1/4 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 |
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
 | format/uri-template | - | - | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
-| format/uuid | - | - | - | - | 14/25 | 14/25 | 14/25 |
+| format/uuid | - | - | - | - | 14/27 | 14/27 | 14/27 |
 | id | - | 0/3 | 0/7 | 0/7 | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | 2/3 | 2/3 | - |
 | non-bmp-regex | 6/12 | 6/12 | 6/12 | 6/12 | 6/12 | 6/12 | 6/12 |
@@ -1345,9 +1477,9 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | format-assertion | - | - | - | - | - | 2/4 | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 22/75 | 22/75 | 22/75 | 22/75 |
-| format/date-time | 2/7 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 | 13/29 |
-| format/duration | - | - | - | - | 25/42 | 25/42 | 25/42 |
-| format/ecmascript-regex | 2/3 | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | 3/11 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 |
+| format/duration | - | - | - | - | 25/46 | 25/46 | 25/46 |
+| format/ecmascript-regex | 2/3 | - | - | - | - | 6/12 | 6/12 |
 | format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/28 | 14/28 | 28/61 | 28/61 | 28/61 | 28/61 |
@@ -1366,7 +1498,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | format/uri | 1/4 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 |
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
 | format/uri-template | - | - | 9/10 | 9/10 | 9/10 | 9/10 | 9/10 |
-| format/uuid | - | - | - | - | 14/25 | 14/25 | 14/25 |
+| format/uuid | - | - | - | - | 14/27 | 14/27 | 14/27 |
 | id | - | 0/3 | 0/7 | 0/7 | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | 2/3 | 2/3 | - |
 | non-bmp-regex | 6/12 | 6/12 | 6/12 | 6/12 | 6/12 | 6/12 | 6/12 |
@@ -1476,9 +1608,9 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | format-assertion | - | - | - | - | - | 0/4 | - |
 | format/color | 0/6 | - | - | - | - | - | - |
 | format/date | 0/33 | - | - | 0/75 | 0/75 | 0/75 | 0/75 |
-| format/date-time | 0/7 | 0/29 | 0/29 | 0/29 | 0/29 | 0/29 | 0/29 |
-| format/duration | - | - | - | - | 0/42 | 0/42 | 0/42 |
-| format/ecmascript-regex | 0/3 | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | 0/11 | 0/33 | 0/33 | 0/33 | 0/33 | 0/33 | 0/33 |
+| format/duration | - | - | - | - | 0/46 | 0/46 | 0/46 |
+| format/ecmascript-regex | 0/3 | - | - | - | - | 0/12 | 0/12 |
 | format/email | 0/11 | 0/20 | 0/20 | 0/20 | 0/20 | 0/27 | 0/27 |
 | format/host-name | 0/12 | - | - | - | - | - | - |
 | format/hostname | - | 0/28 | 0/28 | 0/61 | 0/61 | 0/61 | 0/61 |
@@ -1497,7 +1629,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | format/uri | 0/4 | 0/44 | 0/44 | 0/44 | 0/44 | 0/44 | 0/44 |
 | format/uri-reference | - | - | 0/17 | 0/17 | 0/17 | 0/17 | 0/17 |
 | format/uri-template | - | - | 0/10 | 0/10 | 0/10 | 0/10 | 0/10 |
-| format/uuid | - | - | - | - | 0/25 | 0/25 | 0/25 |
+| format/uuid | - | - | - | - | 0/27 | 0/27 | 0/27 |
 | id | - | 0/3 | 0/7 | 0/7 | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | 0/3 | 0/3 | - |
 | non-bmp-regex | 0/12 | 0/12 | 0/12 | 0/12 | 0/12 | 0/12 | 0/12 |
@@ -1607,9 +1739,9 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | format-assertion | - | - | - | - | - | 0/4 | - |
 | format/color | 0/6 | - | - | - | - | - | - |
 | format/date | 0/33 | - | - | 0/75 | 0/75 | 0/75 | 0/75 |
-| format/date-time | 0/7 | 0/29 | 0/29 | 0/29 | 0/29 | 0/29 | 0/29 |
-| format/duration | - | - | - | - | 0/42 | 0/42 | 0/42 |
-| format/ecmascript-regex | 0/3 | - | - | - | - | 0/1 | 0/1 |
+| format/date-time | 0/11 | 0/33 | 0/33 | 0/33 | 0/33 | 0/33 | 0/33 |
+| format/duration | - | - | - | - | 0/46 | 0/46 | 0/46 |
+| format/ecmascript-regex | 0/3 | - | - | - | - | 0/12 | 0/12 |
 | format/email | 0/11 | 0/20 | 0/20 | 0/20 | 0/20 | 0/27 | 0/27 |
 | format/host-name | 0/12 | - | - | - | - | - | - |
 | format/hostname | - | 0/28 | 0/28 | 0/61 | 0/61 | 0/61 | 0/61 |
@@ -1628,7 +1760,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | format/uri | 0/4 | 0/44 | 0/44 | 0/44 | 0/44 | 0/44 | 0/44 |
 | format/uri-reference | - | - | 0/17 | 0/17 | 0/17 | 0/17 | 0/17 |
 | format/uri-template | - | - | 0/10 | 0/10 | 0/10 | 0/10 | 0/10 |
-| format/uuid | - | - | - | - | 0/25 | 0/25 | 0/25 |
+| format/uuid | - | - | - | - | 0/27 | 0/27 | 0/27 |
 | id | - | 0/3 | 0/7 | 0/7 | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | 0/3 | 0/3 | - |
 | non-bmp-regex | 0/12 | 0/12 | 0/12 | 0/12 | 0/12 | 0/12 | 0/12 |

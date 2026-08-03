@@ -1,0 +1,302 @@
+[
+  {
+    "description": "const validation",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": 2
+    },
+    "tests": [
+      {
+        "description": "same value is valid",
+        "data": 2,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with object",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": {
+        "foo": "bar",
+        "baz": "bax"
+      }
+    },
+    "tests": [
+      {
+        "description": "same object is valid",
+        "data": {
+          "foo": "bar",
+          "baz": "bax"
+        },
+        "valid": true
+      },
+      {
+        "description": "same object with different property order is valid",
+        "data": {
+          "baz": "bax",
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with array",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": [
+        {
+          "foo": "bar"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "same array is valid",
+        "data": [
+          {
+            "foo": "bar"
+          }
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with null",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": null
+    },
+    "tests": [
+      {
+        "description": "null is valid",
+        "data": null,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with false does not match 0",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": false
+    },
+    "tests": [
+      {
+        "description": "false is valid",
+        "data": false,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with true does not match 1",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": true
+    },
+    "tests": [
+      {
+        "description": "true is valid",
+        "data": true,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with [false] does not match [0]",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": [
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "[false] is valid",
+        "data": [
+          false
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with [true] does not match [1]",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": [
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "[true] is valid",
+        "data": [
+          true
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with {\"a\": false} does not match {\"a\": 0}",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": {
+        "a": false
+      }
+    },
+    "tests": [
+      {
+        "description": "{\"a\": false} is valid",
+        "data": {
+          "a": false
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with {\"a\": true} does not match {\"a\": 1}",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": {
+        "a": true
+      }
+    },
+    "tests": [
+      {
+        "description": "{\"a\": true} is valid",
+        "data": {
+          "a": true
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with 0 does not match other zero-like types",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": 0
+    },
+    "tests": [
+      {
+        "description": "integer zero is valid",
+        "data": 0,
+        "valid": true
+      },
+      {
+        "description": "float zero is valid",
+        "data": 0,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with 1 does not match true",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": 1
+    },
+    "tests": [
+      {
+        "description": "integer one is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "float one is valid",
+        "data": 1,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with -2.0 matches integer and float types",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": -2
+    },
+    "tests": [
+      {
+        "description": "integer -2 is valid",
+        "data": -2,
+        "valid": true
+      },
+      {
+        "description": "float -2.0 is valid",
+        "data": -2,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "float and integers are equal up to 64-bit representation limits",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": 9007199254740992
+    },
+    "tests": [
+      {
+        "description": "integer is valid",
+        "data": 9007199254740992,
+        "valid": true
+      },
+      {
+        "description": "float is valid",
+        "data": 9007199254740992,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "nul characters in strings",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": "hello\u0000there"
+    },
+    "tests": [
+      {
+        "description": "match string with nul",
+        "data": "hello\u0000there",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "characters with the same visual representation but different codepoint",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": "μ",
+      "$comment": "U+03BC"
+    },
+    "tests": [
+      {
+        "description": "character uses the same codepoint",
+        "data": "μ",
+        "comment": "U+03BC",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "characters with the same visual representation, but different number of codepoints",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "const": "ä",
+      "$comment": "U+00E4"
+    },
+    "tests": [
+      {
+        "description": "character uses the same codepoint",
+        "data": "ä",
+        "comment": "U+00E4",
+        "valid": true
+      }
+    ]
+  }
+]

@@ -19,6 +19,11 @@
         "description": "an invalid offset in date-time string",
         "data": "1990-12-31T15:59:59-24:00",
         "valid": false
+      },
+      {
+        "description": "a numeric offset without minutes is invalid",
+        "data": "1985-04-12T23:20:50+01",
+        "valid": false
       }
     ]
   }

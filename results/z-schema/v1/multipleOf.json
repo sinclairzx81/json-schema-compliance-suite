@@ -1,0 +1,59 @@
+[
+  {
+    "description": "by int",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "multipleOf": 2
+    },
+    "tests": [
+      {
+        "description": "int by int fail",
+        "data": 7,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "by number",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "multipleOf": 1.5
+    },
+    "tests": [
+      {
+        "description": "35 is not multiple of 1.5",
+        "data": 35,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "by small number",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "multipleOf": 0.0001
+    },
+    "tests": [
+      {
+        "description": "0.00751 is not multiple of 0.0001",
+        "data": 0.00751,
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "float division = inf",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "type": "integer",
+      "multipleOf": 0.123456789
+    },
+    "tests": [
+      {
+        "description": "always invalid, but naive implementations may raise an overflow error",
+        "data": 1e+308,
+        "valid": false
+      }
+    ]
+  }
+]

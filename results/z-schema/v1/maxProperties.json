@@ -1,0 +1,54 @@
+[
+  {
+    "description": "maxProperties validation",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "maxProperties": 2
+    },
+    "tests": [
+      {
+        "description": "too long is invalid",
+        "data": {
+          "foo": 1,
+          "bar": 2,
+          "baz": 3
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxProperties validation with a decimal",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "maxProperties": 2
+    },
+    "tests": [
+      {
+        "description": "too long is invalid",
+        "data": {
+          "foo": 1,
+          "bar": 2,
+          "baz": 3
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxProperties = 0 means the object is empty",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "maxProperties": 0
+    },
+    "tests": [
+      {
+        "description": "one property is invalid",
+        "data": {
+          "foo": 1
+        },
+        "valid": false
+      }
+    ]
+  }
+]

@@ -35,6 +35,11 @@
         "description": "an invalid offset minute in date-time string",
         "data": "1990-12-31T10:00:00+10:60",
         "valid": false
+      },
+      {
+        "description": "hour 24 is invalid even with a leap second",
+        "data": "2016-12-31T24:59:60+01:00",
+        "valid": false
       }
     ]
   }

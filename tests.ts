@@ -17,7 +17,13 @@ await Test.runTestSuite({
   message: 'Results for the TypeBox validation library.',
   directory: './results/typebox'
 }, (_draft, schema, value) => {
-  return TypeBox.Check(schema, value)
+  // TypeBox supports dynamic and compiled checking. We test both
+  // to ensure TypeBox produces a coherent result. Mismatched
+  // results are thrown indicating a failed test.
+  const result1 = TypeBox.Check(schema, value)
+  const result2 = TypeBox.Compile(schema).Check(value)
+  if(result1 !== result2) throw Error('Result Mismatch')
+  return result1
 })
 // ------------------------------------------------------------------
 // CFWorker: Validation
@@ -68,6 +74,25 @@ await Test.runTestSuite({
   directory: './results/ata',
 }, (_draft, schema, value) => {
   return (new Ata.Validator(schema as never)).isValidObject(value)
+})
+// ---------------------------------------------------------------
+// ZSchema: Validation
+// ---------------------------------------------------------------
+import ZSchema from 'z-schema'
+await Test.runTestSuite({
+  library: 'ZSchema',
+  repository: 'https://github.com/zaggino/z-schema',
+  category: 'Validation',
+  message: 'Results for the z-schema validator using the `validate(...)` function wrapped in try/catch.',
+  directory: './results/z-schema',
+}, (_draft, schema, value) => {
+  const validator = ZSchema.create()
+  try {
+    validator.validate(value, schema as never);
+    return true
+  } catch (error) {
+    return false
+  }
 })
 // ------------------------------------------------------------------
 // Ajv: Validation
