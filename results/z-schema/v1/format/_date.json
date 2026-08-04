@@ -116,6 +116,11 @@
         "description": "valid: four-digit year 0001",
         "data": "0001-01-01",
         "valid": true
+      },
+      {
+        "description": "valid: date inside the Julian to Gregorian reform gap",
+        "data": "1582-10-10",
+        "valid": true
       }
     ]
   }

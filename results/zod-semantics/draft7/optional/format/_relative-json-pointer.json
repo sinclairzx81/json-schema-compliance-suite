@@ -44,6 +44,26 @@
         "description": "empty string",
         "data": "",
         "valid": false
+      },
+      {
+        "description": "tilde not followed by 0 or 1 in the json-pointer part",
+        "data": "0/~2",
+        "valid": false
+      },
+      {
+        "description": "unescaped tilde at the end of the json-pointer part",
+        "data": "0/foo/bar~",
+        "valid": false
+      },
+      {
+        "description": "octothorpe followed by a json-pointer",
+        "data": "1#/foo/bar",
+        "valid": false
+      },
+      {
+        "description": "trailing newline after the non-negative integer",
+        "data": "1\n",
+        "valid": false
       }
     ]
   }

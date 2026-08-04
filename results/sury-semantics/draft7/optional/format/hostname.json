@@ -69,6 +69,11 @@
         "description": "maximum label length (63)",
         "data": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk.com",
         "valid": true
+      },
+      {
+        "description": "consecutive hyphens inside a label",
+        "data": "a--b.com",
+        "valid": true
       }
     ]
   },
