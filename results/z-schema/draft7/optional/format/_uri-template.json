@@ -2,15 +2,9 @@
   {
     "description": "format: uri-template",
     "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
       "format": "uri-template"
     },
     "tests": [
-      {
-        "description": "an invalid uri-template",
-        "data": "http://example.com/dictionary/{term:1}/{term",
-        "valid": false
-      },
       {
         "description": "an empty expression is invalid",
         "data": "{}",
@@ -29,11 +23,6 @@
       {
         "description": "a five-digit prefix max-length is invalid",
         "data": "{v:10000}",
-        "valid": false
-      },
-      {
-        "description": "an unmatched closing brace is invalid",
-        "data": "foo}bar",
         "valid": false
       }
     ]

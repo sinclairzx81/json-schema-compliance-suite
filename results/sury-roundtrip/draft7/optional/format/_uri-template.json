@@ -9,6 +9,31 @@
         "description": "an invalid uri-template",
         "data": "http://example.com/dictionary/{term:1}/{term",
         "valid": false
+      },
+      {
+        "description": "an empty expression is invalid",
+        "data": "{}",
+        "valid": false
+      },
+      {
+        "description": "an empty varspec inside the variable list is invalid",
+        "data": "{a,,b}",
+        "valid": false
+      },
+      {
+        "description": "a zero prefix max-length is invalid",
+        "data": "{v:0}",
+        "valid": false
+      },
+      {
+        "description": "a five-digit prefix max-length is invalid",
+        "data": "{v:10000}",
+        "valid": false
+      },
+      {
+        "description": "an unmatched closing brace is invalid",
+        "data": "foo}bar",
+        "valid": false
       }
     ]
   }

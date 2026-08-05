@@ -55,6 +55,26 @@
         "description": "a valid relative uri-template",
         "data": "dictionary/{term:1}/{term}",
         "valid": true
+      },
+      {
+        "description": "an empty string is a valid uri-template",
+        "data": "",
+        "valid": true
+      },
+      {
+        "description": "an unmatched closing brace is invalid",
+        "data": "foo}bar",
+        "valid": false
+      },
+      {
+        "description": "a percent-encoded triplet in a literal is valid",
+        "data": "a%41b",
+        "valid": true
+      },
+      {
+        "description": "a supplementary plane character in a literal is valid",
+        "data": "a😀b",
+        "valid": true
       }
     ]
   }
