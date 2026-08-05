@@ -131,6 +131,16 @@
         "description": "minutes and seconds can appear without hour",
         "data": "PT1M2S",
         "valid": true
+      },
+      {
+        "description": "a leading zero in a component is valid",
+        "data": "P01D",
+        "valid": true
+      },
+      {
+        "description": "a component with many digits is valid",
+        "data": "P999999999999999999999999999999999999999999999999999999999999999999999999999999D",
+        "valid": true
       }
     ]
   }

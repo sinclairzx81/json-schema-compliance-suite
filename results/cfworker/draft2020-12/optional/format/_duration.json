@@ -22,6 +22,16 @@
         "description": "hours and seconds cannot appear without minutes",
         "data": "PT1H2S",
         "valid": false
+      },
+      {
+        "description": "a component with many digits is valid",
+        "data": "P999999999999999999999999999999999999999999999999999999999999999999999999999999D",
+        "valid": true
+      },
+      {
+        "description": "a comma as the decimal separator is invalid",
+        "data": "PT0,5S",
+        "valid": false
       }
     ]
   }
