@@ -140,11 +140,35 @@
         "valid": true
       },
       {
+        "description": "bar with more than 2 properties is invalid",
+        "data": {
+          "foo": "bar",
+          "other-foo": "other-bar",
+          "too": "many"
+        },
+        "valid": false
+      },
+      {
+        "description": "bar with fewer than 2 properties is invalid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": false
+      },
+      {
         "description": "baz alone is valid",
         "data": {
           "foo": "baz"
         },
         "valid": true
+      },
+      {
+        "description": "baz with other properties is invalid",
+        "data": {
+          "foo": "baz",
+          "other-foo": "other-bar"
+        },
+        "valid": false
       },
       {
         "description": "anything allowed with qux",
@@ -156,6 +180,13 @@
           "more": "properties"
         },
         "valid": true
+      },
+      {
+        "description": "quux is disallowed",
+        "data": {
+          "foo": "quux"
+        },
+        "valid": false
       }
     ]
   }

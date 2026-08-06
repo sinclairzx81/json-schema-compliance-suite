@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Wed Aug 05 2026
+Updated: Thu Aug 06 2026
 
 
 ### Validation
@@ -40,7 +40,7 @@ Updated: Wed Aug 05 2026
 | :--     | :--        | :--       | :--     | :--    | :--      |
 | [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10481 | 372 | 96.6% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 9948 | 905 | 91.7% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9464 | 1389 | 87.2% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9472 | 1381 | 87.3% |
 | [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9322 | 1531 | 85.9% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9312 | 1541 | 85.8% |
 | [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8006 | 2847 | 73.8% |
@@ -586,9 +586,9 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
-| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
-| proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
-| proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 4/6 |
+| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 6/8 |
+| proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | ✅ |
+| proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | ✅ |
 | refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
 | unknownKeyword | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |

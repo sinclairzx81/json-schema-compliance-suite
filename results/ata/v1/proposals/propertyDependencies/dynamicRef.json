@@ -49,24 +49,24 @@
     },
     "tests": [
       {
-        "description": "number list with number values",
+        "description": "number list with string values",
         "data": {
           "kindOfList": "numbers",
-          "list": [
-            1.1
-          ]
-        },
-        "valid": true
-      },
-      {
-        "description": "string list with string values",
-        "data": {
-          "kindOfList": "strings",
           "list": [
             "foo"
           ]
         },
-        "valid": true
+        "valid": false
+      },
+      {
+        "description": "string list with number values",
+        "data": {
+          "kindOfList": "strings",
+          "list": [
+            1.1
+          ]
+        },
+        "valid": false
       }
     ]
   },
@@ -125,12 +125,28 @@
         "valid": true
       },
       {
+        "description": "expected strings - additional property as not string is invalid",
+        "data": {
+          "expectedTypes": "strings",
+          "anotherProperty": 42
+        },
+        "valid": false
+      },
+      {
         "description": "expected integers - additional property as integer is valid",
         "data": {
           "expectedTypes": "integers",
           "anotherProperty": 42
         },
         "valid": true
+      },
+      {
+        "description": "expected integers - additional property as not integer is invalid",
+        "data": {
+          "expectedTypes": "integers",
+          "anotherProperty": "a string"
+        },
+        "valid": false
       }
     ]
   }
