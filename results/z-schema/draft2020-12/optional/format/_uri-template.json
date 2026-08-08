@@ -25,6 +25,36 @@
         "description": "a five-digit prefix max-length is invalid",
         "data": "{v:10000}",
         "valid": false
+      },
+      {
+        "description": "a double dot in a variable name is invalid",
+        "data": "{a..b}",
+        "valid": false
+      },
+      {
+        "description": "a leading zero in the prefix max-length is invalid",
+        "data": "{v:01}",
+        "valid": false
+      },
+      {
+        "description": "a delete character in a literal is invalid",
+        "data": "ab",
+        "valid": false
+      },
+      {
+        "description": "a trailing comma in the variable list is invalid",
+        "data": "{a,}",
+        "valid": false
+      },
+      {
+        "description": "a default value in a varspec is invalid",
+        "data": "{var=def}",
+        "valid": false
+      },
+      {
+        "description": "an operator in place of the first varspec is invalid",
+        "data": "{,+var}",
+        "valid": false
       }
     ]
   }

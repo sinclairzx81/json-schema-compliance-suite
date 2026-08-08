@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Thu Aug 06 2026
+Updated: Sat Aug 08 2026
 
 
 ### Validation
@@ -38,13 +38,13 @@ Updated: Thu Aug 06 2026
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10481 | 372 | 96.6% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 9948 | 905 | 91.7% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9472 | 1381 | 87.3% |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9322 | 1531 | 85.9% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9312 | 1541 | 85.8% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8006 | 2847 | 73.8% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 7986 | 2867 | 73.6% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10574 | 387 | 96.5% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10041 | 920 | 91.6% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9540 | 1421 | 87.0% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9389 | 1572 | 85.7% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9380 | 1581 | 85.6% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8099 | 2862 | 73.9% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 8062 | 2899 | 73.6% |
 
 
 ### Semantics
@@ -52,9 +52,9 @@ Updated: Thu Aug 06 2026
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 6671 | 4182 | 61.5% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6124 | 4729 | 56.4% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 9070 | 16.4% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 6739 | 4222 | 61.5% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6192 | 4769 | 56.5% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 9178 | 16.3% |
 
 
 ### RoundTrip
@@ -62,9 +62,9 @@ Updated: Thu Aug 06 2026
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6253 | 4600 | 57.6% |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 5050 | 5803 | 46.5% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9339 | 14.0% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6321 | 4640 | 57.7% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 5118 | 5843 | 46.7% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9447 | 13.8% |
 
 
 ## Coverage
@@ -187,7 +187,7 @@ Results for the TypeBox validation library.
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/uri-template | - | - | 35/38 | 35/38 | 35/38 | 35/38 | 35/38 |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
 | id | - | 2/3 | 6/7 | 6/7 | 2/3 | 2/3 | 2/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
@@ -318,7 +318,7 @@ Results for the @cfworker/json-schema validation library.
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | 43/44 | 43/44 | 43/44 | 43/44 | 43/44 | 43/44 |
 | format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/uri-template | - | - | 35/38 | 35/38 | 35/38 | 35/38 | 35/38 |
 | format/uuid | - | - | - | - | 27/28 | 27/28 | 27/28 |
 | id | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
@@ -449,7 +449,7 @@ Results for the jsonschema validation library.
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | 31/44 | 31/44 | 31/44 | 31/44 | 31/44 | 31/44 |
 | format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/uri-template | - | - | 9/10 | 12/18 | 12/18 | 12/18 | 12/18 |
+| format/uri-template | - | - | 25/38 | 25/38 | 25/38 | 25/38 | 25/38 |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
 | id | - | ✅ | ✅ | ✅ | 1/3 | 1/3 | 1/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
@@ -580,7 +580,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | 31/44 | 31/44 | 31/44 | 31/44 | 31/44 | 31/44 |
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
-| format/uri-template | - | - | 9/10 | 12/18 | 12/18 | 12/18 | 12/18 |
+| format/uri-template | - | - | 25/38 | 25/38 | 25/38 | 25/38 | 25/38 |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
 | id | - | 2/3 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
@@ -711,7 +711,7 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 23/44 |
 | format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | 4/17 |
-| format/uri-template | - | - | ✅ | 14/18 | 14/18 | 14/18 | 6/18 |
+| format/uri-template | - | - | 28/38 | 28/38 | 28/38 | 28/38 | 13/38 |
 | format/uuid | - | - | - | - | ✅ | ✅ | 13/28 |
 | id | - | ✅ | ✅ | ✅ | ✅ | ✅ | 1/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
@@ -842,7 +842,7 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | 43/44 | 43/44 | 43/44 | 43/44 | 43/44 | 0/44 |
 | format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | 0/17 |
-| format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | 0/18 |
+| format/uri-template | - | - | 35/38 | 35/38 | 35/38 | 35/38 | 0/38 |
 | format/uuid | - | - | - | - | 27/28 | 27/28 | 0/28 |
 | id | - | 0/3 | ✅ | ✅ | ✅ | ✅ | 0/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
@@ -973,7 +973,7 @@ Results for the djv validation library.
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | 38/44 | 38/44 | 38/44 | 38/44 | 38/44 | 38/44 |
 | format/uri-reference | - | - | 16/17 | 16/17 | 16/17 | 16/17 | 16/17 |
-| format/uri-template | - | - | 9/10 | 17/18 | 17/18 | 17/18 | 17/18 |
+| format/uri-template | - | - | 34/38 | 34/38 | 34/38 | 34/38 | 34/38 |
 | format/uuid | - | - | - | - | 15/28 | 15/28 | 15/28 |
 | id | - | 1/3 | 5/7 | 3/7 | 1/3 | 1/3 | 1/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
@@ -1104,7 +1104,7 @@ Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Sc
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | 1/4 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 |
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
-| format/uri-template | - | - | 9/10 | 12/18 | 12/18 | 12/18 | 12/18 |
+| format/uri-template | - | - | 25/38 | 25/38 | 25/38 | 25/38 | 25/38 |
 | format/uuid | - | - | - | - | 15/28 | 15/28 | 15/28 |
 | id | - | 2/3 | 4/7 | 4/7 | 2/3 | 2/3 | 2/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
@@ -1235,7 +1235,7 @@ Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directiona
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | 1/4 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 |
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
-| format/uri-template | - | - | 9/10 | 12/18 | 12/18 | 12/18 | 12/18 |
+| format/uri-template | - | - | 25/38 | 25/38 | 25/38 | 25/38 | 25/38 |
 | format/uuid | - | - | - | - | 15/28 | 15/28 | 15/28 |
 | id | - | 2/3 | 4/7 | 4/7 | 2/3 | 2/3 | 2/3 |
 | no-schema | - | - | - | - | 2/3 | 2/3 | - |
@@ -1366,7 +1366,7 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | 1/4 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 |
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
-| format/uri-template | - | - | 9/10 | 12/18 | 12/18 | 12/18 | 12/18 |
+| format/uri-template | - | - | 25/38 | 25/38 | 25/38 | 25/38 | 25/38 |
 | format/uuid | - | - | - | - | 15/28 | 15/28 | 15/28 |
 | id | - | 0/3 | 0/7 | 0/7 | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | 2/3 | 2/3 | - |
@@ -1497,7 +1497,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | 1/4 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 | 21/44 |
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
-| format/uri-template | - | - | 9/10 | 12/18 | 12/18 | 12/18 | 12/18 |
+| format/uri-template | - | - | 25/38 | 25/38 | 25/38 | 25/38 | 25/38 |
 | format/uuid | - | - | - | - | 15/28 | 15/28 | 15/28 |
 | id | - | 0/3 | 0/7 | 0/7 | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | 2/3 | 2/3 | - |
@@ -1628,7 +1628,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | format/unknown | - | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 | - |
 | format/uri | 0/4 | 0/44 | 0/44 | 0/44 | 0/44 | 0/44 | 0/44 |
 | format/uri-reference | - | - | 0/17 | 0/17 | 0/17 | 0/17 | 0/17 |
-| format/uri-template | - | - | 0/10 | 0/18 | 0/18 | 0/18 | 0/18 |
+| format/uri-template | - | - | 0/38 | 0/38 | 0/38 | 0/38 | 0/38 |
 | format/uuid | - | - | - | - | 0/28 | 0/28 | 0/28 |
 | id | - | 0/3 | 0/7 | 0/7 | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | 0/3 | 0/3 | - |
@@ -1759,7 +1759,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | format/unknown | - | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 | - |
 | format/uri | 0/4 | 0/44 | 0/44 | 0/44 | 0/44 | 0/44 | 0/44 |
 | format/uri-reference | - | - | 0/17 | 0/17 | 0/17 | 0/17 | 0/17 |
-| format/uri-template | - | - | 0/10 | 0/18 | 0/18 | 0/18 | 0/18 |
+| format/uri-template | - | - | 0/38 | 0/38 | 0/38 | 0/38 | 0/38 |
 | format/uuid | - | - | - | - | 0/28 | 0/28 | 0/28 |
 | id | - | 0/3 | 0/7 | 0/7 | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | 0/3 | 0/3 | - |
