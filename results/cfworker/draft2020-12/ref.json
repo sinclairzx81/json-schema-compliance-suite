@@ -234,6 +234,17 @@
         "valid": true
       },
       {
+        "description": "ref valid, maxItems invalid",
+        "data": {
+          "foo": [
+            1,
+            2,
+            3
+          ]
+        },
+        "valid": false
+      },
+      {
         "description": "ref invalid",
         "data": {
           "foo": "string"
@@ -572,6 +583,16 @@
     },
     "tests": [
       {
+        "description": "invalid on inner field",
+        "data": {
+          "foo": {
+            "bar": 1
+          },
+          "bar": "a"
+        },
+        "valid": false
+      },
+      {
         "description": "invalid on outer field",
         "data": {
           "foo": {
@@ -616,6 +637,16 @@
       "$ref": "schema-refs-absolute-uris-defs2.json"
     },
     "tests": [
+      {
+        "description": "invalid on inner field",
+        "data": {
+          "foo": {
+            "bar": 1
+          },
+          "bar": "a"
+        },
+        "valid": false
+      },
       {
         "description": "invalid on outer field",
         "data": {

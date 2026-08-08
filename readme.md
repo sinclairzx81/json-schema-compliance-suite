@@ -39,7 +39,7 @@ Updated: Sat Aug 08 2026
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
 | [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10574 | 387 | 96.5% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10041 | 920 | 91.6% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10056 | 905 | 91.7% |
 | [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9540 | 1421 | 87.0% |
 | [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9389 | 1572 | 85.7% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9380 | 1581 | 85.6% |
@@ -241,11 +241,11 @@ Results for the @cfworker/json-schema validation library.
 | divisibleBy | 6/9 | - | - | - | - | - | - |
 | dynamicRef | - | - | - | - | - | 15/44 | 6/27 |
 | enum | 14/16 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| exclusiveMaximum | - | - | 2/4 | ✅ | ✅ | 2/4 | 2/4 |
-| exclusiveMinimum | - | - | 2/4 | ✅ | ✅ | 2/4 | 2/4 |
+| exclusiveMaximum | - | - | 2/4 | ✅ | ✅ | ✅ | 2/4 |
+| exclusiveMinimum | - | - | 2/4 | ✅ | ✅ | ✅ | 2/4 |
 | extends | 4/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 118/133 | - |
-| if-then-else | - | - | - | ✅ | ✅ | 28/30 | 24/26 |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | 24/26 |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | items | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxContains | - | - | - | - | ✅ | ✅ | ✅ |
@@ -267,12 +267,12 @@ Results for the @cfworker/json-schema validation library.
 | properties | ✅ | 23/24 | 27/28 | 27/28 | 27/28 | 27/28 | 27/28 |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | ✅ | - | - |
-| ref | 23/27 | 41/45 | 66/70 | 74/78 | 78/81 | 73/79 | 73/79 |
+| ref | 23/27 | 41/45 | 66/70 | 74/78 | 78/81 | 76/79 | 73/79 |
 | refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
 | required | 3/4 | 13/17 | 14/18 | 14/18 | 14/18 | 14/18 | 14/18 |
 | type | 69/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| unevaluatedItems | - | - | - | - | 55/56 | 67/71 | 67/71 |
-| unevaluatedProperties | - | - | - | - | ✅ | 126/129 | 126/129 |
+| unevaluatedItems | - | - | - | - | 55/56 | 69/71 | 67/71 |
+| unevaluatedProperties | - | - | - | - | ✅ | 128/129 | 126/129 |
 | uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
@@ -287,7 +287,7 @@ Results for the @cfworker/json-schema validation library.
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
 | anchor | - | - | - | - | ✅ | ✅ | ✅ |
-| bignum | ✅ | ✅ | 7/9 | ✅ | ✅ | 7/9 | 7/9 |
+| bignum | ✅ | ✅ | 7/9 | ✅ | ✅ | ✅ | 7/9 |
 | content | - | - | - | 6/10 | - | - | - |
 | cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |

@@ -33,7 +33,7 @@ function createCFWorkerValidator(schema: boolean | Record<string, unknown>, draf
   const spec = (
     draft === 'draft7' ? '7' :
     draft === 'draft2019-09' ? '2019-09' :
-    draft === 'draft2020-20' ? '2020-20' :
+    draft === 'draft2020-12' ? '2020-12' :
     '4'
   ) as never
   return (new CFWorker.Validator(schema, spec))

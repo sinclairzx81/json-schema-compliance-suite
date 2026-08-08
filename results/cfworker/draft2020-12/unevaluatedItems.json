@@ -618,6 +618,15 @@
           "bar"
         ],
         "valid": true
+      },
+      {
+        "description": "with unevaluated items",
+        "data": [
+          "foo",
+          "bar",
+          "baz"
+        ],
+        "valid": false
       }
     ]
   },
@@ -651,6 +660,15 @@
           "bar"
         ],
         "valid": true
+      },
+      {
+        "description": "with unevaluated items",
+        "data": [
+          "foo",
+          "bar",
+          "baz"
+        ],
+        "valid": false
       }
     ]
   },
