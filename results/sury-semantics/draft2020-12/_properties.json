@@ -59,46 +59,6 @@
     ]
   },
   {
-    "description": "properties with escaped characters",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "properties": {
-        "foo\nbar": {
-          "type": "number"
-        },
-        "foo\"bar": {
-          "type": "number"
-        },
-        "foo\\bar": {
-          "type": "number"
-        },
-        "foo\rbar": {
-          "type": "number"
-        },
-        "foo\tbar": {
-          "type": "number"
-        },
-        "foo\fbar": {
-          "type": "number"
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "object with all numbers is valid",
-        "data": {
-          "foo\nbar": 1,
-          "foo\"bar": 1,
-          "foo\\bar": 1,
-          "foo\rbar": 1,
-          "foo\tbar": 1,
-          "foo\fbar": 1
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "properties whose names are Javascript object property names",
     "comment": "Ensure JS implementations don't universally consider e.g. __proto__ to always be present in an object.",
     "schema": {
@@ -123,17 +83,6 @@
       {
         "description": "none of the properties mentioned",
         "data": {},
-        "valid": true
-      },
-      {
-        "description": "all present and valid",
-        "data": {
-          "__proto__": 12,
-          "toString": {
-            "length": "foo"
-          },
-          "constructor": 37
-        },
         "valid": true
       }
     ]

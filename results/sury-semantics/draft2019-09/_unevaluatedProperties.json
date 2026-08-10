@@ -711,16 +711,16 @@
     },
     "tests": [
       {
-        "description": "with unevaluated properties",
+        "description": "with no unevaluated properties",
         "data": {
           "name": "a",
           "node": 1,
           "branches": {
-            "foo": "b",
+            "name": "b",
             "node": 2
           }
         },
-        "valid": false
+        "valid": true
       }
     ]
   },

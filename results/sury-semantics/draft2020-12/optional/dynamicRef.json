@@ -43,13 +43,13 @@
     },
     "tests": [
       {
-        "description": "integer property passes",
+        "description": "string property fails",
         "data": {
           "bar-item": {
-            "content": 42
+            "content": "value"
           }
         },
-        "valid": true
+        "valid": false
       }
     ]
   }

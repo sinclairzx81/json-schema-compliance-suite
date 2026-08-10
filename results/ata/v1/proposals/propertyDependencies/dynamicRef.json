@@ -49,6 +49,16 @@
     },
     "tests": [
       {
+        "description": "number list with number values",
+        "data": {
+          "kindOfList": "numbers",
+          "list": [
+            1.1
+          ]
+        },
+        "valid": true
+      },
+      {
         "description": "number list with string values",
         "data": {
           "kindOfList": "numbers",
@@ -67,6 +77,16 @@
           ]
         },
         "valid": false
+      },
+      {
+        "description": "string list with string values",
+        "data": {
+          "kindOfList": "strings",
+          "list": [
+            "foo"
+          ]
+        },
+        "valid": true
       }
     ]
   },

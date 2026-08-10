@@ -35,11 +35,24 @@
     },
     "tests": [
       {
+        "description": "exact match to enum, and type matches",
+        "data": {
+          "$anchor": "my_anchor",
+          "type": "null"
+        },
+        "valid": true
+      },
+      {
         "description": "in implementations that strip $anchor, this may match either $def",
         "data": {
           "type": "null"
         },
         "valid": false
+      },
+      {
+        "description": "match $ref to $anchor",
+        "data": "a string to match #/$defs/anchor_in_enum",
+        "valid": true
       },
       {
         "description": "no match on enum or $ref to $anchor",

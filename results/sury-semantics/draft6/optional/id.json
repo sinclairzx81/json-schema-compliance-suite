@@ -34,17 +34,9 @@
     },
     "tests": [
       {
-        "description": "exact match to enum, and type matches",
-        "data": {
-          "$id": "https://localhost:1234/id/my_identifier.json",
-          "type": "null"
-        },
-        "valid": true
-      },
-      {
-        "description": "match $ref to id",
-        "data": "a string to match #/definitions/id_in_enum",
-        "valid": true
+        "description": "no match on enum or $ref to id",
+        "data": 1,
+        "valid": false
       }
     ]
   },
@@ -81,6 +73,11 @@
         "description": "skip traversing definition for a valid result",
         "data": "skip not_a_real_anchor",
         "valid": true
+      },
+      {
+        "description": "const at const_not_anchor does not match",
+        "data": 1,
+        "valid": false
       }
     ]
   },
@@ -117,6 +114,11 @@
         "description": "skip traversing definition for a valid result",
         "data": "skip not_a_real_id",
         "valid": true
+      },
+      {
+        "description": "const at const_not_id does not match",
+        "data": 1,
+        "valid": false
       }
     ]
   }

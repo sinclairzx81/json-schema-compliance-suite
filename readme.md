@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Sat Aug 08 2026
+Updated: Mon Aug 10 2026
 
 
 ### Validation
@@ -38,9 +38,9 @@ Updated: Sat Aug 08 2026
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10574 | 387 | 96.5% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10705 | 256 | 97.7% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10056 | 905 | 91.7% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9540 | 1421 | 87.0% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9545 | 1416 | 87.1% |
 | [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9389 | 1572 | 85.7% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9380 | 1581 | 85.6% |
 | [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8099 | 2862 | 73.9% |
@@ -52,7 +52,7 @@ Updated: Sat Aug 08 2026
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 6739 | 4222 | 61.5% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 7115 | 3846 | 64.9% |
 | [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6192 | 4769 | 56.5% |
 | [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 9178 | 16.3% |
 
@@ -63,7 +63,7 @@ Updated: Sat Aug 08 2026
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
 | [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6321 | 4640 | 57.7% |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 5118 | 5843 | 46.7% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 5198 | 5763 | 47.4% |
 | [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9447 | 13.8% |
 
 
@@ -155,26 +155,26 @@ Results for the TypeBox validation library.
 
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
-| anchor | - | - | - | - | 3/4 | 3/4 | 3/4 |
+| anchor | - | - | - | - | ✅ | ✅ | ✅ |
 | bignum | 7/9 | 7/9 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
 | cross-draft | - | - | - | 1/2 | 1/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
 | dynamicRef | - | - | - | - | - | ✅ | ✅ |
-| ecmascript-regex | - | 69/74 | 69/74 | 69/74 | 69/74 | 69/74 | 69/74 |
+| ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | float-overflow | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format-annotation | - | - | - | - | - | - | 114/133 |
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
-| format/date-time | 9/11 | 31/33 | 31/33 | 31/33 | 31/33 | 31/33 | 31/33 |
+| format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/duration | - | - | - | - | ✅ | ✅ | ✅ |
-| format/ecmascript-regex | ✅ | - | - | - | - | 11/12 | 11/12 |
-| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 22/27 |
+| format/ecmascript-regex | ✅ | - | - | - | - | ✅ | ✅ |
+| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 29/30 | 29/30 | ✅ | ✅ | ✅ | ✅ |
-| format/idn-email | - | - | - | 13/18 | 13/18 | 13/18 | 14/19 |
-| format/idn-hostname | - | - | - | 81/89 | 82/90 | 82/90 | 82/90 |
+| format/idn-email | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/idn-hostname | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -187,9 +187,9 @@ Results for the TypeBox validation library.
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/uri-template | - | - | 35/38 | 35/38 | 35/38 | 35/38 | 35/38 |
+| format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
-| id | - | 2/3 | 6/7 | 6/7 | 2/3 | 2/3 | 2/3 |
+| id | - | 2/3 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
@@ -501,7 +501,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | dependentSchemas | - | - | - | - | 19/20 | 19/20 | 19/20 |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 39/44 | 22/27 |
+| dynamicRef | - | - | - | - | - | 39/44 | 21/27 |
 | enum | 10/16 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -533,8 +533,8 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | refRemote | 4/8 | 8/17 | 11/23 | 11/23 | 15/31 | 15/31 | 15/31 |
 | required | 2/4 | 12/17 | 13/18 | 13/18 | 13/18 | 13/18 | 13/18 |
 | type | 73/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| unevaluatedItems | - | - | - | - | 42/56 | ✅ | 70/71 |
-| unevaluatedProperties | - | - | - | - | 128/129 | ✅ | 128/129 |
+| unevaluatedItems | - | - | - | - | 42/56 | ✅ | ✅ |
+| unevaluatedProperties | - | - | - | - | 128/129 | ✅ | ✅ |
 | uniqueItems | 60/62 | 67/69 | 67/69 | 67/69 | 67/69 | ✅ | ✅ |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
@@ -553,7 +553,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | content | - | - | - | 6/10 | - | - | - |
 | cross-draft | - | - | - | 1/2 | 1/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | 22/36 | 22/36 | 22/36 |
-| dynamicRef | - | - | - | - | - | 0/2 | 0/2 |
+| dynamicRef | - | - | - | - | - | 0/2 | ✅ |
 | ecmascript-regex | - | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 |
 | float-overflow | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format-annotation | - | - | - | - | - | - | 124/133 |
@@ -586,7 +586,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 | 9/12 |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
-| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 6/8 |
+| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | ✅ |
 | proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | ✅ |
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | ✅ |
 | refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
@@ -1010,11 +1010,11 @@ Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Sc
 |:-----|:--|:--|:--|:--|:--|:--|:--|
 | additionalItems | 3/14 | 5/17 | 6/19 | 6/19 | 6/19 | - | - |
 | additionalProperties | 9/16 | 9/16 | 9/16 | 9/16 | 13/21 | 13/21 | 13/21 |
-| allOf | - | 26/27 | 29/30 | 29/30 | 29/30 | 29/30 | 29/30 |
+| allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | anchor | - | - | - | - | 4/8 | 4/8 | 4/8 |
 | anyOf | - | 14/15 | 17/18 | 17/18 | 17/18 | 17/18 | 17/18 |
 | boolean_schema | - | - | 9/18 | 9/18 | 9/18 | 9/18 | 9/18 |
-| const | - | - | 47/54 | 47/54 | 47/54 | 47/54 | 47/54 |
+| const | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | contains | - | - | 9/19 | 10/21 | 10/21 | 10/21 | 10/25 |
 | content | - | - | - | - | ✅ | ✅ | ✅ |
 | default | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 |
@@ -1025,36 +1025,36 @@ Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Sc
 | dependentSchemas | - | - | - | - | 10/20 | 10/20 | 10/20 |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 22/44 | 12/27 |
-| enum | 13/16 | 38/49 | 34/45 | 34/45 | 34/51 | 34/51 | 34/51 |
-| exclusiveMaximum | - | - | 3/4 | 3/4 | 3/4 | 3/4 | 3/4 |
-| exclusiveMinimum | - | - | 3/4 | 3/4 | 3/4 | 3/4 | 3/4 |
+| dynamicRef | - | - | - | - | - | 22/44 | 15/27 |
+| enum | 14/16 | ✅ | ✅ | ✅ | 45/51 | 45/51 | 45/51 |
+| exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | extends | 4/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| if-then-else | - | - | - | 26/30 | 26/30 | 26/30 | 22/26 |
-| infinite-loop-detection | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 |
-| items | ✅ | 16/21 | 21/28 | 21/28 | 21/28 | 20/29 | 20/29 |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| items | ✅ | 16/21 | 21/28 | 21/28 | 21/28 | 22/29 | 22/29 |
 | maxContains | - | - | - | - | 7/14 | 7/14 | 7/14 |
-| maximum | 13/14 | 13/14 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maximum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxLength | 4/5 | 4/5 | 6/7 | 6/7 | 6/7 | 6/7 | 6/7 |
 | maxProperties | - | 2/8 | 3/10 | 3/10 | 3/10 | 3/10 | 3/10 |
 | minContains | - | - | - | - | 14/28 | 14/28 | 14/28 |
-| minimum | 12/13 | 16/17 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minimum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | minItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | minLength | 4/5 | 4/5 | 6/7 | 6/7 | 6/7 | 6/7 | 6/7 |
 | minProperties | - | 1/8 | 2/10 | 2/10 | 2/10 | 2/10 | 2/10 |
-| multipleOf | - | 4/11 | 4/11 | 4/11 | 4/11 | 4/11 | 4/11 |
+| multipleOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | not | - | ✅ | ✅ | ✅ | 39/40 | 39/40 | 39/40 |
 | oneOf | - | 21/23 | 25/27 | 25/27 | 25/27 | 25/27 | 25/27 |
 | pattern | ✅ | ✅ | ✅ | ✅ | ✅ | 10/12 | 10/12 |
 | patternProperties | 7/17 | 7/18 | 10/23 | 10/23 | 10/23 | 10/25 | 11/26 |
 | prefixItems | - | - | - | - | - | 5/11 | 5/11 |
-| properties | 11/15 | 17/24 | 21/28 | 21/28 | 21/28 | 21/28 | 21/28 |
+| properties | 11/15 | 19/24 | 23/28 | 23/28 | 23/28 | 23/28 | 23/28 |
 | propertyNames | - | - | 5/22 | 5/22 | 5/22 | 5/22 | 2/12 |
 | recursiveRef | - | - | - | - | 23/34 | - | - |
-| ref | 14/27 | 24/45 | 36/70 | 40/78 | 42/81 | 41/79 | 41/79 |
-| refRemote | 4/8 | 9/17 | 12/23 | 12/23 | 16/31 | 16/31 | 16/31 |
+| ref | 24/27 | 39/45 | 58/70 | 62/78 | 63/81 | 62/79 | 62/79 |
+| refRemote | 4/8 | 8/17 | 11/23 | 11/23 | 15/31 | 15/31 | 15/31 |
 | required | 3/4 | 12/17 | 13/18 | 13/18 | 13/18 | 13/18 | 13/18 |
 | type | 67/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 20/56 | 28/71 | 28/71 |
@@ -1073,9 +1073,9 @@ Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Sc
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
 | anchor | - | - | - | - | 2/4 | 2/4 | 2/4 |
-| bignum | 5/9 | 5/9 | 5/9 | 5/9 | 5/9 | 5/9 | 5/9 |
+| bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 1/2 | 2/3 | ✅ | - |
+| cross-draft | - | - | - | 1/2 | 1/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | 14/36 | 14/36 | 14/36 |
 | dynamicRef | - | - | - | - | - | 1/2 | 1/2 |
 | ecmascript-regex | - | 61/74 | 61/74 | 61/74 | 61/74 | 61/74 | 61/74 |
@@ -1106,15 +1106,15 @@ Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Sc
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
 | format/uri-template | - | - | 25/38 | 25/38 | 25/38 | 25/38 | 25/38 |
 | format/uuid | - | - | - | - | 15/28 | 15/28 | 15/28 |
-| id | - | 2/3 | 4/7 | 4/7 | 2/3 | 2/3 | 2/3 |
+| id | - | 1/3 | 5/7 | 5/7 | 1/3 | 1/3 | 1/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | 7/12 | 7/12 | 7/12 | 7/12 | 7/12 | 7/12 | 7/12 |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
 | proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
 | proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 4/6 |
-| refOfUnknownKeyword | - | - | - | - | 5/10 | 5/10 | 5/10 |
-| unknownKeyword | - | - | 1/3 | 1/3 | 1/3 | 1/3 | 1/3 |
+| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
+| unknownKeyword | - | - | 2/3 | 2/3 | 2/3 | 2/3 | 2/3 |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
 
 
@@ -1141,30 +1141,30 @@ Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directiona
 |:-----|:--|:--|:--|:--|:--|:--|:--|
 | additionalItems | 1/14 | 1/17 | 1/19 | 1/19 | 1/19 | - | - |
 | additionalProperties | 5/16 | 5/16 | 5/16 | 5/16 | 5/21 | 5/21 | 5/21 |
-| allOf | - | 8/27 | 9/30 | 9/30 | 9/30 | 9/30 | 9/30 |
-| anchor | - | - | - | - | 4/8 | 4/8 | 4/8 |
+| allOf | - | 9/27 | 10/30 | 10/30 | 10/30 | 10/30 | 10/30 |
+| anchor | - | - | - | - | 0/8 | 0/8 | 0/8 |
 | anyOf | - | 11/15 | 14/18 | 14/18 | 14/18 | 14/18 | 14/18 |
 | boolean_schema | - | - | 9/18 | 9/18 | 9/18 | 9/18 | 9/18 |
-| const | - | - | 35/54 | 35/54 | 35/54 | 35/54 | 35/54 |
+| const | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | contains | - | - | 0/19 | 0/21 | 0/21 | 0/21 | 0/25 |
 | content | - | - | - | - | ✅ | ✅ | ✅ |
 | default | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 |
-| definitions | - | 1/2 | 1/2 | 1/2 | - | - | - |
-| defs | - | - | - | - | 1/2 | 1/2 | - |
+| definitions | - | 0/2 | 0/2 | 0/2 | - | - | - |
+| defs | - | - | - | - | 0/2 | 0/2 | - |
 | dependencies | 0/18 | 0/29 | 0/36 | 0/36 | - | - | - |
 | dependentRequired | - | - | - | - | 0/20 | 0/20 | 0/20 |
 | dependentSchemas | - | - | - | - | 0/20 | 0/20 | 0/20 |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 21/44 | 11/27 |
-| enum | 11/16 | 32/49 | 28/45 | 28/45 | 28/51 | 28/51 | 28/51 |
+| dynamicRef | - | - | - | - | - | 3/44 | 1/27 |
+| enum | 14/16 | ✅ | ✅ | ✅ | 45/51 | 45/51 | 45/51 |
 | exclusiveMaximum | - | - | 2/4 | 2/4 | 2/4 | 2/4 | 2/4 |
 | exclusiveMinimum | - | - | 2/4 | 2/4 | 2/4 | 2/4 | 2/4 |
 | extends | 3/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| if-then-else | - | - | - | 16/30 | 16/30 | 16/30 | 14/26 |
+| if-then-else | - | - | - | 20/30 | 20/30 | 20/30 | 18/26 |
 | infinite-loop-detection | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 |
-| items | 5/7 | 13/21 | 18/28 | 18/28 | 18/28 | 19/29 | 19/29 |
+| items | 5/7 | 13/21 | 18/28 | 18/28 | 18/28 | 21/29 | 21/29 |
 | maxContains | - | - | - | - | 0/14 | 0/14 | 0/14 |
 | maximum | 10/14 | 10/14 | 6/8 | 6/8 | 6/8 | 6/8 | 6/8 |
 | maxItems | 3/4 | 3/4 | 4/6 | 4/6 | 4/6 | 4/6 | 4/6 |
@@ -1175,7 +1175,7 @@ Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directiona
 | minItems | 3/4 | 3/4 | 4/6 | 4/6 | 4/6 | 4/6 | 4/6 |
 | minLength | 3/5 | 3/5 | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 |
 | minProperties | - | 0/8 | 0/10 | 0/10 | 0/10 | 0/10 | 0/10 |
-| multipleOf | - | 0/11 | 0/11 | 0/11 | 0/11 | 0/11 | 0/11 |
+| multipleOf | - | 8/11 | 8/11 | 8/11 | 8/11 | 8/11 | 8/11 |
 | not | - | 6/20 | 15/38 | 15/38 | 15/40 | 15/40 | 15/40 |
 | oneOf | - | 12/23 | 13/27 | 13/27 | 13/27 | 13/27 | 13/27 |
 | pattern | 8/9 | 8/9 | 8/9 | 8/9 | 8/9 | 11/12 | 11/12 |
@@ -1184,12 +1184,12 @@ Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directiona
 | properties | 5/15 | 10/24 | 12/28 | 12/28 | 12/28 | 12/28 | 12/28 |
 | propertyNames | - | - | 0/22 | 0/22 | 0/22 | 0/22 | 0/12 |
 | recursiveRef | - | - | - | - | 20/34 | - | - |
-| ref | 13/27 | 22/45 | 33/70 | 37/78 | 36/81 | 36/79 | 36/79 |
-| refRemote | 4/8 | 9/17 | 12/23 | 12/23 | 16/31 | 16/31 | 16/31 |
+| ref | 14/27 | 18/45 | 24/70 | 24/78 | 27/81 | 27/79 | 27/79 |
+| refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
 | required | 3/4 | 11/17 | 12/18 | 12/18 | 12/18 | 12/18 | 12/18 |
 | type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| unevaluatedItems | - | - | - | - | 2/56 | 2/71 | 2/71 |
-| unevaluatedProperties | - | - | - | - | 2/129 | 2/129 | 2/129 |
+| unevaluatedItems | - | - | - | - | 1/56 | 1/71 | 1/71 |
+| unevaluatedProperties | - | - | - | - | 1/129 | 1/129 | 1/129 |
 | uniqueItems | 0/62 | 0/69 | 0/69 | 0/69 | 0/69 | 0/69 | 0/69 |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
@@ -1203,14 +1203,14 @@ Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directiona
 
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
-| anchor | - | - | - | - | 2/4 | 2/4 | 2/4 |
-| bignum | 5/9 | 5/9 | 5/9 | 5/9 | 5/9 | 5/9 | 5/9 |
+| anchor | - | - | - | - | 0/4 | 0/4 | 0/4 |
+| bignum | 7/9 | 7/9 | 7/9 | 7/9 | 7/9 | 7/9 | 7/9 |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 1/2 | 2/3 | ✅ | - |
+| cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | 0/36 | 0/36 | 0/36 |
-| dynamicRef | - | - | - | - | - | 1/2 | 1/2 |
+| dynamicRef | - | - | - | - | - | 0/2 | 0/2 |
 | ecmascript-regex | - | 48/74 | 48/74 | 48/74 | 48/74 | 48/74 | 48/74 |
-| float-overflow | - | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 |
+| float-overflow | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format-annotation | - | - | - | - | - | - | ✅ |
 | format-assertion | - | - | - | - | - | 2/4 | - |
 | format/color | 3/6 | - | - | - | - | - | - |
@@ -1237,15 +1237,15 @@ Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directiona
 | format/uri-reference | - | - | 13/17 | 13/17 | 13/17 | 13/17 | 13/17 |
 | format/uri-template | - | - | 25/38 | 25/38 | 25/38 | 25/38 | 25/38 |
 | format/uuid | - | - | - | - | 15/28 | 15/28 | 15/28 |
-| id | - | 2/3 | 4/7 | 4/7 | 2/3 | 2/3 | 2/3 |
+| id | - | 0/3 | 2/7 | 2/7 | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | 2/3 | 2/3 | - |
 | non-bmp-regex | 3/12 | 3/12 | 3/12 | 3/12 | 3/12 | 3/12 | 3/12 |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | 0/3 |
 | proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
 | proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 0/6 |
-| refOfUnknownKeyword | - | - | - | - | 5/10 | 5/10 | 5/10 |
-| unknownKeyword | - | - | 1/3 | 1/3 | 1/3 | 1/3 | 1/3 |
+| refOfUnknownKeyword | - | - | - | - | 6/10 | 6/10 | 6/10 |
+| unknownKeyword | - | - | 0/3 | 0/3 | 0/3 | 0/3 | 0/3 |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
 
 

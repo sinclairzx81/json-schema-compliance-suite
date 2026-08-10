@@ -36,6 +36,11 @@
     },
     "tests": [
       {
+        "description": "one of the enum is valid",
+        "data": [],
+        "valid": true
+      },
+      {
         "description": "something else is invalid",
         "data": null,
         "valid": false

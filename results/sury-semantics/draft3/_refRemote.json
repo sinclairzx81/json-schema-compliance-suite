@@ -6,9 +6,9 @@
     },
     "tests": [
       {
-        "description": "remote ref invalid",
-        "data": "a",
-        "valid": false
+        "description": "remote ref valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -19,9 +19,9 @@
     },
     "tests": [
       {
-        "description": "remote fragment invalid",
-        "data": "a",
-        "valid": false
+        "description": "remote fragment valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -32,9 +32,9 @@
     },
     "tests": [
       {
-        "description": "ref within ref invalid",
-        "data": "a",
-        "valid": false
+        "description": "ref within ref valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -51,13 +51,13 @@
     },
     "tests": [
       {
-        "description": "changed scope ref invalid",
+        "description": "changed scope ref valid",
         "data": [
           [
-            "a"
+            1
           ]
         ],
-        "valid": false
+        "valid": true
       }
     ]
   }

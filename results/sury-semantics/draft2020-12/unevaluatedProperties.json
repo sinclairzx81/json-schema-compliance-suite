@@ -599,12 +599,13 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
+        "description": "with unevaluated properties",
         "data": {
           "foo": "foo",
-          "bar": "bar"
+          "bar": "bar",
+          "baz": "baz"
         },
-        "valid": true
+        "valid": false
       }
     ]
   },

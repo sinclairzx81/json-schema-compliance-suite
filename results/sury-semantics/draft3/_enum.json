@@ -1,26 +1,5 @@
 [
   {
-    "description": "heterogeneous enum validation",
-    "schema": {
-      "enum": [
-        6,
-        "foo",
-        [],
-        true,
-        {
-          "foo": 12
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "one of the enum is valid",
-        "data": [],
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "enums in properties",
     "schema": {
       "type": "object",

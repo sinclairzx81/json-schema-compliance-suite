@@ -7,6 +7,11 @@
     },
     "tests": [
       {
+        "description": "below the exclusiveMaximum is valid",
+        "data": 2.2,
+        "valid": true
+      },
+      {
         "description": "boundary point is invalid",
         "data": 3,
         "valid": false

@@ -204,6 +204,11 @@
         "description": "$ref resolves to /definitions/base_foo, data does not validate",
         "data": "a",
         "valid": false
+      },
+      {
+        "description": "$ref resolves to /definitions/base_foo, data validates",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -213,6 +218,13 @@
       "$ref": "http://json-schema.org/draft-06/schema#"
     },
     "tests": [
+      {
+        "description": "remote ref valid",
+        "data": {
+          "minLength": 1
+        },
+        "valid": true
+      },
       {
         "description": "remote ref invalid",
         "data": {
@@ -327,6 +339,43 @@
     },
     "tests": [
       {
+        "description": "valid tree",
+        "data": {
+          "meta": "root",
+          "nodes": [
+            {
+              "value": 1,
+              "subtree": {
+                "meta": "child",
+                "nodes": [
+                  {
+                    "value": 1.1
+                  },
+                  {
+                    "value": 1.2
+                  }
+                ]
+              }
+            },
+            {
+              "value": 2,
+              "subtree": {
+                "meta": "child",
+                "nodes": [
+                  {
+                    "value": 2.1
+                  },
+                  {
+                    "value": 2.2
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "valid": true
+      },
+      {
         "description": "invalid tree",
         "data": {
           "meta": "root",
@@ -406,6 +455,11 @@
     },
     "tests": [
       {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      },
+      {
         "data": "a",
         "description": "mismatch",
         "valid": false
@@ -429,6 +483,11 @@
       }
     },
     "tests": [
+      {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      },
       {
         "data": "a",
         "description": "mismatch",
@@ -459,45 +518,14 @@
     },
     "tests": [
       {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      },
+      {
         "data": "a",
         "description": "mismatch",
         "valid": false
-      }
-    ]
-  },
-  {
-    "description": "naive replacement of $ref with its destination is not correct",
-    "schema": {
-      "definitions": {
-        "a_string": {
-          "type": "string"
-        }
-      },
-      "enum": [
-        {
-          "$ref": "#/definitions/a_string"
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "do not evaluate the $ref inside the enum, matching any string",
-        "data": "this is a string",
-        "valid": false
-      },
-      {
-        "description": "do not evaluate the $ref inside the enum, definition exact match",
-        "data": {
-          "type": "string"
-        },
-        "valid": false
-      },
-      {
-        "description": "match the enum exactly",
-        "data": {
-          "$ref": "#/definitions/a_string"
-        },
-        "valid": true
       }
     ]
   },
@@ -550,6 +578,16 @@
           "bar": 1
         },
         "valid": false
+      },
+      {
+        "description": "valid on both fields",
+        "data": {
+          "foo": {
+            "bar": "a"
+          },
+          "bar": "a"
+        },
+        "valid": true
       }
     ]
   },
@@ -602,6 +640,16 @@
           "bar": 1
         },
         "valid": false
+      },
+      {
+        "description": "valid on both fields",
+        "data": {
+          "foo": {
+            "bar": "a"
+          },
+          "bar": "a"
+        },
+        "valid": true
       }
     ]
   },
@@ -618,6 +666,13 @@
       }
     },
     "tests": [
+      {
+        "description": "valid under the URN IDed schema",
+        "data": {
+          "foo": 37
+        },
+        "valid": true
+      },
       {
         "description": "invalid under the URN IDed schema",
         "data": {
@@ -748,6 +803,13 @@
     },
     "tests": [
       {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
         "description": "a non-string is invalid",
         "data": {
           "foo": 12
@@ -773,6 +835,13 @@
       }
     },
     "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
       {
         "description": "a non-string is invalid",
         "data": {
@@ -803,6 +872,11 @@
       ]
     },
     "tests": [
+      {
+        "description": "a string is valid",
+        "data": "foo",
+        "valid": true
+      },
       {
         "description": "an integer is invalid",
         "data": 12,

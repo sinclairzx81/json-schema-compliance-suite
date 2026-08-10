@@ -6,9 +6,9 @@
     },
     "tests": [
       {
-        "description": "remote ref valid",
-        "data": 1,
-        "valid": true
+        "description": "remote ref invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -19,9 +19,9 @@
     },
     "tests": [
       {
-        "description": "remote fragment valid",
-        "data": 1,
-        "valid": true
+        "description": "remote fragment invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -32,9 +32,9 @@
     },
     "tests": [
       {
-        "description": "ref within ref valid",
-        "data": 1,
-        "valid": true
+        "description": "ref within ref invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -51,13 +51,13 @@
     },
     "tests": [
       {
-        "description": "base URI change ref valid",
+        "description": "base URI change ref invalid",
         "data": [
           [
-            1
+            "a"
           ]
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -83,13 +83,13 @@
     },
     "tests": [
       {
-        "description": "number is valid",
+        "description": "string is invalid",
         "data": {
           "list": [
-            1
+            "a"
           ]
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -119,13 +119,13 @@
     },
     "tests": [
       {
-        "description": "number is valid",
+        "description": "string is invalid",
         "data": {
           "list": [
-            1
+            "a"
           ]
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -142,18 +142,13 @@
     },
     "tests": [
       {
-        "description": "string is valid",
+        "description": "object is invalid",
         "data": {
-          "name": "foo"
+          "name": {
+            "name": null
+          }
         },
-        "valid": true
-      },
-      {
-        "description": "null is valid",
-        "data": {
-          "name": null
-        },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -164,9 +159,9 @@
     },
     "tests": [
       {
-        "description": "integer is valid",
-        "data": 1,
-        "valid": true
+        "description": "string is invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   }

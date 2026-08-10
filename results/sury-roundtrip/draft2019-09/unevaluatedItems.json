@@ -1,53 +1,5 @@
 [
   {
-    "description": "unevaluatedItems with $recursiveRef",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "$id": "https://example.com/unevaluated-items-with-recursive-ref/extended-tree",
-      "$recursiveAnchor": true,
-      "$ref": "./tree",
-      "items": [
-        true,
-        true,
-        {
-          "type": "string"
-        }
-      ],
-      "$defs": {
-        "tree": {
-          "$id": "./tree",
-          "$recursiveAnchor": true,
-          "type": "array",
-          "items": [
-            {
-              "type": "number"
-            },
-            {
-              "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
-              "unevaluatedItems": false,
-              "$recursiveRef": "#"
-            }
-          ]
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "with no unevaluated items",
-        "data": [
-          1,
-          [
-            2,
-            [],
-            "b"
-          ],
-          "a"
-        ],
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "item is evaluated in an uncle schema to unevaluatedItems",
     "schema": {
       "$schema": "https://json-schema.org/draft/2019-09/schema",

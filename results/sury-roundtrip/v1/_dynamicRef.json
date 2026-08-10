@@ -48,6 +48,14 @@
     },
     "tests": [
       {
+        "description": "An array of strings is valid",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      },
+      {
         "description": "An array containing non-strings is invalid",
         "data": [
           "foo",
@@ -83,12 +91,56 @@
     },
     "tests": [
       {
+        "description": "An array of strings is valid",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      },
+      {
         "description": "An array containing non-strings is invalid",
         "data": [
           "foo",
           42
         ],
         "valid": false
+      }
+    ]
+  },
+  {
+    "description": "An $anchor with the same name as a $dynamicAnchor is not used for dynamic scope resolution",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "https://test.json-schema.org/dynamic-resolution-ignores-anchors/root",
+      "$ref": "list",
+      "$defs": {
+        "foo": {
+          "$anchor": "items",
+          "type": "string"
+        },
+        "list": {
+          "$id": "list",
+          "type": "array",
+          "items": {
+            "$dynamicRef": "#items"
+          },
+          "$defs": {
+            "items": {
+              "$dynamicAnchor": "items"
+            }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "Any array is valid",
+        "data": [
+          "foo",
+          42
+        ],
+        "valid": true
       }
     ]
   },
@@ -146,6 +198,11 @@
         "description": "first_scope is not in dynamic scope for the $dynamicRef",
         "data": 42,
         "valid": false
+      },
+      {
+        "description": "/then/$defs/thingy is the final stop for the $dynamicRef",
+        "data": null,
+        "valid": true
       }
     ]
   },
@@ -220,6 +277,17 @@
           ]
         },
         "valid": false
+      },
+      {
+        "description": "correct extended schema",
+        "data": {
+          "elements": [
+            {
+              "a": 1
+            }
+          ]
+        },
+        "valid": true
       }
     ]
   },
@@ -266,6 +334,17 @@
           ]
         },
         "valid": false
+      },
+      {
+        "description": "correct extended schema",
+        "data": {
+          "elements": [
+            {
+              "a": 1
+            }
+          ]
+        },
+        "valid": true
       }
     ]
   },
@@ -312,6 +391,17 @@
           ]
         },
         "valid": false
+      },
+      {
+        "description": "correct extended schema",
+        "data": {
+          "elements": [
+            {
+              "a": 1
+            }
+          ]
+        },
+        "valid": true
       }
     ]
   },
@@ -321,6 +411,11 @@
       "$ref": "http://localhost:1234/v1/detached-dynamicref.json#/$defs/foo"
     },
     "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
       {
         "description": "non-number is invalid",
         "data": "a",
@@ -371,6 +466,15 @@
       }
     },
     "tests": [
+      {
+        "description": "integer property passes",
+        "data": {
+          "bar-item": {
+            "content": 42
+          }
+        },
+        "valid": true
+      },
       {
         "description": "string property fails",
         "data": {
@@ -428,6 +532,11 @@
       }
     },
     "tests": [
+      {
+        "description": "data is sufficient for schema at second#/$defs/length",
+        "data": "hi",
+        "valid": true
+      },
       {
         "description": "data is not sufficient for schema at second#/$defs/length",
         "data": "hey",

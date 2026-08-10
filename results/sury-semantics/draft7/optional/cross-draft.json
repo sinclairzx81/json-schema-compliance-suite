@@ -16,12 +16,12 @@
     },
     "tests": [
       {
-        "description": "present bar is valid",
+        "description": "missing bar is invalid",
+        "comment": "if the implementation is not processing the $ref as a 2019-09 schema, this test will fail",
         "data": {
-          "foo": "any value",
-          "bar": "also any value"
+          "foo": "any value"
         },
-        "valid": true
+        "valid": false
       }
     ]
   }

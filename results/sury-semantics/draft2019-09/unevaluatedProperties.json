@@ -612,16 +612,16 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated properties",
+        "description": "with unevaluated properties",
         "data": {
           "name": "a",
           "node": 1,
           "branches": {
-            "name": "b",
+            "foo": "b",
             "node": 2
           }
         },
-        "valid": true
+        "valid": false
       }
     ]
   },

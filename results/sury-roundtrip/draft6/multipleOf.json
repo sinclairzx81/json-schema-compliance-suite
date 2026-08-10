@@ -2,7 +2,6 @@
   {
     "description": "by int",
     "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
       "multipleOf": 2
     },
     "tests": [
@@ -21,7 +20,6 @@
   {
     "description": "by number",
     "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
       "multipleOf": 1.5
     },
     "tests": [
@@ -45,7 +43,6 @@
   {
     "description": "by small number",
     "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
       "multipleOf": 0.0001
     },
     "tests": [
@@ -57,9 +54,22 @@
     ]
   },
   {
+    "description": "float division = inf",
+    "schema": {
+      "type": "integer",
+      "multipleOf": 0.123456789
+    },
+    "tests": [
+      {
+        "description": "always invalid, but naive implementations may raise an overflow error",
+        "data": 1e+308,
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "small multiple of large integer",
     "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
       "type": "integer",
       "multipleOf": 1e-8
     },

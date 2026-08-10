@@ -86,6 +86,11 @@
         "description": "match",
         "data": "a string",
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": 42,
+        "valid": false
       }
     ]
   },

@@ -444,12 +444,13 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated items",
+        "description": "with unevaluated items",
         "data": [
           "foo",
-          "bar"
+          "bar",
+          "baz"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },

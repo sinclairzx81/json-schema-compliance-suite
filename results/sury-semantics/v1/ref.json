@@ -33,6 +33,15 @@
           "bar": false
         },
         "valid": false
+      },
+      {
+        "description": "recursive mismatch",
+        "data": {
+          "foo": {
+            "bar": false
+          }
+        },
+        "valid": false
       }
     ]
   },
@@ -56,6 +65,13 @@
           "bar": 3
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": true
+        },
+        "valid": false
       }
     ]
   },
@@ -80,6 +96,14 @@
           2
         ],
         "valid": true
+      },
+      {
+        "description": "mismatch array",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
       }
     ]
   },
@@ -111,6 +135,27 @@
       }
     },
     "tests": [
+      {
+        "description": "slash invalid",
+        "data": {
+          "slash": "aoeu"
+        },
+        "valid": false
+      },
+      {
+        "description": "tilde invalid",
+        "data": {
+          "tilde": "aoeu"
+        },
+        "valid": false
+      },
+      {
+        "description": "percent invalid",
+        "data": {
+          "percent": "aoeu"
+        },
+        "valid": false
+      },
       {
         "description": "slash valid",
         "data": {
@@ -156,6 +201,11 @@
         "description": "nested ref valid",
         "data": 5,
         "valid": true
+      },
+      {
+        "description": "nested ref invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -184,13 +234,9 @@
         "valid": true
       },
       {
-        "description": "ref valid, maxItems invalid",
+        "description": "ref invalid",
         "data": {
-          "foo": [
-            1,
-            2,
-            3
-          ]
+          "foo": "string"
         },
         "valid": false
       }
@@ -204,11 +250,11 @@
     },
     "tests": [
       {
-        "description": "remote ref valid",
+        "description": "remote ref invalid",
         "data": {
-          "bar": ""
+          "bar": 0
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -261,6 +307,13 @@
           "$ref": "a"
         },
         "valid": true
+      },
+      {
+        "description": "property named $ref invalid",
+        "data": {
+          "$ref": 2
+        },
+        "valid": false
       }
     ]
   },
@@ -278,6 +331,23 @@
         "description": "any value is valid",
         "data": "foo",
         "valid": true
+      }
+    ]
+  },
+  {
+    "description": "$ref to boolean schema false",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$ref": "#/$defs/bool",
+      "$defs": {
+        "bool": false
+      }
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -324,7 +394,7 @@
     },
     "tests": [
       {
-        "description": "valid tree",
+        "description": "invalid tree",
         "data": {
           "meta": "root",
           "nodes": [
@@ -334,7 +404,7 @@
                 "meta": "child",
                 "nodes": [
                   {
-                    "value": 1.1
+                    "value": "string is invalid"
                   },
                   {
                     "value": 1.2
@@ -358,7 +428,7 @@
             }
           ]
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -384,6 +454,39 @@
           "foo\"bar": 1
         },
         "valid": true
+      },
+      {
+        "description": "object with strings is invalid",
+        "data": {
+          "foo\"bar": "1"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "ref creates new scope when adjacent to keywords",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$defs": {
+        "A": {
+          "unevaluatedProperties": false
+        }
+      },
+      "properties": {
+        "prop1": {
+          "type": "string"
+        }
+      },
+      "$ref": "#/$defs/A"
+    },
+    "tests": [
+      {
+        "description": "referenced subschema doesn't see annotations from properties",
+        "data": {
+          "prop1": "match"
+        },
+        "valid": false
       }
     ]
   },
@@ -414,6 +517,13 @@
           "type": "string"
         },
         "valid": false
+      },
+      {
+        "description": "match the enum exactly",
+        "data": {
+          "$ref": "#/$defs/a_string"
+        },
+        "valid": true
       }
     ]
   },
@@ -441,14 +551,24 @@
     },
     "tests": [
       {
-        "description": "valid on both fields",
+        "description": "invalid on inner field",
+        "data": {
+          "foo": {
+            "bar": 1
+          },
+          "bar": "a"
+        },
+        "valid": false
+      },
+      {
+        "description": "invalid on outer field",
         "data": {
           "foo": {
             "bar": "a"
           },
-          "bar": "a"
+          "bar": 1
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -476,14 +596,24 @@
     },
     "tests": [
       {
-        "description": "valid on both fields",
+        "description": "invalid on inner field",
+        "data": {
+          "foo": {
+            "bar": 1
+          },
+          "bar": "a"
+        },
+        "valid": false
+      },
+      {
+        "description": "invalid on outer field",
         "data": {
           "foo": {
             "bar": "a"
           },
-          "bar": "a"
+          "bar": 1
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -513,9 +643,9 @@
     },
     "tests": [
       {
-        "description": "number is valid",
-        "data": 1,
-        "valid": true
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -541,9 +671,9 @@
     },
     "tests": [
       {
-        "description": "data is valid against first definition",
-        "data": 5,
-        "valid": true
+        "description": "data is invalid against first definition",
+        "data": 50,
+        "valid": false
       }
     ]
   },
@@ -570,9 +700,9 @@
     },
     "tests": [
       {
-        "description": "data is valid against first definition",
-        "data": 5,
-        "valid": true
+        "description": "data is invalid against first definition",
+        "data": 50,
+        "valid": false
       }
     ]
   },
@@ -598,9 +728,9 @@
     },
     "tests": [
       {
-        "description": "data is valid against nested sibling",
-        "data": 5,
-        "valid": true
+        "description": "data is invalid against nested sibling",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -619,11 +749,11 @@
     },
     "tests": [
       {
-        "description": "valid under the URN IDed schema",
+        "description": "invalid under the URN IDed schema",
         "data": {
-          "foo": 37
+          "foo": 12
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -651,6 +781,13 @@
           "foo": "bar"
         },
         "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
       }
     ]
   },
@@ -678,6 +815,13 @@
           "foo": "bar"
         },
         "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
       }
     ]
   },
@@ -705,6 +849,13 @@
           "foo": "bar"
         },
         "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
       }
     ]
   },
@@ -732,6 +883,13 @@
           "foo": "bar"
         },
         "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
       }
     ]
   },
@@ -753,11 +911,11 @@
     },
     "tests": [
       {
-        "description": "a string is valid",
+        "description": "a non-string is invalid",
         "data": {
-          "foo": "bar"
+          "foo": 12
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -780,11 +938,11 @@
     },
     "tests": [
       {
-        "description": "a string is valid",
+        "description": "a non-string is invalid",
         "data": {
-          "foo": "bar"
+          "foo": 12
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -807,9 +965,9 @@
     },
     "tests": [
       {
-        "description": "a string is valid",
-        "data": "bar",
-        "valid": true
+        "description": "a non-string is invalid",
+        "data": 12,
+        "valid": false
       }
     ]
   },
@@ -825,9 +983,9 @@
     },
     "tests": [
       {
-        "description": "an integer is valid",
-        "data": 12,
-        "valid": true
+        "description": "a non-integer is invalid due to the $ref",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -843,9 +1001,9 @@
     },
     "tests": [
       {
-        "description": "an integer is valid",
-        "data": 12,
-        "valid": true
+        "description": "a non-integer is invalid due to the $ref",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -861,9 +1019,9 @@
     },
     "tests": [
       {
-        "description": "an integer is valid",
-        "data": 12,
-        "valid": true
+        "description": "a non-integer is invalid due to the $ref",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -886,9 +1044,9 @@
     },
     "tests": [
       {
-        "description": "a string is valid",
-        "data": "foo",
-        "valid": true
+        "description": "an integer is invalid",
+        "data": 12,
+        "valid": false
       }
     ]
   },
@@ -909,6 +1067,11 @@
         "description": "number is valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -929,6 +1092,11 @@
         "description": "number is valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -956,6 +1124,11 @@
         "description": "number is valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   }

@@ -43,6 +43,15 @@
     },
     "tests": [
       {
+        "description": "integer property passes",
+        "data": {
+          "bar-item": {
+            "content": 42
+          }
+        },
+        "valid": true
+      },
+      {
         "description": "string property fails",
         "data": {
           "bar-item": {

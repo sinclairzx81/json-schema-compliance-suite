@@ -241,17 +241,29 @@
     ]
   },
   {
-    "description": "remote ref, containing refs itself",
+    "description": "naive replacement of $ref with its destination is not correct",
     "schema": {
-      "$ref": "http://json-schema.org/draft-03/schema#"
+      "definitions": {
+        "a_string": {
+          "type": "string"
+        }
+      },
+      "enum": [
+        {
+          "$ref": "#/definitions/a_string"
+        }
+      ]
     },
     "tests": [
       {
-        "description": "remote ref valid",
+        "description": "do not evaluate the $ref inside the enum, matching any string",
+        "data": "this is a string",
+        "valid": false
+      },
+      {
+        "description": "match the enum exactly",
         "data": {
-          "items": {
-            "type": "integer"
-          }
+          "$ref": "#/definitions/a_string"
         },
         "valid": true
       }

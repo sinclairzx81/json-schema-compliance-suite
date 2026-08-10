@@ -13,6 +13,11 @@
     },
     "tests": [
       {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      },
+      {
         "data": "a",
         "description": "mismatch",
         "valid": false
@@ -33,6 +38,11 @@
       }
     },
     "tests": [
+      {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      },
       {
         "data": "a",
         "description": "mismatch",
@@ -59,6 +69,11 @@
       }
     },
     "tests": [
+      {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      },
       {
         "data": "a",
         "description": "mismatch",
@@ -90,6 +105,11 @@
       "$ref": "child1#my_anchor"
     },
     "tests": [
+      {
+        "description": "$ref resolves to /$defs/A/allOf/1",
+        "data": "a",
+        "valid": true
+      },
       {
         "description": "$ref does not resolve to /$defs/A/allOf/0",
         "data": 1,

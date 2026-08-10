@@ -138,6 +138,18 @@
     },
     "tests": [
       {
+        "description": "object with all numbers is valid",
+        "data": {
+          "foo\nbar": 1,
+          "foo\"bar": 1,
+          "foo\\bar": 1,
+          "foo\rbar": 1,
+          "foo\tbar": 1,
+          "foo\fbar": 1
+        },
+        "valid": true
+      },
+      {
         "description": "object with strings is invalid",
         "data": {
           "foo\nbar": "1",
@@ -225,6 +237,17 @@
           }
         },
         "valid": false
+      },
+      {
+        "description": "all present and valid",
+        "data": {
+          "__proto__": 12,
+          "toString": {
+            "length": "foo"
+          },
+          "constructor": 37
+        },
+        "valid": true
       }
     ]
   }

@@ -709,13 +709,12 @@
     },
     "tests": [
       {
-        "description": "with unevaluated properties",
+        "description": "with no unevaluated properties",
         "data": {
           "foo": "foo",
-          "bar": "bar",
-          "baz": "baz"
+          "bar": "bar"
         },
-        "valid": false
+        "valid": true
       }
     ]
   },

@@ -214,5 +214,33 @@
         "valid": true
       }
     ]
+  },
+  {
+    "description": "allOf combined with anyOf, oneOf",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "multipleOf": 2
+        }
+      ],
+      "anyOf": [
+        {
+          "multipleOf": 3
+        }
+      ],
+      "oneOf": [
+        {
+          "multipleOf": 5
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "allOf: true, anyOf: true, oneOf: true",
+        "data": 30,
+        "valid": true
+      }
+    ]
   }
 ]

@@ -76,64 +76,6 @@
     },
     "tests": [
       {
-        "description": "too many sub-items",
-        "data": [
-          [
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            }
-          ],
-          [
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            }
-          ],
-          [
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            }
-          ]
-        ],
-        "valid": false
-      },
-      {
-        "description": "wrong item",
-        "data": [
-          {
-            "foo": null
-          },
-          [
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            }
-          ],
-          [
-            {
-              "foo": null
-            },
-            {
-              "foo": null
-            }
-          ]
-        ],
-        "valid": false
-      },
-      {
         "description": "wrong sub-item",
         "data": [
           [

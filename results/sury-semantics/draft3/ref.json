@@ -32,6 +32,15 @@
           "bar": false
         },
         "valid": false
+      },
+      {
+        "description": "recursive mismatch",
+        "data": {
+          "foo": {
+            "bar": false
+          }
+        },
+        "valid": false
       }
     ]
   },
@@ -54,6 +63,13 @@
           "bar": 3
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": true
+        },
+        "valid": false
       }
     ]
   },
@@ -77,6 +93,14 @@
           2
         ],
         "valid": true
+      },
+      {
+        "description": "mismatch array",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
       }
     ]
   },
@@ -107,6 +131,27 @@
       }
     },
     "tests": [
+      {
+        "description": "slash invalid",
+        "data": {
+          "slash": "aoeu"
+        },
+        "valid": false
+      },
+      {
+        "description": "tilde invalid",
+        "data": {
+          "tilde": "aoeu"
+        },
+        "valid": false
+      },
+      {
+        "description": "percent invalid",
+        "data": {
+          "percent": "aoeu"
+        },
+        "valid": false
+      },
       {
         "description": "slash valid",
         "data": {
@@ -178,6 +223,24 @@
           "foo": []
         },
         "valid": true
+      },
+      {
+        "description": "remote ref valid, maxItems ignored",
+        "data": {
+          "foo": [
+            1,
+            2,
+            3
+          ]
+        },
+        "valid": true
+      },
+      {
+        "description": "ref invalid",
+        "data": {
+          "foo": "string"
+        },
+        "valid": false
       }
     ]
   },
@@ -202,6 +265,13 @@
           "$ref": "a"
         },
         "valid": true
+      },
+      {
+        "description": "property named $ref invalid",
+        "data": {
+          "$ref": 2
+        },
+        "valid": false
       }
     ]
   },
@@ -243,13 +313,13 @@
     },
     "tests": [
       {
-        "description": "remote ref valid",
+        "description": "remote ref invalid",
         "data": {
           "items": {
-            "type": "integer"
+            "type": 1
           }
         },
-        "valid": true
+        "valid": false
       }
     ]
   },
@@ -272,6 +342,13 @@
         "description": "do not evaluate the $ref inside the enum, matching any string",
         "data": "this is a string",
         "valid": false
+      },
+      {
+        "description": "match the enum exactly",
+        "data": {
+          "$ref": "#/definitions/a_string"
+        },
+        "valid": true
       }
     ]
   }

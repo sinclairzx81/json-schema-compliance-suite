@@ -32,6 +32,22 @@
     },
     "tests": [
       {
+        "description": "same object is valid",
+        "data": {
+          "foo": "bar",
+          "baz": "bax"
+        },
+        "valid": true
+      },
+      {
+        "description": "same object with different property order is valid",
+        "data": {
+          "baz": "bax",
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
         "description": "another object is invalid",
         "data": {
           "foo": "bar"
@@ -58,6 +74,15 @@
       ]
     },
     "tests": [
+      {
+        "description": "same array is valid",
+        "data": [
+          {
+            "foo": "bar"
+          }
+        ],
+        "valid": true
+      },
       {
         "description": "another array item is invalid",
         "data": [
@@ -149,6 +174,13 @@
     },
     "tests": [
       {
+        "description": "[false] is valid",
+        "data": [
+          false
+        ],
+        "valid": true
+      },
+      {
         "description": "[0] is invalid",
         "data": [
           0
@@ -172,6 +204,13 @@
       ]
     },
     "tests": [
+      {
+        "description": "[true] is valid",
+        "data": [
+          true
+        ],
+        "valid": true
+      },
       {
         "description": "[1] is invalid",
         "data": [
@@ -197,6 +236,13 @@
     },
     "tests": [
       {
+        "description": "{\"a\": false} is valid",
+        "data": {
+          "a": false
+        },
+        "valid": true
+      },
+      {
         "description": "{\"a\": 0} is invalid",
         "data": {
           "a": 0
@@ -220,6 +266,13 @@
       }
     },
     "tests": [
+      {
+        "description": "{\"a\": true} is valid",
+        "data": {
+          "a": true
+        },
+        "valid": true
+      },
       {
         "description": "{\"a\": 1} is invalid",
         "data": {

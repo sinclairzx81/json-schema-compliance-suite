@@ -7,15 +7,15 @@
     },
     "tests": [
       {
-        "description": "valid definition schema",
+        "description": "invalid definition schema",
         "data": {
           "$defs": {
             "foo": {
-              "type": "integer"
+              "type": 1
             }
           }
         },
-        "valid": true
+        "valid": false
       }
     ]
   }

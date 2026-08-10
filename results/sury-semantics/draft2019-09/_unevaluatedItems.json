@@ -577,18 +577,17 @@
     },
     "tests": [
       {
-        "description": "with unevaluated items",
+        "description": "with no unevaluated items",
         "data": [
           1,
           [
             2,
             [],
-            "b",
-            "too many"
+            "b"
           ],
           "a"
         ],
-        "valid": false
+        "valid": true
       }
     ]
   },

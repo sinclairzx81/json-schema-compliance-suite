@@ -7,9 +7,9 @@
     },
     "tests": [
       {
-        "description": "remote ref invalid",
-        "data": "a",
-        "valid": false
+        "description": "remote ref valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -21,9 +21,9 @@
     },
     "tests": [
       {
-        "description": "remote fragment invalid",
-        "data": "a",
-        "valid": false
+        "description": "remote fragment valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -35,9 +35,9 @@
     },
     "tests": [
       {
-        "description": "remote anchor invalid",
-        "data": "a",
-        "valid": false
+        "description": "remote anchor valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -49,9 +49,9 @@
     },
     "tests": [
       {
-        "description": "ref within ref invalid",
-        "data": "a",
-        "valid": false
+        "description": "ref within ref valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -69,13 +69,13 @@
     },
     "tests": [
       {
-        "description": "base URI change ref invalid",
+        "description": "base URI change ref valid",
         "data": [
           [
-            "a"
+            1
           ]
         ],
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -102,13 +102,13 @@
     },
     "tests": [
       {
-        "description": "string is invalid",
+        "description": "number is valid",
         "data": {
           "list": [
-            "a"
+            1
           ]
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -139,13 +139,13 @@
     },
     "tests": [
       {
-        "description": "string is invalid",
+        "description": "number is valid",
         "data": {
           "list": [
-            "a"
+            1
           ]
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -163,13 +163,18 @@
     },
     "tests": [
       {
-        "description": "object is invalid",
+        "description": "string is valid",
         "data": {
-          "name": {
-            "name": null
-          }
+          "name": "foo"
         },
-        "valid": false
+        "valid": true
+      },
+      {
+        "description": "null is valid",
+        "data": {
+          "name": null
+        },
+        "valid": true
       }
     ]
   },
@@ -182,11 +187,11 @@
     },
     "tests": [
       {
-        "description": "invalid",
+        "description": "valid",
         "data": {
-          "bar": 1
+          "bar": "a"
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -198,9 +203,9 @@
     },
     "tests": [
       {
-        "description": "string is invalid",
-        "data": "foo",
-        "valid": false
+        "description": "integer is valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -217,13 +222,13 @@
     },
     "tests": [
       {
-        "description": "number is invalid",
+        "description": "string is valid",
         "data": {
           "name": {
-            "foo": 1
+            "foo": "a"
           }
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -235,9 +240,9 @@
     },
     "tests": [
       {
-        "description": "number is invalid",
-        "data": 1,
-        "valid": false
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true
       }
     ]
   },
@@ -249,9 +254,9 @@
     },
     "tests": [
       {
-        "description": "number is invalid",
-        "data": 1,
-        "valid": false
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true
       }
     ]
   },
@@ -263,9 +268,9 @@
     },
     "tests": [
       {
-        "description": "number is invalid",
-        "data": 1,
-        "valid": false
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true
       }
     ]
   },
@@ -277,9 +282,9 @@
     },
     "tests": [
       {
-        "description": "non-number is invalid",
-        "data": "a",
-        "valid": false
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
       }
     ]
   }

@@ -48,12 +48,12 @@
     },
     "tests": [
       {
-        "description": "An array containing non-strings is invalid",
+        "description": "An array of strings is valid",
         "data": [
           "foo",
-          42
+          "bar"
         ],
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -83,12 +83,48 @@
     },
     "tests": [
       {
-        "description": "An array containing non-strings is invalid",
+        "description": "An array of strings is valid",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "An $anchor with the same name as a $dynamicAnchor is not used for dynamic scope resolution",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "https://test.json-schema.org/dynamic-resolution-ignores-anchors/root",
+      "$ref": "list",
+      "$defs": {
+        "foo": {
+          "$anchor": "items",
+          "type": "string"
+        },
+        "list": {
+          "$id": "list",
+          "type": "array",
+          "items": {
+            "$dynamicRef": "#items"
+          },
+          "$defs": {
+            "items": {
+              "$dynamicAnchor": "items"
+            }
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "Any array is valid",
         "data": [
           "foo",
           42
         ],
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -138,14 +174,9 @@
     },
     "tests": [
       {
-        "description": "string matches /$defs/thingy, but the $dynamicRef does not stop here",
-        "data": "a string",
-        "valid": false
-      },
-      {
-        "description": "first_scope is not in dynamic scope for the $dynamicRef",
-        "data": 42,
-        "valid": false
+        "description": "/then/$defs/thingy is the final stop for the $dynamicRef",
+        "data": null,
+        "valid": true
       }
     ]
   },
@@ -193,22 +224,15 @@
     },
     "tests": [
       {
-        "description": "incorrect parent schema",
-        "data": {
-          "a": true
-        },
-        "valid": false
-      },
-      {
-        "description": "incorrect extended schema",
+        "description": "correct extended schema",
         "data": {
           "elements": [
             {
-              "b": 1
+              "a": 1
             }
           ]
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -239,22 +263,15 @@
     },
     "tests": [
       {
-        "description": "incorrect parent schema",
-        "data": {
-          "a": true
-        },
-        "valid": false
-      },
-      {
-        "description": "incorrect extended schema",
+        "description": "correct extended schema",
         "data": {
           "elements": [
             {
-              "b": 1
+              "a": 1
             }
           ]
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -285,22 +302,15 @@
     },
     "tests": [
       {
-        "description": "incorrect parent schema",
-        "data": {
-          "a": true
-        },
-        "valid": false
-      },
-      {
-        "description": "incorrect extended schema",
+        "description": "correct extended schema",
         "data": {
           "elements": [
             {
-              "b": 1
+              "a": 1
             }
           ]
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -311,9 +321,9 @@
     },
     "tests": [
       {
-        "description": "non-number is invalid",
-        "data": "a",
-        "valid": false
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
       }
     ]
   },
@@ -361,13 +371,13 @@
     },
     "tests": [
       {
-        "description": "string property fails",
+        "description": "integer property passes",
         "data": {
           "bar-item": {
-            "content": "value"
+            "content": 42
           }
         },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -418,9 +428,9 @@
     },
     "tests": [
       {
-        "description": "data is not sufficient for schema at second#/$defs/length",
-        "data": "hey",
-        "valid": false
+        "description": "data is sufficient for schema at second#/$defs/length",
+        "data": "hi",
+        "valid": true
       }
     ]
   }

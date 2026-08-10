@@ -473,17 +473,18 @@
     },
     "tests": [
       {
-        "description": "with no unevaluated items",
+        "description": "with unevaluated items",
         "data": [
           1,
           [
             2,
             [],
-            "b"
+            "b",
+            "too many"
           ],
           "a"
         ],
-        "valid": true
+        "valid": false
       }
     ]
   },

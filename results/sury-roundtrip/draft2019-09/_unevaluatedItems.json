@@ -740,6 +740,19 @@
     },
     "tests": [
       {
+        "description": "with no unevaluated items",
+        "data": [
+          1,
+          [
+            2,
+            [],
+            "b"
+          ],
+          "a"
+        ],
+        "valid": true
+      },
+      {
         "description": "with unevaluated items",
         "data": [
           1,

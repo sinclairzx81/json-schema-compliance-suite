@@ -99,6 +99,16 @@
     },
     "tests": [
       {
+        "description": "valid when if test passes",
+        "data": -1,
+        "valid": true
+      },
+      {
+        "description": "valid through else",
+        "data": 4,
+        "valid": true
+      },
+      {
         "description": "invalid through else",
         "data": 3,
         "valid": false
@@ -120,9 +130,19 @@
     },
     "tests": [
       {
+        "description": "valid through then",
+        "data": -1,
+        "valid": true
+      },
+      {
         "description": "invalid through then",
         "data": -100,
         "valid": false
+      },
+      {
+        "description": "valid through else",
+        "data": 4,
+        "valid": true
       },
       {
         "description": "invalid through else",

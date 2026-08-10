@@ -1,5 +1,24 @@
 [
   {
+    "description": "integer",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "integer"
+    },
+    "tests": [
+      {
+        "description": "a bignum is an integer",
+        "data": 1.2345678910111214e+52,
+        "valid": true
+      },
+      {
+        "description": "a negative bignum is an integer",
+        "data": -1.2345678910111214e+52,
+        "valid": true
+      }
+    ]
+  },
+  {
     "description": "number",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -47,6 +66,20 @@
     ]
   },
   {
+    "description": "float comparison with high precision",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "exclusiveMaximum": 9.727837981879871e+26
+    },
+    "tests": [
+      {
+        "description": "comparison works for high numbers",
+        "data": 9.727837981879871e+26,
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "minimum integer comparison",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -57,6 +90,20 @@
         "description": "comparison works for very negative numbers",
         "data": -18446744073709552000,
         "valid": true
+      }
+    ]
+  },
+  {
+    "description": "float comparison with high precision on negative numbers",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "exclusiveMinimum": -9.727837981879871e+26
+    },
+    "tests": [
+      {
+        "description": "comparison works for very negative numbers",
+        "data": -9.727837981879871e+26,
+        "valid": false
       }
     ]
   }

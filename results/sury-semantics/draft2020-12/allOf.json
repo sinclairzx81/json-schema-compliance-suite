@@ -377,6 +377,11 @@
         "description": "allOf: true, anyOf: true, oneOf: false",
         "data": 6,
         "valid": false
+      },
+      {
+        "description": "allOf: true, anyOf: true, oneOf: true",
+        "data": 30,
+        "valid": true
       }
     ]
   }

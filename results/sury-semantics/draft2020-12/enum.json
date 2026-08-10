@@ -38,6 +38,11 @@
     },
     "tests": [
       {
+        "description": "one of the enum is valid",
+        "data": [],
+        "valid": true
+      },
+      {
         "description": "something else is invalid",
         "data": null,
         "valid": false
@@ -48,6 +53,13 @@
           "foo": false
         },
         "valid": false
+      },
+      {
+        "description": "valid object matches",
+        "data": {
+          "foo": 12
+        },
+        "valid": true
       },
       {
         "description": "extra properties in object is invalid",
@@ -154,6 +166,33 @@
     ]
   },
   {
+    "description": "enum with escaped characters",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "enum": [
+        "foo\nbar",
+        "foo\rbar"
+      ]
+    },
+    "tests": [
+      {
+        "description": "member 1 is valid",
+        "data": "foo\nbar",
+        "valid": true
+      },
+      {
+        "description": "member 2 is valid",
+        "data": "foo\rbar",
+        "valid": true
+      },
+      {
+        "description": "another string is invalid",
+        "data": "abc",
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "enum with false does not match 0",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -190,6 +229,13 @@
       ]
     },
     "tests": [
+      {
+        "description": "[false] is valid",
+        "data": [
+          false
+        ],
+        "valid": true
+      },
       {
         "description": "[0] is invalid",
         "data": [
@@ -243,6 +289,13 @@
       ]
     },
     "tests": [
+      {
+        "description": "[true] is valid",
+        "data": [
+          true
+        ],
+        "valid": true
+      },
       {
         "description": "[1] is invalid",
         "data": [
@@ -302,6 +355,20 @@
           false
         ],
         "valid": false
+      },
+      {
+        "description": "[0] is valid",
+        "data": [
+          0
+        ],
+        "valid": true
+      },
+      {
+        "description": "[0.0] is valid",
+        "data": [
+          0
+        ],
+        "valid": true
       }
     ]
   },
@@ -348,6 +415,20 @@
           true
         ],
         "valid": false
+      },
+      {
+        "description": "[1] is valid",
+        "data": [
+          1
+        ],
+        "valid": true
+      },
+      {
+        "description": "[1.0] is valid",
+        "data": [
+          1
+        ],
+        "valid": true
       }
     ]
   },

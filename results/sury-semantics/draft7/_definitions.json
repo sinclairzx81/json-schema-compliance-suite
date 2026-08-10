@@ -6,15 +6,15 @@
     },
     "tests": [
       {
-        "description": "invalid definition schema",
+        "description": "valid definition schema",
         "data": {
           "definitions": {
             "foo": {
-              "type": 1
+              "type": "integer"
             }
           }
         },
-        "valid": false
+        "valid": true
       }
     ]
   }
