@@ -141,7 +141,7 @@ await Test.runTestSuite({
   const env = new djv({ version })
   const schemaName = 'test-schema'
   env.addSchema(schemaName, schema as any)
-  return env.validate(schemaName, value) === undefined
+  return env.validate(schemaName, value as never) === undefined
 })
 // ---------------------------------------------------------------
 // Sury: Semantics

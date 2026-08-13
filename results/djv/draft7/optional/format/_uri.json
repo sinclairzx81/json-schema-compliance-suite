@@ -34,6 +34,11 @@
         "description": "all string formats ignore nulls",
         "data": null,
         "valid": true
+      },
+      {
+        "description": "leading zero in an embedded IPv4 address is invalid",
+        "data": "http://[::ffff:01.2.3.4]",
+        "valid": false
       }
     ]
   }

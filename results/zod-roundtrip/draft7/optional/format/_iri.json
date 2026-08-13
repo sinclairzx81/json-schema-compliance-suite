@@ -24,6 +24,16 @@
         "description": "an invalid IRI though valid IRI reference",
         "data": "âππ",
         "valid": false
+      },
+      {
+        "description": "an IPv6 host whose embedded IPv4 has a leading zero is invalid",
+        "data": "http://[::ffff:192.168.0.01]",
+        "valid": false
+      },
+      {
+        "description": "a trailing newline after a valid IRI is invalid",
+        "data": "http://ƒøø.ßår/\n",
+        "valid": false
       }
     ]
   }
