@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Thu Aug 13 2026
+Updated: Fri Aug 14 2026
 
 
 ### Validation
@@ -38,11 +38,11 @@ Updated: Thu Aug 13 2026
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10793 | 295 | 97.3% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10832 | 256 | 97.7% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10133 | 955 | 91.4% |
 | [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9605 | 1483 | 86.6% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9501 | 1587 | 85.7% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9484 | 1604 | 85.5% |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9465 | 1623 | 85.4% |
 | [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8193 | 2895 | 73.9% |
 | [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 8125 | 2963 | 73.3% |
 
@@ -178,15 +178,15 @@ Results for the TypeBox validation library.
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/iri | - | - | - | 22/24 | 22/24 | 22/24 | 22/24 |
+| format/iri | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/iri-reference | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/relative-json-pointer | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/time | 2/3 | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| format/uri | ✅ | 45/46 | 45/46 | 45/46 | 45/46 | 45/46 | 45/46 |
-| format/uri-reference | - | - | 23/28 | 23/28 | 23/28 | 23/28 | 23/28 |
+| format/uri | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
 | id | - | 2/3 | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -711,7 +711,7 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | 44/46 | 44/46 | 44/46 | 44/46 | 44/46 | 25/46 |
 | format/uri-reference | - | - | 22/28 | 22/28 | 22/28 | 22/28 | 11/28 |
-| format/uri-template | - | - | 28/38 | 28/38 | 28/38 | 28/38 | 13/38 |
+| format/uri-template | - | - | 37/38 | 37/38 | 37/38 | 37/38 | 13/38 |
 | format/uuid | - | - | - | - | ✅ | ✅ | 13/28 |
 | id | - | ✅ | ✅ | ✅ | ✅ | ✅ | 1/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
