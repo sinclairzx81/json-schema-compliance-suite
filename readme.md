@@ -30,10 +30,13 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Fri Aug 14 2026
+Updated: Tue Aug 18 2026
 
 
 ### Validation
+
+
+Results show aggregate coverage across all JSON Schema versions.
 
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
@@ -50,6 +53,9 @@ Updated: Fri Aug 14 2026
 ### Semantics
 
 
+Results show aggregate coverage across all JSON Schema versions.
+
+
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
 | [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 7175 | 3913 | 64.7% |
@@ -58,6 +64,9 @@ Updated: Fri Aug 14 2026
 
 
 ### RoundTrip
+
+
+Results show aggregate coverage across all JSON Schema versions.
 
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |

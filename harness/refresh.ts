@@ -275,6 +275,8 @@ export function updateReadme(): void {
 
     output.push(`### ${category}`)
     output.push('\n')
+    output.push('Results show aggregate coverage across all JSON Schema versions.')
+    output.push('\n')
     output.push(`| Library | Results     | Test      | Passed  | Failed | Coverage |`)
     output.push(`| :--     | :--        | :--       | :--     | :--    | :--      |`)
     for (const report of categoryReports) {
