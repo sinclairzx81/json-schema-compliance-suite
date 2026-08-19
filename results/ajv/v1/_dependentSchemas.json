@@ -18,21 +18,6 @@
     },
     "tests": [
       {
-        "description": "valid",
-        "data": {
-          "foo": 1,
-          "bar": 2
-        },
-        "valid": true
-      },
-      {
-        "description": "no dependency",
-        "data": {
-          "foo": "quux"
-        },
-        "valid": true
-      },
-      {
         "description": "wrong type",
         "data": {
           "foo": "quux",
@@ -55,23 +40,6 @@
           "bar": "quux"
         },
         "valid": false
-      },
-      {
-        "description": "ignores arrays",
-        "data": [
-          "bar"
-        ],
-        "valid": true
-      },
-      {
-        "description": "ignores strings",
-        "data": "foobar",
-        "valid": true
-      },
-      {
-        "description": "ignores other non-objects",
-        "data": 12,
-        "valid": true
       }
     ]
   },
@@ -86,13 +54,6 @@
     },
     "tests": [
       {
-        "description": "object with property having schema true is valid",
-        "data": {
-          "foo": 1
-        },
-        "valid": true
-      },
-      {
         "description": "object with property having schema false is invalid",
         "data": {
           "bar": 2
@@ -106,11 +67,6 @@
           "bar": 2
         },
         "valid": false
-      },
-      {
-        "description": "empty object is valid",
-        "data": {},
-        "valid": true
       }
     ]
   },
@@ -130,16 +86,6 @@
       }
     },
     "tests": [
-      {
-        "description": "quoted tab",
-        "data": {
-          "foo\tbar": 1,
-          "a": 2,
-          "b": 3,
-          "c": 4
-        },
-        "valid": true
-      },
       {
         "description": "quoted quote",
         "data": {
@@ -191,26 +137,12 @@
         "valid": false
       },
       {
-        "description": "matches dependency",
-        "data": {
-          "bar": 1
-        },
-        "valid": true
-      },
-      {
         "description": "matches both",
         "data": {
           "foo": 1,
           "bar": 2
         },
         "valid": false
-      },
-      {
-        "description": "no dependency",
-        "data": {
-          "baz": 1
-        },
-        "valid": true
       }
     ]
   }

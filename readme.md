@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Tue Aug 18 2026
+Updated: Wed Aug 19 2026
 
 
 ### Validation
@@ -41,13 +41,13 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10832 | 256 | 97.7% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10133 | 955 | 91.4% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9605 | 1483 | 86.6% |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9501 | 1587 | 85.7% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9484 | 1604 | 85.5% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8193 | 2895 | 73.9% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 8125 | 2963 | 73.3% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10867 | 221 | 98.0% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10319 | 769 | 93.1% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10152 | 936 | 91.6% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9692 | 1396 | 87.4% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9610 | 1478 | 86.7% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9585 | 1503 | 86.4% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8291 | 2797 | 74.8% |
 
 
 ### Semantics
@@ -117,7 +117,7 @@ Results for the TypeBox validation library.
 | dependentSchemas | - | - | - | - | ✅ | ✅ | ✅ |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 38/44 | 19/27 |
+| dynamicRef | - | - | - | - | - | 40/44 | 21/27 |
 | enum | 14/16 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -145,8 +145,8 @@ Results for the TypeBox validation library.
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | ✅ | - | - |
-| ref | 22/27 | 37/45 | 67/70 | 75/78 | 79/81 | 77/79 | 77/79 |
-| refRemote | 4/8 | 8/17 | 11/23 | 11/23 | 15/31 | 15/31 | 15/31 |
+| ref | 22/27 | 37/45 | 67/70 | 75/78 | 79/81 | 77/79 | 78/79 |
+| refRemote | 6/8 | 10/17 | 14/23 | 14/23 | 21/31 | 21/31 | 21/31 |
 | required | 3/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | 73/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | ✅ | ✅ | 70/71 |
@@ -167,7 +167,7 @@ Results for the TypeBox validation library.
 | anchor | - | - | - | - | ✅ | ✅ | ✅ |
 | bignum | 7/9 | 7/9 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 1/2 | 1/3 | 0/1 | - |
+| cross-draft | - | - | - | ✅ | 2/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
 | dynamicRef | - | - | - | - | - | ✅ | ✅ |
 | ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -248,7 +248,7 @@ Results for the @cfworker/json-schema validation library.
 | dependentSchemas | - | - | - | - | ✅ | ✅ | ✅ |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 15/44 | 6/27 |
+| dynamicRef | - | - | - | - | - | 23/44 | 14/27 |
 | enum | 14/16 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMaximum | - | - | 2/4 | ✅ | ✅ | ✅ | 2/4 |
 | exclusiveMinimum | - | - | 2/4 | ✅ | ✅ | ✅ | 2/4 |
@@ -276,8 +276,8 @@ Results for the @cfworker/json-schema validation library.
 | properties | ✅ | 23/24 | 27/28 | 27/28 | 27/28 | 27/28 | 27/28 |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | ✅ | - | - |
-| ref | 23/27 | 41/45 | 66/70 | 74/78 | 78/81 | 76/79 | 73/79 |
-| refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
+| ref | 23/27 | 41/45 | 66/70 | 74/78 | 78/81 | 76/79 | 75/79 |
+| refRemote | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | required | 3/4 | 13/17 | 14/18 | 14/18 | 14/18 | 14/18 | 14/18 |
 | type | 69/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 55/56 | 69/71 | 67/71 |
@@ -298,7 +298,7 @@ Results for the @cfworker/json-schema validation library.
 | anchor | - | - | - | - | ✅ | ✅ | ✅ |
 | bignum | ✅ | ✅ | 7/9 | ✅ | ✅ | ✅ | 7/9 |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
+| cross-draft | - | - | - | ✅ | 2/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
 | dynamicRef | - | - | - | - | - | 0/2 | 0/2 |
 | ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -379,7 +379,7 @@ Results for the jsonschema validation library.
 | dependentSchemas | - | - | - | - | 10/20 | 10/20 | 10/20 |
 | disallow | ✅ | - | - | - | - | - | - |
 | divisibleBy | ✅ | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 4/44 | 1/27 |
+| dynamicRef | - | - | - | - | - | 12/44 | 9/27 |
 | enum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -408,7 +408,7 @@ Results for the jsonschema validation library.
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | 22/34 | - | - |
 | ref | 25/27 | 43/45 | 54/70 | 56/78 | 35/81 | 34/79 | 34/79 |
-| refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
+| refRemote | ✅ | 13/17 | 19/23 | 19/23 | 16/31 | 16/31 | 16/31 |
 | required | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 34/56 | 43/71 | 43/71 |
@@ -429,7 +429,7 @@ Results for the jsonschema validation library.
 | anchor | - | - | - | - | 1/4 | 1/4 | 1/4 |
 | bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
+| cross-draft | - | - | - | 1/2 | 1/3 | ✅ | - |
 | dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
 | dynamicRef | - | - | - | - | - | 0/2 | 0/2 |
 | ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -510,7 +510,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | dependentSchemas | - | - | - | - | 19/20 | 19/20 | 19/20 |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 39/44 | 21/27 |
+| dynamicRef | - | - | - | - | - | 43/44 | 26/27 |
 | enum | 10/16 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -537,9 +537,9 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | prefixItems | - | - | - | - | - | ✅ | ✅ |
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
-| recursiveRef | - | - | - | - | 19/34 | - | - |
-| ref | 22/27 | 37/45 | 62/70 | 70/78 | 78/81 | 78/79 | 78/79 |
-| refRemote | 4/8 | 8/17 | 11/23 | 11/23 | 15/31 | 15/31 | 15/31 |
+| recursiveRef | - | - | - | - | 23/34 | - | - |
+| ref | 22/27 | 37/45 | 62/70 | 70/78 | 78/81 | 78/79 | ✅ |
+| refRemote | 7/8 | 11/17 | 21/23 | 21/23 | 30/31 | 30/31 | 30/31 |
 | required | 2/4 | 12/17 | 13/18 | 13/18 | 13/18 | 13/18 | 13/18 |
 | type | 73/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 42/56 | ✅ | ✅ |
@@ -560,7 +560,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | anchor | - | - | - | - | ✅ | ✅ | ✅ |
 | bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 1/2 | 1/3 | 0/1 | - |
+| cross-draft | - | - | - | ✅ | 2/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | 22/36 | 22/36 | 22/36 |
 | dynamicRef | - | - | - | - | - | 0/2 | ✅ |
 | ecmascript-regex | - | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 |
@@ -641,7 +641,7 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | dependentSchemas | - | - | - | - | ✅ | ✅ | 10/20 |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 39/44 | 16/27 |
+| dynamicRef | - | - | - | - | - | ✅ | 16/27 |
 | enum | 14/16 | ✅ | ✅ | ✅ | ✅ | ✅ | 29/51 |
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | 2/4 |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | 2/4 |
@@ -670,13 +670,13 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | 2/12 |
 | recursiveRef | - | - | - | - | 17/34 | - | - |
 | ref | 22/27 | 41/45 | 62/70 | 70/78 | ✅ | ✅ | 42/79 |
-| refRemote | 4/8 | 8/17 | 11/23 | 11/23 | 15/31 | 15/31 | 15/31 |
+| refRemote | ✅ | ✅ | 22/23 | 22/23 | ✅ | ✅ | 15/31 |
 | required | 2/4 | ✅ | ✅ | ✅ | ✅ | ✅ | 6/18 |
 | type | 67/80 | ✅ | ✅ | ✅ | ✅ | ✅ | 59/80 |
 | unevaluatedItems | - | - | - | - | 55/56 | ✅ | 29/71 |
 | unevaluatedProperties | - | - | - | - | 128/129 | ✅ | 62/129 |
 | uniqueItems | 44/62 | 51/69 | 51/69 | 51/69 | ✅ | ✅ | 19/69 |
-| vocabulary | - | - | - | - | 2/5 | 2/5 | - |
+| vocabulary | - | - | - | - | ✅ | ✅ | - |
 
 
 </details>
@@ -691,13 +691,13 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | anchor | - | - | - | - | ✅ | ✅ | 2/4 |
 | bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 3/9 |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 1/2 | 1/3 | 0/1 | - |
+| cross-draft | - | - | - | ✅ | ✅ | ✅ | - |
 | dependencies-compatibility | - | - | - | - | ✅ | ✅ | 14/36 |
 | dynamicRef | - | - | - | - | - | ✅ | 1/2 |
 | ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | 38/74 |
 | float-overflow | - | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 |
 | format-annotation | - | - | - | - | - | - | 0/133 |
-| format-assertion | - | - | - | - | - | 2/4 | - |
+| format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | ✅ | - | - | ✅ | ✅ | ✅ | 58/81 |
 | format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 19/33 |
@@ -755,59 +755,59 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
-| additionalItems | 12/14 | ✅ | ✅ | ✅ | ✅ | - | - |
-| additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/21 |
-| allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/30 |
-| anchor | - | - | - | - | ✅ | ✅ | 0/8 |
-| anyOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/18 |
+| additionalItems | ✅ | ✅ | ✅ | ✅ | ✅ | - | - |
+| additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| anchor | - | - | - | - | ✅ | ✅ | ✅ |
+| anyOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | boolean_schema | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
-| const | - | - | ✅ | ✅ | ✅ | ✅ | 0/54 |
-| contains | - | - | ✅ | ✅ | ✅ | ✅ | 0/25 |
-| content | - | - | - | - | ✅ | ✅ | 0/18 |
-| default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/7 |
+| const | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| contains | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| content | - | - | - | - | ✅ | ✅ | ✅ |
+| default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | definitions | - | 0/2 | 0/2 | ✅ | - | - | - |
 | defs | - | - | - | - | ✅ | ✅ | - |
-| dependencies | 11/18 | ✅ | ✅ | ✅ | - | - | - |
-| dependentRequired | - | - | - | - | ✅ | ✅ | 0/20 |
-| dependentSchemas | - | - | - | - | ✅ | ✅ | 0/20 |
+| dependencies | 17/18 | ✅ | ✅ | ✅ | - | - | - |
+| dependentRequired | - | - | - | - | ✅ | ✅ | 14/20 |
+| dependentSchemas | - | - | - | - | ✅ | ✅ | 10/20 |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 11/44 | 1/27 |
-| enum | 10/16 | ✅ | ✅ | ✅ | 45/51 | 45/51 | 0/51 |
-| exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | 0/4 |
-| exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | 0/4 |
+| dynamicRef | - | - | - | - | - | 19/44 | 15/27 |
+| enum | 10/16 | ✅ | ✅ | ✅ | 45/51 | 45/51 | 45/51 |
+| exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | extends | 1/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 118/133 | - |
-| if-then-else | - | - | - | ✅ | ✅ | ✅ | 0/26 |
-| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/2 |
-| items | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/29 |
-| maxContains | - | - | - | - | ✅ | ✅ | 0/14 |
-| maximum | 8/14 | 8/14 | ✅ | ✅ | ✅ | ✅ | 0/8 |
-| maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/6 |
-| maxLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/7 |
-| maxProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/10 |
-| minContains | - | - | - | - | ✅ | ✅ | 0/28 |
-| minimum | 11/13 | 11/17 | ✅ | ✅ | ✅ | ✅ | 0/11 |
-| minItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/6 |
-| minLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/7 |
-| minProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/10 |
-| multipleOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/11 |
-| not | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/40 |
-| oneOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/27 |
-| pattern | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/12 |
-| patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/26 |
-| prefixItems | - | - | - | - | - | ✅ | 0/11 |
-| properties | ✅ | 23/24 | 27/28 | 27/28 | 27/28 | 27/28 | 0/28 |
-| propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | 0/12 |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| items | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 22/29 |
+| maxContains | - | - | - | - | ✅ | ✅ | 8/14 |
+| maximum | 8/14 | 8/14 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minContains | - | - | - | - | ✅ | ✅ | 16/28 |
+| minimum | 11/13 | 11/17 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| multipleOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| not | - | ✅ | ✅ | ✅ | ✅ | ✅ | 39/40 |
+| oneOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| pattern | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| prefixItems | - | - | - | - | - | ✅ | 9/11 |
+| properties | ✅ | 23/24 | 27/28 | 27/28 | 27/28 | 27/28 | 27/28 |
+| propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | 32/34 | - | - |
-| ref | 21/27 | 28/45 | 65/70 | 75/78 | 73/81 | 71/79 | 0/79 |
-| refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
-| required | 1/4 | 13/17 | 14/18 | 14/18 | 14/18 | 14/18 | 0/18 |
-| type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | 0/80 |
-| unevaluatedItems | - | - | - | - | 53/56 | 59/71 | 0/71 |
-| unevaluatedProperties | - | - | - | - | 126/129 | 124/129 | 0/129 |
-| uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/69 |
-| vocabulary | - | - | - | - | 0/5 | 0/5 | - |
+| ref | 21/27 | 28/45 | 65/70 | 75/78 | 73/81 | 71/79 | 69/79 |
+| refRemote | 6/8 | 6/17 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| required | 1/4 | 13/17 | 14/18 | 14/18 | 14/18 | 14/18 | 14/18 |
+| type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| unevaluatedItems | - | - | - | - | 53/56 | 59/71 | 44/71 |
+| unevaluatedProperties | - | - | - | - | 126/129 | 124/129 | 83/129 |
+| uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 63/69 |
+| vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
 
 </details>
@@ -819,48 +819,48 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
-| anchor | - | - | - | - | ✅ | ✅ | 0/4 |
-| bignum | 7/9 | 7/9 | ✅ | ✅ | ✅ | ✅ | 0/9 |
+| anchor | - | - | - | - | ✅ | ✅ | ✅ |
+| bignum | 7/9 | 7/9 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
-| dependencies-compatibility | - | - | - | - | ✅ | ✅ | 0/36 |
-| dynamicRef | - | - | - | - | - | 1/2 | 0/2 |
-| ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/74 |
+| cross-draft | - | - | - | 1/2 | 1/3 | 0/1 | - |
+| dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
+| dynamicRef | - | - | - | - | - | 1/2 | 1/2 |
+| ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | float-overflow | - | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 |
-| format-annotation | - | - | - | - | - | - | 0/133 |
-| format-assertion | - | - | - | - | - | 0/4 | - |
+| format-annotation | - | - | - | - | - | - | 118/133 |
+| format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
-| format/date | ✅ | - | - | ✅ | ✅ | ✅ | 0/81 |
-| format/date-time | 8/11 | 30/33 | 30/33 | 30/33 | 30/33 | 30/33 | 0/33 |
-| format/duration | - | - | - | - | 50/52 | 50/52 | 0/52 |
-| format/ecmascript-regex | ✅ | - | - | 11/12 | 11/12 | 11/12 | 0/12 |
-| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 0/27 |
+| format/date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/date-time | 8/11 | 30/33 | 30/33 | 30/33 | 30/33 | 30/33 | 30/33 |
+| format/duration | - | - | - | - | 50/52 | 50/52 | 50/52 |
+| format/ecmascript-regex | ✅ | - | - | 11/12 | 11/12 | 11/12 | 11/12 |
+| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 22/27 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
-| format/hostname | - | 29/30 | 29/30 | 40/64 | 40/64 | 40/64 | 0/64 |
-| format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 0/19 |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 0/90 |
+| format/hostname | - | 29/30 | 29/30 | 40/64 | 40/64 | 40/64 | 40/64 |
+| format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
+| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
-| format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | 0/41 |
-| format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/40 |
-| format/iri | - | - | - | 18/24 | 18/24 | 18/24 | 0/24 |
-| format/iri-reference | - | - | - | 11/13 | 11/13 | 11/13 | 0/13 |
-| format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | 0/40 |
-| format/regex | ✅ | - | - | ✅ | ✅ | ✅ | 0/8 |
-| format/relative-json-pointer | - | - | - | ✅ | ✅ | ✅ | 0/25 |
-| format/time | 2/3 | - | - | ✅ | ✅ | ✅ | 0/47 |
+| format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/iri | - | - | - | 18/24 | 18/24 | 18/24 | 18/24 |
+| format/iri-reference | - | - | - | 11/13 | 11/13 | 11/13 | 11/13 |
+| format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/relative-json-pointer | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/time | 2/3 | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| format/uri | ✅ | 43/46 | 43/46 | 43/46 | 43/46 | 43/46 | 0/46 |
-| format/uri-reference | - | - | 22/28 | 22/28 | 22/28 | 22/28 | 0/28 |
-| format/uri-template | - | - | 35/38 | 35/38 | 35/38 | 35/38 | 0/38 |
-| format/uuid | - | - | - | - | 27/28 | 27/28 | 0/28 |
-| id | - | 0/3 | ✅ | ✅ | ✅ | ✅ | 0/3 |
+| format/uri | ✅ | 43/46 | 43/46 | 43/46 | 43/46 | 43/46 | 43/46 |
+| format/uri-reference | - | - | 22/28 | 22/28 | 22/28 | 22/28 | 22/28 |
+| format/uri-template | - | - | 35/38 | 35/38 | 35/38 | 35/38 | 35/38 |
+| format/uuid | - | - | - | - | 27/28 | 27/28 | 27/28 |
+| id | - | 0/3 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
-| non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 0/12 |
-| proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | 0/3 |
-| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 0/8 |
+| non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
+| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
 | proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
-| proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 0/6 |
-| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | 0/10 |
+| proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 2/6 |
+| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
 | unknownKeyword | - | - | 0/3 | 0/3 | 0/3 | 0/3 | 0/3 |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
 
@@ -903,7 +903,7 @@ Results for the djv validation library.
 | dependentSchemas | - | - | - | - | 10/20 | 10/20 | 10/20 |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 7/44 | 3/27 |
+| dynamicRef | - | - | - | - | - | 12/44 | 8/27 |
 | enum | 14/16 | 41/49 | 41/45 | 41/45 | 41/51 | 41/51 | 41/51 |
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -931,8 +931,8 @@ Results for the djv validation library.
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | 21/22 | 21/22 | 21/22 | 21/22 | 11/12 |
 | recursiveRef | - | - | - | - | 23/34 | - | - |
-| ref | 23/27 | 35/45 | 51/70 | 51/78 | 49/81 | 48/79 | 48/79 |
-| refRemote | 1/8 | 3/17 | 3/23 | 3/23 | 2/31 | 2/31 | 2/31 |
+| ref | 23/27 | 35/45 | 51/70 | 51/78 | 49/81 | 48/79 | 50/79 |
+| refRemote | 7/8 | 10/17 | 15/23 | 15/23 | 17/31 | 17/31 | 17/31 |
 | required | 3/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 34/56 | 43/71 | 43/71 |
@@ -953,7 +953,7 @@ Results for the djv validation library.
 | anchor | - | - | - | - | 1/4 | 1/4 | 1/4 |
 | bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
+| cross-draft | - | - | - | 1/2 | 2/3 | ✅ | - |
 | dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
 | dynamicRef | - | - | - | - | - | 1/2 | 1/2 |
 | ecmascript-regex | - | 64/74 | 64/74 | 64/74 | 64/74 | 64/74 | 64/74 |

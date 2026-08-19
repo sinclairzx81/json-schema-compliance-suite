@@ -36,6 +36,7 @@ import type { JSONSchemaTestFile, JSONSchemaTestGroup, JSONSchemaTestSuite } fro
 // ------------------------------------------------------------------
 export type ProcessCallback = (
   draft: string,
+  remotes: Record<string, Record<string, unknown> | boolean>,
   schema: Record<string, unknown> | boolean,
   value: unknown,
   index: number
@@ -115,6 +116,25 @@ function writeTestSuite(directory: string, suite: JSONSchemaTestSuite): void {
   }
 }
 // ------------------------------------------------------------------
+// Remote
+// ------------------------------------------------------------------
+function collectRemote(current: string, relativePrefix: string, result: Record<string, Record<string, unknown> | boolean>): void {
+  for (const entry of Fs.readdirSync(Path.join(current, relativePrefix), { withFileTypes: true })) {
+    const relative = relativePrefix ? `${relativePrefix}/${entry.name}` : entry.name
+    if (entry.isDirectory()) {
+      collectRemote(current, relative, result)
+    } else if (entry.isFile() && entry.name.endsWith('.json')) {
+      result[`http://localhost:1234/${relative}`] = JSON.parse(Fs.readFileSync(Path.join(current, relative), 'utf8'))
+    }
+  }
+}
+function loadRemote(): Record<string, Record<string, unknown> | boolean> {
+  const directory = `${CLONE_DIRECTORY}/JSON-Schema-Test-Suite/remotes`
+  const result: Record<string, Record<string, unknown> | boolean> = {}
+  collectRemote(directory, '', result)
+  return result
+}
+// ------------------------------------------------------------------
 // Report
 // ------------------------------------------------------------------
 interface Report extends RefreshOptions {
@@ -133,12 +153,13 @@ function addReport(report: Report) {
 async function runTest(
   callback: ProcessCallback,
   draft: string,
+  remotes: Record<string, Record<string, unknown> | boolean>,
   schema: Record<string, unknown> | boolean,
   data: unknown,
   index: number
 ): Promise<boolean | null> {
   try {
-    return await callback(draft, schema, data, index)
+    return await callback(draft, remotes, schema, data, index)
   } catch {
     return null
   }
@@ -147,13 +168,14 @@ async function segmentTestSource(source: TestSource, callback: ProcessCallback, 
   segmented: SegmentedFile; 
   testsRun: number 
 }> {
+  const remotes = loadRemote()
   const { sourcePath, draft, keyword, groups } = source
   const passing: JSONSchemaTestGroup[] = groups.map((g) => ({ ...g, tests: [] }))
   const failing: JSONSchemaTestGroup[] = groups.map((g) => ({ ...g, tests: [] }))
   let testIndex = indexOffset
   for (let i = 0; i < groups.length; i++) {
     for (const test of groups[i].tests) {
-      const result = await runTest(callback, draft, groups[i].schema, test.data, testIndex++)
+      const result = await runTest(callback, draft, remotes, groups[i].schema, test.data, testIndex++)
       const bucket = result !== null && test.valid === result ? passing : failing
       bucket[i].tests.push(test)
     }

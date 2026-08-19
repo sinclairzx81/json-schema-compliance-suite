@@ -25,5 +25,173 @@
         "valid": true
       }
     ]
+  },
+  {
+    "description": "strict-tree schema, guards against misspelled properties",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "http://localhost:1234/v1/strict-tree.json",
+      "$dynamicAnchor": "node",
+      "$ref": "tree.json",
+      "unevaluatedProperties": false
+    },
+    "tests": [
+      {
+        "description": "instance with correct field",
+        "data": {
+          "children": [
+            {
+              "data": 1
+            }
+          ]
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "tests for implementation dynamic anchor and reference link",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "http://localhost:1234/v1/strict-extendible.json",
+      "$ref": "extendible-dynamic-ref.json",
+      "$defs": {
+        "elements": {
+          "$dynamicAnchor": "elements",
+          "properties": {
+            "a": true
+          },
+          "required": [
+            "a"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "incorrect parent schema",
+        "data": {
+          "a": true
+        },
+        "valid": false
+      },
+      {
+        "description": "correct extended schema",
+        "data": {
+          "elements": [
+            {
+              "a": 1
+            }
+          ]
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "$ref and $dynamicAnchor are independent of order - $defs first",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "http://localhost:1234/v1/strict-extendible-allof-defs-first.json",
+      "allOf": [
+        {
+          "$ref": "extendible-dynamic-ref.json"
+        },
+        {
+          "$defs": {
+            "elements": {
+              "$dynamicAnchor": "elements",
+              "properties": {
+                "a": true
+              },
+              "required": [
+                "a"
+              ],
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "incorrect parent schema",
+        "data": {
+          "a": true
+        },
+        "valid": false
+      },
+      {
+        "description": "correct extended schema",
+        "data": {
+          "elements": [
+            {
+              "a": 1
+            }
+          ]
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "$ref and $dynamicAnchor are independent of order - $ref first",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "http://localhost:1234/v1/strict-extendible-allof-ref-first.json",
+      "allOf": [
+        {
+          "$defs": {
+            "elements": {
+              "$dynamicAnchor": "elements",
+              "properties": {
+                "a": true
+              },
+              "required": [
+                "a"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        {
+          "$ref": "extendible-dynamic-ref.json"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "incorrect parent schema",
+        "data": {
+          "a": true
+        },
+        "valid": false
+      },
+      {
+        "description": "correct extended schema",
+        "data": {
+          "elements": [
+            {
+              "a": 1
+            }
+          ]
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "$ref to $dynamicRef finds detached $dynamicAnchor",
+    "schema": {
+      "$ref": "http://localhost:1234/v1/detached-dynamicref.json#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      }
+    ]
   }
 ]

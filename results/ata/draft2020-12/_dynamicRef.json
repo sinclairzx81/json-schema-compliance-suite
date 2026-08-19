@@ -1,147 +1,50 @@
 [
   {
-    "description": "strict-tree schema, guards against misspelled properties",
+    "description": "A $dynamicRef that initially resolves to a schema without a matching $dynamicAnchor behaves like a normal $ref to $anchor",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "http://localhost:1234/draft2020-12/strict-tree.json",
-      "$dynamicAnchor": "node",
-      "$ref": "tree.json",
-      "unevaluatedProperties": false
-    },
-    "tests": [
-      {
-        "description": "instance with correct field",
-        "data": {
-          "children": [
-            {
-              "data": 1
-            }
-          ]
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "tests for implementation dynamic anchor and reference link",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "http://localhost:1234/draft2020-12/strict-extendible.json",
-      "$ref": "extendible-dynamic-ref.json",
+      "$id": "https://test.json-schema.org/relative-dynamic-reference-without-bookend/root",
+      "$dynamicAnchor": "meta",
+      "type": "object",
+      "properties": {
+        "foo": {
+          "const": "pass"
+        }
+      },
+      "$ref": "extended",
       "$defs": {
-        "elements": {
-          "$dynamicAnchor": "elements",
+        "extended": {
+          "$id": "extended",
+          "$anchor": "meta",
+          "type": "object",
           "properties": {
-            "a": true
-          },
-          "required": [
-            "a"
-          ],
-          "additionalProperties": false
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "correct extended schema",
-        "data": {
-          "elements": [
-            {
-              "a": 1
-            }
-          ]
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "$ref and $dynamicAnchor are independent of order - $defs first",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "http://localhost:1234/draft2020-12/strict-extendible-allof-defs-first.json",
-      "allOf": [
-        {
-          "$ref": "extendible-dynamic-ref.json"
-        },
-        {
-          "$defs": {
-            "elements": {
-              "$dynamicAnchor": "elements",
-              "properties": {
-                "a": true
-              },
-              "required": [
-                "a"
-              ],
-              "additionalProperties": false
-            }
-          }
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "correct extended schema",
-        "data": {
-          "elements": [
-            {
-              "a": 1
-            }
-          ]
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "$ref and $dynamicAnchor are independent of order - $ref first",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "http://localhost:1234/draft2020-12/strict-extendible-allof-ref-first.json",
-      "allOf": [
-        {
-          "$defs": {
-            "elements": {
-              "$dynamicAnchor": "elements",
-              "properties": {
-                "a": true
-              },
-              "required": [
-                "a"
-              ],
-              "additionalProperties": false
+            "bar": {
+              "$ref": "bar"
             }
           }
         },
-        {
-          "$ref": "extendible-dynamic-ref.json"
-        }
-      ]
-    },
-    "tests": [
-      {
-        "description": "correct extended schema",
-        "data": {
-          "elements": [
-            {
-              "a": 1
+        "bar": {
+          "$id": "bar",
+          "type": "object",
+          "properties": {
+            "baz": {
+              "$dynamicRef": "extended#meta"
             }
-          ]
-        },
-        "valid": true
+          }
+        }
       }
-    ]
-  },
-  {
-    "description": "$ref to $dynamicRef finds detached $dynamicAnchor",
-    "schema": {
-      "$ref": "http://localhost:1234/draft2020-12/detached-dynamicref.json#/$defs/foo"
     },
     "tests": [
       {
-        "description": "number is valid",
-        "data": 1,
+        "description": "The recursive part doesn't need to validate against the root",
+        "data": {
+          "foo": "pass",
+          "bar": {
+            "baz": {
+              "foo": "fail"
+            }
+          }
+        },
         "valid": true
       }
     ]

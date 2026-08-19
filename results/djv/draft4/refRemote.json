@@ -1,5 +1,59 @@
 [
   {
+    "description": "remote ref",
+    "schema": {
+      "$ref": "http://localhost:1234/integer.json"
+    },
+    "tests": [
+      {
+        "description": "remote ref valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "remote ref invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "fragment within remote ref",
+    "schema": {
+      "$ref": "http://localhost:1234/draft4/subSchemas.json#/definitions/integer"
+    },
+    "tests": [
+      {
+        "description": "remote fragment valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "remote fragment invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "ref within remote ref",
+    "schema": {
+      "$ref": "http://localhost:1234/draft4/subSchemas.json#/definitions/refToInteger"
+    },
+    "tests": [
+      {
+        "description": "ref within ref valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "ref within ref invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "base URI change",
     "schema": {
       "id": "http://localhost:1234/",
@@ -87,6 +141,19 @@
           ]
         },
         "valid": false
+      }
+    ]
+  },
+  {
+    "description": "Location-independent identifier in remote ref",
+    "schema": {
+      "$ref": "http://localhost:1234/draft4/locationIndependentIdentifier.json#/definitions/refToInteger"
+    },
+    "tests": [
+      {
+        "description": "integer is valid",
+        "data": 1,
+        "valid": true
       }
     ]
   }

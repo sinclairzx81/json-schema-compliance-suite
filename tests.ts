@@ -16,12 +16,12 @@ await Test.runTestSuite({
   category: 'Validation',
   message: 'Results for the TypeBox validation library.',
   directory: './results/typebox'
-}, (_draft, schema, value) => {
+}, (_draft, remotes, schema, value) => {
   // TypeBox supports dynamic and compiled checking. We test both
   // to ensure TypeBox produces a coherent result. Mismatched
   // results are thrown indicating a failed test.
-  const result1 = TypeBox.Check(schema, value)
-  const result2 = TypeBox.Compile(schema).Check(value)
+  const result1 = TypeBox.Check(remotes, schema, value)
+  const result2 = TypeBox.Compile(remotes, schema).Check(value)
   if(result1 !== result2) throw Error('Result Mismatch')
   return result1
 })
@@ -29,14 +29,16 @@ await Test.runTestSuite({
 // CFWorker: Validation
 // ------------------------------------------------------------------
 import * as CFWorker from '@cfworker/json-schema'
-function createCFWorkerValidator(schema: boolean | Record<string, unknown>, draft: string) {
+function createCFWorkerValidator(draft: string, remotes: Record<string, boolean | Record<string, unknown>>, schema: boolean | Record<string, unknown>) {
   const spec = (
     draft === 'draft7' ? '7' :
     draft === 'draft2019-09' ? '2019-09' :
     draft === 'draft2020-12' ? '2020-12' :
     '4'
   ) as never
-  return (new CFWorker.Validator(schema, spec))
+  const validator = (new CFWorker.Validator(schema, spec))
+  for (const [uri, remoteSchema] of Object.entries(remotes)) validator.addSchema(remoteSchema as {}, uri)
+  return validator
 }
 await Test.runTestSuite({
   library: 'CFWorker',
@@ -44,8 +46,8 @@ await Test.runTestSuite({
   category: 'Validation',
   directory: './results/cfworker',
   message: 'Results for the @cfworker/json-schema validation library.'
-}, (draft, schema, value) => {
-  return createCFWorkerValidator(schema, draft).validate(value).valid
+}, (draft, remotes, schema, value) => {
+  return createCFWorkerValidator(draft, remotes, schema).validate(value).valid
 })
 // ---------------------------------------------------------------
 // JsonSchema: Validation
@@ -57,9 +59,10 @@ await Test.runTestSuite({
   category: 'Validation',
   message: 'Results for the jsonschema validation library.',
   directory: './results/jsonschema'
-}, (_draft, schema, value) => {
-  const v = new Validator()
-  const result = v.validate(value, schema as never)
+}, (_draft, remotes, schema, value) => {
+  const validator = new Validator()
+  for (const [uri, remoteSchema] of Object.entries(remotes)) validator.addSchema(remoteSchema as {}, uri)
+  const result = validator.validate(value, schema as never)
   return result.valid
 })
 // ---------------------------------------------------------------
@@ -72,8 +75,9 @@ await Test.runTestSuite({
   category: 'Validation',
   message: 'Results for the Ata validator using the `isValidObject(...)` function.',
   directory: './results/ata',
-}, (_draft, schema, value) => {
-  return (new Ata.Validator(schema as never)).isValidObject(value)
+}, (_draft, remotes, schema, value) => {
+  const remotesWithIds = Object.entries(remotes).flatMap(([uri, s]) => typeof s === "object" ? [{ ...s, $id: uri }] : []);
+  return (new Ata.Validator(schema as never, { schemas: remotesWithIds })).isValidObject(value)
 })
 // ---------------------------------------------------------------
 // ZSchema: Validation
@@ -85,8 +89,9 @@ await Test.runTestSuite({
   category: 'Validation',
   message: 'Results for the z-schema validator using the `validate(...)` function wrapped in try/catch.',
   directory: './results/z-schema',
-}, (_draft, schema, value) => {
+}, (_draft, remotes, schema, value) => {
   const validator = ZSchema.create()
+  for (const [uri, remoteSchema] of Object.entries(remotes)) validator.setRemoteReference(uri, remoteSchema as never)
   try {
     validator.validate(value, schema as never);
     return true
@@ -108,13 +113,16 @@ const AjvKeywords = [
   'uri-template', 'json-pointer', 'relative-json-pointer',
   'idn-hostname', 'iri', 'iri-reference', 'regex'
 ]
-function createAjvValidator(draft: string) {
+function createAjvValidator(draft: string, remotes: Record<string, boolean | Record<string, unknown>>) {
   const logger = { log: () => { }, warn: () => { }, error: () => { } }
-  return (
-    (draft === 'draft2019-09') ? AjvFormats.default(new Ajv2019.Ajv2019({ strict: false, logger }), AjvKeywords as never) :
-    (draft === 'draft2020-12') ? AjvFormats.default(new Ajv2020.Ajv2020({ strict: false, logger }), AjvKeywords as never) :
-    AjvFormats.default(new Ajv7.Ajv({ strict: false, logger }), AjvKeywords as never)
-  )
+  const options = { strict: false, validateSchema: false, logger }
+  const validator = (
+    (draft === 'draft2019-09') ? AjvFormats.default(new Ajv2019.Ajv2019(options), AjvKeywords as never) :
+    (draft === 'draft2020-12') ? AjvFormats.default(new Ajv2020.Ajv2020(options), AjvKeywords as never) :
+    AjvFormats.default(new Ajv7.Ajv(options), AjvKeywords as never)
+  ) as Ajv7.Ajv
+  for (const [uri, remoteSchema] of Object.entries(remotes)) validator.addSchema(remoteSchema, uri)
+  return validator
 }
 await Test.runTestSuite({
   library: 'Ajv',
@@ -122,8 +130,8 @@ await Test.runTestSuite({
   category: 'Validation',
   message: "Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.",
   directory: './results/ajv',
-}, (draft, schema, value) => {
-  return createAjvValidator(draft).validate(schema, value)
+}, (draft, remotes, schema, value) => {
+  return createAjvValidator(draft, remotes).validate(schema, value)
 })
 // ---------------------------------------------------------------
 // Djv: Validation
@@ -136,12 +144,13 @@ await Test.runTestSuite({
   category: 'Validation',
   message: 'Results for the djv validation library.',
   directory: './results/djv'
-}, (draft, schema, value) => {
+}, (draft, remotes, schema, value) => {
   const version = (draft === 'draft-04') ? 'draft-04' : 'draft-06';
-  const env = new djv({ version })
-  const schemaName = 'test-schema'
-  env.addSchema(schemaName, schema as any)
-  return env.validate(schemaName, value as never) === undefined
+  const validator = new djv({ version })
+  const root = 'test-schema'
+  for (const [uri, remoteSchema] of Object.entries(remotes)) validator.addSchema(uri, remoteSchema as never)
+  validator.addSchema(root, schema as never)
+  return validator.validate(root, value as never) === undefined
 })
 // ---------------------------------------------------------------
 // Sury: Semantics
@@ -153,7 +162,7 @@ await Test.runTestSuite({
   category: 'Semantics',
   message: "Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Schema specification.",
   directory: './results/sury-semantics'
-}, (_draft, schema, value) => {
+}, (_draft, _remotes, schema, value) => {
   return Sury.safe(() => Sury.parser(Sury.fromJSONSchema(schema as never))(value)).success
 })
 // ---------------------------------------------------------------
@@ -165,9 +174,9 @@ await Test.runTestSuite({
   repository: 'https://github.com/DZakh/sury',
   message: "Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directionally transform JSON Schema. The transformed schema is passed to Cfworker for testing.",
   directory: './results/sury-roundtrip'
-}, (draft, schema, value) => {
+}, (draft, remotes, schema, value) => {
   const transformedSchema = Sury.toJSONSchema(Sury.fromJSONSchema(schema as never))
-  return createCFWorkerValidator(transformedSchema as never, draft).validate(value).valid
+  return createCFWorkerValidator(draft, remotes, transformedSchema as never).validate(value).valid
 })
 // ---------------------------------------------------------------
 // Zod: Semantics
@@ -179,7 +188,7 @@ await Test.runTestSuite({
   category: 'Semantics',
   message: "Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Schema specification.",
   directory: './results/zod-semantics'
-}, (_draft, schema, value) => {
+}, (_draft, _remotes, schema, value) => {
   return Zod.fromJSONSchema(schema).safeParse(value).success
 })
 // ---------------------------------------------------------------
@@ -191,9 +200,9 @@ await Test.runTestSuite({
   repository: 'https://github.com/colinhacks/zod',
   message: "Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directionally transform JSON Schema. The transformed schema is passed to Cfworker for testing.",
   directory: './results/zod-roundtrip'
-}, (draft, schema, value) => {
+}, (draft, remotes, schema, value) => {
   const transformedSchema = Zod.fromJSONSchema(schema).toJSONSchema()
-  return createCFWorkerValidator(transformedSchema, draft).validate(value).valid
+  return createCFWorkerValidator(draft, remotes, transformedSchema).validate(value).valid
 })
 // ---------------------------------------------------------------
 // ArkType: Semantics
@@ -205,7 +214,7 @@ await Test.runTestSuite({
   category: 'Semantics',
   directory: './results/arktype-semantics',
   message: "Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json Schema specification.",
-}, (_draft, schema, value) => {
+}, (_draft, _remotes, schema, value) => {
   return Ark.jsonSchemaToType(schema).allows(value)
 })
 // ---------------------------------------------------------------
@@ -217,9 +226,9 @@ await Test.runTestSuite({
   category: 'RoundTrip',
   directory: './results/arktype-roundtrip',
   message: "Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The transformed schema is passed to Cfworker for testing.",
-}, (draft, schema, value) => {
+}, (draft, remotes, schema, value) => {
   const transformedSchema: any = Ark.jsonSchemaToType(schema).toJsonSchema()
-  return createCFWorkerValidator(transformedSchema, draft).validate(value).valid
+  return createCFWorkerValidator(draft, remotes, transformedSchema).validate(value).valid
 })
 // ---------------------------------------------------------------
 // Finalize

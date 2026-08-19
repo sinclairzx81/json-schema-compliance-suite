@@ -221,17 +221,6 @@
           ]
         },
         "valid": false
-      },
-      {
-        "description": "instance with correct field",
-        "data": {
-          "children": [
-            {
-              "data": 1
-            }
-          ]
-        },
-        "valid": true
       }
     ]
   },
@@ -255,13 +244,6 @@
       }
     },
     "tests": [
-      {
-        "description": "incorrect parent schema",
-        "data": {
-          "a": true
-        },
-        "valid": false
-      },
       {
         "description": "incorrect extended schema",
         "data": {
@@ -313,13 +295,6 @@
     },
     "tests": [
       {
-        "description": "incorrect parent schema",
-        "data": {
-          "a": true
-        },
-        "valid": false
-      },
-      {
         "description": "incorrect extended schema",
         "data": {
           "elements": [
@@ -370,13 +345,6 @@
     },
     "tests": [
       {
-        "description": "incorrect parent schema",
-        "data": {
-          "a": true
-        },
-        "valid": false
-      },
-      {
         "description": "incorrect extended schema",
         "data": {
           "elements": [
@@ -406,11 +374,6 @@
       "$ref": "http://localhost:1234/v1/detached-dynamicref.json#/$defs/foo"
     },
     "tests": [
-      {
-        "description": "number is valid",
-        "data": 1,
-        "valid": true
-      },
       {
         "description": "non-number is invalid",
         "data": "a",

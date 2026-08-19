@@ -9,6 +9,11 @@
         "description": "remote ref valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "remote ref invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -22,6 +27,11 @@
         "description": "remote fragment valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "remote fragment invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -35,6 +45,11 @@
         "description": "ref within ref valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "ref within ref invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   },
@@ -58,74 +73,15 @@
           ]
         ],
         "valid": true
-      }
-    ]
-  },
-  {
-    "description": "base URI change - change folder",
-    "schema": {
-      "id": "http://localhost:1234/scope_change_defs1.json",
-      "type": "object",
-      "properties": {
-        "list": {
-          "$ref": "#/definitions/baz"
-        }
       },
-      "definitions": {
-        "baz": {
-          "id": "baseUriChangeFolder/",
-          "type": "array",
-          "items": {
-            "$ref": "folderInteger.json"
-          }
-        }
-      }
-    },
-    "tests": [
       {
-        "description": "number is valid",
-        "data": {
-          "list": [
-            1
+        "description": "base URI change ref invalid",
+        "data": [
+          [
+            "a"
           ]
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "base URI change - change folder in subschema",
-    "schema": {
-      "id": "http://localhost:1234/scope_change_defs2.json",
-      "type": "object",
-      "properties": {
-        "list": {
-          "$ref": "#/definitions/baz/definitions/bar"
-        }
-      },
-      "definitions": {
-        "baz": {
-          "id": "baseUriChangeFolderInSubschema/",
-          "definitions": {
-            "bar": {
-              "type": "array",
-              "items": {
-                "$ref": "folderInteger.json"
-              }
-            }
-          }
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "number is valid",
-        "data": {
-          "list": [
-            1
-          ]
-        },
-        "valid": true
+        ],
+        "valid": false
       }
     ]
   },
@@ -154,6 +110,15 @@
           "name": null
         },
         "valid": true
+      },
+      {
+        "description": "object is invalid",
+        "data": {
+          "name": {
+            "name": null
+          }
+        },
+        "valid": false
       }
     ]
   },
@@ -167,6 +132,11 @@
         "description": "integer is valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "string is invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   }

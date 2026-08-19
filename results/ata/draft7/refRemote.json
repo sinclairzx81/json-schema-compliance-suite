@@ -6,6 +6,11 @@
     },
     "tests": [
       {
+        "description": "remote ref valid",
+        "data": 1,
+        "valid": true
+      },
+      {
         "description": "remote ref invalid",
         "data": "a",
         "valid": false
@@ -19,6 +24,11 @@
     },
     "tests": [
       {
+        "description": "remote fragment valid",
+        "data": 1,
+        "valid": true
+      },
+      {
         "description": "remote fragment invalid",
         "data": "a",
         "valid": false
@@ -31,6 +41,11 @@
       "$ref": "http://localhost:1234/draft7/subSchemas.json#/definitions/refToInteger"
     },
     "tests": [
+      {
+        "description": "ref within ref valid",
+        "data": 1,
+        "valid": true
+      },
       {
         "description": "ref within ref invalid",
         "data": "a",
@@ -50,6 +65,15 @@
       }
     },
     "tests": [
+      {
+        "description": "base URI change ref valid",
+        "data": [
+          [
+            1
+          ]
+        ],
+        "valid": true
+      },
       {
         "description": "base URI change ref invalid",
         "data": [
@@ -82,6 +106,15 @@
       }
     },
     "tests": [
+      {
+        "description": "number is valid",
+        "data": {
+          "list": [
+            1
+          ]
+        },
+        "valid": true
+      },
       {
         "description": "string is invalid",
         "data": {
@@ -119,6 +152,15 @@
     },
     "tests": [
       {
+        "description": "number is valid",
+        "data": {
+          "list": [
+            1
+          ]
+        },
+        "valid": true
+      },
+      {
         "description": "string is invalid",
         "data": {
           "list": [
@@ -141,6 +183,20 @@
       }
     },
     "tests": [
+      {
+        "description": "string is valid",
+        "data": {
+          "name": "foo"
+        },
+        "valid": true
+      },
+      {
+        "description": "null is valid",
+        "data": {
+          "name": null
+        },
+        "valid": true
+      },
       {
         "description": "object is invalid",
         "data": {
@@ -169,6 +225,13 @@
           "bar": 1
         },
         "valid": false
+      },
+      {
+        "description": "valid",
+        "data": {
+          "bar": "a"
+        },
+        "valid": true
       }
     ]
   },
@@ -204,6 +267,15 @@
           }
         },
         "valid": false
+      },
+      {
+        "description": "string is valid",
+        "data": {
+          "name": {
+            "foo": "a"
+          }
+        },
+        "valid": true
       }
     ]
   },

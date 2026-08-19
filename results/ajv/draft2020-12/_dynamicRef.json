@@ -535,40 +535,6 @@
     ]
   },
   {
-    "description": "strict-tree schema, guards against misspelled properties",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "http://localhost:1234/draft2020-12/strict-tree.json",
-      "$dynamicAnchor": "node",
-      "$ref": "tree.json",
-      "unevaluatedProperties": false
-    },
-    "tests": [
-      {
-        "description": "instance with misspelled field",
-        "data": {
-          "children": [
-            {
-              "daat": 1
-            }
-          ]
-        },
-        "valid": false
-      },
-      {
-        "description": "instance with correct field",
-        "data": {
-          "children": [
-            {
-              "data": 1
-            }
-          ]
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "tests for implementation dynamic anchor and reference link",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -588,24 +554,6 @@
       }
     },
     "tests": [
-      {
-        "description": "incorrect parent schema",
-        "data": {
-          "a": true
-        },
-        "valid": false
-      },
-      {
-        "description": "incorrect extended schema",
-        "data": {
-          "elements": [
-            {
-              "b": 1
-            }
-          ]
-        },
-        "valid": false
-      },
       {
         "description": "correct extended schema",
         "data": {
@@ -646,24 +594,6 @@
     },
     "tests": [
       {
-        "description": "incorrect parent schema",
-        "data": {
-          "a": true
-        },
-        "valid": false
-      },
-      {
-        "description": "incorrect extended schema",
-        "data": {
-          "elements": [
-            {
-              "b": 1
-            }
-          ]
-        },
-        "valid": false
-      },
-      {
         "description": "correct extended schema",
         "data": {
           "elements": [
@@ -702,24 +632,6 @@
       ]
     },
     "tests": [
-      {
-        "description": "incorrect parent schema",
-        "data": {
-          "a": true
-        },
-        "valid": false
-      },
-      {
-        "description": "incorrect extended schema",
-        "data": {
-          "elements": [
-            {
-              "b": 1
-            }
-          ]
-        },
-        "valid": false
-      },
       {
         "description": "correct extended schema",
         "data": {

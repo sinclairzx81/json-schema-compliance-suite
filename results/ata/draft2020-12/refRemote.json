@@ -7,6 +7,11 @@
     },
     "tests": [
       {
+        "description": "remote ref valid",
+        "data": 1,
+        "valid": true
+      },
+      {
         "description": "remote ref invalid",
         "data": "a",
         "valid": false
@@ -20,6 +25,11 @@
       "$ref": "http://localhost:1234/draft2020-12/subSchemas.json#/$defs/integer"
     },
     "tests": [
+      {
+        "description": "remote fragment valid",
+        "data": 1,
+        "valid": true
+      },
       {
         "description": "remote fragment invalid",
         "data": "a",
@@ -35,6 +45,11 @@
     },
     "tests": [
       {
+        "description": "remote anchor valid",
+        "data": 1,
+        "valid": true
+      },
+      {
         "description": "remote anchor invalid",
         "data": "a",
         "valid": false
@@ -48,6 +63,11 @@
       "$ref": "http://localhost:1234/draft2020-12/subSchemas.json#/$defs/refToInteger"
     },
     "tests": [
+      {
+        "description": "ref within ref valid",
+        "data": 1,
+        "valid": true
+      },
       {
         "description": "ref within ref invalid",
         "data": "a",
@@ -68,6 +88,15 @@
       }
     },
     "tests": [
+      {
+        "description": "base URI change ref valid",
+        "data": [
+          [
+            1
+          ]
+        ],
+        "valid": true
+      },
       {
         "description": "base URI change ref invalid",
         "data": [
@@ -101,6 +130,15 @@
       }
     },
     "tests": [
+      {
+        "description": "number is valid",
+        "data": {
+          "list": [
+            1
+          ]
+        },
+        "valid": true
+      },
       {
         "description": "string is invalid",
         "data": {
@@ -139,6 +177,15 @@
     },
     "tests": [
       {
+        "description": "number is valid",
+        "data": {
+          "list": [
+            1
+          ]
+        },
+        "valid": true
+      },
+      {
         "description": "string is invalid",
         "data": {
           "list": [
@@ -162,6 +209,20 @@
       }
     },
     "tests": [
+      {
+        "description": "string is valid",
+        "data": {
+          "name": "foo"
+        },
+        "valid": true
+      },
+      {
+        "description": "null is valid",
+        "data": {
+          "name": null
+        },
+        "valid": true
+      },
       {
         "description": "object is invalid",
         "data": {
@@ -187,6 +248,13 @@
           "bar": 1
         },
         "valid": false
+      },
+      {
+        "description": "valid",
+        "data": {
+          "bar": "a"
+        },
+        "valid": true
       }
     ]
   },
@@ -197,6 +265,11 @@
       "$ref": "http://localhost:1234/draft2020-12/locationIndependentIdentifier.json#/$defs/refToInteger"
     },
     "tests": [
+      {
+        "description": "integer is valid",
+        "data": 1,
+        "valid": true
+      },
       {
         "description": "string is invalid",
         "data": "foo",
@@ -224,6 +297,15 @@
           }
         },
         "valid": false
+      },
+      {
+        "description": "string is valid",
+        "data": {
+          "name": {
+            "foo": "a"
+          }
+        },
+        "valid": true
       }
     ]
   },
@@ -238,6 +320,11 @@
         "description": "number is invalid",
         "data": 1,
         "valid": false
+      },
+      {
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true
       }
     ]
   },
@@ -252,6 +339,11 @@
         "description": "number is invalid",
         "data": 1,
         "valid": false
+      },
+      {
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true
       }
     ]
   },
@@ -263,9 +355,9 @@
     },
     "tests": [
       {
-        "description": "number is invalid",
-        "data": 1,
-        "valid": false
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true
       }
     ]
   },
@@ -276,6 +368,11 @@
       "$ref": "http://localhost:1234/draft2020-12/detached-ref.json#/$defs/foo"
     },
     "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
       {
         "description": "non-number is invalid",
         "data": "a",

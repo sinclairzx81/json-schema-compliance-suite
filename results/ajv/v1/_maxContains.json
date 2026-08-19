@@ -1,29 +1,5 @@
 [
   {
-    "description": "maxContains without contains is ignored",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "maxContains": 1
-    },
-    "tests": [
-      {
-        "description": "one item valid against lone maxContains",
-        "data": [
-          1
-        ],
-        "valid": true
-      },
-      {
-        "description": "two items still valid against lone maxContains",
-        "data": [
-          1,
-          2
-        ],
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "maxContains with contains",
     "schema": {
       "$schema": "https://json-schema.org/v1",
@@ -34,32 +10,12 @@
     },
     "tests": [
       {
-        "description": "empty array",
-        "data": [],
-        "valid": false
-      },
-      {
-        "description": "all elements match, valid maxContains",
-        "data": [
-          1
-        ],
-        "valid": true
-      },
-      {
         "description": "all elements match, invalid maxContains",
         "data": [
           1,
           1
         ],
         "valid": false
-      },
-      {
-        "description": "some elements match, valid maxContains",
-        "data": [
-          1,
-          2
-        ],
-        "valid": true
       },
       {
         "description": "some elements match, invalid maxContains",
@@ -83,13 +39,6 @@
     },
     "tests": [
       {
-        "description": "one element matches, valid maxContains",
-        "data": [
-          1
-        ],
-        "valid": true
-      },
-      {
         "description": "too many elements match, invalid maxContains",
         "data": [
           1,
@@ -110,19 +59,6 @@
       "maxContains": 3
     },
     "tests": [
-      {
-        "description": "array with actual < minContains < maxContains",
-        "data": [],
-        "valid": false
-      },
-      {
-        "description": "array with minContains < actual < maxContains",
-        "data": [
-          1,
-          1
-        ],
-        "valid": true
-      },
       {
         "description": "array with minContains < maxContains < actual",
         "data": [

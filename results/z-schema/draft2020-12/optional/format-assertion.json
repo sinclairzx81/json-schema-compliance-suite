@@ -9,6 +9,11 @@
     },
     "tests": [
       {
+        "description": "format-assertion: false: valid string",
+        "data": "127.0.0.1",
+        "valid": true
+      },
+      {
         "description": "format-assertion: false: invalid string",
         "comment": "valid: false is intentional — the false value in $vocabulary only affects unknown vocabulary handling, not validation behavior itself",
         "data": "not-an-ipv4",
@@ -24,6 +29,11 @@
       "format": "ipv4"
     },
     "tests": [
+      {
+        "description": "format-assertion: true: valid string",
+        "data": "127.0.0.1",
+        "valid": true
+      },
       {
         "description": "format-assertion: true: invalid string",
         "data": "not-an-ipv4",

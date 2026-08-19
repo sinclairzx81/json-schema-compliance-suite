@@ -205,22 +205,6 @@
     },
     "tests": [
       {
-        "description": "leaf node does not match; no recursion",
-        "data": {
-          "foo": true
-        },
-        "valid": false
-      },
-      {
-        "description": "leaf node matches: recursion uses the inner schema",
-        "data": {
-          "foo": {
-            "bar": 1
-          }
-        },
-        "valid": true
-      },
-      {
         "description": "leaf node does not match: recursion uses the inner schema",
         "data": {
           "foo": {
@@ -261,22 +245,6 @@
       ]
     },
     "tests": [
-      {
-        "description": "leaf node does not match; no recursion",
-        "data": {
-          "foo": true
-        },
-        "valid": false
-      },
-      {
-        "description": "leaf node matches: recursion only uses inner schema",
-        "data": {
-          "foo": {
-            "bar": 1
-          }
-        },
-        "valid": true
-      },
       {
         "description": "leaf node does not match: recursion only uses inner schema",
         "data": {
