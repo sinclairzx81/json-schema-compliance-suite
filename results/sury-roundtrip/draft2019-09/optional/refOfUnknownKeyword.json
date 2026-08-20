@@ -19,6 +19,13 @@
           "bar": 3
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": true
+        },
+        "valid": false
       }
     ]
   },
@@ -42,6 +49,13 @@
           "bar": 3
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": true
+        },
+        "valid": false
       }
     ]
   },
@@ -67,6 +81,13 @@
           "bar": 3
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": true
+        },
+        "valid": false
       }
     ]
   },
@@ -116,6 +137,13 @@
           "bar": 3
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": true
+        },
+        "valid": false
       }
     ]
   }

@@ -80,6 +80,11 @@
         "valid": true
       },
       {
+        "description": "invalid through then",
+        "data": -100,
+        "valid": false
+      },
+      {
         "description": "valid when if test fails",
         "data": 3,
         "valid": true
@@ -129,6 +134,11 @@
         "description": "valid through then",
         "data": -1,
         "valid": true
+      },
+      {
+        "description": "invalid through then",
+        "data": -100,
+        "valid": false
       },
       {
         "description": "valid through else",
@@ -189,6 +199,11 @@
         "description": "boolean schema true in if always chooses the then path (valid)",
         "data": "then",
         "valid": true
+      },
+      {
+        "description": "boolean schema true in if always chooses the then path (invalid)",
+        "data": "else",
+        "valid": false
       }
     ]
   },
@@ -205,6 +220,11 @@
       }
     },
     "tests": [
+      {
+        "description": "boolean schema false in if always chooses the else path (invalid)",
+        "data": "then",
+        "valid": false
+      },
       {
         "description": "boolean schema false in if always chooses the else path (valid)",
         "data": "else",
@@ -236,6 +256,16 @@
         "description": "other redirects to else and passes",
         "data": "other",
         "valid": true
+      },
+      {
+        "description": "no redirects to then and fails",
+        "data": "no",
+        "valid": false
+      },
+      {
+        "description": "invalid redirects to else and fails",
+        "data": "invalid",
+        "valid": false
       }
     ]
   }

@@ -12,6 +12,11 @@
         "valid": true
       },
       {
+        "description": "a non-matching pattern is invalid",
+        "data": "abc",
+        "valid": false
+      },
+      {
         "description": "ignores booleans",
         "data": true,
         "valid": true

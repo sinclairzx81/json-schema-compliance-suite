@@ -17,6 +17,14 @@
         "valid": true
       },
       {
+        "description": "wrong type of items",
+        "data": [
+          1,
+          "x"
+        ],
+        "valid": false
+      },
+      {
         "description": "ignores non-arrays",
         "data": {
           "foo": "bar"
@@ -45,6 +53,14 @@
           "foo"
         ],
         "valid": true
+      },
+      {
+        "description": "wrong types",
+        "data": [
+          "foo",
+          1
+        ],
+        "valid": false
       }
     ]
   },

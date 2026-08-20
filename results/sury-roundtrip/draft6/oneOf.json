@@ -21,6 +21,16 @@
         "description": "second oneOf valid",
         "data": 2.5,
         "valid": true
+      },
+      {
+        "description": "both oneOf valid",
+        "data": 3,
+        "valid": false
+      },
+      {
+        "description": "neither oneOf valid",
+        "data": 1.5,
+        "valid": false
       }
     ]
   },
@@ -47,6 +57,28 @@
         "description": "one oneOf valid",
         "data": "foobar",
         "valid": true
+      },
+      {
+        "description": "both oneOf valid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "oneOf with boolean schemas, all true",
+    "schema": {
+      "oneOf": [
+        true,
+        true,
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -64,6 +96,40 @@
         "description": "any value is valid",
         "data": "foo",
         "valid": true
+      }
+    ]
+  },
+  {
+    "description": "oneOf with boolean schemas, more than one true",
+    "schema": {
+      "oneOf": [
+        true,
+        true,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "oneOf with boolean schemas, all false",
+    "schema": {
+      "oneOf": [
+        false,
+        false,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -107,6 +173,22 @@
           "foo": "baz"
         },
         "valid": true
+      },
+      {
+        "description": "both oneOf valid (complex)",
+        "data": {
+          "foo": "baz",
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "neither oneOf valid (complex)",
+        "data": {
+          "foo": 2,
+          "bar": "quux"
+        },
+        "valid": false
       }
     ]
   },
@@ -125,6 +207,11 @@
         "description": "one valid - valid",
         "data": "foo",
         "valid": true
+      },
+      {
+        "description": "both valid - invalid",
+        "data": 123,
+        "valid": false
       }
     ]
   },
@@ -149,6 +236,13 @@
     },
     "tests": [
       {
+        "description": "both invalid - invalid",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
         "description": "first valid - valid",
         "data": {
           "foo": 1,
@@ -163,6 +257,15 @@
           "baz": 3
         },
         "valid": true
+      },
+      {
+        "description": "both valid - invalid",
+        "data": {
+          "foo": 1,
+          "bar": 2,
+          "baz": 3
+        },
+        "valid": false
       }
     ]
   },
@@ -203,6 +306,21 @@
           "foo": "foo"
         },
         "valid": true
+      },
+      {
+        "description": "both oneOf valid",
+        "data": {
+          "foo": "foo",
+          "bar": 8
+        },
+        "valid": false
+      },
+      {
+        "description": "neither oneOf valid",
+        "data": {
+          "baz": "quux"
+        },
+        "valid": false
       }
     ]
   },
@@ -224,6 +342,11 @@
         "description": "null is valid",
         "data": null,
         "valid": true
+      },
+      {
+        "description": "anything non-null is invalid",
+        "data": 123,
+        "valid": false
       }
     ]
   }

@@ -480,6 +480,48 @@
     ]
   },
   {
+    "description": "item is evaluated in an uncle schema to unevaluatedItems",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "properties": {
+        "foo": {
+          "prefixItems": [
+            {
+              "type": "string"
+            }
+          ],
+          "unevaluatedItems": false
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "foo": {
+              "prefixItems": [
+                true,
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "uncle keyword evaluation is not significant",
+        "data": {
+          "foo": [
+            "test",
+            "test"
+          ]
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "unevaluatedItems depends on adjacent contains",
     "schema": {
       "$schema": "https://json-schema.org/v1",

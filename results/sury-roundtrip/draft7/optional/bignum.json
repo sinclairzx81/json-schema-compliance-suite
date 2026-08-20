@@ -62,6 +62,19 @@
     ]
   },
   {
+    "description": "float comparison with high precision",
+    "schema": {
+      "exclusiveMaximum": 9.727837981879871e+26
+    },
+    "tests": [
+      {
+        "description": "comparison works for high numbers",
+        "data": 9.727837981879871e+26,
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "minimum integer comparison",
     "schema": {
       "minimum": -18446744073709552000
@@ -71,6 +84,19 @@
         "description": "comparison works for very negative numbers",
         "data": -18446744073709552000,
         "valid": true
+      }
+    ]
+  },
+  {
+    "description": "float comparison with high precision on negative numbers",
+    "schema": {
+      "exclusiveMinimum": -9.727837981879871e+26
+    },
+    "tests": [
+      {
+        "description": "comparison works for very negative numbers",
+        "data": -9.727837981879871e+26,
+        "valid": false
       }
     ]
   }

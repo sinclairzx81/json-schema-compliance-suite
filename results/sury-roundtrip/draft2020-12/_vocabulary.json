@@ -13,11 +13,11 @@
     },
     "tests": [
       {
-        "description": "applicator vocabulary still works",
+        "description": "no validation: invalid number, but it still validates",
         "data": {
-          "badProperty": "this property should not exist"
+          "numberProperty": 1
         },
-        "valid": false
+        "valid": true
       }
     ]
   }

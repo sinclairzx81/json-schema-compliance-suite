@@ -252,6 +252,50 @@
           ]
         ],
         "valid": false
+      },
+      {
+        "description": "wrong sub-item",
+        "data": [
+          [
+            {},
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "fewer items is valid",
+        "data": [
+          [
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": true
       }
     ]
   },
@@ -385,6 +429,26 @@
     },
     "tests": [
       {
+        "description": "empty array",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "fewer number of items present (1)",
+        "data": [
+          1
+        ],
+        "valid": true
+      },
+      {
+        "description": "fewer number of items present (2)",
+        "data": [
+          1,
+          2
+        ],
+        "valid": true
+      },
+      {
         "description": "equal number of items present",
         "data": [
           1,
@@ -430,6 +494,14 @@
           5
         ],
         "valid": false
+      },
+      {
+        "description": "prefixItems in allOf does not constrain items, valid case",
+        "data": [
+          5,
+          5
+        ],
+        "valid": true
       }
     ]
   },
@@ -447,6 +519,15 @@
       }
     },
     "tests": [
+      {
+        "description": "valid items",
+        "data": [
+          "x",
+          2,
+          3
+        ],
+        "valid": true
+      },
       {
         "description": "wrong type of second item",
         "data": [

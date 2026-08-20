@@ -603,16 +603,6 @@
           ]
         },
         "valid": true
-      },
-      {
-        "description": "uncle keyword evaluation is not significant",
-        "data": {
-          "foo": [
-            "test",
-            "test"
-          ]
-        },
-        "valid": false
       }
     ]
   },

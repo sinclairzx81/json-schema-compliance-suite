@@ -25,6 +25,11 @@
         "description": "ignores non-strings",
         "data": 100,
         "valid": true
+      },
+      {
+        "description": "two graphemes is long enough",
+        "data": "💩💩",
+        "valid": true
       }
     ]
   },

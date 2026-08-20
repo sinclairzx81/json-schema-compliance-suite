@@ -21,6 +21,26 @@
         "description": "matches two",
         "data": "🐲🐲",
         "valid": true
+      },
+      {
+        "description": "doesn't match one",
+        "data": "🐉",
+        "valid": false
+      },
+      {
+        "description": "doesn't match two",
+        "data": "🐉🐉",
+        "valid": false
+      },
+      {
+        "description": "doesn't match one ASCII",
+        "data": "D",
+        "valid": false
+      },
+      {
+        "description": "doesn't match two ASCII",
+        "data": "DD",
+        "valid": false
       }
     ]
   }

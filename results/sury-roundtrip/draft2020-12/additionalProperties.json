@@ -33,6 +33,15 @@
           "quux": true
         },
         "valid": true
+      },
+      {
+        "description": "an additional invalid property is invalid",
+        "data": {
+          "foo": 1,
+          "bar": 2,
+          "quux": 12
+        },
+        "valid": false
       }
     ]
   },
@@ -57,6 +66,13 @@
           "foo": true
         },
         "valid": true
+      },
+      {
+        "description": "an additional invalid property is invalid",
+        "data": {
+          "foo": 1
+        },
+        "valid": false
       }
     ]
   },
@@ -84,6 +100,38 @@
           "quux": true
         },
         "valid": true
+      }
+    ]
+  },
+  {
+    "description": "additionalProperties does not look in applicators",
+    "specification": [
+      {
+        "core": "10.2",
+        "quote": "Subschemas of applicator keywords evaluate the instance completely independently such that the results of one such subschema MUST NOT impact the results of sibling subschemas."
+      }
+    ],
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "allOf": [
+        {
+          "properties": {
+            "foo": {}
+          }
+        }
+      ],
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "tests": [
+      {
+        "description": "properties defined in allOf are not examined",
+        "data": {
+          "foo": 1,
+          "bar": true
+        },
+        "valid": false
       }
     ]
   },

@@ -941,19 +941,11 @@
     },
     "tests": [
       {
-        "description": "base case: both properties present",
+        "description": "in place applicator siblings, foo is missing",
         "data": {
-          "foo": 1,
           "bar": 1
         },
-        "valid": false
-      },
-      {
-        "description": "in place applicator siblings, bar is missing",
-        "data": {
-          "foo": 1
-        },
-        "valid": false
+        "valid": true
       }
     ]
   },

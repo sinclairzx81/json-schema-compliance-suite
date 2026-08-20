@@ -30,6 +30,13 @@
           "foo": 1
         },
         "valid": true
+      },
+      {
+        "description": "failing case",
+        "data": {
+          "foo": "a string"
+        },
+        "valid": false
       }
     ]
   }

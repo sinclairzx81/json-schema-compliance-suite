@@ -49,6 +49,11 @@
     },
     "tests": [
       {
+        "description": "mismatch base schema",
+        "data": 3,
+        "valid": false
+      },
+      {
         "description": "one anyOf valid",
         "data": "foobar",
         "valid": true

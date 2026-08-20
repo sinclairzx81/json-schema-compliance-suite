@@ -1202,6 +1202,15 @@
     },
     "tests": [
       {
+        "description": "no extra properties",
+        "data": {
+          "foo": {
+            "bar": "test"
+          }
+        },
+        "valid": true
+      },
+      {
         "description": "uncle keyword evaluation is not significant",
         "data": {
           "foo": {

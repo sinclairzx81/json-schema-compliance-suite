@@ -258,6 +258,11 @@
         "valid": true
       },
       {
+        "description": "none of the properties mentioned",
+        "data": {},
+        "valid": true
+      },
+      {
         "description": "__proto__ not valid",
         "data": {
           "__proto__": "foo"

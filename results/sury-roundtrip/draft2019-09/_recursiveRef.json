@@ -12,6 +12,22 @@
     },
     "tests": [
       {
+        "description": "match",
+        "data": {
+          "foo": false
+        },
+        "valid": true
+      },
+      {
+        "description": "recursive match",
+        "data": {
+          "foo": {
+            "foo": false
+          }
+        },
+        "valid": true
+      },
+      {
         "description": "mismatch",
         "data": {
           "bar": false
@@ -62,11 +78,32 @@
     },
     "tests": [
       {
+        "description": "integer matches at the outer level",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "single level match",
+        "data": {
+          "foo": "hi"
+        },
+        "valid": true
+      },
+      {
         "description": "integer does not match as a property value",
         "data": {
           "foo": 1
         },
         "valid": false
+      },
+      {
+        "description": "two levels, properties match with inner definition",
+        "data": {
+          "foo": {
+            "bar": "hi"
+          }
+        },
+        "valid": true
       },
       {
         "description": "two levels, no match",
@@ -76,6 +113,78 @@
           }
         },
         "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$recursiveRef with nesting",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$id": "http://localhost:4242/draft2019-09/recursiveRef3/schema.json",
+      "$recursiveAnchor": true,
+      "$defs": {
+        "myobject": {
+          "$id": "myobject.json",
+          "$recursiveAnchor": true,
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$recursiveRef": "#"
+              }
+            }
+          ]
+        }
+      },
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "$ref": "#/$defs/myobject"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "integer matches at the outer level",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "single level match",
+        "data": {
+          "foo": "hi"
+        },
+        "valid": true
+      },
+      {
+        "description": "integer now matches as a property value",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      },
+      {
+        "description": "two levels, properties match with inner definition",
+        "data": {
+          "foo": {
+            "bar": "hi"
+          }
+        },
+        "valid": true
+      },
+      {
+        "description": "two levels, properties match with $recursiveRef",
+        "data": {
+          "foo": {
+            "bar": 1
+          }
+        },
+        "valid": true
       }
     ]
   },
@@ -113,11 +222,32 @@
     },
     "tests": [
       {
+        "description": "integer matches at the outer level",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "single level match",
+        "data": {
+          "foo": "hi"
+        },
+        "valid": true
+      },
+      {
         "description": "integer does not match as a property value",
         "data": {
           "foo": 1
         },
         "valid": false
+      },
+      {
+        "description": "two levels, properties match with inner definition",
+        "data": {
+          "foo": {
+            "bar": "hi"
+          }
+        },
+        "valid": true
       },
       {
         "description": "two levels, integer does not match as a property value",
@@ -163,11 +293,32 @@
     },
     "tests": [
       {
+        "description": "integer matches at the outer level",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "single level match",
+        "data": {
+          "foo": "hi"
+        },
+        "valid": true
+      },
+      {
         "description": "integer does not match as a property value",
         "data": {
           "foo": 1
         },
         "valid": false
+      },
+      {
+        "description": "two levels, properties match with inner definition",
+        "data": {
+          "foo": {
+            "bar": "hi"
+          }
+        },
+        "valid": true
       },
       {
         "description": "two levels, integer does not match as a property value",
@@ -212,6 +363,22 @@
     },
     "tests": [
       {
+        "description": "leaf node does not match; no recursion",
+        "data": {
+          "foo": true
+        },
+        "valid": false
+      },
+      {
+        "description": "leaf node matches: recursion uses the inner schema",
+        "data": {
+          "foo": {
+            "bar": 1
+          }
+        },
+        "valid": true
+      },
+      {
         "description": "leaf node does not match: recursion uses the inner schema",
         "data": {
           "foo": {
@@ -252,6 +419,22 @@
       ]
     },
     "tests": [
+      {
+        "description": "leaf node does not match; no recursion",
+        "data": {
+          "foo": true
+        },
+        "valid": false
+      },
+      {
+        "description": "leaf node matches: recursion only uses inner schema",
+        "data": {
+          "foo": {
+            "bar": 1
+          }
+        },
+        "valid": true
+      },
       {
         "description": "leaf node does not match: recursion only uses inner schema",
         "data": {

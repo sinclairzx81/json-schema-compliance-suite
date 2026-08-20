@@ -1,37 +1,5 @@
 [
   {
-    "description": "object properties validation",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "properties": {
-        "foo": {
-          "type": "integer"
-        },
-        "bar": {
-          "type": "string"
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "one property invalid is invalid",
-        "data": {
-          "foo": 1,
-          "bar": {}
-        },
-        "valid": false
-      },
-      {
-        "description": "both properties invalid is invalid",
-        "data": {
-          "foo": [],
-          "bar": {}
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "properties, patternProperties, additionalProperties interaction",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -124,73 +92,6 @@
     ]
   },
   {
-    "description": "properties with boolean schema",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "properties": {
-        "foo": true,
-        "bar": false
-      }
-    },
-    "tests": [
-      {
-        "description": "only 'false' property present is invalid",
-        "data": {
-          "bar": 2
-        },
-        "valid": false
-      },
-      {
-        "description": "both properties present is invalid",
-        "data": {
-          "foo": 1,
-          "bar": 2
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "properties with escaped characters",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "properties": {
-        "foo\nbar": {
-          "type": "number"
-        },
-        "foo\"bar": {
-          "type": "number"
-        },
-        "foo\\bar": {
-          "type": "number"
-        },
-        "foo\rbar": {
-          "type": "number"
-        },
-        "foo\tbar": {
-          "type": "number"
-        },
-        "foo\fbar": {
-          "type": "number"
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "object with strings is invalid",
-        "data": {
-          "foo\nbar": "1",
-          "foo\"bar": "1",
-          "foo\\bar": "1",
-          "foo\rbar": "1",
-          "foo\tbar": "1",
-          "foo\fbar": "1"
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "properties whose names are Javascript object property names",
     "comment": "Ensure JS implementations don't universally consider e.g. __proto__ to always be present in an object.",
     "schema": {
@@ -213,29 +114,9 @@
     },
     "tests": [
       {
-        "description": "__proto__ not valid",
-        "data": {
-          "__proto__": "foo"
-        },
-        "valid": false
-      },
-      {
-        "description": "toString not valid",
-        "data": {
-          "toString": {
-            "length": 37
-          }
-        },
-        "valid": false
-      },
-      {
-        "description": "constructor not valid",
-        "data": {
-          "constructor": {
-            "length": 37
-          }
-        },
-        "valid": false
+        "description": "none of the properties mentioned",
+        "data": {},
+        "valid": true
       }
     ]
   }

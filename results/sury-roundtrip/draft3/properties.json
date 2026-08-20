@@ -21,6 +21,22 @@
         "valid": true
       },
       {
+        "description": "one property invalid is invalid",
+        "data": {
+          "foo": 1,
+          "bar": {}
+        },
+        "valid": false
+      },
+      {
+        "description": "both properties invalid is invalid",
+        "data": {
+          "foo": [],
+          "bar": {}
+        },
+        "valid": false
+      },
+      {
         "description": "doesn't invalidate other properties",
         "data": {
           "quux": []

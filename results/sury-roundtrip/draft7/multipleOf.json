@@ -11,6 +11,11 @@
         "valid": true
       },
       {
+        "description": "int by int fail",
+        "data": 7,
+        "valid": false
+      },
+      {
         "description": "ignores non-numbers",
         "data": "foo",
         "valid": true
@@ -37,6 +42,11 @@
         "description": "-4.5 is multiple of 1.5",
         "data": -4.5,
         "valid": true
+      },
+      {
+        "description": "35 is not multiple of 1.5",
+        "data": 35,
+        "valid": false
       }
     ]
   },
@@ -50,6 +60,11 @@
         "description": "0.0075 is multiple of 0.0001",
         "data": 0.0075,
         "valid": true
+      },
+      {
+        "description": "0.00751 is not multiple of 0.0001",
+        "data": 0.00751,
+        "valid": false
       }
     ]
   },

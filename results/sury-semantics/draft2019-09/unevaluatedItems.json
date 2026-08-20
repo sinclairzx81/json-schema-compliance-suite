@@ -514,6 +514,48 @@
     ]
   },
   {
+    "description": "item is evaluated in an uncle schema to unevaluatedItems",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "properties": {
+        "foo": {
+          "items": [
+            {
+              "type": "string"
+            }
+          ],
+          "unevaluatedItems": false
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "foo": {
+              "items": [
+                true,
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "uncle keyword evaluation is not significant",
+        "data": {
+          "foo": [
+            "test",
+            "test"
+          ]
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "unevaluatedItems can see annotations from if without then and else",
     "schema": {
       "$schema": "https://json-schema.org/draft/2019-09/schema",

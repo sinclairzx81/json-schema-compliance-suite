@@ -858,14 +858,13 @@
     },
     "tests": [
       {
-        "description": "uncle keyword evaluation is not significant",
+        "description": "no extra properties",
         "data": {
           "foo": {
-            "bar": "test",
-            "faz": "test"
+            "bar": "test"
           }
         },
-        "valid": false
+        "valid": true
       }
     ]
   },

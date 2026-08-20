@@ -69,30 +69,6 @@
     ]
   },
   {
-    "description": "additionalProperties with schema",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "properties": {
-        "foo": {},
-        "bar": {}
-      },
-      "additionalProperties": {
-        "type": "boolean"
-      }
-    },
-    "tests": [
-      {
-        "description": "an additional invalid property is invalid",
-        "data": {
-          "foo": 1,
-          "bar": 2,
-          "quux": 12
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "additionalProperties with propertyNames",
     "schema": {
       "$schema": "https://json-schema.org/draft/2019-09/schema",

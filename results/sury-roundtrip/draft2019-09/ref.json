@@ -26,6 +26,22 @@
           }
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": false
+        },
+        "valid": false
+      },
+      {
+        "description": "recursive mismatch",
+        "data": {
+          "foo": {
+            "bar": false
+          }
+        },
+        "valid": false
       }
     ]
   },
@@ -49,6 +65,13 @@
           "bar": 3
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": true
+        },
+        "valid": false
       }
     ]
   },
@@ -73,6 +96,14 @@
           2
         ],
         "valid": true
+      },
+      {
+        "description": "mismatch array",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
       }
     ]
   },
@@ -104,6 +135,27 @@
       }
     },
     "tests": [
+      {
+        "description": "slash invalid",
+        "data": {
+          "slash": "aoeu"
+        },
+        "valid": false
+      },
+      {
+        "description": "tilde invalid",
+        "data": {
+          "tilde": "aoeu"
+        },
+        "valid": false
+      },
+      {
+        "description": "percent invalid",
+        "data": {
+          "percent": "aoeu"
+        },
+        "valid": false
+      },
       {
         "description": "slash valid",
         "data": {
@@ -180,6 +232,24 @@
           "foo": []
         },
         "valid": true
+      },
+      {
+        "description": "ref valid, maxItems invalid",
+        "data": {
+          "foo": [
+            1,
+            2,
+            3
+          ]
+        },
+        "valid": false
+      },
+      {
+        "description": "ref invalid",
+        "data": {
+          "foo": "string"
+        },
+        "valid": false
       }
     ]
   },
@@ -200,6 +270,13 @@
           "$ref": "a"
         },
         "valid": true
+      },
+      {
+        "description": "property named $ref invalid",
+        "data": {
+          "$ref": 2
+        },
+        "valid": false
       }
     ]
   },
@@ -225,6 +302,13 @@
           "$ref": "a"
         },
         "valid": true
+      },
+      {
+        "description": "property named $ref invalid",
+        "data": {
+          "$ref": 2
+        },
+        "valid": false
       }
     ]
   },
@@ -284,6 +368,13 @@
           "foo\"bar": 1
         },
         "valid": true
+      },
+      {
+        "description": "object with strings is invalid",
+        "data": {
+          "foo\"bar": "1"
+        },
+        "valid": false
       }
     ]
   },
@@ -348,6 +439,13 @@
           "foo": "bar"
         },
         "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
       }
     ]
   },
@@ -375,6 +473,13 @@
           "foo": "bar"
         },
         "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
       }
     ]
   },
@@ -402,6 +507,13 @@
           "foo": "bar"
         },
         "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
       }
     ]
   },
@@ -429,6 +541,13 @@
           "foo": "bar"
         },
         "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
       }
     ]
   },
@@ -506,6 +625,11 @@
         "description": "number is valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
       }
     ]
   }

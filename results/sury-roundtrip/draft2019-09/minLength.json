@@ -17,9 +17,19 @@
         "valid": true
       },
       {
+        "description": "too short is invalid",
+        "data": "f",
+        "valid": false
+      },
+      {
         "description": "ignores non-strings",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "one grapheme is not long enough",
+        "data": "💩",
+        "valid": false
       }
     ]
   },
@@ -34,6 +44,11 @@
         "description": "longer is valid",
         "data": "foo",
         "valid": true
+      },
+      {
+        "description": "too short is invalid",
+        "data": "f",
+        "valid": false
       }
     ]
   }

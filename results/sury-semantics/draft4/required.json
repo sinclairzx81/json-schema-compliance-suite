@@ -91,6 +91,14 @@
           "foo\fbar": 1
         },
         "valid": true
+      },
+      {
+        "description": "object with some properties missing is invalid",
+        "data": {
+          "foo\nbar": "1",
+          "foo\"bar": "1"
+        },
+        "valid": false
       }
     ]
   },
@@ -114,6 +122,36 @@
         "description": "ignores other non-objects",
         "data": 12,
         "valid": true
+      },
+      {
+        "description": "none of the properties mentioned",
+        "data": {},
+        "valid": false
+      },
+      {
+        "description": "__proto__ present",
+        "data": {
+          "__proto__": "foo"
+        },
+        "valid": false
+      },
+      {
+        "description": "toString present",
+        "data": {
+          "toString": {
+            "length": 37
+          }
+        },
+        "valid": false
+      },
+      {
+        "description": "constructor present",
+        "data": {
+          "constructor": {
+            "length": 37
+          }
+        },
+        "valid": false
       },
       {
         "description": "all present",

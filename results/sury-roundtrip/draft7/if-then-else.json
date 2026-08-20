@@ -76,6 +76,11 @@
         "valid": true
       },
       {
+        "description": "invalid through then",
+        "data": -100,
+        "valid": false
+      },
+      {
         "description": "valid when if test fails",
         "data": 3,
         "valid": true
@@ -102,6 +107,11 @@
         "description": "valid through else",
         "data": 4,
         "valid": true
+      },
+      {
+        "description": "invalid through else",
+        "data": 3,
+        "valid": false
       }
     ]
   },
@@ -125,9 +135,19 @@
         "valid": true
       },
       {
+        "description": "invalid through then",
+        "data": -100,
+        "valid": false
+      },
+      {
         "description": "valid through else",
         "data": 4,
         "valid": true
+      },
+      {
+        "description": "invalid through else",
+        "data": 3,
+        "valid": false
       }
     ]
   },
@@ -181,6 +201,11 @@
         "description": "boolean schema true in if always chooses the then path (valid)",
         "data": "then",
         "valid": true
+      },
+      {
+        "description": "boolean schema true in if always chooses the then path (invalid)",
+        "data": "else",
+        "valid": false
       }
     ]
   },
@@ -196,6 +221,11 @@
       }
     },
     "tests": [
+      {
+        "description": "boolean schema false in if always chooses the else path (invalid)",
+        "data": "then",
+        "valid": false
+      },
       {
         "description": "boolean schema false in if always chooses the else path (valid)",
         "data": "else",
@@ -226,6 +256,16 @@
         "description": "other redirects to else and passes",
         "data": "other",
         "valid": true
+      },
+      {
+        "description": "no redirects to then and fails",
+        "data": "no",
+        "valid": false
+      },
+      {
+        "description": "invalid redirects to else and fails",
+        "data": "invalid",
+        "valid": false
       }
     ]
   },
@@ -238,6 +278,11 @@
       "then": false
     },
     "tests": [
+      {
+        "description": "matches if → then=false → invalid",
+        "data": 1,
+        "valid": false
+      },
       {
         "description": "does not match if → then ignored → valid",
         "data": 2,
@@ -258,6 +303,11 @@
         "description": "matches if → else ignored → valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "does not match if → else executes → invalid",
+        "data": 2,
+        "valid": false
       }
     ]
   }

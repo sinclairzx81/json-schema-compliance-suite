@@ -1,35 +1,5 @@
 [
   {
-    "description": "ref applies alongside sibling keywords",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "$defs": {
-        "reffed": {
-          "type": "array"
-        }
-      },
-      "properties": {
-        "foo": {
-          "$ref": "#/$defs/reffed",
-          "maxItems": 2
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "ref valid, maxItems invalid",
-        "data": {
-          "foo": [
-            1,
-            2,
-            3
-          ]
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "remote ref, containing refs itself",
     "schema": {
       "$schema": "https://json-schema.org/draft/2019-09/schema",

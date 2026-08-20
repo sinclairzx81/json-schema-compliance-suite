@@ -18,6 +18,14 @@
         "valid": true
       },
       {
+        "description": "wrong type of items",
+        "data": [
+          1,
+          "x"
+        ],
+        "valid": false
+      },
+      {
         "description": "ignores non-arrays",
         "data": {
           "foo": "bar"
@@ -55,6 +63,14 @@
           "foo"
         ],
         "valid": true
+      },
+      {
+        "description": "wrong types",
+        "data": [
+          "foo",
+          1
+        ],
+        "valid": false
       },
       {
         "description": "incomplete array of items",
@@ -119,6 +135,15 @@
     },
     "tests": [
       {
+        "description": "any non-empty array is invalid",
+        "data": [
+          1,
+          "foo",
+          true
+        ],
+        "valid": false
+      },
+      {
         "description": "empty array is valid",
         "data": [],
         "valid": true
@@ -143,8 +168,227 @@
         "valid": true
       },
       {
+        "description": "array with two items is invalid",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
+      },
+      {
         "description": "empty array is valid",
         "data": [],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "items and subitems",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$defs": {
+        "item": {
+          "type": "array",
+          "additionalItems": false,
+          "items": [
+            {
+              "$ref": "#/$defs/sub-item"
+            },
+            {
+              "$ref": "#/$defs/sub-item"
+            }
+          ]
+        },
+        "sub-item": {
+          "type": "object",
+          "required": [
+            "foo"
+          ]
+        }
+      },
+      "type": "array",
+      "additionalItems": false,
+      "items": [
+        {
+          "$ref": "#/$defs/item"
+        },
+        {
+          "$ref": "#/$defs/item"
+        },
+        {
+          "$ref": "#/$defs/item"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "valid items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": true
+      },
+      {
+        "description": "too many items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "too many sub-items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "wrong item",
+        "data": [
+          {
+            "foo": null
+          },
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "wrong sub-item",
+        "data": [
+          [
+            {},
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "fewer items is valid",
+        "data": [
+          [
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            }
+          ]
+        ],
         "valid": true
       }
     ]

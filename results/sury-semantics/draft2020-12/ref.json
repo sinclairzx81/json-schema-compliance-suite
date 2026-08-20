@@ -234,6 +234,17 @@
         "valid": true
       },
       {
+        "description": "ref valid, maxItems invalid",
+        "data": {
+          "foo": [
+            1,
+            2,
+            3
+          ]
+        },
+        "valid": false
+      },
+      {
         "description": "ref invalid",
         "data": {
           "foo": "string"

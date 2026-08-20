@@ -26,6 +26,11 @@
         "description": "both anyOf valid",
         "data": 3,
         "valid": true
+      },
+      {
+        "description": "neither anyOf valid",
+        "data": 1.5,
+        "valid": false
       }
     ]
   },
@@ -44,9 +49,19 @@
     },
     "tests": [
       {
+        "description": "mismatch base schema",
+        "data": 3,
+        "valid": false
+      },
+      {
         "description": "one anyOf valid",
         "data": "foobar",
         "valid": true
+      },
+      {
+        "description": "both anyOf invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -146,6 +161,14 @@
           "bar": 2
         },
         "valid": true
+      },
+      {
+        "description": "neither anyOf valid (complex)",
+        "data": {
+          "foo": 2,
+          "bar": "quux"
+        },
+        "valid": false
       }
     ]
   },

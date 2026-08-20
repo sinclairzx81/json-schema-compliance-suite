@@ -778,6 +778,15 @@
     },
     "tests": [
       {
+        "description": "no extra items",
+        "data": {
+          "foo": [
+            "test"
+          ]
+        },
+        "valid": true
+      },
+      {
         "description": "uncle keyword evaluation is not significant",
         "data": {
           "foo": [

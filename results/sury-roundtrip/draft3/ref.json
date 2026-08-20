@@ -25,6 +25,22 @@
           }
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": false
+        },
+        "valid": false
+      },
+      {
+        "description": "recursive mismatch",
+        "data": {
+          "foo": {
+            "bar": false
+          }
+        },
+        "valid": false
       }
     ]
   },
@@ -47,6 +63,13 @@
           "bar": 3
         },
         "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": true
+        },
+        "valid": false
       }
     ]
   },
@@ -70,6 +93,14 @@
           2
         ],
         "valid": true
+      },
+      {
+        "description": "mismatch array",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
       }
     ]
   },
@@ -100,6 +131,27 @@
       }
     },
     "tests": [
+      {
+        "description": "slash invalid",
+        "data": {
+          "slash": "aoeu"
+        },
+        "valid": false
+      },
+      {
+        "description": "tilde invalid",
+        "data": {
+          "tilde": "aoeu"
+        },
+        "valid": false
+      },
+      {
+        "description": "percent invalid",
+        "data": {
+          "percent": "aoeu"
+        },
+        "valid": false
+      },
       {
         "description": "slash valid",
         "data": {
@@ -182,6 +234,13 @@
           ]
         },
         "valid": true
+      },
+      {
+        "description": "ref invalid",
+        "data": {
+          "foo": "string"
+        },
+        "valid": false
       }
     ]
   },
@@ -206,6 +265,13 @@
           "$ref": "a"
         },
         "valid": true
+      },
+      {
+        "description": "property named $ref invalid",
+        "data": {
+          "$ref": 2
+        },
+        "valid": false
       }
     ]
   },

@@ -17,6 +17,14 @@
     },
     "tests": [
       {
+        "description": "An array of strings is valid",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      },
+      {
         "description": "An array containing non-strings is invalid",
         "data": [
           "foo",

@@ -71,6 +71,27 @@
         "valid": false
       },
       {
+        "description": "incomplete array of items",
+        "data": [
+          1
+        ],
+        "valid": true
+      },
+      {
+        "description": "array with additional items",
+        "data": [
+          1,
+          "foo",
+          true
+        ],
+        "valid": true
+      },
+      {
+        "description": "empty array",
+        "data": [],
+        "valid": true
+      },
+      {
         "description": "JavaScript pseudo-array is valid",
         "data": {
           "0": "invalid",
@@ -119,6 +140,36 @@
       ]
     },
     "tests": [
+      {
+        "description": "valid items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": true
+      },
       {
         "description": "too many items",
         "data": [
@@ -242,6 +293,22 @@
           ]
         ],
         "valid": false
+      },
+      {
+        "description": "fewer items is valid",
+        "data": [
+          [
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": true
       }
     ]
   },

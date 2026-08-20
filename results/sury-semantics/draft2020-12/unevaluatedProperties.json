@@ -816,13 +816,14 @@
     },
     "tests": [
       {
-        "description": "no extra properties",
+        "description": "uncle keyword evaluation is not significant",
         "data": {
           "foo": {
-            "bar": "test"
+            "bar": "test",
+            "faz": "test"
           }
         },
-        "valid": true
+        "valid": false
       }
     ]
   },

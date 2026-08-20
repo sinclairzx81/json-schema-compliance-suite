@@ -171,6 +171,11 @@
         "valid": false
       },
       {
+        "description": "a delete character in a literal is invalid",
+        "data": "ab",
+        "valid": false
+      },
+      {
         "description": "a trailing comma in the variable list is invalid",
         "data": "{a,}",
         "valid": false

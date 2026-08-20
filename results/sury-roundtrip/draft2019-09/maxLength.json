@@ -17,6 +17,11 @@
         "valid": true
       },
       {
+        "description": "too long is invalid",
+        "data": "foo",
+        "valid": false
+      },
+      {
         "description": "ignores non-strings",
         "data": 100,
         "valid": true
@@ -39,6 +44,11 @@
         "description": "shorter is valid",
         "data": "f",
         "valid": true
+      },
+      {
+        "description": "too long is invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   }

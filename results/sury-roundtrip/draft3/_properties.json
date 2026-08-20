@@ -1,36 +1,5 @@
 [
   {
-    "description": "object properties validation",
-    "schema": {
-      "properties": {
-        "foo": {
-          "type": "integer"
-        },
-        "bar": {
-          "type": "string"
-        }
-      }
-    },
-    "tests": [
-      {
-        "description": "one property invalid is invalid",
-        "data": {
-          "foo": 1,
-          "bar": {}
-        },
-        "valid": false
-      },
-      {
-        "description": "both properties invalid is invalid",
-        "data": {
-          "foo": [],
-          "bar": {}
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "properties, patternProperties, additionalProperties interaction",
     "schema": {
       "properties": {

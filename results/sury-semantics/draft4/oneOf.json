@@ -175,6 +175,22 @@
         "valid": false
       },
       {
+        "description": "first valid - valid",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": true
+      },
+      {
+        "description": "second valid - valid",
+        "data": {
+          "foo": 1,
+          "baz": 3
+        },
+        "valid": true
+      },
+      {
         "description": "both valid - invalid",
         "data": {
           "foo": 1,

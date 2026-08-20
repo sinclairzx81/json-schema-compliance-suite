@@ -8,8 +8,18 @@
     },
     "tests": [
       {
+        "description": "matches empty",
+        "data": "",
+        "valid": true
+      },
+      {
         "description": "matches single",
         "data": "🐲",
+        "valid": true
+      },
+      {
+        "description": "matches two",
+        "data": "🐲🐲",
         "valid": true
       },
       {

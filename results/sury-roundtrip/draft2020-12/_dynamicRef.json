@@ -17,6 +17,14 @@
     },
     "tests": [
       {
+        "description": "An array of strings is valid",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      },
+      {
         "description": "An array containing non-strings is invalid",
         "data": [
           "foo",
@@ -43,6 +51,14 @@
       }
     },
     "tests": [
+      {
+        "description": "An array of strings is valid",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      },
       {
         "description": "An array containing non-strings is invalid",
         "data": [
@@ -848,6 +864,13 @@
       }
     },
     "tests": [
+      {
+        "description": "follow $dynamicRef to a true schema",
+        "data": {
+          "true": 1
+        },
+        "valid": true
+      },
       {
         "description": "follow $dynamicRef to a false schema",
         "data": {

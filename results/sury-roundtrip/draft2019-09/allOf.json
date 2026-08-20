@@ -34,6 +34,28 @@
           "bar": 2
         },
         "valid": true
+      },
+      {
+        "description": "mismatch second",
+        "data": {
+          "foo": "baz"
+        },
+        "valid": false
+      },
+      {
+        "description": "mismatch first",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "wrong type",
+        "data": {
+          "foo": "baz",
+          "bar": "quux"
+        },
+        "valid": false
       }
     ]
   },
@@ -81,6 +103,37 @@
           "baz": null
         },
         "valid": true
+      },
+      {
+        "description": "mismatch base schema",
+        "data": {
+          "foo": "quux",
+          "baz": null
+        },
+        "valid": false
+      },
+      {
+        "description": "mismatch first allOf",
+        "data": {
+          "bar": 2,
+          "baz": null
+        },
+        "valid": false
+      },
+      {
+        "description": "mismatch second allOf",
+        "data": {
+          "foo": "quux",
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "mismatch both",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
       }
     ]
   },
@@ -102,6 +155,11 @@
         "description": "valid",
         "data": 25,
         "valid": true
+      },
+      {
+        "description": "mismatch one",
+        "data": 35,
+        "valid": false
       }
     ]
   },
@@ -119,6 +177,40 @@
         "description": "any value is valid",
         "data": "foo",
         "valid": true
+      }
+    ]
+  },
+  {
+    "description": "allOf with boolean schemas, some false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "allOf": [
+        true,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "allOf with boolean schemas, all false",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "allOf": [
+        false,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -171,6 +263,11 @@
         "description": "number is valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "string is invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -190,6 +287,11 @@
         "description": "number is valid",
         "data": 1,
         "valid": true
+      },
+      {
+        "description": "string is invalid",
+        "data": "foo",
+        "valid": false
       }
     ]
   },
@@ -212,6 +314,11 @@
         "description": "null is valid",
         "data": null,
         "valid": true
+      },
+      {
+        "description": "anything non-null is invalid",
+        "data": 123,
+        "valid": false
       }
     ]
   },
@@ -236,6 +343,36 @@
       ]
     },
     "tests": [
+      {
+        "description": "allOf: false, anyOf: false, oneOf: false",
+        "data": 1,
+        "valid": false
+      },
+      {
+        "description": "allOf: false, anyOf: false, oneOf: true",
+        "data": 5,
+        "valid": false
+      },
+      {
+        "description": "allOf: false, anyOf: true, oneOf: false",
+        "data": 3,
+        "valid": false
+      },
+      {
+        "description": "allOf: true, anyOf: false, oneOf: false",
+        "data": 2,
+        "valid": false
+      },
+      {
+        "description": "allOf: true, anyOf: false, oneOf: true",
+        "data": 10,
+        "valid": false
+      },
+      {
+        "description": "allOf: true, anyOf: true, oneOf: false",
+        "data": 6,
+        "valid": false
+      },
       {
         "description": "allOf: true, anyOf: true, oneOf: true",
         "data": 30,
