@@ -60,6 +60,61 @@
         "description": "two separated dots inside local part are valid",
         "data": "te.s.t@example.com",
         "valid": true
+      },
+      {
+        "description": "a domain that looks like an IPv4 address without brackets is valid",
+        "data": "test@255.255.255.255",
+        "valid": true
+      },
+      {
+        "description": "an empty quoted string in the local part is valid",
+        "data": "\"\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted string containing only a space in the local part is valid",
+        "data": "\" \"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "consecutive hyphens inside a domain label are valid",
+        "data": "test@c--n.com",
+        "valid": true
+      },
+      {
+        "description": "a domain label starting with a digit is valid",
+        "data": "test@123.com",
+        "valid": true
+      },
+      {
+        "description": "a quoted string with no special characters in the local part is valid",
+        "data": "\"test\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted pair in the local part is valid",
+        "data": "\"\\a\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "an escaped double quote in the local part is valid",
+        "data": "\"\\\"\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "an escaped backslash in the local part is valid",
+        "data": "\"\\\\\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a single-label domain is valid",
+        "data": "test@io",
+        "valid": true
+      },
+      {
+        "description": "a lowercase IPv6 tag in an address literal is valid",
+        "data": "a@[ipv6:::1]",
+        "valid": true
       }
     ]
   }

@@ -19,6 +19,11 @@
         "description": "zone id is not a part of ipv6 address",
         "data": "fe80::a%eth1",
         "valid": false
+      },
+      {
+        "description": "trailing newline is invalid",
+        "data": "::1\n",
+        "valid": false
       }
     ]
   }

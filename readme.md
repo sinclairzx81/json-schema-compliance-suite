@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Fri Aug 21 2026
+Updated: Sun Aug 23 2026
 
 
 ### Validation
@@ -41,13 +41,13 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 10867 | 221 | 98.0% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10319 | 769 | 93.1% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10152 | 936 | 91.6% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9692 | 1396 | 87.4% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9610 | 1478 | 86.7% |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9589 | 1499 | 86.5% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8291 | 2797 | 74.8% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11217 | 221 | 98.1% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10623 | 815 | 92.9% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10450 | 988 | 91.4% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9902 | 1536 | 86.6% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 9895 | 1543 | 86.5% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 9852 | 1586 | 86.1% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8457 | 2981 | 73.9% |
 
 
 ### Semantics
@@ -58,9 +58,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 7522 | 3566 | 67.8% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6252 | 4836 | 56.4% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 9305 | 16.1% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 7640 | 3798 | 66.8% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6370 | 5068 | 55.7% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 9655 | 15.6% |
 
 
 ### RoundTrip
@@ -71,9 +71,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6381 | 4707 | 57.5% |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 6301 | 4787 | 56.8% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9574 | 13.7% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6499 | 4939 | 56.8% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 6419 | 5019 | 56.1% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 9924 | 13.2% |
 
 
 ## Coverage
@@ -310,11 +310,11 @@ Results for the @cfworker/json-schema validation library.
 | format/date-time | 10/11 | 29/33 | 29/33 | 29/33 | 29/33 | 29/33 | 29/33 |
 | format/duration | - | - | - | - | 47/52 | 47/52 | 47/52 |
 | format/ecmascript-regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
-| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 22/27 |
+| format/email | ✅ | 57/64 | 57/64 | 57/64 | 57/64 | 59/71 | 59/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 29/30 | 29/30 | 40/64 | 40/64 | 40/64 | 40/64 |
 | format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/idn-hostname | - | - | - | 39/94 | 40/95 | 40/95 | 40/95 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -441,14 +441,14 @@ Results for the jsonschema validation library.
 | format/date-time | 10/11 | 26/33 | 26/33 | 26/33 | 26/33 | 26/33 | 26/33 |
 | format/duration | - | - | - | - | 39/52 | 39/52 | 39/52 |
 | format/ecmascript-regex | ✅ | - | - | 11/12 | 11/12 | 11/12 | 11/12 |
-| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 23/27 | 23/27 |
+| format/email | ✅ | 56/64 | 56/64 | 56/64 | 56/64 | 59/71 | 59/71 |
 | format/host-name | ✅ | - | - | - | - | - | - |
 | format/hostname | - | 29/30 | 29/30 | 40/64 | 40/64 | 40/64 | 40/64 |
 | format/idn-email | - | - | - | ✅ | ✅ | ✅ | ✅ |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/idn-hostname | - | - | - | 39/94 | 40/95 | 40/95 | 40/95 |
 | format/ip-address | ✅ | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/ipv6 | ✅ | 37/40 | 37/40 | 37/40 | 37/40 | 37/40 | 37/40 |
+| format/ipv6 | ✅ | 47/51 | 47/51 | 47/51 | 47/51 | 47/51 | 47/51 |
 | format/iri | - | - | - | 22/24 | 22/24 | 22/24 | 22/24 |
 | format/iri-reference | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/json-pointer | - | - | 39/40 | 39/40 | 39/40 | 39/40 | 39/40 |
@@ -572,14 +572,14 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format/date-time | ✅ | 29/33 | 29/33 | 29/33 | 29/33 | 29/33 | 29/33 |
 | format/duration | - | - | - | - | 46/52 | 46/52 | 46/52 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
-| format/email | 6/11 | 14/20 | 14/20 | 14/20 | 14/20 | 18/27 | 18/27 |
+| format/email | 6/11 | 28/64 | 28/64 | 28/64 | 28/64 | 32/71 | 32/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | ✅ | ✅ | 40/64 | 40/64 | 40/64 | 40/64 |
 | format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/idn-hostname | - | - | - | 39/94 | 40/95 | 40/95 | 40/95 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/ipv6 | 8/12 | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
+| format/ipv6 | 8/12 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 |
 | format/iri | - | - | - | 18/24 | 18/24 | 18/24 | 18/24 |
 | format/iri-reference | - | - | - | 11/13 | 11/13 | 11/13 | 11/13 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
@@ -703,14 +703,14 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 19/33 |
 | format/duration | - | - | - | - | ✅ | ✅ | 25/52 |
 | format/ecmascript-regex | ✅ | - | - | ✅ | ✅ | ✅ | 6/12 |
-| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 11/27 |
+| format/email | ✅ | 60/64 | 60/64 | 60/64 | 60/64 | 67/71 | 44/71 |
 | format/host-name | ✅ | - | - | - | - | - | - |
 | format/hostname | - | ✅ | ✅ | ✅ | ✅ | ✅ | 35/64 |
 | format/idn-email | - | - | - | ✅ | ✅ | ✅ | 3/19 |
-| format/idn-hostname | - | - | - | ✅ | ✅ | ✅ | 54/90 |
+| format/idn-hostname | - | - | - | 93/94 | 94/95 | 94/95 | 55/95 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | 30/41 |
-| format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 23/40 |
+| format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 28/51 |
 | format/iri | - | - | - | 22/24 | 22/24 | 22/24 | 6/24 |
 | format/iri-reference | - | - | - | ✅ | ✅ | ✅ | 2/13 |
 | format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | 12/40 |
@@ -834,11 +834,11 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 | format/date-time | 8/11 | 30/33 | 30/33 | 30/33 | 30/33 | 30/33 | 30/33 |
 | format/duration | - | - | - | - | 50/52 | 50/52 | 50/52 |
 | format/ecmascript-regex | ✅ | - | - | 11/12 | 11/12 | 11/12 | 11/12 |
-| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | 22/27 | 22/27 |
+| format/email | ✅ | 56/64 | 56/64 | 56/64 | 56/64 | 58/71 | 58/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 29/30 | 29/30 | 40/64 | 40/64 | 40/64 | 40/64 |
 | format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/idn-hostname | - | - | - | 39/94 | 40/95 | 40/95 | 40/95 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -965,14 +965,14 @@ Results for the djv validation library.
 | format/date-time | ✅ | 23/33 | 23/33 | 23/33 | 23/33 | 23/33 | 23/33 |
 | format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
 | format/ecmascript-regex | 2/3 | - | - | 5/12 | 5/12 | 5/12 | 5/12 |
-| format/email | 7/11 | 9/20 | 9/20 | 9/20 | 9/20 | 12/27 | 12/27 |
+| format/email | 7/11 | 24/64 | 24/64 | 24/64 | 24/64 | 27/71 | 27/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 27/30 | 27/30 | 38/64 | 38/64 | 38/64 | 38/64 |
 | format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/idn-hostname | - | - | - | 39/94 | 40/95 | 40/95 | 40/95 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 34/41 | 34/41 | 34/41 | 34/41 | 34/41 | 34/41 |
-| format/ipv6 | 10/12 | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
+| format/ipv6 | 10/12 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 |
 | format/iri | - | - | - | 18/24 | 18/24 | 18/24 | 18/24 |
 | format/iri-reference | - | - | - | 11/13 | 11/13 | 11/13 | 11/13 |
 | format/json-pointer | - | - | 35/40 | 35/40 | 35/40 | 35/40 | 35/40 |
@@ -1096,14 +1096,14 @@ Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Sc
 | format/date-time | 3/11 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 |
 | format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
-| format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
+| format/email | 5/11 | 22/64 | 22/64 | 22/64 | 22/64 | 27/71 | 27/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/30 | 14/30 | 29/64 | 29/64 | 29/64 | 29/64 |
 | format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/idn-hostname | - | - | - | 39/94 | 40/95 | 40/95 | 40/95 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 |
-| format/ipv6 | 6/12 | 17/40 | 17/40 | 17/40 | 17/40 | 17/40 | 17/40 |
+| format/ipv6 | 6/12 | 23/51 | 23/51 | 23/51 | 23/51 | 23/51 | 23/51 |
 | format/iri | - | - | - | 18/24 | 18/24 | 18/24 | 18/24 |
 | format/iri-reference | - | - | - | 11/13 | 11/13 | 11/13 | 11/13 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
@@ -1227,14 +1227,14 @@ Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directiona
 | format/date-time | 3/11 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 |
 | format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
-| format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
+| format/email | 5/11 | 22/64 | 22/64 | 22/64 | 22/64 | 27/71 | 27/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/30 | 14/30 | 29/64 | 29/64 | 29/64 | 29/64 |
 | format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/idn-hostname | - | - | - | 39/94 | 40/95 | 40/95 | 40/95 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 |
-| format/ipv6 | 6/12 | 17/40 | 17/40 | 17/40 | 17/40 | 17/40 | 17/40 |
+| format/ipv6 | 6/12 | 23/51 | 23/51 | 23/51 | 23/51 | 23/51 | 23/51 |
 | format/iri | - | - | - | 18/24 | 18/24 | 18/24 | 18/24 |
 | format/iri-reference | - | - | - | 11/13 | 11/13 | 11/13 | 11/13 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
@@ -1358,14 +1358,14 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | format/date-time | 3/11 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 |
 | format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
-| format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
+| format/email | 5/11 | 22/64 | 22/64 | 22/64 | 22/64 | 27/71 | 27/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/30 | 14/30 | 29/64 | 29/64 | 29/64 | 29/64 |
 | format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/idn-hostname | - | - | - | 39/94 | 40/95 | 40/95 | 40/95 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 |
-| format/ipv6 | 6/12 | 17/40 | 17/40 | 17/40 | 17/40 | 17/40 | 17/40 |
+| format/ipv6 | 6/12 | 23/51 | 23/51 | 23/51 | 23/51 | 23/51 | 23/51 |
 | format/iri | - | - | - | 18/24 | 18/24 | 18/24 | 18/24 |
 | format/iri-reference | - | - | - | 11/13 | 11/13 | 11/13 | 11/13 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
@@ -1489,14 +1489,14 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | format/date-time | 3/11 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 | 14/33 |
 | format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
-| format/email | 5/11 | 11/20 | 11/20 | 11/20 | 11/20 | 16/27 | 16/27 |
+| format/email | 5/11 | 22/64 | 22/64 | 22/64 | 22/64 | 27/71 | 27/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | 14/30 | 14/30 | 29/64 | 29/64 | 29/64 | 29/64 |
 | format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
-| format/idn-hostname | - | - | - | 35/89 | 36/90 | 36/90 | 36/90 |
+| format/idn-hostname | - | - | - | 39/94 | 40/95 | 40/95 | 40/95 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 |
-| format/ipv6 | 6/12 | 17/40 | 17/40 | 17/40 | 17/40 | 17/40 | 17/40 |
+| format/ipv6 | 6/12 | 23/51 | 23/51 | 23/51 | 23/51 | 23/51 | 23/51 |
 | format/iri | - | - | - | 18/24 | 18/24 | 18/24 | 18/24 |
 | format/iri-reference | - | - | - | 11/13 | 11/13 | 11/13 | 11/13 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
@@ -1620,14 +1620,14 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | format/date-time | 0/11 | 0/33 | 0/33 | 0/33 | 0/33 | 0/33 | 0/33 |
 | format/duration | - | - | - | - | 0/52 | 0/52 | 0/52 |
 | format/ecmascript-regex | 0/3 | - | - | 0/12 | 0/12 | 0/12 | 0/12 |
-| format/email | 0/11 | 0/20 | 0/20 | 0/20 | 0/20 | 0/27 | 0/27 |
+| format/email | 0/11 | 0/64 | 0/64 | 0/64 | 0/64 | 0/71 | 0/71 |
 | format/host-name | 0/12 | - | - | - | - | - | - |
 | format/hostname | - | 0/30 | 0/30 | 0/64 | 0/64 | 0/64 | 0/64 |
 | format/idn-email | - | - | - | 0/18 | 0/18 | 0/18 | 0/19 |
-| format/idn-hostname | - | - | - | 0/89 | 0/90 | 0/90 | 0/90 |
+| format/idn-hostname | - | - | - | 0/94 | 0/95 | 0/95 | 0/95 |
 | format/ip-address | 0/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 0/41 | 0/41 | 0/41 | 0/41 | 0/41 | 0/41 |
-| format/ipv6 | 0/12 | 0/40 | 0/40 | 0/40 | 0/40 | 0/40 | 0/40 |
+| format/ipv6 | 0/12 | 0/51 | 0/51 | 0/51 | 0/51 | 0/51 | 0/51 |
 | format/iri | - | - | - | 0/24 | 0/24 | 0/24 | 0/24 |
 | format/iri-reference | - | - | - | 0/13 | 0/13 | 0/13 | 0/13 |
 | format/json-pointer | - | - | 0/40 | 0/40 | 0/40 | 0/40 | 0/40 |
@@ -1751,14 +1751,14 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | format/date-time | 0/11 | 0/33 | 0/33 | 0/33 | 0/33 | 0/33 | 0/33 |
 | format/duration | - | - | - | - | 0/52 | 0/52 | 0/52 |
 | format/ecmascript-regex | 0/3 | - | - | 0/12 | 0/12 | 0/12 | 0/12 |
-| format/email | 0/11 | 0/20 | 0/20 | 0/20 | 0/20 | 0/27 | 0/27 |
+| format/email | 0/11 | 0/64 | 0/64 | 0/64 | 0/64 | 0/71 | 0/71 |
 | format/host-name | 0/12 | - | - | - | - | - | - |
 | format/hostname | - | 0/30 | 0/30 | 0/64 | 0/64 | 0/64 | 0/64 |
 | format/idn-email | - | - | - | 0/18 | 0/18 | 0/18 | 0/19 |
-| format/idn-hostname | - | - | - | 0/89 | 0/90 | 0/90 | 0/90 |
+| format/idn-hostname | - | - | - | 0/94 | 0/95 | 0/95 | 0/95 |
 | format/ip-address | 0/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 0/41 | 0/41 | 0/41 | 0/41 | 0/41 | 0/41 |
-| format/ipv6 | 0/12 | 0/40 | 0/40 | 0/40 | 0/40 | 0/40 | 0/40 |
+| format/ipv6 | 0/12 | 0/51 | 0/51 | 0/51 | 0/51 | 0/51 | 0/51 |
 | format/iri | - | - | - | 0/24 | 0/24 | 0/24 | 0/24 |
 | format/iri-reference | - | - | - | 0/13 | 0/13 | 0/13 | 0/13 |
 | format/json-pointer | - | - | 0/40 | 0/40 | 0/40 | 0/40 | 0/40 |

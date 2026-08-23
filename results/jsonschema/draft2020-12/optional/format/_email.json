@@ -25,6 +25,46 @@
         "description": "an IPv6-address-literal after the @ is valid",
         "data": "joe.bloggs@[IPv6:::1]",
         "valid": true
+      },
+      {
+        "description": "an empty quoted string in the local part is valid",
+        "data": "\"\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted string containing only a space in the local part is valid",
+        "data": "\" \"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted string with no special characters in the local part is valid",
+        "data": "\"test\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted pair in the local part is valid",
+        "data": "\"\\a\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "an escaped double quote in the local part is valid",
+        "data": "\"\\\"\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "an escaped backslash in the local part is valid",
+        "data": "\"\\\\\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a single-label domain is valid",
+        "data": "test@io",
+        "valid": true
+      },
+      {
+        "description": "a lowercase IPv6 tag in an address literal is valid",
+        "data": "a@[ipv6:::1]",
+        "valid": true
       }
     ]
   }

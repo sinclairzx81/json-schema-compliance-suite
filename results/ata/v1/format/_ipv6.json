@@ -65,6 +65,11 @@
         "description": "a long valid ipv6",
         "data": "1000:1000:1000:1000:1000:1000:255.255.255.255",
         "valid": true
+      },
+      {
+        "description": "leading '::' before five groups and an embedded IPv4 is valid",
+        "data": "::1:2:3:4:5:1.2.3.4",
+        "valid": true
       }
     ]
   }

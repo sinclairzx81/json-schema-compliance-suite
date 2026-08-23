@@ -64,6 +64,11 @@
         "description": "mixed format with leading double colons (ipv4-mapped ipv6 address)",
         "data": "::ffff:192.168.0.1",
         "valid": true
+      },
+      {
+        "description": "leading zeros in every group are valid",
+        "data": "2001:0db8:0000:0000:0000:0000:0000:0001",
+        "valid": true
       }
     ]
   }

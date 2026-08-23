@@ -95,6 +95,76 @@
         "description": "domain is required",
         "data": "joe.bloggs@",
         "valid": false
+      },
+      {
+        "description": "a domain that looks like an IPv4 address without brackets is valid",
+        "data": "test@255.255.255.255",
+        "valid": true
+      },
+      {
+        "description": "an empty quoted string in the local part is valid",
+        "data": "\"\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted string containing only a space in the local part is valid",
+        "data": "\" \"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "consecutive hyphens inside a domain label are valid",
+        "data": "test@c--n.com",
+        "valid": true
+      },
+      {
+        "description": "a domain label starting with a digit is valid",
+        "data": "test@123.com",
+        "valid": true
+      },
+      {
+        "description": "a fullwidth commercial at is not a valid separator",
+        "data": "a＠iana.org",
+        "valid": false
+      },
+      {
+        "description": "a quoted string with no special characters in the local part is valid",
+        "data": "\"test\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted pair in the local part is valid",
+        "data": "\"\\a\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "an escaped double quote in the local part is valid",
+        "data": "\"\\\"\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "an escaped backslash in the local part is valid",
+        "data": "\"\\\\\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "an empty string is not valid",
+        "data": "",
+        "valid": false
+      },
+      {
+        "description": "a domain starting with a dot is not valid",
+        "data": "test@.iana.org",
+        "valid": false
+      },
+      {
+        "description": "empty brackets after the @ are not valid",
+        "data": "a@[]",
+        "valid": false
+      },
+      {
+        "description": "bracketed content that is not an address is not valid",
+        "data": "test@[RFC-5322-domain-literal]",
+        "valid": false
       }
     ]
   }

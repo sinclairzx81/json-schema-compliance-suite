@@ -1,0 +1,17 @@
+[
+  {
+    "description": "validation of internationalized host names",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "format": "idn-hostname"
+    },
+    "tests": [
+      {
+        "description": "a zero width space is ignored by the mapping",
+        "comment": "IdnaMappingTable.txt lists U+200B as ignored, so this label maps to ab",
+        "data": "a​b",
+        "valid": true
+      }
+    ]
+  }
+]
