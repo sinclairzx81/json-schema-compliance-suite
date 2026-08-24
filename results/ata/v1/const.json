@@ -42,6 +42,14 @@
         "valid": true
       },
       {
+        "description": "same object with different property order is valid",
+        "data": {
+          "baz": "bax",
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
         "description": "another object is invalid",
         "data": {
           "foo": "bar"

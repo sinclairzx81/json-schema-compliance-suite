@@ -520,6 +520,15 @@
     },
     "tests": [
       {
+        "description": "valid items",
+        "data": [
+          "x",
+          2,
+          3
+        ],
+        "valid": true
+      },
+      {
         "description": "wrong type of second item",
         "data": [
           "x",

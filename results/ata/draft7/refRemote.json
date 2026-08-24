@@ -286,6 +286,11 @@
     },
     "tests": [
       {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
         "description": "non-number is invalid",
         "data": "a",
         "valid": false

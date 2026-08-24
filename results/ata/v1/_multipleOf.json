@@ -1,19 +1,5 @@
 [
   {
-    "description": "by small number",
-    "schema": {
-      "$schema": "https://json-schema.org/v1",
-      "multipleOf": 0.0001
-    },
-    "tests": [
-      {
-        "description": "0.0075 is multiple of 0.0001",
-        "data": 0.0075,
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "small multiple of large integer",
     "schema": {
       "$schema": "https://json-schema.org/v1",

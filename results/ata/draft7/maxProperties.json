@@ -30,6 +30,15 @@
         "valid": false
       },
       {
+        "description": "ignores arrays",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      },
+      {
         "description": "ignores strings",
         "data": "foobar",
         "valid": true

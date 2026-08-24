@@ -204,6 +204,13 @@
           "bar": 2
         },
         "valid": false
+      },
+      {
+        "description": "no dependency",
+        "data": {
+          "baz": 1
+        },
+        "valid": true
       }
     ]
   }

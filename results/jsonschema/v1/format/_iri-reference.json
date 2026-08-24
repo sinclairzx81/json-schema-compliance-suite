@@ -1,0 +1,16 @@
+[
+  {
+    "description": "validation of IRI References",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "iri-reference"
+    },
+    "tests": [
+      {
+        "description": "an embedded IPv4 with a leading zero is invalid",
+        "data": "//[::ffff:192.168.0.01]/p",
+        "valid": false
+      }
+    ]
+  }
+]

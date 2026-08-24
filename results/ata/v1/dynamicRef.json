@@ -544,6 +544,11 @@
         "description": "data is sufficient for schema at second#/$defs/length",
         "data": "hi",
         "valid": true
+      },
+      {
+        "description": "data is not sufficient for schema at second#/$defs/length",
+        "data": "hey",
+        "valid": false
       }
     ]
   }
