@@ -1,0 +1,71 @@
+[
+  {
+    "description": "validation of time strings",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "time"
+    },
+    "tests": [
+      {
+        "description": "a leap second is not a valid time",
+        "data": "23:59:60Z",
+        "valid": false
+      },
+      {
+        "description": "a leap second with a zero time-offset is not a valid time",
+        "data": "23:59:60+00:00",
+        "valid": false
+      },
+      {
+        "description": "a leap second with a positive time-offset is not a valid time",
+        "data": "01:29:60+01:30",
+        "valid": false
+      },
+      {
+        "description": "a leap second with a large positive time-offset is not a valid time",
+        "data": "23:29:60+23:30",
+        "valid": false
+      },
+      {
+        "description": "a leap second with a negative time-offset is not a valid time",
+        "data": "15:59:60-08:00",
+        "valid": false
+      },
+      {
+        "description": "a leap second with a large negative time-offset is not a valid time",
+        "data": "00:29:60-23:30",
+        "valid": false
+      },
+      {
+        "description": "a numeric time-offset requires the colon separator",
+        "comment": "RFC 3339 section 5.6: time-numoffset = (\"+\" / \"-\") time-hour \":\" time-minute",
+        "data": "08:30:06+0130",
+        "valid": false
+      },
+      {
+        "description": "a numeric time-offset requires the minutes component",
+        "comment": "RFC 3339 section 5.6: time-numoffset = (\"+\" / \"-\") time-hour \":\" time-minute",
+        "data": "08:30:06+01",
+        "valid": false
+      },
+      {
+        "description": "hour 24 is invalid with a numeric time-offset",
+        "comment": "RFC 3339 section 5.6: time-hour = 2DIGIT ; 00-23, and section 5.7 only allows 00 to 23",
+        "data": "24:59:00+01:00",
+        "valid": false
+      },
+      {
+        "description": "minute 60 is invalid with a numeric time-offset",
+        "comment": "RFC 3339 section 5.6: time-minute = 2DIGIT ; 00-59",
+        "data": "23:60:00+00:01",
+        "valid": false
+      },
+      {
+        "description": "a valid time string with a 15 digit second fraction",
+        "comment": "RFC 3339 section 5.6: time-secfrac = \".\" 1*DIGIT, with no upper bound on the number of digits",
+        "data": "00:59:59.999999999999999Z",
+        "valid": true
+      }
+    ]
+  }
+]

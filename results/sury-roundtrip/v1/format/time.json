@@ -42,36 +42,6 @@
         "valid": true
       },
       {
-        "description": "a valid time string with leap second, Zulu",
-        "data": "23:59:60Z",
-        "valid": true
-      },
-      {
-        "description": "valid leap second, zero time-offset",
-        "data": "23:59:60+00:00",
-        "valid": true
-      },
-      {
-        "description": "valid leap second, positive time-offset",
-        "data": "01:29:60+01:30",
-        "valid": true
-      },
-      {
-        "description": "valid leap second, large positive time-offset",
-        "data": "23:29:60+23:30",
-        "valid": true
-      },
-      {
-        "description": "valid leap second, negative time-offset",
-        "data": "15:59:60-08:00",
-        "valid": true
-      },
-      {
-        "description": "valid leap second, large negative time-offset",
-        "data": "00:29:60-23:30",
-        "valid": true
-      },
-      {
         "description": "a valid time string with second fraction",
         "data": "23:20:50.52Z",
         "valid": true
@@ -100,6 +70,12 @@
       {
         "description": "a valid time string with case-insensitive Z",
         "data": "08:30:06z",
+        "valid": true
+      },
+      {
+        "description": "a valid time string with a 15 digit second fraction",
+        "comment": "RFC 3339 section 5.6: time-secfrac = \".\" 1*DIGIT, with no upper bound on the number of digits",
+        "data": "00:59:59.999999999999999Z",
         "valid": true
       }
     ]
