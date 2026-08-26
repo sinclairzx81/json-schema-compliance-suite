@@ -19,6 +19,16 @@
           4
         ],
         "valid": true
+      },
+      {
+        "description": "additional items do not match schema",
+        "data": [
+          null,
+          2,
+          3,
+          "foo"
+        ],
+        "valid": false
       }
     ]
   },
@@ -112,6 +122,16 @@
           3
         ],
         "valid": true
+      },
+      {
+        "description": "additional items are not permitted",
+        "data": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "valid": false
       }
     ]
   },
@@ -163,6 +183,41 @@
     ]
   },
   {
+    "description": "additionalItems does not look in applicators, invalid case",
+    "schema": {
+      "allOf": [
+        {
+          "items": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "type": "integer"
+        }
+      ],
+      "additionalItems": {
+        "type": "boolean"
+      }
+    },
+    "tests": [
+      {
+        "description": "items defined in allOf are not examined",
+        "data": [
+          1,
+          "hello"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "items validation adjusts the starting index for additionalItems",
     "schema": {
       "items": [
@@ -183,6 +238,14 @@
           3
         ],
         "valid": true
+      },
+      {
+        "description": "wrong type of second item",
+        "data": [
+          "x",
+          "y"
+        ],
+        "valid": false
       }
     ]
   },
@@ -195,6 +258,15 @@
       "additionalItems": false
     },
     "tests": [
+      {
+        "description": "heterogeneous invalid instance",
+        "data": [
+          "foo",
+          "bar",
+          37
+        ],
+        "valid": false
+      },
       {
         "description": "valid instance",
         "data": [

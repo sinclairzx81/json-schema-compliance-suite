@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Tue Aug 25 2026
+Updated: Wed Aug 26 2026
 
 
 ### Validation
@@ -44,7 +44,7 @@ Results show aggregate coverage across all JSON Schema versions.
 | [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11355 | 227 | 98.0% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10753 | 829 | 92.8% |
 | [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10553 | 1029 | 91.1% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10036 | 1546 | 86.7% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10072 | 1510 | 87.0% |
 | [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10018 | 1564 | 86.5% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10016 | 1566 | 86.5% |
 | [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8524 | 3058 | 73.6% |
@@ -493,7 +493,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
-| additionalItems | 11/14 | 12/17 | 14/19 | 14/19 | 14/19 | - | - |
+| additionalItems | 11/14 | 12/17 | 14/19 | ✅ | 14/19 | - | - |
 | additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | anchor | - | - | - | - | ✅ | ✅ | ✅ |
@@ -505,7 +505,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | definitions | - | 1/2 | 1/2 | ✅ | - | - | - |
 | defs | - | - | - | - | 1/2 | ✅ | - |
-| dependencies | 11/18 | 16/29 | 21/36 | 21/36 | - | - | - |
+| dependencies | 11/18 | 16/29 | 21/36 | ✅ | - | - | - |
 | dependentRequired | - | - | - | - | ✅ | ✅ | ✅ |
 | dependentSchemas | - | - | - | - | ✅ | ✅ | ✅ |
 | disallow | 4/9 | - | - | - | - | - | - |
@@ -518,7 +518,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 124/133 | - |
 | if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| items | 6/7 | 16/21 | 22/28 | 22/28 | 22/28 | ✅ | ✅ |
+| items | 6/7 | 16/21 | 22/28 | ✅ | 22/28 | ✅ | ✅ |
 | maxContains | - | - | - | - | ✅ | ✅ | ✅ |
 | maximum | 11/14 | 11/14 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -538,13 +538,13 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | 23/34 | - | - |
-| ref | 22/27 | 37/45 | 62/70 | 71/78 | 78/81 | ✅ | ✅ |
-| refRemote | 7/8 | 11/17 | 21/23 | 22/23 | ✅ | ✅ | ✅ |
+| ref | 22/27 | 37/45 | 62/70 | ✅ | 78/81 | ✅ | ✅ |
+| refRemote | 7/8 | 11/17 | 21/23 | ✅ | ✅ | ✅ | ✅ |
 | required | 2/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | 73/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 42/56 | ✅ | ✅ |
 | unevaluatedProperties | - | - | - | - | 128/129 | ✅ | ✅ |
-| uniqueItems | 60/62 | 67/69 | 67/69 | 67/69 | 67/69 | ✅ | ✅ |
+| uniqueItems | 60/62 | 67/69 | 67/69 | ✅ | 67/69 | ✅ | ✅ |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
 

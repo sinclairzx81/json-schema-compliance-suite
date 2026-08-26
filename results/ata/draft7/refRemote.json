@@ -242,6 +242,11 @@
     },
     "tests": [
       {
+        "description": "integer is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
         "description": "string is invalid",
         "data": "foo",
         "valid": false

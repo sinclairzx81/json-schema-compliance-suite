@@ -482,6 +482,15 @@
           true
         ],
         "valid": false
+      },
+      {
+        "description": "extra items are invalid even if unique",
+        "data": [
+          false,
+          true,
+          null
+        ],
+        "valid": false
       }
     ]
   },
@@ -799,6 +808,15 @@
           true
         ],
         "valid": true
+      },
+      {
+        "description": "extra items are invalid even if unique",
+        "data": [
+          false,
+          true,
+          null
+        ],
+        "valid": false
       }
     ]
   }

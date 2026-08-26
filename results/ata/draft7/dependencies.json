@@ -30,6 +30,13 @@
         "valid": true
       },
       {
+        "description": "missing dependency",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
         "description": "ignores arrays",
         "data": [
           "bar"
@@ -107,6 +114,29 @@
           "quux": 3
         },
         "valid": true
+      },
+      {
+        "description": "missing dependency",
+        "data": {
+          "foo": 1,
+          "quux": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "missing other dependency",
+        "data": {
+          "bar": 1,
+          "quux": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "missing both dependencies",
+        "data": {
+          "quux": 1
+        },
+        "valid": false
       }
     ]
   },
@@ -141,6 +171,30 @@
           "foo": "quux"
         },
         "valid": true
+      },
+      {
+        "description": "wrong type",
+        "data": {
+          "foo": "quux",
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "wrong type other",
+        "data": {
+          "foo": 2,
+          "bar": "quux"
+        },
+        "valid": false
+      },
+      {
+        "description": "wrong type both",
+        "data": {
+          "foo": "quux",
+          "bar": "quux"
+        },
+        "valid": false
       }
     ]
   },
@@ -159,6 +213,21 @@
           "foo": 1
         },
         "valid": true
+      },
+      {
+        "description": "object with property having schema false is invalid",
+        "data": {
+          "bar": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "object with both properties is invalid",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": false
       },
       {
         "description": "empty object is valid",
@@ -213,6 +282,36 @@
           "foo\"bar": 2
         },
         "valid": true
+      },
+      {
+        "description": "invalid object 1",
+        "data": {
+          "foo\nbar": 1,
+          "foo": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "invalid object 2",
+        "data": {
+          "foo\tbar": 1,
+          "a": 2
+        },
+        "valid": false
+      },
+      {
+        "description": "invalid object 3",
+        "data": {
+          "foo'bar": 1
+        },
+        "valid": false
+      },
+      {
+        "description": "invalid object 4",
+        "data": {
+          "foo\"bar": 2
+        },
+        "valid": false
       }
     ]
   },
@@ -233,11 +332,26 @@
     },
     "tests": [
       {
+        "description": "matches root",
+        "data": {
+          "foo": 1
+        },
+        "valid": false
+      },
+      {
         "description": "matches dependency",
         "data": {
           "bar": 1
         },
         "valid": true
+      },
+      {
+        "description": "matches both",
+        "data": {
+          "foo": 1,
+          "bar": 2
+        },
+        "valid": false
       },
       {
         "description": "no dependency",
