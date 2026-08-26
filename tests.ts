@@ -65,6 +65,22 @@ await Test.runTestSuite({
   const result = validator.validate(value, schema as never)
   return result.valid
 })
+// Ata reads its dialect from the schema's own `$schema` keyword rather than
+// from a constructor argument, so a schema that carries none is read as
+// 2020-12. The suite states the draft out of band, the same way it hands Ajv a
+// draft-specific instance, so stamp it on when the schema does not say.
+const ataDialects: Record<string, string> = {
+  draft7: 'http://json-schema.org/draft-07/schema#',
+  'draft2020-12': 'https://json-schema.org/draft/2020-12/schema',
+  v1: 'https://json-schema.org/v1',
+}
+function withDialect(draft: string, schema: unknown): unknown {
+  const uri = ataDialects[draft]
+  if (uri === undefined) return schema
+  if (typeof schema !== 'object' || schema === null || Array.isArray(schema)) return schema
+  return '$schema' in schema ? schema : { ...schema, $schema: uri }
+}
+
 // ---------------------------------------------------------------
 // Ata: Validation
 // ---------------------------------------------------------------
@@ -75,9 +91,9 @@ await Test.runTestSuite({
   category: 'Validation',
   message: 'Results for the Ata validator using the `isValidObject(...)` function.',
   directory: './results/ata',
-}, (_draft, remotes, schema, value) => {
+}, (draft, remotes, schema, value) => {
   const remotesWithIds = Object.entries(remotes).flatMap(([uri, s]) => typeof s === "object" ? [{ ...s, $id: uri }] : []);
-  return (new Ata.Validator(schema as never, { schemas: remotesWithIds })).isValidObject(value)
+  return (new Ata.Validator(withDialect(draft, schema) as never, { schemas: remotesWithIds })).isValidObject(value)
 })
 // ---------------------------------------------------------------
 // ZSchema: Validation
