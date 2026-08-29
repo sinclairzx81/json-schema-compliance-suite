@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Wed Aug 26 2026
+Updated: Sat Aug 29 2026
 
 
 ### Validation
@@ -44,8 +44,8 @@ Results show aggregate coverage across all JSON Schema versions.
 | [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11355 | 227 | 98.0% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10753 | 829 | 92.8% |
 | [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10553 | 1029 | 91.1% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10072 | 1510 | 87.0% |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10018 | 1564 | 86.5% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10073 | 1509 | 87.0% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10068 | 1514 | 86.9% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10016 | 1566 | 86.5% |
 | [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8524 | 3058 | 73.6% |
 
@@ -59,7 +59,7 @@ Results show aggregate coverage across all JSON Schema versions.
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
 | [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 7688 | 3894 | 66.4% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6418 | 5164 | 55.4% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6465 | 5117 | 55.8% |
 | [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1783 | 9799 | 15.4% |
 
 
@@ -71,7 +71,7 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6547 | 5035 | 56.5% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6579 | 5003 | 56.8% |
 | [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 6467 | 5115 | 55.8% |
 | [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1514 | 10068 | 13.1% |
 
@@ -545,7 +545,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | unevaluatedItems | - | - | - | - | 42/56 | ✅ | ✅ |
 | unevaluatedProperties | - | - | - | - | 128/129 | ✅ | ✅ |
 | uniqueItems | 60/62 | 67/69 | 67/69 | ✅ | 67/69 | ✅ | ✅ |
-| vocabulary | - | - | - | - | 4/5 | 4/5 | - |
+| vocabulary | - | - | - | - | 4/5 | ✅ | - |
 
 
 </details>
@@ -711,15 +711,15 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | 30/41 |
 | format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 28/51 |
-| format/iri | - | - | - | 22/24 | 22/24 | 22/24 | 6/24 |
-| format/iri-reference | - | - | - | 16/18 | 16/18 | 16/18 | 4/18 |
+| format/iri | - | - | - | ✅ | ✅ | ✅ | 6/24 |
+| format/iri-reference | - | - | - | ✅ | ✅ | ✅ | 4/18 |
 | format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | 12/40 |
 | format/regex | ✅ | - | - | ✅ | ✅ | ✅ | 1/8 |
 | format/relative-json-pointer | - | - | - | ✅ | ✅ | ✅ | 12/25 |
 | format/time | 2/3 | - | - | ✅ | ✅ | ✅ | 41/55 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| format/uri | ✅ | 44/46 | 44/46 | 44/46 | 44/46 | 44/46 | 25/46 |
-| format/uri-reference | - | - | 23/30 | 23/30 | 23/30 | 23/30 | 12/30 |
+| format/uri | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 25/46 |
+| format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | 12/30 |
 | format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | 13/38 |
 | format/uuid | - | - | - | - | ✅ | ✅ | 13/28 |
 | id | - | ✅ | ✅ | ✅ | ✅ | ✅ | 1/3 |
@@ -1297,14 +1297,14 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
 | dynamicRef | - | - | - | - | - | 3/44 | 1/27 |
-| enum | 11/16 | 38/49 | 34/45 | 34/45 | 40/51 | 40/51 | 40/51 |
+| enum | 13/16 | 41/49 | 37/45 | 37/45 | 43/51 | 43/51 | 43/51 |
 | exclusiveMaximum | - | - | 2/4 | 2/4 | 2/4 | 2/4 | 2/4 |
 | exclusiveMinimum | - | - | 2/4 | 2/4 | 2/4 | 2/4 | 2/4 |
 | extends | 3/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/26 |
 | infinite-loop-detection | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 |
-| items | 5/7 | 13/21 | 18/28 | 18/28 | 22/28 | 21/29 | 21/29 |
+| items | 5/7 | 13/21 | 18/28 | 18/28 | 23/28 | 22/29 | 22/29 |
 | maxContains | - | - | - | - | 7/14 | 7/14 | 7/14 |
 | maximum | 10/14 | 10/14 | 6/8 | 6/8 | 6/8 | 6/8 | 6/8 |
 | maxItems | 3/4 | 3/4 | 4/6 | 4/6 | 4/6 | 4/6 | 4/6 |
@@ -1349,7 +1349,7 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | cross-draft | - | - | - | 0/2 | 0/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | 22/36 | 22/36 | 22/36 |
 | dynamicRef | - | - | - | - | - | 0/2 | 0/2 |
-| ecmascript-regex | - | 56/74 | 56/74 | 56/74 | 56/74 | 56/74 | 56/74 |
+| ecmascript-regex | - | 60/74 | 60/74 | 60/74 | 60/74 | 60/74 | 60/74 |
 | float-overflow | - | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 |
 | format-annotation | - | - | - | - | - | - | ✅ |
 | format-assertion | - | - | - | - | - | 2/4 | - |
@@ -1428,14 +1428,14 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
 | dynamicRef | - | - | - | - | - | 3/44 | 1/27 |
-| enum | 11/16 | 38/49 | 34/45 | 34/45 | 40/51 | 40/51 | 40/51 |
+| enum | 13/16 | 42/49 | 38/45 | 38/45 | 44/51 | 44/51 | 44/51 |
 | exclusiveMaximum | - | - | 2/4 | 2/4 | 2/4 | 2/4 | 2/4 |
 | exclusiveMinimum | - | - | 2/4 | 2/4 | 2/4 | 2/4 | 2/4 |
 | extends | 3/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/26 |
 | infinite-loop-detection | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 |
-| items | 5/7 | 13/21 | 18/28 | 18/28 | 21/28 | 20/29 | 20/29 |
+| items | 5/7 | 13/21 | 18/28 | 18/28 | 23/28 | 22/29 | 22/29 |
 | maxContains | - | - | - | - | 7/14 | 7/14 | 7/14 |
 | maximum | 10/14 | 10/14 | 6/8 | 6/8 | 6/8 | 6/8 | 6/8 |
 | maxItems | 3/4 | 3/4 | 4/6 | 4/6 | 4/6 | 4/6 | 4/6 |

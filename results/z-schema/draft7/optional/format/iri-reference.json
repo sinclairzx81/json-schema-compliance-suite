@@ -71,6 +71,11 @@
         "valid": false
       },
       {
+        "description": "an embedded IPv4 with a leading zero is invalid",
+        "data": "//[::ffff:192.168.0.01]/p",
+        "valid": false
+      },
+      {
         "description": "a valid protocol-relative IRI Reference with a compressed IPv6 host",
         "data": "//[2001:db8::1]/p",
         "valid": true
@@ -84,6 +89,11 @@
         "description": "a query-only IRI Reference with a supplementary private-use char",
         "data": "?q=󰀀",
         "valid": true
+      },
+      {
+        "description": "a trailing newline after a valid IRI Reference is invalid",
+        "data": "/âππ\n",
+        "valid": false
       }
     ]
   }

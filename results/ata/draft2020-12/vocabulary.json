@@ -25,6 +25,13 @@
           "numberProperty": 20
         },
         "valid": true
+      },
+      {
+        "description": "no validation: invalid number, but it still validates",
+        "data": {
+          "numberProperty": 1
+        },
+        "valid": true
       }
     ]
   },

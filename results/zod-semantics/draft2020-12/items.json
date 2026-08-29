@@ -235,6 +235,22 @@
           ]
         ],
         "valid": false
+      },
+      {
+        "description": "fewer items is valid",
+        "data": [
+          [
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": true
       }
     ]
   },

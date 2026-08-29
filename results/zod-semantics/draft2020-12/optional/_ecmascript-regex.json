@@ -101,99 +101,25 @@
     },
     "tests": [
       {
-        "description": "unicode matching is case-sensitive",
+        "description": "ascii character in json string",
         "data": {
-          "L'ÉCOLE": "PAS DE VRAIE VIE"
+          "l'ecole": "pas de vraie vie"
         },
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "\\w in patternProperties matches [A-Za-z0-9_], not unicode letters",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "patternProperties": {
-        "\\wcole": true
+        "valid": true
       },
-      "additionalProperties": false
-    },
-    "tests": [
       {
         "description": "literal unicode character in json string",
         "data": {
           "l'école": "pas de vraie vie"
         },
-        "valid": false
+        "valid": true
       },
       {
         "description": "unicode character in hex format in string",
         "data": {
           "l'école": "pas de vraie vie"
         },
-        "valid": false
-      },
-      {
-        "description": "unicode matching is case-sensitive",
-        "data": {
-          "L'ÉCOLE": "PAS DE VRAIE VIE"
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "patternProperties with ASCII ranges",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "patternProperties": {
-        "[a-z]cole": true
-      },
-      "additionalProperties": false
-    },
-    "tests": [
-      {
-        "description": "literal unicode character in json string",
-        "data": {
-          "l'école": "pas de vraie vie"
-        },
-        "valid": false
-      },
-      {
-        "description": "unicode character in hex format in string",
-        "data": {
-          "l'école": "pas de vraie vie"
-        },
-        "valid": false
-      }
-    ]
-  },
-  {
-    "description": "\\d in patternProperties matches [0-9], not unicode digits",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "patternProperties": {
-        "^\\d+$": true
-      },
-      "additionalProperties": false
-    },
-    "tests": [
-      {
-        "description": "ascii non-digits",
-        "data": {
-          "-%#": "spending the year dead for tax reasons"
-        },
-        "valid": false
-      },
-      {
-        "description": "non-ascii digits (BENGALI DIGIT FOUR, BENGALI DIGIT TWO)",
-        "data": {
-          "৪২": "khajit has wares if you have coin"
-        },
-        "valid": false
+        "valid": true
       }
     ]
   },
@@ -209,11 +135,18 @@
     },
     "tests": [
       {
-        "description": "ascii non-digits",
+        "description": "ascii digits",
         "data": {
-          "-%#": "spending the year dead for tax reasons"
+          "42": "life, the universe, and everything"
         },
-        "valid": false
+        "valid": true
+      },
+      {
+        "description": "non-ascii digits (BENGALI DIGIT FOUR, BENGALI DIGIT TWO)",
+        "data": {
+          "৪২": "khajit has wares if you have coin"
+        },
+        "valid": true
       }
     ]
   }

@@ -17,18 +17,6 @@
         "description": "one of the enum is valid",
         "data": [],
         "valid": true
-      },
-      {
-        "description": "something else is invalid",
-        "data": null,
-        "valid": false
-      },
-      {
-        "description": "objects are deep compared",
-        "data": {
-          "foo": false
-        },
-        "valid": false
       }
     ]
   },

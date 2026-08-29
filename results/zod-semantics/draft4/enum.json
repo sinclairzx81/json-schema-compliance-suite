@@ -22,6 +22,42 @@
     ]
   },
   {
+    "description": "heterogeneous enum validation",
+    "schema": {
+      "enum": [
+        6,
+        "foo",
+        [],
+        true,
+        {
+          "foo": 12
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "something else is invalid",
+        "data": null,
+        "valid": false
+      },
+      {
+        "description": "objects are deep compared",
+        "data": {
+          "foo": false
+        },
+        "valid": false
+      },
+      {
+        "description": "extra properties in object is invalid",
+        "data": {
+          "foo": 12,
+          "boo": 42
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
     "description": "heterogeneous enum-with-null validation",
     "schema": {
       "enum": [
