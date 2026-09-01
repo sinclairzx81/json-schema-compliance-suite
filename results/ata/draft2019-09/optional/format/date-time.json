@@ -72,6 +72,11 @@
         "valid": false
       },
       {
+        "description": "an invalid day in date-time string",
+        "data": "1990-02-31T15:59:59.123-08:00",
+        "valid": false
+      },
+      {
         "description": "an invalid offset in date-time string",
         "data": "1990-12-31T15:59:59-24:00",
         "valid": false
@@ -79,6 +84,11 @@
       {
         "description": "an invalid closing Z after time-zone offset",
         "data": "1963-06-19T08:30:06.28123+01:00Z",
+        "valid": false
+      },
+      {
+        "description": "an invalid hour in date-time string",
+        "data": "1990-12-31T24:00:00Z",
         "valid": false
       },
       {
@@ -172,14 +182,34 @@
         "valid": true
       },
       {
+        "description": "an invalid date-time string with 30 days in February (leap)",
+        "data": "2020-02-30T00:00:00Z",
+        "valid": false
+      },
+      {
+        "description": "2021 is not a leap year",
+        "data": "2021-02-29T00:00:00Z",
+        "valid": false
+      },
+      {
         "description": "2020 is a leap year",
         "data": "2020-02-29T00:00:00Z",
         "valid": true
       },
       {
+        "description": "century year 0100 is not a leap year",
+        "data": "0100-02-29T00:00:00Z",
+        "valid": false
+      },
+      {
         "description": "century year 0400 is a leap year",
         "data": "0400-02-29T00:00:00Z",
         "valid": true
+      },
+      {
+        "description": "century year 2100 is not a leap year",
+        "data": "2100-02-29T00:00:00Z",
+        "valid": false
       }
     ]
   }

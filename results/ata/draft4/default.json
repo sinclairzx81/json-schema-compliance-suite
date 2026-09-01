@@ -16,11 +16,6 @@
           "foo": 13
         },
         "valid": true
-      },
-      {
-        "description": "still valid when the invalid default is used",
-        "data": {},
-        "valid": true
       }
     ]
   },
@@ -41,11 +36,6 @@
         "data": {
           "bar": "good"
         },
-        "valid": true
-      },
-      {
-        "description": "still valid when the invalid default is used",
-        "data": {},
         "valid": true
       }
     ]
@@ -76,11 +66,6 @@
           "alpha": 5
         },
         "valid": false
-      },
-      {
-        "description": "missing properties are not filled in with the default",
-        "data": {},
-        "valid": true
       }
     ]
   }

@@ -201,11 +201,6 @@
         "description": "all string formats ignore nulls",
         "data": null,
         "valid": true
-      },
-      {
-        "description": "invalid ipv6 string is only an annotation by default",
-        "data": "12345::",
-        "valid": true
       }
     ]
   },

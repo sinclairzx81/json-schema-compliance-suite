@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Mon Aug 31 2026
+Updated: Wed Sep 02 2026
 
 
 ### Validation
@@ -44,7 +44,7 @@ Results show aggregate coverage across all JSON Schema versions.
 | [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11355 | 227 | 98.0% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10753 | 829 | 92.8% |
 | [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10553 | 1029 | 91.1% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10073 | 1509 | 87.0% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10176 | 1406 | 87.9% |
 | [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10068 | 1514 | 86.9% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10016 | 1566 | 86.5% |
 | [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8524 | 3058 | 73.6% |
@@ -502,7 +502,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | const | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | contains | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | - | ✅ | ✅ | ✅ |
-| default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| default | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 |
 | definitions | - | 1/2 | 1/2 | ✅ | - | - | - |
 | defs | - | - | - | - | 1/2 | ✅ | - |
 | dependencies | 11/18 | 16/29 | 21/36 | ✅ | - | - | - |
@@ -515,7 +515,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | extends | 1/10 | - | - | - | - | - | - |
-| format | ✅ | ✅ | ✅ | ✅ | ✅ | 124/133 | - |
+| format | ✅ | ✅ | ✅ | ✅ | ✅ | 123/133 | - |
 | if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | items | 6/7 | 16/21 | 22/28 | ✅ | 22/28 | ✅ | ✅ |
@@ -565,21 +565,21 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | dynamicRef | - | - | - | - | - | ✅ | ✅ |
 | ecmascript-regex | - | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 |
 | float-overflow | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format-annotation | - | - | - | - | - | - | 124/133 |
+| format-annotation | - | - | - | - | - | - | 123/133 |
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 27/33 | - | - | 73/81 | 73/81 | 73/81 | 73/81 |
-| format/date-time | 17/21 | 35/43 | 35/43 | 35/43 | 35/43 | 35/43 | 35/43 |
+| format/date-time | ✅ | 41/43 | 41/43 | 41/43 | 41/43 | 41/43 | 41/43 |
 | format/duration | - | - | - | - | 46/52 | 46/52 | 46/52 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
 | format/email | 6/11 | 28/64 | 28/64 | 28/64 | 28/64 | 32/71 | 32/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
-| format/hostname | - | ✅ | ✅ | 40/64 | 40/64 | 40/64 | 40/64 |
+| format/hostname | - | ✅ | ✅ | 41/64 | 41/64 | 41/64 | 41/64 |
 | format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
 | format/idn-hostname | - | - | - | 42/97 | 43/98 | 43/98 | 43/98 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/ipv6 | 8/12 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 |
+| format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/iri | - | - | - | 18/24 | 18/24 | 18/24 | 18/24 |
 | format/iri-reference | - | - | - | 14/18 | 14/18 | 14/18 | 14/18 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |

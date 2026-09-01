@@ -1,19 +1,5 @@
 [
   {
-    "description": "validation of host names",
-    "schema": {
-      "$schema": "https://json-schema.org/draft/2019-09/schema",
-      "format": "hostname"
-    },
-    "tests": [
-      {
-        "description": "exceeds maximum overall length (256)",
-        "data": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk.abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijk.com",
-        "valid": false
-      }
-    ]
-  },
-  {
     "description": "validation of A-label (punycode) host names",
     "schema": {
       "$schema": "https://json-schema.org/draft/2019-09/schema",

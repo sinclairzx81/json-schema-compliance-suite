@@ -11,6 +11,11 @@
         "valid": true
       },
       {
+        "description": "a group with 5 hex digits is invalid",
+        "data": "12345::",
+        "valid": false
+      },
+      {
         "description": "an IPv6 address with too many components",
         "data": "1:1:1:1:1:1:1:1:1:1:1:1:1:1:1:1",
         "valid": false
@@ -33,6 +38,21 @@
       {
         "description": "trailing colons is valid",
         "data": "d6::",
+        "valid": true
+      },
+      {
+        "description": "two sets of double colons is invalid",
+        "data": "1::d6::42",
+        "valid": false
+      },
+      {
+        "description": "mixed format with the ipv4 section as decimal octets",
+        "data": "1::d6:192.168.0.1",
+        "valid": true
+      },
+      {
+        "description": "mixed format with double colons between the sections",
+        "data": "1:2::192.168.0.1",
         "valid": true
       },
       {

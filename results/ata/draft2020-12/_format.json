@@ -28,6 +28,20 @@
     ]
   },
   {
+    "description": "ipv6 format",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "format": "ipv6"
+    },
+    "tests": [
+      {
+        "description": "invalid ipv6 string is only an annotation by default",
+        "data": "12345::",
+        "valid": true
+      }
+    ]
+  },
+  {
     "description": "hostname format",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
