@@ -18,8 +18,8 @@
     "djv": "2.1.4",
     "jsonschema": "1.5.0",
     "sury": "11.0.0-rc.2",
-    "typebox": "1.3.25",
-    "z-schema": "12.4.4",
+    "typebox": "^1.3.26",
+    "z-schema": "12.4.5",
     "zod": "4.5.4"
   },
   "allowScripts": {

@@ -1,0 +1,25 @@
+[
+  {
+    "description": "validation of IRIs",
+    "schema": {
+      "format": "iri"
+    },
+    "tests": [
+      {
+        "description": "invalid percent-encoding with non-hex digits",
+        "data": "http://ƒøø.ßår/%6G",
+        "valid": false
+      },
+      {
+        "description": "incomplete percent-encoding triplet",
+        "data": "http://ƒøø.ßår/%A",
+        "valid": false
+      },
+      {
+        "description": "lone percent sign is invalid",
+        "data": "http://ƒøø.ßår/%",
+        "valid": false
+      }
+    ]
+  }
+]

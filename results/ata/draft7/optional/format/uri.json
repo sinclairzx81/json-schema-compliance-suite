@@ -161,6 +161,11 @@
         "description": "invalid character in scheme",
         "data": "ht_tp://example.com",
         "valid": false
+      },
+      {
+        "description": "a trailing newline after a valid URI is invalid",
+        "data": "http://foo.bar/\n",
+        "valid": false
       }
     ]
   }

@@ -7,6 +7,21 @@
     },
     "tests": [
       {
+        "description": "invalid percent-encoding with non-hex digits",
+        "data": "http://ƒøø.ßår/%6G",
+        "valid": false
+      },
+      {
+        "description": "incomplete percent-encoding triplet",
+        "data": "http://ƒøø.ßår/%A",
+        "valid": false
+      },
+      {
+        "description": "lone percent sign is invalid",
+        "data": "http://ƒøø.ßår/%",
+        "valid": false
+      },
+      {
         "description": "an IPv6 address without enclosing brackets is invalid",
         "data": "http://2001:0db8:85a3:0000:0000:8a2e:0370:7334",
         "valid": false

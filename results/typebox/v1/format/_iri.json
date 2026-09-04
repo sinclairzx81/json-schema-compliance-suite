@@ -1,0 +1,26 @@
+[
+  {
+    "description": "validation of IRIs",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "iri"
+    },
+    "tests": [
+      {
+        "description": "invalid percent-encoding with non-hex digits",
+        "data": "http://ƒøø.ßår/%6G",
+        "valid": false
+      },
+      {
+        "description": "incomplete percent-encoding triplet",
+        "data": "http://ƒøø.ßår/%A",
+        "valid": false
+      },
+      {
+        "description": "lone percent sign is invalid",
+        "data": "http://ƒøø.ßår/%",
+        "valid": false
+      }
+    ]
+  }
+]
