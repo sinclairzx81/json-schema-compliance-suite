@@ -41,7 +41,7 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11487 | 159 | 98.6% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11499 | 147 | 98.7% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10785 | 861 | 92.6% |
 | [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10585 | 1061 | 90.9% |
 | [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10216 | 1430 | 87.7% |
@@ -187,7 +187,7 @@ Results for the TypeBox validation library.
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/iri | - | - | - | 24/27 | 24/27 | 24/27 | 24/27 |
+| format/iri | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/iri-reference | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
