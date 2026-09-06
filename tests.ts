@@ -1,4 +1,3 @@
-import { MetaSchema } from './metaschema/index.ts'
 import Test from './harness/index.ts'
 
 // ------------------------------------------------------------------
@@ -21,7 +20,7 @@ await Test.runTestSuite({
   // TypeBox supports dynamic and compiled checking. We test both
   // to ensure TypeBox produces a coherent result. Mismatched
   // results are thrown indicating a failed test.
-  const context = { ...MetaSchema, ...remotes }
+  const context = { ...TypeBox.Meta, ...remotes }
   const result1 = TypeBox.Check(context, schema, value)
   const result2 = TypeBox.Compile(context, schema).Check(value)
   if(result1 !== result2) throw Error('Result Mismatch')
