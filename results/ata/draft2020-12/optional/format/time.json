@@ -128,6 +128,11 @@
         "valid": false
       },
       {
+        "description": "a valid time string with case-insensitive Z",
+        "data": "08:30:06z",
+        "valid": true
+      },
+      {
         "description": "an invalid time string with invalid hour",
         "data": "24:00:00Z",
         "valid": false

@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Sat Sep 05 2026
+Updated: Sun Sep 06 2026
 
 
 ### Validation
@@ -44,7 +44,7 @@ Results show aggregate coverage across all JSON Schema versions.
 | [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11499 | 147 | 98.7% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10785 | 861 | 92.6% |
 | [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10585 | 1061 | 90.9% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10216 | 1430 | 87.7% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10220 | 1426 | 87.8% |
 | [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10160 | 1486 | 87.2% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10052 | 1594 | 86.3% |
 | [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8545 | 3101 | 73.4% |
@@ -585,7 +585,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
 | format/regex | 1/2 | - | - | 7/8 | 7/8 | 7/8 | 7/8 |
 | format/relative-json-pointer | - | - | - | 13/25 | 13/25 | 13/25 | 13/25 |
-| format/time | ✅ | - | - | 44/55 | 44/55 | 44/55 | 50/55 |
+| format/time | ✅ | - | - | 45/55 | 45/55 | 45/55 | 51/55 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
 | format/uri | ✅ | 32/47 | 32/47 | 32/47 | 32/47 | 32/47 | 32/47 |
 | format/uri-reference | - | - | 19/30 | 19/30 | 19/30 | 19/30 | 19/30 |

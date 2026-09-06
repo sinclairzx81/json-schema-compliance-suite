@@ -37,11 +37,6 @@
         "valid": true
       },
       {
-        "description": "a valid time string with case-insensitive Z",
-        "data": "08:30:06z",
-        "valid": true
-      },
-      {
         "description": "an invalid time string with invalid time numoffset hour",
         "data": "01:02:03+24:00",
         "valid": false
