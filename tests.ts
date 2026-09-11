@@ -169,32 +169,36 @@ await Test.runTestSuite({
   validator.addSchema(root, schema as never)
   return validator.validate(root, value as never) === undefined
 })
-// ---------------------------------------------------------------
-// Sury: Semantics
-// ---------------------------------------------------------------
-import * as Sury from 'sury'
-await Test.runTestSuite({
-  library: 'Sury',
-  repository: 'https://github.com/DZakh/sury',
-  category: 'Semantics',
-  message: "Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Schema specification.",
-  directory: './results/sury-semantics'
-}, (_draft, _remotes, schema, value) => {
-  return Sury.safe(() => Sury.parser(Sury.fromJSONSchema(schema as never))(value)).success
-})
-// ---------------------------------------------------------------
-// Sury: RoundTrip
-// ---------------------------------------------------------------
-await Test.runTestSuite({
-  library: 'Sury',
-  category: 'RoundTrip',
-  repository: 'https://github.com/DZakh/sury',
-  message: "Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directionally transform JSON Schema. The transformed schema is passed to Cfworker for testing.",
-  directory: './results/sury-roundtrip'
-}, (draft, remotes, schema, value) => {
-  const transformedSchema = Sury.toJSONSchema(Sury.fromJSONSchema(schema as never))
-  return createCFWorkerValidator(draft, remotes, transformedSchema as never).validate(value).valid
-})
+// // ---------------------------------------------------------------
+// // Sury: Semantics
+// //
+// // API Break 11.0.0-rc.2 and 11.0.0-rc.3
+// // ---------------------------------------------------------------
+// import * as Sury from 'sury'
+// await Test.runTestSuite({
+//   library: 'Sury',
+//   repository: 'https://github.com/DZakh/sury',
+//   category: 'Semantics',
+//   message: "Results using `S.fromJSONSchema(...)` to test Sury semantics against the Json Schema specification.",
+//   directory: './results/sury-semantics'
+// }, (_draft, _remotes, schema, value) => {
+//   return Sury.safe(() => Sury.parser(Sury.fromJSONSchema(schema as never))(value)).success
+// })
+// // ---------------------------------------------------------------
+// // Sury: RoundTrip
+// //
+// // API Break 11.0.0-rc.2 and 11.0.0-rc.3
+// // ---------------------------------------------------------------
+// await Test.runTestSuite({
+//   library: 'Sury',
+//   category: 'RoundTrip',
+//   repository: 'https://github.com/DZakh/sury',
+//   message: "Results using `S.fromJSONSchema(...)` and `S.toJSONSchema(...)` to bi-directionally transform JSON Schema. The transformed schema is passed to Cfworker for testing.",
+//   directory: './results/sury-roundtrip'
+// }, (draft, remotes, schema, value) => {
+//   const transformedSchema = Sury.toJSONSchema(Sury.fromJSONSchema(schema as never))
+//   return createCFWorkerValidator(draft, remotes, transformedSchema as never).validate(value).valid
+// })
 // ---------------------------------------------------------------
 // Zod: Semantics
 // ---------------------------------------------------------------

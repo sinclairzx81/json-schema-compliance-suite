@@ -17,10 +17,10 @@
     "ata-validator": "1.14.1",
     "djv": "2.1.4",
     "jsonschema": "1.5.0",
-    "sury": "11.0.0-rc.2",
+    "sury": "11.0.0-rc.3",
     "typebox": "1.3.30",
     "z-schema": "12.4.5",
-    "zod": "4.6.1"
+    "zod": "4.6.2"
   },
   "allowScripts": {
     "ata-validator": true
