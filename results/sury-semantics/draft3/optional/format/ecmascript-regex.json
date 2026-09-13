@@ -1,0 +1,20 @@
+[
+  {
+    "description": "ECMA 262 regex dialect recognition",
+    "schema": {
+      "format": "regex"
+    },
+    "tests": [
+      {
+        "description": "[^] is a valid regex",
+        "data": "[^]",
+        "valid": true
+      },
+      {
+        "description": "ECMA 262 supports lookbehind since ES2018",
+        "data": "(?<=foo)bar",
+        "valid": true
+      }
+    ]
+  }
+]

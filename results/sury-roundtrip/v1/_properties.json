@@ -1,0 +1,31 @@
+[
+  {
+    "description": "properties whose names are Javascript object property names",
+    "comment": "Ensure JS implementations don't universally consider e.g. __proto__ to always be present in an object.",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "properties": {
+        "__proto__": {
+          "type": "number"
+        },
+        "toString": {
+          "properties": {
+            "length": {
+              "type": "string"
+            }
+          }
+        },
+        "constructor": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "none of the properties mentioned",
+        "data": {},
+        "valid": true
+      }
+    ]
+  }
+]
