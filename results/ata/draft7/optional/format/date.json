@@ -56,6 +56,11 @@
         "valid": true
       },
       {
+        "description": "a invalid date string with 30 days in February (leap)",
+        "data": "2020-02-30",
+        "valid": false
+      },
+      {
         "description": "a valid date string with 31 days in March",
         "data": "2020-03-31",
         "valid": true
@@ -71,6 +76,11 @@
         "valid": true
       },
       {
+        "description": "a invalid date string with 31 days in April",
+        "data": "2020-04-31",
+        "valid": false
+      },
+      {
         "description": "a valid date string with 31 days in May",
         "data": "2020-05-31",
         "valid": true
@@ -84,6 +94,11 @@
         "description": "a valid date string with 30 days in June",
         "data": "2020-06-30",
         "valid": true
+      },
+      {
+        "description": "a invalid date string with 31 days in June",
+        "data": "2020-06-31",
+        "valid": false
       },
       {
         "description": "a valid date string with 31 days in July",
@@ -111,6 +126,11 @@
         "valid": true
       },
       {
+        "description": "a invalid date string with 31 days in September",
+        "data": "2020-09-31",
+        "valid": false
+      },
+      {
         "description": "a valid date string with 31 days in October",
         "data": "2020-10-31",
         "valid": true
@@ -124,6 +144,11 @@
         "description": "a valid date string with 30 days in November",
         "data": "2020-11-30",
         "valid": true
+      },
+      {
+        "description": "a invalid date string with 31 days in November",
+        "data": "2020-11-31",
+        "valid": false
       },
       {
         "description": "a valid date string with 31 days in December",
@@ -158,6 +183,11 @@
       {
         "description": "invalid month",
         "data": "1998-13-01",
+        "valid": false
+      },
+      {
+        "description": "2021 is not a leap year",
+        "data": "2021-02-29",
         "valid": false
       },
       {
@@ -201,10 +231,22 @@
         "valid": false
       },
       {
+        "description": "century year 0100 is not a leap year",
+        "comment": "https://www.rfc-editor.org/rfc/rfc3339#appendix-C — 100 % 100 == 0 but 100 % 400 != 0",
+        "data": "0100-02-29",
+        "valid": false
+      },
+      {
         "description": "century year 0400 is a leap year",
         "comment": "https://www.rfc-editor.org/rfc/rfc3339#appendix-C — 400-year cycle boundary",
         "data": "0400-02-29",
         "valid": true
+      },
+      {
+        "description": "century year 2100 is not a leap year",
+        "comment": "https://www.rfc-editor.org/rfc/rfc3339#appendix-C — future century year",
+        "data": "2100-02-29",
+        "valid": false
       },
       {
         "description": "invalid: leading whitespace is not permitted",

@@ -14,6 +14,11 @@
         "description": "ECMA 262 supports lookbehind since ES2018",
         "data": "(?<=foo)bar",
         "valid": true
+      },
+      {
+        "description": "ECMA 262 does not support Python-style named groups",
+        "data": "(?P<name>x)",
+        "valid": false
       }
     ]
   }

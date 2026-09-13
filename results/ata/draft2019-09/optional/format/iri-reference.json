@@ -52,6 +52,11 @@
         "valid": true
       },
       {
+        "description": "an invalid IRI Reference",
+        "data": "\\\\WINDOWS\\filëßåré",
+        "valid": false
+      },
+      {
         "description": "a valid IRI Reference",
         "data": "âππ",
         "valid": true
@@ -60,6 +65,11 @@
         "description": "a valid IRI fragment",
         "data": "#ƒrägmênt",
         "valid": true
+      },
+      {
+        "description": "an invalid IRI fragment",
+        "data": "#ƒräg\\mênt",
+        "valid": false
       },
       {
         "description": "a valid protocol-relative IRI Reference with a compressed IPv6 host",
@@ -75,6 +85,11 @@
         "description": "a query-only IRI Reference with a supplementary private-use char",
         "data": "?q=󰀀",
         "valid": true
+      },
+      {
+        "description": "a trailing newline after a valid IRI Reference is invalid",
+        "data": "/âππ\n",
+        "valid": false
       }
     ]
   }

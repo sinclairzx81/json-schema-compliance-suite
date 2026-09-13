@@ -26,9 +26,19 @@
         "valid": true
       },
       {
+        "description": "a invalid date string with 29 days in February (normal)",
+        "data": "2021-02-29",
+        "valid": false
+      },
+      {
         "description": "a valid date string with 29 days in February (leap)",
         "data": "2020-02-29",
         "valid": true
+      },
+      {
+        "description": "a invalid date string with 30 days in February (leap)",
+        "data": "2020-02-30",
+        "valid": false
       },
       {
         "description": "a valid date string with 31 days in March",
@@ -46,6 +56,11 @@
         "valid": true
       },
       {
+        "description": "a invalid date string with 31 days in April",
+        "data": "2020-04-31",
+        "valid": false
+      },
+      {
         "description": "a valid date string with 31 days in May",
         "data": "2020-05-31",
         "valid": true
@@ -59,6 +74,11 @@
         "description": "a valid date string with 30 days in June",
         "data": "2020-06-30",
         "valid": true
+      },
+      {
+        "description": "a invalid date string with 31 days in June",
+        "data": "2020-06-31",
+        "valid": false
       },
       {
         "description": "a valid date string with 31 days in July",
@@ -86,6 +106,11 @@
         "valid": true
       },
       {
+        "description": "a invalid date string with 31 days in September",
+        "data": "2020-09-31",
+        "valid": false
+      },
+      {
         "description": "a valid date string with 31 days in October",
         "data": "2020-10-31",
         "valid": true
@@ -99,6 +124,11 @@
         "description": "a valid date string with 30 days in November",
         "data": "2020-11-30",
         "valid": true
+      },
+      {
+        "description": "a invalid date string with 31 days in November",
+        "data": "2020-11-31",
+        "valid": false
       },
       {
         "description": "a valid date string with 31 days in December",

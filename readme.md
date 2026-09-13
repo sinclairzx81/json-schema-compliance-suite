@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Fri Sep 11 2026
+Updated: Sun Sep 13 2026
 
 
 ### Validation
@@ -42,9 +42,9 @@ Results show aggregate coverage across all JSON Schema versions.
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
 | [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11529 | 147 | 98.7% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10890 | 786 | 93.3% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10815 | 861 | 92.6% |
 | [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10615 | 1061 | 90.9% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10220 | 1456 | 87.5% |
 | [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10178 | 1498 | 87.2% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10052 | 1624 | 86.1% |
 | [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8575 | 3101 | 73.4% |
@@ -513,7 +513,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | extends | 1/10 | - | - | - | - | - | - |
-| format | ✅ | ✅ | ✅ | ✅ | ✅ | 123/133 | - |
+| format | ✅ | ✅ | ✅ | ✅ | ✅ | 115/133 | - |
 | if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | items | 6/7 | 16/21 | 22/28 | ✅ | 22/28 | ✅ | ✅ |
@@ -563,31 +563,31 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | dynamicRef | - | - | - | - | - | ✅ | ✅ |
 | ecmascript-regex | - | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 | 66/74 |
 | float-overflow | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format-annotation | - | - | - | - | - | - | 123/133 |
+| format-annotation | - | - | - | - | - | - | 115/133 |
 | format-assertion | - | - | - | - | - | ✅ | - |
 | format/color | 3/6 | - | - | - | - | - | - |
-| format/date | 27/33 | - | - | 73/81 | 73/81 | 73/81 | 73/81 |
-| format/date-time | ✅ | 41/43 | 41/43 | 41/43 | 41/43 | 41/43 | 41/43 |
-| format/duration | - | - | - | - | 46/52 | 46/52 | 46/52 |
-| format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
-| format/email | 6/11 | 32/71 | 32/71 | 32/71 | 32/71 | 32/71 | 32/71 |
+| format/date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/duration | - | - | - | - | ✅ | ✅ | ✅ |
+| format/ecmascript-regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/email | ✅ | 69/71 | 69/71 | 69/71 | 69/71 | 69/71 | 69/71 |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | ✅ | ✅ | 41/64 | 41/64 | 41/64 | 41/64 |
-| format/idn-email | - | - | - | 16/18 | 16/18 | 16/18 | 16/19 |
+| format/idn-email | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/idn-hostname | - | - | - | 43/98 | 43/98 | 43/98 | 43/98 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/iri | - | - | - | 18/27 | 18/27 | 18/27 | 18/27 |
-| format/iri-reference | - | - | - | 14/18 | 14/18 | 14/18 | 14/18 |
-| format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
-| format/regex | 1/2 | - | - | 7/8 | 7/8 | 7/8 | 7/8 |
-| format/relative-json-pointer | - | - | - | 13/25 | 13/25 | 13/25 | 13/25 |
-| format/time | ✅ | - | - | 45/55 | 45/55 | 45/55 | 51/55 |
+| format/iri | - | - | - | 26/27 | 26/27 | 26/27 | 26/27 |
+| format/iri-reference | - | - | - | 17/18 | 17/18 | 17/18 | 17/18 |
+| format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/relative-json-pointer | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/time | 2/3 | - | - | ✅ | ✅ | ✅ | 49/55 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| format/uri | ✅ | 32/47 | 32/47 | 32/47 | 32/47 | 32/47 | 32/47 |
-| format/uri-reference | - | - | 19/30 | 19/30 | 19/30 | 19/30 | 19/30 |
-| format/uri-template | - | - | 25/44 | 25/44 | 25/44 | 25/44 | 25/44 |
+| format/uri | ✅ | 45/47 | 45/47 | 45/47 | 45/47 | 45/47 | 45/47 |
+| format/uri-reference | - | - | 25/30 | 25/30 | 25/30 | 25/30 | 25/30 |
+| format/uri-template | - | - | 38/44 | 38/44 | 38/44 | 38/44 | 38/44 |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
 | id | - | 2/3 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | no-schema | - | - | - | - | ✅ | ✅ | - |

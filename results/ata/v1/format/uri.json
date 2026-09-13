@@ -137,8 +137,53 @@
         "valid": false
       },
       {
+        "description": "invalid userinfo",
+        "data": "https://[@example.org/test.txt",
+        "valid": false
+      },
+      {
+        "description": "unescaped non US-ASCII characters",
+        "data": "https://example.org/foobar®.txt",
+        "valid": false
+      },
+      {
+        "description": "invalid backslash character",
+        "data": "https://example.org/foobar\\.txt",
+        "valid": false
+      },
+      {
+        "description": "invalid \" character",
+        "data": "https://example.org/foobar\".txt",
+        "valid": false
+      },
+      {
+        "description": "invalid <> characters",
+        "data": "https://example.org/foobar<>.txt",
+        "valid": false
+      },
+      {
+        "description": "invalid {} characters",
+        "data": "https://example.org/foobar{}.txt",
+        "valid": false
+      },
+      {
+        "description": "invalid ^ character",
+        "data": "https://example.org/foobar^.txt",
+        "valid": false
+      },
+      {
+        "description": "invalid ` character",
+        "data": "https://example.org/foobar`.txt",
+        "valid": false
+      },
+      {
         "description": "invalid SPACE character",
         "data": "https://example.org/foo bar.txt",
+        "valid": false
+      },
+      {
+        "description": "invalid | character",
+        "data": "https://example.org/foobar|.txt",
         "valid": false
       },
       {
@@ -154,6 +199,21 @@
         "valid": true
       },
       {
+        "description": "invalid percent-encoding with non-hex digits",
+        "data": "http://example.com/%6G",
+        "valid": false
+      },
+      {
+        "description": "incomplete percent-encoding triplet",
+        "data": "http://example.com/%A",
+        "valid": false
+      },
+      {
+        "description": "lone percent sign is invalid",
+        "data": "http://example.com/%",
+        "valid": false
+      },
+      {
         "description": "scheme must start with a letter",
         "data": "1http://example.com",
         "valid": false
@@ -161,6 +221,11 @@
       {
         "description": "invalid character in scheme",
         "data": "ht_tp://example.com",
+        "valid": false
+      },
+      {
+        "description": "non-numeric port is invalid",
+        "data": "http://example.com:abc/path",
         "valid": false
       },
       {

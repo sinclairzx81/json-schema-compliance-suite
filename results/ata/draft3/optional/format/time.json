@@ -6,11 +6,6 @@
     },
     "tests": [
       {
-        "description": "a valid time string",
-        "data": "08:30:06",
-        "valid": true
-      },
-      {
         "description": "an invalid time string",
         "data": "8:30 AM",
         "valid": false

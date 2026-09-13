@@ -51,6 +51,21 @@
         "valid": true
       },
       {
+        "description": "invalid percent-encoding with non-hex digits",
+        "data": "http://ƒøø.ßår/%6G",
+        "valid": false
+      },
+      {
+        "description": "incomplete percent-encoding triplet",
+        "data": "http://ƒøø.ßår/%A",
+        "valid": false
+      },
+      {
+        "description": "lone percent sign is invalid",
+        "data": "http://ƒøø.ßår/%",
+        "valid": false
+      },
+      {
         "description": "a valid IRI with many special characters",
         "data": "http://-.~_!$&'()*+,;=:%40:80%2f::::::@example.com",
         "valid": true
@@ -61,9 +76,34 @@
         "valid": true
       },
       {
+        "description": "an IPv6 address without enclosing brackets is invalid",
+        "data": "http://2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+        "valid": false
+      },
+      {
+        "description": "an invalid relative IRI Reference",
+        "data": "/abc",
+        "valid": false
+      },
+      {
+        "description": "an invalid IRI",
+        "data": "\\\\WINDOWS\\filëßåré",
+        "valid": false
+      },
+      {
+        "description": "an invalid IRI though valid IRI reference",
+        "data": "âππ",
+        "valid": false
+      },
+      {
         "description": "a valid IRI with a compressed IPv6 host",
         "data": "http://[2001:db8::1]",
         "valid": true
+      },
+      {
+        "description": "a trailing newline after a valid IRI is invalid",
+        "data": "http://ƒøø.ßår/\n",
+        "valid": false
       },
       {
         "description": "an IPvFuture host with an uppercase version letter is valid",

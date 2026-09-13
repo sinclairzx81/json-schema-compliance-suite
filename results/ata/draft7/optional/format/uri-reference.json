@@ -51,6 +51,11 @@
         "valid": true
       },
       {
+        "description": "an invalid URI Reference",
+        "data": "\\\\WINDOWS\\fileshare",
+        "valid": false
+      },
+      {
         "description": "a valid URI Reference",
         "data": "abc",
         "valid": true
@@ -59,6 +64,21 @@
         "description": "a valid URI fragment",
         "data": "#fragment",
         "valid": true
+      },
+      {
+        "description": "an invalid URI fragment",
+        "data": "#frag\\ment",
+        "valid": false
+      },
+      {
+        "description": "unescaped non US-ASCII characters",
+        "data": "/foobar®.txt",
+        "valid": false
+      },
+      {
+        "description": "invalid backslash character",
+        "data": "https://example.org/foobar\\.txt",
+        "valid": false
       },
       {
         "description": "URI with leading-zero IPv4 is structurally valid as a reg-name",
@@ -89,6 +109,18 @@
         "comment": "RFC 3986, Section 3.2.2: host = IP-literal / IPv4address / reg-name, and reg-name may be empty.",
         "data": "//",
         "valid": true
+      },
+      {
+        "description": "an incomplete percent-encoding",
+        "comment": "RFC 3986, Section 2.1: pct-encoded = \"%\" HEXDIG HEXDIG.",
+        "data": "/%zz",
+        "valid": false
+      },
+      {
+        "description": "a double quote in a path",
+        "comment": "RFC 3986, Appendix A: pchar = unreserved / pct-encoded / sub-delims / \":\" / \"@\", and the double quote is in none of them.",
+        "data": "/a\"b",
+        "valid": false
       },
       {
         "description": "a colon in the first segment preceded by a dot-segment",
