@@ -91,8 +91,28 @@
         "valid": true
       },
       {
+        "description": "a literal with a lone percent sign is invalid",
+        "data": "a%",
+        "valid": false
+      },
+      {
+        "description": "a literal with an incomplete percent-encoded triplet is invalid",
+        "data": "a%4",
+        "valid": false
+      },
+      {
+        "description": "a literal with non-hex percent encoding is invalid",
+        "data": "a%GG",
+        "valid": false
+      },
+      {
         "description": "a supplementary plane character in a literal is valid",
         "data": "a😀b",
+        "valid": true
+      },
+      {
+        "description": "a private-use character in a literal is valid",
+        "data": "ab",
         "valid": true
       },
       {
