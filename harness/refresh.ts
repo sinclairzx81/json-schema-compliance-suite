@@ -297,16 +297,25 @@ export function updateReadme(): void {
 
     output.push(`### ${category}`)
     output.push('\n')
-    output.push('Results show aggregate coverage across all JSON Schema versions.')
+    const includeElapsed = category === 'Validation'
+    output.push(includeElapsed
+      ? 'Results show aggregate coverage across all JSON Schema versions. Elapsed shows time to complete the JSON Schema Test Suite.'
+      : 'Results show aggregate coverage across all JSON Schema versions.')
     output.push('\n')
-    output.push(`| Library | Results     | Test      | Passed  | Failed | Coverage |`)
-    output.push(`| :--     | :--        | :--       | :--     | :--    | :--      |`)
+    output.push(includeElapsed
+      ? `| Library | Results     | Test      | Passed  | Failed | Coverage | Elapsed |`
+      : `| Library | Results     | Test      | Passed  | Failed | Coverage |`)
+    output.push(includeElapsed
+      ? `| :--     | :--        | :--       | :--     | :--    | :--      | :--     |`
+      : `| :--     | :--        | :--       | :--     | :--    | :--      |`)
     for (const report of categoryReports) {
       const library = !visited.has(report.library) ? `[${report.library}](${report.repository})` : ''
       const pagelink = `[Results](#${anchor(report)})`
       visited.add(report.library)
       const coverage = `${((report.metrics.passed / report.metrics.total) * 100).toFixed(1)}%`
-      output.push(`| ${library} | ${pagelink} | ${report.category} | ${report.metrics.passed} | ${report.metrics.failed} | ${coverage} |`)
+      output.push(includeElapsed
+        ? `| ${library} | ${pagelink} | ${report.category} | ${report.metrics.passed} | ${report.metrics.failed} | ${coverage} | ${report.metrics.elapsed}ms |`
+        : `| ${library} | ${pagelink} | ${report.category} | ${report.metrics.passed} | ${report.metrics.failed} | ${coverage} |`)
     }
     output.push('\n')
   }

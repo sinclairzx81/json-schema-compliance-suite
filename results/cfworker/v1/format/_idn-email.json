@@ -21,6 +21,40 @@
         "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Mailbox = Local-part \"@\" ( Domain / address-literal ) splits on U+0040, and any IDN mapping applies only to the domain that split produces, so U+FF20 cannot become the delimiter",
         "data": "user＠example.com",
         "valid": false
+      },
+      {
+        "description": "a domain label starting with a hyphen is not valid",
+        "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 sub-domain = Let-dig [Ldh-str], so a label starts with a letter or digit; RFC 6531 section 3.3 only adds sub-domain =/ U-label",
+        "data": "δοκιμή@-example.com",
+        "valid": false
+      },
+      {
+        "description": "a domain label ending with a hyphen is not valid",
+        "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Ldh-str = *( ALPHA / DIGIT / \"-\" ) Let-dig, so a label ends with a letter or digit",
+        "data": "δοκιμή@example-.com",
+        "valid": false
+      },
+      {
+        "description": "a domain starting with a dot is not valid",
+        "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Domain = sub-domain *(\".\" sub-domain) admits no empty sub-domain",
+        "data": "δοκιμή@.example.com",
+        "valid": false
+      },
+      {
+        "description": "a domain ending with a dot is not valid",
+        "data": "δοκιμή@example.com.",
+        "valid": false
+      },
+      {
+        "description": "two subsequent dots inside the domain are not valid",
+        "data": "δοκιμή@example..com",
+        "valid": false
+      },
+      {
+        "description": "domain is required",
+        "comment": "https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Mailbox = Local-part \"@\" ( Domain / address-literal )",
+        "data": "δοκιμή@",
+        "valid": false
       }
     ]
   }

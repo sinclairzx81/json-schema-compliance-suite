@@ -72,6 +72,11 @@
         "valid": true
       },
       {
+        "description": "a supplementary private-use character in a literal is valid",
+        "data": "a󰀀b",
+        "valid": true
+      },
+      {
         "description": "reserved expansion operator",
         "data": "{+var}",
         "valid": true
