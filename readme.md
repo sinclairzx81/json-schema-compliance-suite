@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Tue Sep 22 2026
+Updated: Sat Sep 26 2026
 
 
 ### Validation
@@ -41,13 +41,13 @@ Results show aggregate coverage across all JSON Schema versions. Elapsed shows t
 
 | Library | Results     | Test      | Passed  | Failed | Coverage | Elapsed |
 | :--     | :--        | :--       | :--     | :--    | :--      | :--     |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11585 | 147 | 98.7% | 1882ms |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10946 | 786 | 93.3% | 7072ms |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10835 | 897 | 92.4% | 5014ms |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10635 | 1097 | 90.6% | 13985ms |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10246 | 1486 | 87.3% | 7650ms |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10095 | 1637 | 86.0% | 6523ms |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8591 | 3141 | 73.2% | 12124ms |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11585 | 147 | 98.7% | 1748ms |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10946 | 786 | 93.3% | 6480ms |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10835 | 897 | 92.4% | 4632ms |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10635 | 1097 | 90.6% | 12831ms |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10246 | 1486 | 87.3% | 7131ms |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10095 | 1637 | 86.0% | 6152ms |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8591 | 3141 | 73.2% | 11072ms |
 
 
 ### Semantics

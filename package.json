@@ -8,13 +8,13 @@
     "test": "node tests.ts"
   },
   "devDependencies": {
-    "@ark/json-schema": "0.0.7",
+    "@ark/json-schema": "0.0.9",
     "@cfworker/json-schema": "4.1.1",
-    "@types/node": "26.6.2",
+    "@types/node": "26.6.3",
     "ajv": "8.20.0",
     "ajv-formats": "3.0.1",
-    "arktype": "2.2.3",
-    "ata-validator": "1.27.1",
+    "arktype": "2.2.5",
+    "ata-validator": "1.30.3",
     "djv": "2.1.4",
     "jsonschema": "1.5.0",
     "sury": "11.0.0",
