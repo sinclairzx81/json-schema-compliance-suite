@@ -12,7 +12,13 @@
             "foo": {
               "type": "integer"
             }
-          }
+          },
+          "readOnly": false,
+          "writeOnly": false,
+          "items": true,
+          "uniqueItems": false,
+          "properties": {},
+          "patternProperties": {}
         },
         "valid": true
       },
@@ -23,7 +29,13 @@
             "foo": {
               "type": 1
             }
-          }
+          },
+          "readOnly": false,
+          "writeOnly": false,
+          "items": true,
+          "uniqueItems": false,
+          "properties": {},
+          "patternProperties": {}
         },
         "valid": false
       }

@@ -296,14 +296,28 @@
       {
         "description": "remote ref valid",
         "data": {
-          "minLength": 1
+          "minLength": 1,
+          "readOnly": false,
+          "writeOnly": false,
+          "items": true,
+          "uniqueItems": false,
+          "definitions": {},
+          "properties": {},
+          "patternProperties": {}
         },
         "valid": true
       },
       {
         "description": "remote ref invalid",
         "data": {
-          "minLength": -1
+          "minLength": -1,
+          "readOnly": false,
+          "writeOnly": false,
+          "items": true,
+          "uniqueItems": false,
+          "definitions": {},
+          "properties": {},
+          "patternProperties": {}
         },
         "valid": false
       }

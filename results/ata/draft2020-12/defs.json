@@ -13,7 +13,9 @@
             "foo": {
               "type": "integer"
             }
-          }
+          },
+          "definitions": {},
+          "dependencies": {}
         },
         "valid": true
       },
@@ -24,7 +26,9 @@
             "foo": {
               "type": 1
             }
-          }
+          },
+          "definitions": {},
+          "dependencies": {}
         },
         "valid": false
       }

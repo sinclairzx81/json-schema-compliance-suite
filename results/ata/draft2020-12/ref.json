@@ -263,14 +263,18 @@
       {
         "description": "remote ref valid",
         "data": {
-          "minLength": 1
+          "minLength": 1,
+          "definitions": {},
+          "dependencies": {}
         },
         "valid": true
       },
       {
         "description": "remote ref invalid",
         "data": {
-          "minLength": -1
+          "minLength": -1,
+          "definitions": {},
+          "dependencies": {}
         },
         "valid": false
       }
