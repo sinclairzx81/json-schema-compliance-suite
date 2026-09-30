@@ -193,8 +193,23 @@
         "valid": true
       },
       {
+        "description": "zero-width whitespace matches",
+        "data": "﻿",
+        "valid": true
+      },
+      {
         "description": "line feed matches (line terminator)",
         "data": "\n",
+        "valid": true
+      },
+      {
+        "description": "paragraph separator matches (line terminator)",
+        "data": " ",
+        "valid": true
+      },
+      {
+        "description": "EM SPACE matches (Space_Separator)",
+        "data": " ",
         "valid": true
       },
       {
@@ -243,8 +258,23 @@
         "valid": false
       },
       {
+        "description": "zero-width whitespace does not match",
+        "data": "﻿",
+        "valid": false
+      },
+      {
         "description": "line feed does not match (line terminator)",
         "data": "\n",
+        "valid": false
+      },
+      {
+        "description": "paragraph separator does not match (line terminator)",
+        "data": " ",
+        "valid": false
+      },
+      {
+        "description": "EM SPACE does not match (Space_Separator)",
+        "data": " ",
         "valid": false
       },
       {

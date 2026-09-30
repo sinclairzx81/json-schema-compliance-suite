@@ -26,53 +26,5 @@
         "valid": true
       }
     ]
-  },
-  {
-    "description": "ECMA 262 \\s matches whitespace",
-    "schema": {
-      "type": "string",
-      "pattern": "^\\s$"
-    },
-    "tests": [
-      {
-        "description": "zero-width whitespace matches",
-        "data": "﻿",
-        "valid": true
-      },
-      {
-        "description": "paragraph separator matches (line terminator)",
-        "data": " ",
-        "valid": true
-      },
-      {
-        "description": "EM SPACE matches (Space_Separator)",
-        "data": " ",
-        "valid": true
-      }
-    ]
-  },
-  {
-    "description": "ECMA 262 \\S matches everything but whitespace",
-    "schema": {
-      "type": "string",
-      "pattern": "^\\S$"
-    },
-    "tests": [
-      {
-        "description": "zero-width whitespace does not match",
-        "data": "﻿",
-        "valid": false
-      },
-      {
-        "description": "paragraph separator does not match (line terminator)",
-        "data": " ",
-        "valid": false
-      },
-      {
-        "description": "EM SPACE does not match (Space_Separator)",
-        "data": " ",
-        "valid": false
-      }
-    ]
   }
 ]

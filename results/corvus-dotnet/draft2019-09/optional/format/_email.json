@@ -1,0 +1,16 @@
+[
+  {
+    "description": "validation of e-mail addresses",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "format": "email"
+    },
+    "tests": [
+      {
+        "description": "a non-ASCII character in a quoted pair is not valid",
+        "data": "\"test\\©\"@iana.org",
+        "valid": false
+      }
+    ]
+  }
+]

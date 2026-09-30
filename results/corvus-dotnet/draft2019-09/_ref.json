@@ -1,0 +1,18 @@
+[
+  {
+    "description": "remote ref, containing refs itself",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2019-09/schema",
+      "$ref": "https://json-schema.org/draft/2019-09/schema"
+    },
+    "tests": [
+      {
+        "description": "remote ref invalid",
+        "data": {
+          "minLength": -1
+        },
+        "valid": false
+      }
+    ]
+  }
+]

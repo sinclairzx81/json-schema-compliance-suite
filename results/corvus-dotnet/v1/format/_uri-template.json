@@ -1,0 +1,36 @@
+[
+  {
+    "description": "format: uri-template",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "uri-template"
+    },
+    "tests": [
+      {
+        "description": "a literal with a lone percent sign is invalid",
+        "data": "a%",
+        "valid": false
+      },
+      {
+        "description": "a literal with an incomplete percent-encoded triplet is invalid",
+        "data": "a%4",
+        "valid": false
+      },
+      {
+        "description": "a literal with non-hex percent encoding is invalid",
+        "data": "a%GG",
+        "valid": false
+      },
+      {
+        "description": "a delete character in a literal is invalid",
+        "data": "ab",
+        "valid": false
+      },
+      {
+        "description": "an apostrophe in a literal is valid",
+        "data": "a'b",
+        "valid": true
+      }
+    ]
+  }
+]

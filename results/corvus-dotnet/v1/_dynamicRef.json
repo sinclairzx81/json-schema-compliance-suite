@@ -1,0 +1,84 @@
+[
+  {
+    "description": "A $dynamicRef resolves to the first $dynamicAnchor still in scope that is encountered when the schema is evaluated",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "https://test.json-schema.org/typical-dynamic-resolution/root",
+      "$ref": "list",
+      "$defs": {
+        "foo": {
+          "$dynamicAnchor": "items",
+          "type": "string"
+        },
+        "list": {
+          "$id": "list",
+          "type": "array",
+          "items": {
+            "$dynamicRef": "#items"
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "An array of strings is valid",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      },
+      {
+        "description": "An array containing non-strings is invalid",
+        "data": [
+          "foo",
+          42
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "A $dynamicRef with intermediate scopes that don't include a matching $dynamicAnchor does not affect dynamic scope resolution",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "$id": "https://test.json-schema.org/dynamic-resolution-with-intermediate-scopes/root",
+      "$ref": "intermediate-scope",
+      "$defs": {
+        "foo": {
+          "$dynamicAnchor": "items",
+          "type": "string"
+        },
+        "intermediate-scope": {
+          "$id": "intermediate-scope",
+          "$ref": "list"
+        },
+        "list": {
+          "$id": "list",
+          "type": "array",
+          "items": {
+            "$dynamicRef": "#items"
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "An array of strings is valid",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      },
+      {
+        "description": "An array containing non-strings is invalid",
+        "data": [
+          "foo",
+          42
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

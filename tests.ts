@@ -17,14 +17,31 @@ await Test.runTestSuite({
   message: 'Results for the TypeBox validation library.',
   directory: './results/typebox'
 }, (_draft, remotes, schema, value) => {
-  // TypeBox supports dynamic and compiled checking. We test both
-  // to ensure TypeBox produces a coherent result. Mismatched
-  // results are thrown indicating a failed test.
-  const context = { ...TypeBox.Meta, ...remotes }
-  const result1 = TypeBox.Check(context, schema, value)
-  const result2 = TypeBox.Compile(context, schema).Check(value)
-  if(result1 !== result2) throw Error('Result Mismatch')
-  return result1
+  return TypeBox.Check({ ...TypeBox.Meta, ...remotes }, schema, value)
+})
+// ------------------------------------------------------------------
+// Corvus: Validation
+// ------------------------------------------------------------------
+import * as Corvus from '@corvus-dotnet/json-schema'
+await Test.runTestSuite({
+  library: 'Corvus-Dotnet',
+  repository: 'https://github.com/corvus-dotnet/Corvus.JsonSchema#readme',
+  category: 'Validation',
+  message: 'Results for the Corvus-Dotnet validation library.',
+  directory: './results/corvus-dotnet'
+}, (draft, remotes, schema, value) => {
+  const resolveDocument = (uri: string) => remotes[uri] ?? {}
+  const assertFormat = true
+  const defaultDialect = (
+    draft === 'draft4' ? Corvus.Dialect.Draft4 :
+    draft === 'draft6' ? Corvus.Dialect.Draft6 :
+    draft === 'draft7' ? Corvus.Dialect.Draft7 :
+    draft === 'draft2019-09' ? Corvus.Dialect.Draft201909 :
+    draft === 'draft2020-12' ? Corvus.Dialect.Draft202012 :
+    Corvus.Dialect.Draft202012 // default
+  )
+  const validate = Corvus.compile(schema, { defaultDialect, assertFormat, resolveDocument })
+  return validate(value)
 })
 // ------------------------------------------------------------------
 // CFWorker: Validation

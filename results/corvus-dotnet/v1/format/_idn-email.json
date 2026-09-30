@@ -1,0 +1,23 @@
+[
+  {
+    "description": "validation of an internationalized e-mail addresses",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "format": "idn-email"
+    },
+    "tests": [
+      {
+        "description": "a C1 control in the local part is valid",
+        "comment": "https://www.rfc-editor.org/rfc/rfc6531#section-3.3 atext =/ UTF8-non-ascii; https://www.rfc-editor.org/rfc/rfc3629#section-4 UTF8-2 admits U+0085",
+        "data": "@example.com",
+        "valid": true
+      },
+      {
+        "description": "a noncharacter in the local part is valid",
+        "comment": "https://www.rfc-editor.org/rfc/rfc6531#section-3.3 atext =/ UTF8-non-ascii; https://www.rfc-editor.org/rfc/rfc3629#section-4 UTF8-3 admits U+FFFF",
+        "data": "￿@example.com",
+        "valid": true
+      }
+    ]
+  }
+]

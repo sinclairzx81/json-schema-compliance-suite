@@ -14,7 +14,7 @@
     "ajv": "8.20.0",
     "ajv-formats": "3.0.1",
     "arktype": "2.2.5",
-    "ata-validator": "1.36.1",
+    "ata-validator": "1.39.1",
     "djv": "2.1.4",
     "jsonschema": "1.5.0",
     "sury": "11.0.0",
@@ -24,5 +24,8 @@
   },
   "allowScripts": {
     "ata-validator": true
+  },
+  "dependencies": {
+    "@corvus-dotnet/json-schema": "^0.1.0"
   }
 }
