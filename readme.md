@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Wed Sep 30 2026
+Updated: Wed Oct 07 2026
 
 
 ### Validation
@@ -41,14 +41,14 @@ Results show aggregate coverage across all JSON Schema versions. Elapsed shows t
 
 | Library | Results     | Test      | Passed  | Failed | Coverage | Elapsed |
 | :--     | :--        | :--       | :--     | :--    | :--      | :--     |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11585 | 147 | 98.7% | 695ms |
-| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11546 | 186 | 98.4% | 726ms |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10982 | 750 | 93.6% | 5145ms |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10835 | 897 | 92.4% | 4583ms |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10635 | 1097 | 90.6% | 12531ms |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10246 | 1486 | 87.3% | 7104ms |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10095 | 1637 | 86.0% | 6045ms |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8591 | 3141 | 73.2% | 10963ms |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11585 | 147 | 98.7% | 743ms |
+| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11546 | 186 | 98.4% | 780ms |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 10982 | 750 | 93.6% | 4601ms |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10835 | 897 | 92.4% | 4416ms |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10635 | 1097 | 90.6% | 12947ms |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10246 | 1486 | 87.3% | 7139ms |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9855 | 1877 | 84.0% | 5439ms |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8591 | 3141 | 73.2% | 11475ms |
 
 
 ### Semantics
@@ -518,8 +518,8 @@ Results for the jsonschema validation library.
 | extends | ✅ | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 118/133 | - |
 | if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
-| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| items | ✅ | ✅ | ✅ | ✅ | ✅ | 22/29 | 22/29 |
+| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | 0/2 | 0/2 | 0/2 |
+| items | ✅ | ✅ | ✅ | ✅ | 22/28 | 22/29 | 22/29 |
 | maxContains | - | - | - | - | 8/14 | 8/14 | 8/14 |
 | maximum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -539,12 +539,12 @@ Results for the jsonschema validation library.
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | 22/34 | - | - |
-| ref | 25/27 | 43/45 | 54/70 | 56/78 | 35/81 | 34/79 | 34/79 |
+| ref | 17/27 | 33/45 | 42/70 | 44/78 | 17/81 | 16/79 | 16/79 |
 | refRemote | ✅ | 13/17 | 19/23 | 19/23 | 16/31 | 16/31 | 16/31 |
 | required | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| unevaluatedItems | - | - | - | - | 34/56 | 43/71 | 43/71 |
-| unevaluatedProperties | - | - | - | - | 82/129 | 82/129 | 82/129 |
+| unevaluatedItems | - | - | - | - | 32/56 | 41/71 | 41/71 |
+| unevaluatedProperties | - | - | - | - | 52/129 | 52/129 | 52/129 |
 | uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | 63/69 | 63/69 |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
@@ -558,7 +558,7 @@ Results for the jsonschema validation library.
 
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
-| anchor | - | - | - | - | 1/4 | 1/4 | 1/4 |
+| anchor | - | - | - | - | 0/4 | 0/4 | 0/4 |
 | bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
 | cross-draft | - | - | - | 1/2 | 1/3 | ✅ | - |
@@ -592,14 +592,14 @@ Results for the jsonschema validation library.
 | format/uri-reference | - | - | 30/31 | 30/31 | 30/31 | 30/31 | 30/31 |
 | format/uri-template | - | - | 27/47 | 27/47 | 27/47 | 27/47 | 27/47 |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
-| id | - | ✅ | ✅ | ✅ | 1/3 | 1/3 | 1/3 |
+| id | - | ✅ | ✅ | ✅ | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
 | proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
 | proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 2/6 |
-| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
+| refOfUnknownKeyword | - | - | - | - | 0/10 | 0/10 | 0/10 |
 | unknownKeyword | - | - | ✅ | ✅ | 0/3 | 0/3 | 0/3 |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
 
