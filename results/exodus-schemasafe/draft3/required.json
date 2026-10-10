@@ -1,0 +1,17 @@
+[
+  {
+    "description": "required default validation",
+    "schema": {
+      "properties": {
+        "foo": {}
+      }
+    },
+    "tests": [
+      {
+        "description": "not required by default",
+        "data": {},
+        "valid": true
+      }
+    ]
+  }
+]

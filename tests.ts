@@ -51,6 +51,40 @@ await Test.runTestSuite({
   return validate(value)
 })
 // ------------------------------------------------------------------
+// Exodus: Validation
+// ------------------------------------------------------------------
+import * as SchemaSafe from '@exodus/schemasafe'
+const schemaSafeDrafts: Record<string, string> = {
+  draft3: 'http://json-schema.org/draft-03/schema#',
+  draft4: 'http://json-schema.org/draft-04/schema#',
+  draft6: 'http://json-schema.org/draft-06/schema#',
+  draft7: 'http://json-schema.org/draft-07/schema#',
+  'draft2019-09': 'https://json-schema.org/draft/2019-09/schema',
+  'draft2020-12': 'https://json-schema.org/draft/2020-12/schema',
+  v1: 'https://json-schema.org/draft/2020-12/schema',
+}
+await Test.runTestSuite({
+  library: 'Exodus-SchemaSafe',
+  repository: 'https://github.com/ExodusMovement/schemasafe',
+  category: 'Validation',
+  message: 'Results for @exodus/schemasafe testing Draft 3 to 2020-12. Tests use lax mode with extra formats enabled.',
+  directory: './results/exodus-schemasafe'
+}, (draft, remotes, schema, value) => {
+  const schemaForDraft = draft === 'v1' &&
+    typeof schema === 'object' &&
+    schema !== null &&
+    schema.$schema === 'https://json-schema.org/v1'
+      ? { ...schema, $schema: schemaSafeDrafts[draft] }
+      : schema
+  const validate = SchemaSafe.validator(schemaForDraft as never, {
+    mode: 'lax',
+    extraFormats: true,
+    $schemaDefault: schemaSafeDrafts[draft],
+    schemas: remotes as never,
+  })
+  return validate(value as never)
+})
+// ------------------------------------------------------------------
 // CFWorker: Validation
 // ------------------------------------------------------------------
 import * as CFWorker from '@cfworker/json-schema'

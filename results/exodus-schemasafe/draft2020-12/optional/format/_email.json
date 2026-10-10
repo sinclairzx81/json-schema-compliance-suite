@@ -1,0 +1,71 @@
+[
+  {
+    "description": "validation of e-mail addresses",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "format": "email"
+    },
+    "tests": [
+      {
+        "description": "a quoted string with a space in the local part is valid",
+        "data": "\"joe bloggs\"@example.com",
+        "valid": true
+      },
+      {
+        "description": "a quoted string with a double dot in the local part is valid",
+        "data": "\"joe..bloggs\"@example.com",
+        "valid": true
+      },
+      {
+        "description": "a quoted string with a @ in the local part is valid",
+        "data": "\"joe@bloggs\"@example.com",
+        "valid": true
+      },
+      {
+        "description": "an IPv4-address-literal after the @ is valid",
+        "data": "joe.bloggs@[127.0.0.1]",
+        "valid": true
+      },
+      {
+        "description": "an IPv6-address-literal after the @ is valid",
+        "data": "joe.bloggs@[IPv6:::1]",
+        "valid": true
+      },
+      {
+        "description": "an empty quoted string in the local part is valid",
+        "data": "\"\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted string containing only a space in the local part is valid",
+        "data": "\" \"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted string with no special characters in the local part is valid",
+        "data": "\"test\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a quoted pair in the local part is valid",
+        "data": "\"\\a\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "an escaped double quote in the local part is valid",
+        "data": "\"\\\"\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "an escaped backslash in the local part is valid",
+        "data": "\"\\\\\"@iana.org",
+        "valid": true
+      },
+      {
+        "description": "a lowercase IPv6 tag in an address literal is valid",
+        "data": "a@[ipv6:::1]",
+        "valid": true
+      }
+    ]
+  }
+]

@@ -46,6 +46,7 @@ Results show aggregate coverage across all JSON Schema versions.
 | [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 11036 | 750 | 93.6% |
 | [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10889 | 897 | 92.4% |
 | [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10689 | 1097 | 90.7% |
+| [Exodus-SchemaSafe](https://github.com/ExodusMovement/schemasafe) | [Results](#Exodus-SchemaSafe-Validation) | Validation | 10495 | 1291 | 89.0% |
 | [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10300 | 1486 | 87.4% |
 | [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9904 | 1882 | 84.0% |
 | [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8616 | 3170 | 73.1% |
@@ -337,6 +338,137 @@ Results for the Corvus-Dotnet validation library.
 | proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
 | proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 4/6 |
+| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
+| unknownKeyword | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
+
+
+</details>
+
+
+---
+
+
+<a name="Exodus-SchemaSafe-Validation"></a>
+
+
+
+### Exodus-SchemaSafe
+
+Results for @exodus/schemasafe testing Draft 3 to 2020-12. Tests use lax mode with extra formats enabled.
+
+
+<details>
+<summary>Specification Coverage</summary>
+
+
+| Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
+|:-----|:--|:--|:--|:--|:--|:--|:--|
+| additionalItems | ✅ | ✅ | ✅ | ✅ | ✅ | - | - |
+| additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| anchor | - | - | - | - | ✅ | ✅ | ✅ |
+| anyOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| boolean_schema | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| const | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| contains | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| content | - | - | - | - | ✅ | ✅ | ✅ |
+| default | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| definitions | - | 0/2 | 0/2 | 0/2 | - | - | - |
+| defs | - | - | - | - | 0/2 | 0/2 | - |
+| dependencies | ✅ | ✅ | ✅ | ✅ | - | - | - |
+| dependentRequired | - | - | - | - | ✅ | ✅ | ✅ |
+| dependentSchemas | - | - | - | - | ✅ | ✅ | ✅ |
+| disallow | 4/9 | - | - | - | - | - | - |
+| divisibleBy | ✅ | - | - | - | - | - | - |
+| dynamicRef | - | - | - | - | - | 43/44 | 9/27 |
+| enum | 12/18 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| extends | 1/10 | - | - | - | - | - | - |
+| format | ✅ | ✅ | ✅ | 78/102 | 90/114 | 90/133 | - |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| items | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxContains | - | - | - | - | ✅ | ✅ | ✅ |
+| maximum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| maxProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minContains | - | - | - | - | ✅ | ✅ | ✅ |
+| minimum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minLength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| minProperties | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| multipleOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| not | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| oneOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| pattern | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| prefixItems | - | - | - | - | - | ✅ | ✅ |
+| properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| recursiveRef | - | - | - | - | ✅ | - | - |
+| ref | 23/27 | 43/45 | 68/70 | 76/78 | 79/81 | 77/79 | 77/79 |
+| refRemote | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 6/31 |
+| required | 1/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| unevaluatedItems | - | - | - | - | 54/56 | 69/71 | 69/71 |
+| unevaluatedProperties | - | - | - | - | 127/129 | 127/129 | 127/129 |
+| uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| vocabulary | - | - | - | - | 0/5 | 0/5 | - |
+
+
+</details>
+
+
+<details>
+<summary>Optional Formats and Proposals</summary>
+
+
+| Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
+|:-----|:--|:--|:--|:--|:--|:--|:--|
+| anchor | - | - | - | - | ✅ | ✅ | ✅ |
+| bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| content | - | - | - | ✅ | - | - | - |
+| cross-draft | - | - | - | ✅ | ✅ | ✅ | - |
+| dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
+| dynamicRef | - | - | - | - | - | ✅ | ✅ |
+| ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| float-overflow | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format-annotation | - | - | - | - | - | - | 90/133 |
+| format-assertion | - | - | - | - | - | 0/4 | - |
+| format/color | ✅ | - | - | - | - | - | - |
+| format/date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/date-time | 20/21 | 42/43 | 46/47 | 46/47 | 46/47 | 46/47 | 46/47 |
+| format/duration | - | - | - | - | 47/52 | 47/52 | 47/52 |
+| format/ecmascript-regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/email | ✅ | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 |
+| format/host-name | ✅ | - | - | - | - | - | - |
+| format/hostname | - | 30/31 | 30/31 | 40/64 | 40/64 | 40/64 | 40/64 |
+| format/idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/25 |
+| format/idn-hostname | - | - | - | 0/98 | 0/98 | 0/98 | 0/98 |
+| format/ip-address | ✅ | - | - | - | - | - | - |
+| format/ipv4 | - | 40/41 | 40/41 | 40/41 | 40/41 | 40/41 | 40/41 |
+| format/ipv6 | ✅ | 48/51 | 48/51 | 48/51 | 48/51 | 48/51 | 48/51 |
+| format/iri | - | - | - | 0/26 | 0/26 | 0/26 | 0/26 |
+| format/iri-reference | - | - | - | 0/21 | 0/21 | 0/21 | 0/21 |
+| format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/relative-json-pointer | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/time | ✅ | - | - | 52/56 | 52/56 | 52/56 | 46/56 |
+| format/unknown | - | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 | - |
+| format/uri | ✅ | 44/47 | 44/47 | 44/47 | 44/47 | 44/47 | 44/47 |
+| format/uri-reference | - | - | 26/31 | 26/31 | 26/31 | 26/31 | 26/31 |
+| format/uri-template | - | - | 45/48 | 45/48 | 45/48 | 45/48 | 45/48 |
+| format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
+| id | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| no-schema | - | - | - | - | ✅ | ✅ | - |
+| non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
+| proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 0/8 |
+| proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | ✅ |
+| proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | ✅ |
 | refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
 | unknownKeyword | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
