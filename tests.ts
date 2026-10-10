@@ -17,7 +17,14 @@ await Test.runTestSuite({
   message: 'Results for the TypeBox validation library.',
   directory: './results/typebox'
 }, (_draft, remotes, schema, value) => {
-  return TypeBox.Check({ ...TypeBox.Meta, ...remotes }, schema, value)
+  // TypeBox supports dynamic and compiled checking. We test both
+  // to ensure TypeBox produces a coherent result. Mismatched
+  // results are thrown indicating a failed test.
+  const context = { ...TypeBox.Meta, ...remotes }
+  const result1 = TypeBox.Check(context, schema, value)
+  const result2 = TypeBox.Compile(context, schema).Check(value)
+  if(result1 !== result2) throw Error('Result Mismatch')
+  return result1
 })
 // ------------------------------------------------------------------
 // Corvus: Validation
@@ -244,6 +251,7 @@ await Test.runTestSuite({
 // ArkType: Semantics
 // ---------------------------------------------------------------
 import * as Ark from '@ark/json-schema'
+import { Type } from 'typebox';
 await Test.runTestSuite({
   library: 'ArkType',
   repository: 'https://github.com/arktypeio/arktype',
