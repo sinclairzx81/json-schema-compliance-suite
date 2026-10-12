@@ -96,6 +96,14 @@
           2
         ],
         "valid": true
+      },
+      {
+        "description": "mismatch array",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
       }
     ]
   },
@@ -253,9 +261,18 @@
     },
     "tests": [
       {
+        "description": "remote ref valid",
+        "data": {
+          "minLength": 1,
+          "definitions": {}
+        },
+        "valid": true
+      },
+      {
         "description": "remote ref invalid",
         "data": {
-          "minLength": -1
+          "minLength": -1,
+          "definitions": {}
         },
         "valid": false
       }
@@ -1295,6 +1312,19 @@
           ]
         ],
         "valid": true
+      },
+      {
+        "description": "extra items disallowed for root",
+        "data": [
+          "foo",
+          [
+            "bar",
+            [],
+            8
+          ],
+          8
+        ],
+        "valid": false
       }
     ]
   }

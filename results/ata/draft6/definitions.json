@@ -6,13 +6,32 @@
     },
     "tests": [
       {
+        "description": "valid definition schema",
+        "data": {
+          "definitions": {
+            "foo": {
+              "type": "integer"
+            }
+          },
+          "items": {},
+          "uniqueItems": false,
+          "properties": {},
+          "patternProperties": {}
+        },
+        "valid": true
+      },
+      {
         "description": "invalid definition schema",
         "data": {
           "definitions": {
             "foo": {
               "type": 1
             }
-          }
+          },
+          "items": {},
+          "uniqueItems": false,
+          "properties": {},
+          "patternProperties": {}
         },
         "valid": false
       }

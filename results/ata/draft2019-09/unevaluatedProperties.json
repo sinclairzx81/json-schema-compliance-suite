@@ -911,6 +911,18 @@
     },
     "tests": [
       {
+        "description": "with no unevaluated properties",
+        "data": {
+          "name": "a",
+          "node": 1,
+          "branches": {
+            "name": "b",
+            "node": 2
+          }
+        },
+        "valid": true
+      },
+      {
         "description": "with unevaluated properties",
         "data": {
           "name": "a",

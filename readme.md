@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Sat Oct 10 2026
+Updated: Tue Oct 13 2026
 
 
 ### Validation
@@ -41,15 +41,15 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11639 | 147 | 98.8% |
-| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11600 | 186 | 98.4% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 11036 | 750 | 93.6% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10889 | 897 | 92.4% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10689 | 1097 | 90.7% |
-| [Exodus-SchemaSafe](https://github.com/ExodusMovement/schemasafe) | [Results](#Exodus-SchemaSafe-Validation) | Validation | 10495 | 1291 | 89.0% |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10300 | 1486 | 87.4% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9904 | 1882 | 84.0% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8616 | 3170 | 73.1% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11664 | 147 | 98.8% |
+| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11625 | 186 | 98.4% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 11108 | 703 | 94.0% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10914 | 897 | 92.4% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10714 | 1097 | 90.7% |
+| [Exodus-SchemaSafe](https://github.com/ExodusMovement/schemasafe) | [Results](#Exodus-SchemaSafe-Validation) | Validation | 10520 | 1291 | 89.1% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10320 | 1491 | 87.4% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10169 | 1642 | 86.1% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8641 | 3170 | 73.2% |
 
 
 ### Semantics
@@ -60,9 +60,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 8223 | 3563 | 69.8% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6499 | 5287 | 55.1% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1795 | 9991 | 15.2% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 8248 | 3563 | 69.8% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6524 | 5287 | 55.2% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1795 | 10016 | 15.2% |
 
 
 ### RoundTrip
@@ -73,9 +73,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 8171 | 3615 | 69.3% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6613 | 5173 | 56.1% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1526 | 10260 | 12.9% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 8196 | 3615 | 69.4% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6638 | 5173 | 56.2% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1526 | 10285 | 12.9% |
 
 
 ## Coverage
@@ -650,8 +650,8 @@ Results for the jsonschema validation library.
 | extends | ✅ | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 118/133 | - |
 | if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
-| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | 0/2 | 0/2 | 0/2 |
-| items | ✅ | ✅ | ✅ | ✅ | 22/28 | 22/29 | 22/29 |
+| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| items | ✅ | ✅ | ✅ | ✅ | ✅ | 22/29 | 22/29 |
 | maxContains | - | - | - | - | 8/14 | 8/14 | 8/14 |
 | maximum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -671,12 +671,12 @@ Results for the jsonschema validation library.
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | 22/34 | - | - |
-| ref | 17/27 | 33/45 | 42/70 | 44/78 | 17/81 | 16/79 | 16/79 |
+| ref | 25/27 | 43/45 | 54/70 | 56/78 | 35/81 | 34/79 | 34/79 |
 | refRemote | ✅ | 13/17 | 19/23 | 19/23 | 16/31 | 16/31 | 16/31 |
 | required | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| unevaluatedItems | - | - | - | - | 32/56 | 41/71 | 41/71 |
-| unevaluatedProperties | - | - | - | - | 52/129 | 52/129 | 52/129 |
+| unevaluatedItems | - | - | - | - | 34/56 | 43/71 | 43/71 |
+| unevaluatedProperties | - | - | - | - | 82/129 | 82/129 | 82/129 |
 | uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | 63/69 | 63/69 |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
@@ -690,7 +690,7 @@ Results for the jsonschema validation library.
 
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
-| anchor | - | - | - | - | 0/4 | 0/4 | 0/4 |
+| anchor | - | - | - | - | 1/4 | 1/4 | 1/4 |
 | bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
 | cross-draft | - | - | - | 1/2 | 1/3 | ✅ | - |
@@ -724,14 +724,14 @@ Results for the jsonschema validation library.
 | format/uri-reference | - | - | 30/31 | 30/31 | 30/31 | 30/31 | 30/31 |
 | format/uri-template | - | - | 27/48 | 27/48 | 27/48 | 27/48 | 27/48 |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
-| id | - | ✅ | ✅ | ✅ | 0/3 | 0/3 | 0/3 |
+| id | - | ✅ | ✅ | ✅ | 1/3 | 1/3 | 1/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
 | proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
 | proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 2/6 |
-| refOfUnknownKeyword | - | - | - | - | 0/10 | 0/10 | 0/10 |
+| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
 | unknownKeyword | - | - | ✅ | ✅ | 0/3 | 0/3 | 0/3 |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
 
@@ -757,7 +757,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
-| additionalItems | 11/14 | 12/17 | 14/19 | ✅ | 14/19 | - | - |
+| additionalItems | 11/14 | 12/17 | 14/19 | ✅ | ✅ | - | - |
 | additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | anchor | - | - | - | - | ✅ | ✅ | ✅ |
@@ -767,8 +767,8 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | contains | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | - | ✅ | ✅ | ✅ |
 | default | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 |
-| definitions | - | 1/2 | 1/2 | ✅ | - | - | - |
-| defs | - | - | - | - | 1/2 | ✅ | - |
+| definitions | - | 1/2 | ✅ | ✅ | - | - | - |
+| defs | - | - | - | - | ✅ | ✅ | - |
 | dependencies | 11/18 | 16/29 | 21/36 | ✅ | - | - | - |
 | dependentRequired | - | - | - | - | ✅ | ✅ | ✅ |
 | dependentSchemas | - | - | - | - | ✅ | ✅ | ✅ |
@@ -782,7 +782,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 115/133 | - |
 | if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| items | 6/7 | 16/21 | 22/28 | ✅ | 22/28 | ✅ | ✅ |
+| items | 6/7 | 16/21 | 22/28 | ✅ | ✅ | ✅ | ✅ |
 | maxContains | - | - | - | - | ✅ | ✅ | ✅ |
 | maximum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -801,15 +801,15 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | prefixItems | - | - | - | - | - | ✅ | ✅ |
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
-| recursiveRef | - | - | - | - | 23/34 | - | - |
-| ref | 22/27 | 37/45 | 62/70 | ✅ | 78/81 | ✅ | ✅ |
-| refRemote | 7/8 | 11/17 | 21/23 | ✅ | ✅ | ✅ | ✅ |
+| recursiveRef | - | - | - | - | ✅ | - | - |
+| ref | 22/27 | 37/45 | 63/70 | ✅ | ✅ | ✅ | ✅ |
+| refRemote | 7/8 | 11/17 | 22/23 | ✅ | ✅ | ✅ | ✅ |
 | required | 2/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | 73/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| unevaluatedItems | - | - | - | - | 42/56 | ✅ | ✅ |
-| unevaluatedProperties | - | - | - | - | 128/129 | ✅ | ✅ |
-| uniqueItems | 60/62 | 67/69 | 67/69 | ✅ | 67/69 | ✅ | ✅ |
-| vocabulary | - | - | - | - | 4/5 | ✅ | - |
+| unevaluatedItems | - | - | - | - | ✅ | ✅ | ✅ |
+| unevaluatedProperties | - | - | - | - | ✅ | ✅ | ✅ |
+| uniqueItems | 60/62 | 67/69 | 67/69 | ✅ | ✅ | ✅ | ✅ |
+| vocabulary | - | - | - | - | ✅ | ✅ | - |
 
 
 </details>
@@ -978,7 +978,7 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | format/iri | - | - | - | ✅ | ✅ | ✅ | 9/26 |
 | format/iri-reference | - | - | - | ✅ | ✅ | ✅ | 7/21 |
 | format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | 12/40 |
-| format/regex | ✅ | - | - | ✅ | ✅ | ✅ | 6/13 |
+| format/regex | ✅ | - | - | ✅ | ✅ | ✅ | 6/18 |
 | format/relative-json-pointer | - | - | - | ✅ | ✅ | ✅ | 13/26 |
 | format/time | 2/3 | - | - | ✅ | ✅ | ✅ | 42/56 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
@@ -1240,7 +1240,7 @@ Results for the djv validation library.
 | format/iri | - | - | - | 17/26 | 17/26 | 17/26 | 17/26 |
 | format/iri-reference | - | - | - | 14/21 | 14/21 | 14/21 | 14/21 |
 | format/json-pointer | - | - | 35/40 | 35/40 | 35/40 | 35/40 | 35/40 |
-| format/regex | 1/7 | - | - | 7/13 | 7/13 | 7/13 | 7/13 |
+| format/regex | 6/12 | - | - | 12/18 | 12/18 | 12/18 | 12/18 |
 | format/relative-json-pointer | - | - | - | 13/26 | 13/26 | 13/26 | 13/26 |
 | format/time | 1/3 | - | - | 20/56 | 20/56 | 20/56 | 14/56 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
@@ -1371,7 +1371,7 @@ Results using `S.fromJSONSchemaOrThrow(...)` to test Sury semantics against the 
 | format/iri | - | - | - | 17/26 | 17/26 | 17/26 | 17/26 |
 | format/iri-reference | - | - | - | 14/21 | 14/21 | 14/21 | 14/21 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
-| format/regex | 1/7 | - | - | 7/13 | 7/13 | 7/13 | 7/13 |
+| format/regex | 6/12 | - | - | 12/18 | 12/18 | 12/18 | 12/18 |
 | format/relative-json-pointer | - | - | - | 13/26 | 13/26 | 13/26 | 13/26 |
 | format/time | 1/3 | - | - | 20/56 | 20/56 | 20/56 | 14/56 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
@@ -1502,7 +1502,7 @@ Results using `S.fromJSONSchemaOrThrow(...)` and `S.toInputJSONSchemaOrThrow(...
 | format/iri | - | - | - | 17/26 | 17/26 | 17/26 | 17/26 |
 | format/iri-reference | - | - | - | 14/21 | 14/21 | 14/21 | 14/21 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
-| format/regex | 1/7 | - | - | 7/13 | 7/13 | 7/13 | 7/13 |
+| format/regex | 6/12 | - | - | 12/18 | 12/18 | 12/18 | 12/18 |
 | format/relative-json-pointer | - | - | - | 13/26 | 13/26 | 13/26 | 13/26 |
 | format/time | 1/3 | - | - | 20/56 | 20/56 | 20/56 | 14/56 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
@@ -1633,7 +1633,7 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | format/iri | - | - | - | 17/26 | 17/26 | 17/26 | 17/26 |
 | format/iri-reference | - | - | - | 14/21 | 14/21 | 14/21 | 14/21 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
-| format/regex | 1/7 | - | - | 7/13 | 7/13 | 7/13 | 7/13 |
+| format/regex | 6/12 | - | - | 12/18 | 12/18 | 12/18 | 12/18 |
 | format/relative-json-pointer | - | - | - | 13/26 | 13/26 | 13/26 | 13/26 |
 | format/time | 1/3 | - | - | 20/56 | 20/56 | 20/56 | 14/56 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
@@ -1764,7 +1764,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | format/iri | - | - | - | 17/26 | 17/26 | 17/26 | 17/26 |
 | format/iri-reference | - | - | - | 14/21 | 14/21 | 14/21 | 14/21 |
 | format/json-pointer | - | - | 28/40 | 28/40 | 28/40 | 28/40 | 28/40 |
-| format/regex | 1/7 | - | - | 7/13 | 7/13 | 7/13 | 7/13 |
+| format/regex | 6/12 | - | - | 12/18 | 12/18 | 12/18 | 12/18 |
 | format/relative-json-pointer | - | - | - | 13/26 | 13/26 | 13/26 | 13/26 |
 | format/time | 1/3 | - | - | 20/56 | 20/56 | 20/56 | 14/56 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
@@ -1895,7 +1895,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | format/iri | - | - | - | 0/26 | 0/26 | 0/26 | 0/26 |
 | format/iri-reference | - | - | - | 0/21 | 0/21 | 0/21 | 0/21 |
 | format/json-pointer | - | - | 0/40 | 0/40 | 0/40 | 0/40 | 0/40 |
-| format/regex | 0/7 | - | - | 0/13 | 0/13 | 0/13 | 0/13 |
+| format/regex | 0/12 | - | - | 0/18 | 0/18 | 0/18 | 0/18 |
 | format/relative-json-pointer | - | - | - | 0/26 | 0/26 | 0/26 | 0/26 |
 | format/time | 0/3 | - | - | 0/56 | 0/56 | 0/56 | 0/56 |
 | format/unknown | - | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 | - |
@@ -2026,7 +2026,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | format/iri | - | - | - | 0/26 | 0/26 | 0/26 | 0/26 |
 | format/iri-reference | - | - | - | 0/21 | 0/21 | 0/21 | 0/21 |
 | format/json-pointer | - | - | 0/40 | 0/40 | 0/40 | 0/40 | 0/40 |
-| format/regex | 0/7 | - | - | 0/13 | 0/13 | 0/13 | 0/13 |
+| format/regex | 0/12 | - | - | 0/18 | 0/18 | 0/18 | 0/18 |
 | format/relative-json-pointer | - | - | - | 0/26 | 0/26 | 0/26 | 0/26 |
 | format/time | 0/3 | - | - | 0/56 | 0/56 | 0/56 | 0/56 |
 | format/unknown | - | 0/7 | 0/7 | 0/7 | 0/7 | 0/7 | - |
