@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Tue Oct 13 2026
+Updated: Fri Oct 16 2026
 
 
 ### Validation
@@ -41,15 +41,15 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11664 | 147 | 98.8% |
-| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11625 | 186 | 98.4% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 11108 | 703 | 94.0% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10914 | 897 | 92.4% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10714 | 1097 | 90.7% |
-| [Exodus-SchemaSafe](https://github.com/ExodusMovement/schemasafe) | [Results](#Exodus-SchemaSafe-Validation) | Validation | 10520 | 1291 | 89.1% |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10320 | 1491 | 87.4% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10169 | 1642 | 86.1% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8641 | 3170 | 73.2% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11665 | 147 | 98.8% |
+| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11626 | 186 | 98.4% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 11206 | 606 | 94.9% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10915 | 897 | 92.4% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10715 | 1097 | 90.7% |
+| [Exodus-SchemaSafe](https://github.com/ExodusMovement/schemasafe) | [Results](#Exodus-SchemaSafe-Validation) | Validation | 10521 | 1291 | 89.1% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10307 | 1505 | 87.3% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10171 | 1641 | 86.1% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8641 | 3171 | 73.2% |
 
 
 ### Semantics
@@ -60,9 +60,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 8248 | 3563 | 69.8% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6524 | 5287 | 55.2% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1795 | 10016 | 15.2% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 8249 | 3563 | 69.8% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6524 | 5288 | 55.2% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1795 | 10017 | 15.2% |
 
 
 ### RoundTrip
@@ -73,9 +73,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 8196 | 3615 | 69.4% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6638 | 5173 | 56.2% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1526 | 10285 | 12.9% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 8197 | 3615 | 69.4% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6639 | 5173 | 56.2% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1527 | 10285 | 12.9% |
 
 
 ## Coverage
@@ -693,7 +693,7 @@ Results for the jsonschema validation library.
 | anchor | - | - | - | - | 1/4 | 1/4 | 1/4 |
 | bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
-| cross-draft | - | - | - | 1/2 | 1/3 | ✅ | - |
+| cross-draft | - | - | - | 1/2 | 2/3 | ✅ | - |
 | dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
 | dynamicRef | - | - | - | - | - | 0/2 | 0/2 |
 | ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -767,7 +767,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | contains | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | - | ✅ | ✅ | ✅ |
 | default | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 | 4/7 |
-| definitions | - | 1/2 | ✅ | ✅ | - | - | - |
+| definitions | - | ✅ | ✅ | ✅ | - | - | - |
 | defs | - | - | - | - | ✅ | ✅ | - |
 | dependencies | 11/18 | 16/29 | 21/36 | ✅ | - | - | - |
 | dependentRequired | - | - | - | - | ✅ | ✅ | ✅ |
@@ -802,7 +802,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | ✅ | - | - |
-| ref | 22/27 | 37/45 | 63/70 | ✅ | ✅ | ✅ | ✅ |
+| ref | 22/27 | 38/45 | 63/70 | ✅ | ✅ | ✅ | ✅ |
 | refRemote | 7/8 | 11/17 | 22/23 | ✅ | ✅ | ✅ | ✅ |
 | required | 2/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | 73/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -836,24 +836,24 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/duration | - | - | - | - | ✅ | ✅ | ✅ |
 | format/ecmascript-regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
-| format/email | ✅ | 69/71 | 69/71 | 69/71 | 69/71 | 69/71 | 69/71 |
+| format/email | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/host-name | 2/12 | - | - | - | - | - | - |
 | format/hostname | - | ✅ | ✅ | 41/64 | 41/64 | 41/64 | 41/64 |
-| format/idn-email | - | - | - | 22/24 | 22/24 | 22/24 | 23/25 |
+| format/idn-email | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/idn-hostname | - | - | - | 43/98 | 43/98 | 43/98 | 43/98 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/iri | - | - | - | 25/26 | 25/26 | 25/26 | 25/26 |
-| format/iri-reference | - | - | - | 20/21 | 20/21 | 20/21 | 20/21 |
+| format/iri | - | - | - | ✅ | ✅ | ✅ | ✅ |
+| format/iri-reference | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/json-pointer | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/relative-json-pointer | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/time | 2/3 | - | - | ✅ | ✅ | ✅ | 50/56 |
 | format/unknown | - | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| format/uri | ✅ | 45/47 | 45/47 | 45/47 | 45/47 | 45/47 | 45/47 |
-| format/uri-reference | - | - | 26/31 | 26/31 | 26/31 | 26/31 | 26/31 |
-| format/uri-template | - | - | 42/48 | 42/48 | 42/48 | 42/48 | 42/48 |
+| format/uri | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/uri-reference | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
+| format/uri-template | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
 | id | - | 2/3 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
@@ -905,7 +905,7 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | dependentSchemas | - | - | - | - | ✅ | ✅ | 10/20 |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | ✅ | 16/27 |
+| dynamicRef | - | - | - | - | - | ✅ | 15/27 |
 | enum | 16/18 | ✅ | ✅ | ✅ | ✅ | ✅ | 30/53 |
 | exclusiveMaximum | - | - | ✅ | ✅ | ✅ | ✅ | 2/4 |
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | 2/4 |
@@ -991,7 +991,7 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 6/12 |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
 | proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
-| proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
+| proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 4/21 |
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 4/6 |
 | refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | 5/10 |
 | unknownKeyword | - | - | ✅ | ✅ | ✅ | ✅ | 2/3 |
@@ -1190,7 +1190,7 @@ Results for the djv validation library.
 | not | - | ✅ | ✅ | ✅ | 39/40 | 39/40 | 39/40 |
 | oneOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | pattern | ✅ | ✅ | ✅ | ✅ | ✅ | 10/12 | 10/12 |
-| patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 25/26 |
+| patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | 25/26 | 25/26 |
 | prefixItems | - | - | - | - | - | 9/11 | 9/11 |
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | 21/22 | 21/22 | 21/22 | 21/22 | 11/12 |
@@ -1583,7 +1583,7 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | not | - | 10/20 | 10/38 | 10/38 | 10/40 | 10/40 | 10/40 |
 | oneOf | - | 14/23 | 18/27 | 18/27 | 18/27 | 18/27 | 18/27 |
 | pattern | 8/9 | 8/9 | 8/9 | 8/9 | 8/9 | 9/12 | 9/12 |
-| patternProperties | 10/17 | 11/18 | 13/23 | 13/23 | 13/23 | 15/25 | 15/26 |
+| patternProperties | 10/17 | 11/18 | 13/23 | 13/23 | 13/23 | 15/26 | 15/26 |
 | prefixItems | - | - | - | - | - | 9/11 | 9/11 |
 | properties | 9/15 | 14/24 | 16/28 | 16/28 | 16/28 | 16/28 | 16/28 |
 | propertyNames | - | - | 17/22 | 17/22 | 17/22 | 17/22 | 10/12 |
@@ -1714,7 +1714,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | not | - | 10/20 | 10/38 | 10/38 | 10/40 | 10/40 | 10/40 |
 | oneOf | - | 14/23 | 18/27 | 18/27 | 18/27 | 18/27 | 18/27 |
 | pattern | 8/9 | 8/9 | 8/9 | 8/9 | 8/9 | 11/12 | 11/12 |
-| patternProperties | 10/17 | 11/18 | 13/23 | 13/23 | 13/23 | 15/25 | 16/26 |
+| patternProperties | 10/17 | 11/18 | 13/23 | 13/23 | 13/23 | 16/26 | 16/26 |
 | prefixItems | - | - | - | - | - | 9/11 | 9/11 |
 | properties | 9/15 | 14/24 | 16/28 | 16/28 | 16/28 | 16/28 | 16/28 |
 | propertyNames | - | - | 17/22 | 17/22 | 17/22 | 17/22 | 10/12 |
@@ -1845,7 +1845,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | not | - | 8/20 | 26/38 | 26/38 | 26/40 | 26/40 | 26/40 |
 | oneOf | - | 2/23 | 6/27 | 6/27 | 6/27 | 6/27 | 6/27 |
 | pattern | 0/9 | 0/9 | 0/9 | 0/9 | 0/9 | 1/12 | 1/12 |
-| patternProperties | 0/17 | 0/18 | 0/23 | 0/23 | 0/23 | 2/25 | 2/26 |
+| patternProperties | 0/17 | 0/18 | 0/23 | 0/23 | 0/23 | 2/26 | 2/26 |
 | prefixItems | - | - | - | - | - | 0/11 | 0/11 |
 | properties | 0/15 | 0/24 | 0/28 | 0/28 | 0/28 | 0/28 | 0/28 |
 | propertyNames | - | - | 0/22 | 0/22 | 0/22 | 0/22 | 0/12 |
@@ -1976,7 +1976,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | not | - | 0/20 | 0/38 | 0/38 | 0/40 | 0/40 | 0/40 |
 | oneOf | - | 0/23 | 0/27 | 0/27 | 0/27 | 0/27 | 0/27 |
 | pattern | 0/9 | 0/9 | 0/9 | 0/9 | 0/9 | 3/12 | 3/12 |
-| patternProperties | 0/17 | 0/18 | 0/23 | 0/23 | 0/23 | 2/25 | 3/26 |
+| patternProperties | 0/17 | 0/18 | 0/23 | 0/23 | 0/23 | 3/26 | 3/26 |
 | prefixItems | - | - | - | - | - | 0/11 | 0/11 |
 | properties | 0/15 | 0/24 | 0/28 | 0/28 | 0/28 | 0/28 | 0/28 |
 | propertyNames | - | - | 0/22 | 0/22 | 0/22 | 0/22 | 0/12 |

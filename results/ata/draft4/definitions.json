@@ -6,13 +6,40 @@
     },
     "tests": [
       {
+        "description": "valid definition schema",
+        "data": {
+          "definitions": {
+            "foo": {
+              "type": "integer"
+            }
+          },
+          "exclusiveMaximum": false,
+          "exclusiveMinimum": false,
+          "additionalItems": {},
+          "items": {},
+          "uniqueItems": false,
+          "additionalProperties": {},
+          "properties": {},
+          "patternProperties": {}
+        },
+        "valid": true
+      },
+      {
         "description": "invalid definition schema",
         "data": {
           "definitions": {
             "foo": {
               "type": 1
             }
-          }
+          },
+          "exclusiveMaximum": false,
+          "exclusiveMinimum": false,
+          "additionalItems": {},
+          "items": {},
+          "uniqueItems": false,
+          "additionalProperties": {},
+          "properties": {},
+          "patternProperties": {}
         },
         "valid": false
       }

@@ -73,6 +73,7 @@
   {
     "description": "after leaving a dynamic scope, it is not used by a $dynamicRef",
     "schema": {
+      "$schema": "https://json-schema.org/v1",
       "$id": "https://test.json-schema.org/dynamic-ref-leaving-dynamic-scope/main",
       "if": {
         "$id": "first_scope",

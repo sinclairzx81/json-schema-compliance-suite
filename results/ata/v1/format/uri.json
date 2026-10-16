@@ -77,7 +77,7 @@
         "valid": true
       },
       {
-        "description": "a valid URL ",
+        "description": "a valid URL",
         "data": "ldap://[2001:db8::7]/c=GB?objectClass?one",
         "valid": true
       },
@@ -226,6 +226,16 @@
       {
         "description": "non-numeric port is invalid",
         "data": "http://example.com:abc/path",
+        "valid": false
+      },
+      {
+        "description": "leading zero in an embedded IPv4 address is invalid",
+        "data": "http://[::ffff:01.2.3.4]",
+        "valid": false
+      },
+      {
+        "description": "square brackets are not allowed in a path segment",
+        "data": "http:/[::1]",
         "valid": false
       },
       {

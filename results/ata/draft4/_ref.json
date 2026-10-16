@@ -83,21 +83,6 @@
     ]
   },
   {
-    "description": "remote ref, containing refs itself",
-    "schema": {
-      "$ref": "http://json-schema.org/draft-04/schema#"
-    },
-    "tests": [
-      {
-        "description": "remote ref valid",
-        "data": {
-          "minLength": 1
-        },
-        "valid": true
-      }
-    ]
-  },
-  {
     "description": "Recursive references between schemas",
     "schema": {
       "id": "http://localhost:1234/tree",
