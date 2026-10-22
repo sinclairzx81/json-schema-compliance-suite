@@ -10,7 +10,16 @@
         "data": {
           "definitions": {
             "foo": {
-              "type": "integer"
+              "type": "integer",
+              "exclusiveMaximum": false,
+              "exclusiveMinimum": false,
+              "additionalItems": {},
+              "items": {},
+              "uniqueItems": false,
+              "additionalProperties": {},
+              "definitions": {},
+              "properties": {},
+              "patternProperties": {}
             }
           },
           "exclusiveMaximum": false,
@@ -29,7 +38,16 @@
         "data": {
           "definitions": {
             "foo": {
-              "type": 1
+              "type": 1,
+              "exclusiveMaximum": false,
+              "exclusiveMinimum": false,
+              "additionalItems": {},
+              "items": {},
+              "uniqueItems": false,
+              "additionalProperties": {},
+              "definitions": {},
+              "properties": {},
+              "patternProperties": {}
             }
           },
           "exclusiveMaximum": false,

@@ -10,7 +10,12 @@
         "data": {
           "definitions": {
             "foo": {
-              "type": "integer"
+              "type": "integer",
+              "items": {},
+              "uniqueItems": false,
+              "definitions": {},
+              "properties": {},
+              "patternProperties": {}
             }
           },
           "items": {},
@@ -25,7 +30,12 @@
         "data": {
           "definitions": {
             "foo": {
-              "type": 1
+              "type": 1,
+              "items": {},
+              "uniqueItems": false,
+              "definitions": {},
+              "properties": {},
+              "patternProperties": {}
             }
           },
           "items": {},

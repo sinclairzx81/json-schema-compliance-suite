@@ -182,6 +182,21 @@
         "valid": false
       },
       {
+        "description": "trailing newline is invalid",
+        "data": "example.com\n",
+        "valid": false
+      },
+      {
+        "description": "leading space is invalid",
+        "data": " example.com",
+        "valid": false
+      },
+      {
+        "description": "space inside a label is invalid",
+        "data": "ex ample.com",
+        "valid": false
+      },
+      {
         "description": "a label of only Arabic-Indic digits is invalid",
         "comment": "https://www.rfc-editor.org/rfc/rfc5893#section-2 condition 1 allows only L, R or AL as the first character, and an Arabic-Indic digit is AN",
         "data": "٠١",
