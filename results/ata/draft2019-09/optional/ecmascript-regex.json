@@ -51,6 +51,11 @@
         "description": "does not match",
         "data": "\\cC",
         "valid": false
+      },
+      {
+        "description": "matches",
+        "data": "\u0003",
+        "valid": true
       }
     ]
   },
@@ -66,6 +71,11 @@
         "description": "does not match",
         "data": "\\cc",
         "valid": false
+      },
+      {
+        "description": "matches",
+        "data": "\u0003",
+        "valid": true
       }
     ]
   },

@@ -6,6 +6,11 @@
     },
     "tests": [
       {
+        "description": "leading colons is valid",
+        "data": "::42:ff:1",
+        "valid": true
+      },
+      {
         "description": "trailing colons is valid",
         "data": "d6::",
         "valid": true

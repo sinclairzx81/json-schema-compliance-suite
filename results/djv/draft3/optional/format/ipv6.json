@@ -31,11 +31,6 @@
         "valid": true
       },
       {
-        "description": "leading colons is valid",
-        "data": "::1",
-        "valid": true
-      },
-      {
         "description": "two sets of double colons is invalid",
         "data": "1::d6::42",
         "valid": false

@@ -238,5 +238,39 @@
         "valid": true
       }
     ]
+  },
+  {
+    "description": "then: false fails when condition matches",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "if": {
+        "const": 1
+      },
+      "then": false
+    },
+    "tests": [
+      {
+        "description": "does not match if → then ignored → valid",
+        "data": 2,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "else: false fails when condition does not match",
+    "schema": {
+      "$schema": "https://json-schema.org/v1",
+      "if": {
+        "const": 1
+      },
+      "else": false
+    },
+    "tests": [
+      {
+        "description": "matches if → else ignored → valid",
+        "data": 1,
+        "valid": true
+      }
+    ]
   }
 ]

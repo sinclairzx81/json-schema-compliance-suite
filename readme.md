@@ -30,7 +30,7 @@ This tool peforms the following tests
 
 
 ## Results
-Updated: Thu Oct 22 2026
+Updated: Sun Nov 01 2026
 
 
 ### Validation
@@ -41,15 +41,15 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11711 | 150 | 98.7% |
-| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11664 | 197 | 98.3% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 11232 | 629 | 94.7% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10935 | 926 | 92.2% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10735 | 1126 | 90.5% |
-| [Exodus-SchemaSafe](https://github.com/ExodusMovement/schemasafe) | [Results](#Exodus-SchemaSafe-Validation) | Validation | 10544 | 1317 | 88.9% |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10348 | 1513 | 87.2% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 10194 | 1667 | 85.9% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8667 | 3194 | 73.1% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11697 | 150 | 98.7% |
+| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11650 | 197 | 98.3% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 11230 | 617 | 94.8% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 10962 | 885 | 92.5% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10722 | 1125 | 90.5% |
+| [Exodus-SchemaSafe](https://github.com/ExodusMovement/schemasafe) | [Results](#Exodus-SchemaSafe-Validation) | Validation | 10531 | 1316 | 88.9% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 10330 | 1517 | 87.2% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9940 | 1907 | 83.9% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8663 | 3184 | 73.1% |
 
 
 ### Semantics
@@ -60,9 +60,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 8257 | 3604 | 69.6% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6532 | 5329 | 55.1% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1795 | 10066 | 15.1% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 8244 | 3603 | 69.6% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6512 | 5335 | 55.0% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1795 | 10052 | 15.2% |
 
 
 ### RoundTrip
@@ -73,9 +73,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 8205 | 3656 | 69.2% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6647 | 5214 | 56.0% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1527 | 10334 | 12.9% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 8222 | 3625 | 69.4% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6627 | 5220 | 55.9% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1527 | 10320 | 12.9% |
 
 
 ## Coverage
@@ -315,7 +315,7 @@ Results for the Corvus-Dotnet validation library.
 | format/email | ✅ | 70/71 | 70/71 | 70/71 | 70/71 | 70/71 | 70/71 |
 | format/host-name | 2/15 | - | - | - | - | - | - |
 | format/hostname | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| format/idn-email | - | - | - | 22/24 | 22/24 | 22/24 | 23/25 |
+| format/idn-email | - | - | - | 22/24 | 22/24 | 22/24 | 22/24 |
 | format/idn-hostname | - | - | - | 98/101 | 98/101 | 98/101 | 98/101 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -441,12 +441,12 @@ Results for @exodus/schemasafe testing Draft 3 to 2020-12. Tests use lax mode wi
 | format/color | ✅ | - | - | - | - | - | - |
 | format/date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/date-time | 20/21 | 42/43 | 46/47 | 46/47 | 46/47 | 46/47 | 54/63 |
-| format/duration | - | - | - | - | 47/52 | 47/52 | 47/52 |
+| format/duration | - | - | - | - | 46/51 | 46/51 | 46/51 |
 | format/ecmascript-regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/email | ✅ | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 |
 | format/host-name | ✅ | - | - | - | - | - | - |
 | format/hostname | - | 32/33 | 32/33 | 42/66 | 42/66 | 42/66 | 42/66 |
-| format/idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/25 |
+| format/idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/24 |
 | format/idn-hostname | - | - | - | 0/101 | 0/101 | 0/101 | 0/101 |
 | format/ip-address | ✅ | - | - | - | - | - | - |
 | format/ipv4 | - | 40/41 | 40/41 | 40/41 | 40/41 | 40/41 | 40/41 |
@@ -498,7 +498,7 @@ Results for the @cfworker/json-schema validation library.
 | additionalItems | ✅ | ✅ | ✅ | ✅ | ✅ | - | - |
 | additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| anchor | - | - | - | - | 6/8 | 6/8 | 6/8 |
+| anchor | - | - | - | - | ✅ | ✅ | ✅ |
 | anyOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | boolean_schema | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | const | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -512,13 +512,13 @@ Results for the @cfworker/json-schema validation library.
 | dependentSchemas | - | - | - | - | ✅ | ✅ | ✅ |
 | disallow | 4/9 | - | - | - | - | - | - |
 | divisibleBy | 6/9 | - | - | - | - | - | - |
-| dynamicRef | - | - | - | - | - | 23/44 | 14/27 |
+| dynamicRef | - | - | - | - | - | 24/44 | 15/27 |
 | enum | 16/18 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | exclusiveMaximum | - | - | 2/4 | ✅ | ✅ | ✅ | 2/4 |
 | exclusiveMinimum | - | - | 2/4 | ✅ | ✅ | ✅ | 2/4 |
 | extends | 4/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 118/133 | - |
-| if-then-else | - | - | - | ✅ | ✅ | ✅ | 24/26 |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | 28/30 |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | items | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxContains | - | - | - | - | ✅ | ✅ | ✅ |
@@ -537,12 +537,12 @@ Results for the @cfworker/json-schema validation library.
 | pattern | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | prefixItems | - | - | - | - | - | ✅ | ✅ |
-| properties | ✅ | 23/24 | 27/28 | 27/28 | 27/28 | 27/28 | 27/28 |
+| properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | ✅ | - | - |
 | ref | 23/27 | 41/45 | 66/70 | 74/78 | 78/81 | 76/79 | 75/79 |
 | refRemote | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| required | 3/4 | 13/17 | 14/18 | 14/18 | 14/18 | 14/18 | 14/18 |
+| required | 3/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | 69/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 55/56 | 69/71 | 67/71 |
 | unevaluatedProperties | - | - | - | - | ✅ | 128/129 | 126/129 |
@@ -564,7 +564,7 @@ Results for the @cfworker/json-schema validation library.
 | content | - | - | - | 6/10 | - | - | - |
 | cross-draft | - | - | - | ✅ | 2/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | ✅ | ✅ | ✅ |
-| dynamicRef | - | - | - | - | - | 0/2 | 0/2 |
+| dynamicRef | - | - | - | - | - | 1/2 | 1/2 |
 | ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | float-overflow | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format-annotation | - | - | - | - | - | - | 118/133 |
@@ -572,12 +572,12 @@ Results for the @cfworker/json-schema validation library.
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/date-time | 20/21 | 39/43 | 43/47 | 43/47 | 43/47 | 43/47 | 51/63 |
-| format/duration | - | - | - | - | 47/52 | 47/52 | 47/52 |
+| format/duration | - | - | - | - | 46/51 | 46/51 | 46/51 |
 | format/ecmascript-regex | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/email | ✅ | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 |
 | format/host-name | 2/15 | - | - | - | - | - | - |
 | format/hostname | - | 32/33 | 32/33 | 42/66 | 42/66 | 42/66 | 42/66 |
-| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/25 |
+| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
 | format/idn-hostname | - | - | - | 43/101 | 43/101 | 43/101 | 43/101 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -650,8 +650,8 @@ Results for the jsonschema validation library.
 | extends | ✅ | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 118/133 | - |
 | if-then-else | - | - | - | ✅ | ✅ | ✅ | ✅ |
-| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| items | ✅ | ✅ | ✅ | ✅ | ✅ | 22/29 | 22/29 |
+| infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | 0/2 | 0/2 | 0/2 |
+| items | ✅ | ✅ | ✅ | ✅ | 22/28 | 22/29 | 22/29 |
 | maxContains | - | - | - | - | 8/14 | 8/14 | 8/14 |
 | maximum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -671,13 +671,13 @@ Results for the jsonschema validation library.
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | 22/34 | - | - |
-| ref | 25/27 | 43/45 | 54/70 | 56/78 | 35/81 | 34/79 | 34/79 |
+| ref | 17/27 | 33/45 | 42/70 | 44/78 | 17/81 | 16/79 | 16/79 |
 | refRemote | ✅ | 13/17 | 19/23 | 19/23 | 16/31 | 16/31 | 16/31 |
 | required | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| unevaluatedItems | - | - | - | - | 34/56 | 43/71 | 43/71 |
-| unevaluatedProperties | - | - | - | - | 82/129 | 82/129 | 82/129 |
-| uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | 63/69 | 63/69 |
+| unevaluatedItems | - | - | - | - | 32/56 | 41/71 | 41/71 |
+| unevaluatedProperties | - | - | - | - | 52/129 | 52/129 | 52/129 |
+| uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | 59/65 | 59/65 |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
 
@@ -690,7 +690,7 @@ Results for the jsonschema validation library.
 
 | Spec | 3 | 4 | 6 | 7 | 2019-09 | 2020-12 | v1 |
 |:-----|:--|:--|:--|:--|:--|:--|:--|
-| anchor | - | - | - | - | 1/4 | 1/4 | 1/4 |
+| anchor | - | - | - | - | 0/4 | 0/4 | 0/4 |
 | bignum | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | content | - | - | - | 6/10 | - | - | - |
 | cross-draft | - | - | - | 1/2 | 2/3 | ✅ | - |
@@ -703,12 +703,12 @@ Results for the jsonschema validation library.
 | format/color | ✅ | - | - | - | - | - | - |
 | format/date | 27/33 | - | - | 72/81 | 72/81 | 72/81 | 72/81 |
 | format/date-time | 16/21 | 32/43 | 36/47 | 36/47 | 36/47 | 36/47 | 44/63 |
-| format/duration | - | - | - | - | 39/52 | 39/52 | 39/52 |
+| format/duration | - | - | - | - | 38/51 | 38/51 | 38/51 |
 | format/ecmascript-regex | ✅ | - | - | 11/12 | 11/12 | 11/12 | 11/12 |
 | format/email | ✅ | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 |
 | format/host-name | ✅ | - | - | - | - | - | - |
 | format/hostname | - | 32/33 | 32/33 | 42/66 | 42/66 | 42/66 | 42/66 |
-| format/idn-email | - | - | - | 22/24 | 22/24 | 22/24 | 23/25 |
+| format/idn-email | - | - | - | 22/24 | 22/24 | 22/24 | 22/24 |
 | format/idn-hostname | - | - | - | 43/101 | 43/101 | 43/101 | 43/101 |
 | format/ip-address | ✅ | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -724,14 +724,14 @@ Results for the jsonschema validation library.
 | format/uri-reference | - | - | 30/31 | 30/31 | 30/31 | 30/31 | 30/31 |
 | format/uri-template | - | - | 27/48 | 27/48 | 27/48 | 27/48 | 27/48 |
 | format/uuid | - | - | - | - | ✅ | ✅ | ✅ |
-| id | - | ✅ | ✅ | ✅ | 1/3 | 1/3 | 1/3 |
+| id | - | ✅ | ✅ | ✅ | 0/3 | 0/3 | 0/3 |
 | no-schema | - | - | - | - | ✅ | ✅ | - |
 | non-bmp-regex | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | proposals/propertyDependencies/additionalProperties | - | - | - | - | - | - | ✅ |
 | proposals/propertyDependencies/dynamicRef | - | - | - | - | - | - | 4/8 |
 | proposals/propertyDependencies/propertyDependencies | - | - | - | - | - | - | 17/21 |
 | proposals/propertyDependencies/unevaluatedProperties | - | - | - | - | - | - | 2/6 |
-| refOfUnknownKeyword | - | - | - | - | ✅ | ✅ | ✅ |
+| refOfUnknownKeyword | - | - | - | - | 0/10 | 0/10 | 0/10 |
 | unknownKeyword | - | - | ✅ | ✅ | 0/3 | 0/3 | 0/3 |
 | zeroTerminatedFloats | 0/1 | 0/1 | - | - | - | - | - |
 
@@ -808,7 +808,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | type | 73/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | ✅ | ✅ | ✅ |
 | unevaluatedProperties | - | - | - | - | ✅ | ✅ | ✅ |
-| uniqueItems | 60/62 | 67/69 | 67/69 | ✅ | ✅ | ✅ | ✅ |
+| uniqueItems | 60/62 | 63/65 | 63/65 | ✅ | ✅ | ✅ | ✅ |
 | vocabulary | - | - | - | - | ✅ | ✅ | - |
 
 
@@ -827,7 +827,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | cross-draft | - | - | - | ✅ | 2/3 | 0/1 | - |
 | dependencies-compatibility | - | - | - | - | 22/36 | 22/36 | 22/36 |
 | dynamicRef | - | - | - | - | - | ✅ | ✅ |
-| ecmascript-regex | - | 72/74 | 72/74 | 72/74 | 72/74 | 72/74 | 72/74 |
+| ecmascript-regex | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | float-overflow | - | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 | 0/1 |
 | format-annotation | - | - | - | - | - | - | 115/133 |
 | format-assertion | - | - | - | - | - | ✅ | - |
@@ -911,7 +911,7 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | 2/4 |
 | extends | 7/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | 114/133 | - |
-| if-then-else | - | - | - | ✅ | ✅ | ✅ | 8/26 |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | 10/30 |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 1/2 |
 | items | 5/7 | 13/21 | 18/28 | 18/28 | ✅ | ✅ | 12/29 |
 | maxContains | - | - | - | - | ✅ | ✅ | 7/14 |
@@ -931,7 +931,7 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 11/26 |
 | prefixItems | - | - | - | - | - | ✅ | 2/11 |
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 12/28 |
-| propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | 2/12 |
+| propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | 5/22 |
 | recursiveRef | - | - | - | - | 17/34 | - | - |
 | ref | 22/27 | 41/45 | 62/70 | 70/78 | ✅ | ✅ | 42/79 |
 | refRemote | ✅ | ✅ | 22/23 | 22/23 | ✅ | ✅ | 15/31 |
@@ -939,7 +939,7 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | type | 67/80 | ✅ | ✅ | ✅ | ✅ | ✅ | 59/80 |
 | unevaluatedItems | - | - | - | - | 55/56 | ✅ | 29/71 |
 | unevaluatedProperties | - | - | - | - | 128/129 | ✅ | 62/129 |
-| uniqueItems | 44/62 | 51/69 | 51/69 | 51/69 | ✅ | ✅ | 19/69 |
+| uniqueItems | 44/62 | 47/65 | 47/65 | 47/65 | ✅ | ✅ | 19/65 |
 | vocabulary | - | - | - | - | ✅ | ✅ | - |
 
 
@@ -965,12 +965,12 @@ Results for the z-schema validator using the `validate(...)` function wrapped in
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | ✅ | - | - | ✅ | ✅ | ✅ | 58/81 |
 | format/date-time | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 38/63 |
-| format/duration | - | - | - | - | ✅ | ✅ | 25/52 |
+| format/duration | - | - | - | - | ✅ | ✅ | 25/51 |
 | format/ecmascript-regex | ✅ | - | - | ✅ | ✅ | ✅ | 6/12 |
 | format/email | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 44/71 |
 | format/host-name | ✅ | - | - | - | - | - | - |
 | format/hostname | - | ✅ | ✅ | ✅ | ✅ | ✅ | 37/66 |
-| format/idn-email | - | - | - | ✅ | ✅ | ✅ | 9/25 |
+| format/idn-email | - | - | - | ✅ | ✅ | ✅ | 8/24 |
 | format/idn-hostname | - | - | - | ✅ | ✅ | ✅ | 58/101 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | 30/41 |
@@ -1070,7 +1070,7 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 | type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 53/56 | 59/71 | 44/71 |
 | unevaluatedProperties | - | - | - | - | 126/129 | 124/129 | 83/129 |
-| uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 63/69 |
+| uniqueItems | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 59/65 |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
 
@@ -1096,12 +1096,12 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
 | format/date-time | 17/21 | 39/43 | 43/47 | 43/47 | 43/47 | 43/47 | 51/63 |
-| format/duration | - | - | - | - | 50/52 | 50/52 | 50/52 |
+| format/duration | - | - | - | - | 49/51 | 49/51 | 49/51 |
 | format/ecmascript-regex | ✅ | - | - | 11/12 | 11/12 | 11/12 | 11/12 |
 | format/email | ✅ | 58/71 | 58/71 | 58/71 | 58/71 | 58/71 | 58/71 |
 | format/host-name | 2/15 | - | - | - | - | - | - |
 | format/hostname | - | 32/33 | 32/33 | 42/66 | 42/66 | 42/66 | 42/66 |
-| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/25 |
+| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
 | format/idn-hostname | - | - | - | 43/101 | 43/101 | 43/101 | 43/101 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -1173,7 +1173,7 @@ Results for the djv validation library.
 | exclusiveMinimum | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | extends | 4/10 | - | - | - | - | - | - |
 | format | 36/60 | 3/36 | 14/54 | 62/102 | 74/114 | 84/133 | - |
-| if-then-else | - | - | - | 20/30 | 20/30 | 20/30 | 18/26 |
+| if-then-else | - | - | - | 20/30 | 20/30 | 20/30 | 20/30 |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | items | ✅ | ✅ | ✅ | ✅ | ✅ | 22/29 | 22/29 |
 | maxContains | - | - | - | - | 8/14 | 8/14 | 8/14 |
@@ -1193,7 +1193,7 @@ Results for the djv validation library.
 | patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | 25/26 | 25/26 |
 | prefixItems | - | - | - | - | - | 9/11 | 9/11 |
 | properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| propertyNames | - | - | 21/22 | 21/22 | 21/22 | 21/22 | 11/12 |
+| propertyNames | - | - | 21/22 | 21/22 | 21/22 | 21/22 | 21/22 |
 | recursiveRef | - | - | - | - | 23/34 | - | - |
 | ref | 23/27 | 35/45 | 51/70 | 51/78 | 49/81 | 48/79 | 50/79 |
 | refRemote | 7/8 | 10/17 | 15/23 | 15/23 | 17/31 | 17/31 | 17/31 |
@@ -1201,7 +1201,7 @@ Results for the djv validation library.
 | type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 34/56 | 43/71 | 43/71 |
 | unevaluatedProperties | - | - | - | - | 82/129 | 82/129 | 82/129 |
-| uniqueItems | 37/62 | 39/69 | 39/69 | 39/69 | 39/69 | 37/69 | 37/69 |
+| uniqueItems | 37/62 | 37/65 | 37/65 | 37/65 | 37/65 | 35/65 | 35/65 |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
 
@@ -1227,16 +1227,16 @@ Results for the djv validation library.
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format/date-time | 16/21 | 28/43 | 32/47 | 32/47 | 32/47 | 32/47 | 40/63 |
-| format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
+| format/duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
 | format/ecmascript-regex | 2/3 | - | - | 5/12 | 5/12 | 5/12 | 5/12 |
 | format/email | 7/11 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
 | format/host-name | 2/15 | - | - | - | - | - | - |
 | format/hostname | - | 30/33 | 30/33 | 40/66 | 40/66 | 40/66 | 40/66 |
-| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/25 |
+| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
 | format/idn-hostname | - | - | - | 43/101 | 43/101 | 43/101 | 43/101 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 34/41 | 34/41 | 34/41 | 34/41 | 34/41 | 34/41 |
-| format/ipv6 | 10/12 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 |
+| format/ipv6 | 9/12 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 | 38/51 |
 | format/iri | - | - | - | 17/26 | 17/26 | 17/26 | 17/26 |
 | format/iri-reference | - | - | - | 14/21 | 14/21 | 14/21 | 14/21 |
 | format/json-pointer | - | - | 35/40 | 35/40 | 35/40 | 35/40 | 35/40 |
@@ -1358,12 +1358,12 @@ Results using `S.fromJSONSchemaOrThrow(...)` to test Sury semantics against the 
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format/date-time | 6/21 | 17/43 | 17/47 | 17/47 | 17/47 | 17/47 | 25/63 |
-| format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
+| format/duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
 | format/email | 5/11 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
 | format/host-name | 2/15 | - | - | - | - | - | - |
 | format/hostname | - | 14/33 | 14/33 | 29/66 | 29/66 | 29/66 | 29/66 |
-| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/25 |
+| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
 | format/idn-hostname | - | - | - | 43/101 | 43/101 | 43/101 | 43/101 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 |
@@ -1435,7 +1435,7 @@ Results using `S.fromJSONSchemaOrThrow(...)` and `S.toInputJSONSchemaOrThrow(...
 | exclusiveMinimum | - | - | 2/4 | ✅ | ✅ | ✅ | 2/4 |
 | extends | 4/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| if-then-else | - | - | - | ✅ | ✅ | ✅ | 24/26 |
+| if-then-else | - | - | - | ✅ | ✅ | ✅ | 28/30 |
 | infinite-loop-detection | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | items | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | maxContains | - | - | - | - | ✅ | ✅ | ✅ |
@@ -1454,12 +1454,12 @@ Results using `S.fromJSONSchemaOrThrow(...)` and `S.toInputJSONSchemaOrThrow(...
 | pattern | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | patternProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | prefixItems | - | - | - | - | - | ✅ | ✅ |
-| properties | ✅ | 23/24 | 27/28 | 27/28 | 27/28 | 27/28 | 27/28 |
+| properties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | propertyNames | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | recursiveRef | - | - | - | - | 0/34 | - | - |
 | ref | 23/27 | 33/45 | 44/70 | 44/78 | 44/81 | 44/79 | 43/79 |
 | refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
-| required | 3/4 | 13/17 | 14/18 | 14/18 | 14/18 | 14/18 | 14/18 |
+| required | 3/4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 0/56 | 0/71 | 0/71 |
 | unevaluatedProperties | - | - | - | - | 0/129 | 0/129 | 0/129 |
@@ -1489,12 +1489,12 @@ Results using `S.fromJSONSchemaOrThrow(...)` and `S.toInputJSONSchemaOrThrow(...
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format/date-time | 6/21 | 17/43 | 17/47 | 17/47 | 17/47 | 17/47 | 25/63 |
-| format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
+| format/duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
 | format/email | 5/11 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
 | format/host-name | 2/15 | - | - | - | - | - | - |
 | format/hostname | - | 14/33 | 14/33 | 29/66 | 29/66 | 29/66 | 29/66 |
-| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/25 |
+| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
 | format/idn-hostname | - | - | - | 43/101 | 43/101 | 43/101 | 43/101 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 |
@@ -1566,7 +1566,7 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | exclusiveMinimum | - | - | 2/4 | 2/4 | 2/4 | 2/4 | 2/4 |
 | extends | 3/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/26 |
+| if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/30 |
 | infinite-loop-detection | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 |
 | items | 5/7 | 13/21 | 18/28 | 18/28 | 23/28 | 22/29 | 22/29 |
 | maxContains | - | - | - | - | 7/14 | 7/14 | 7/14 |
@@ -1586,7 +1586,7 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | patternProperties | 10/17 | 11/18 | 13/23 | 13/23 | 13/23 | 15/26 | 15/26 |
 | prefixItems | - | - | - | - | - | 9/11 | 9/11 |
 | properties | 9/15 | 14/24 | 16/28 | 16/28 | 16/28 | 16/28 | 16/28 |
-| propertyNames | - | - | 17/22 | 17/22 | 17/22 | 17/22 | 10/12 |
+| propertyNames | - | - | 17/22 | 17/22 | 17/22 | 17/22 | 17/22 |
 | recursiveRef | - | - | - | - | 20/34 | - | - |
 | ref | 13/27 | 13/45 | 21/70 | 21/78 | 27/81 | 27/79 | 27/79 |
 | refRemote | 1/8 | 1/17 | 2/23 | 2/23 | 2/31 | 2/31 | 2/31 |
@@ -1594,7 +1594,7 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 1/56 | 1/71 | 1/71 |
 | unevaluatedProperties | - | - | - | - | 0/129 | 1/129 | 0/129 |
-| uniqueItems | 45/62 | 50/69 | 50/69 | 50/69 | 50/69 | 50/69 | 50/69 |
+| uniqueItems | 45/62 | 46/65 | 46/65 | 46/65 | 46/65 | 46/65 | 46/65 |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
 
@@ -1620,12 +1620,12 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format/date-time | 6/21 | 17/43 | 17/47 | 17/47 | 17/47 | 17/47 | 25/63 |
-| format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
+| format/duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
 | format/email | 5/11 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
 | format/host-name | 2/15 | - | - | - | - | - | - |
 | format/hostname | - | 14/33 | 14/33 | 29/66 | 29/66 | 29/66 | 29/66 |
-| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/25 |
+| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
 | format/idn-hostname | - | - | - | 43/101 | 43/101 | 43/101 | 43/101 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 |
@@ -1697,7 +1697,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | exclusiveMinimum | - | - | 2/4 | 2/4 | 2/4 | 2/4 | 2/4 |
 | extends | 3/10 | - | - | - | - | - | - |
 | format | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | - |
-| if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/26 |
+| if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/30 |
 | infinite-loop-detection | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 |
 | items | 5/7 | 13/21 | 18/28 | 18/28 | 23/28 | 22/29 | 22/29 |
 | maxContains | - | - | - | - | 7/14 | 7/14 | 7/14 |
@@ -1717,7 +1717,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | patternProperties | 10/17 | 11/18 | 13/23 | 13/23 | 13/23 | 16/26 | 16/26 |
 | prefixItems | - | - | - | - | - | 9/11 | 9/11 |
 | properties | 9/15 | 14/24 | 16/28 | 16/28 | 16/28 | 16/28 | 16/28 |
-| propertyNames | - | - | 17/22 | 17/22 | 17/22 | 17/22 | 10/12 |
+| propertyNames | - | - | 17/22 | 17/22 | 17/22 | 17/22 | 17/22 |
 | recursiveRef | - | - | - | - | 28/34 | - | - |
 | ref | 14/27 | 14/45 | 22/70 | 22/78 | 28/81 | 28/79 | 28/79 |
 | refRemote | 1/8 | 1/17 | 2/23 | 2/23 | 2/31 | 2/31 | 2/31 |
@@ -1725,7 +1725,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 1/56 | 1/71 | 1/71 |
 | unevaluatedProperties | - | - | - | - | 0/129 | 1/129 | 0/129 |
-| uniqueItems | 45/62 | 50/69 | 50/69 | 50/69 | 50/69 | 50/69 | 50/69 |
+| uniqueItems | 45/62 | 46/65 | 46/65 | 46/65 | 46/65 | 46/65 | 46/65 |
 | vocabulary | - | - | - | - | 4/5 | 4/5 | - |
 
 
@@ -1751,12 +1751,12 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | format/color | 3/6 | - | - | - | - | - | - |
 | format/date | 14/33 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format/date-time | 6/21 | 17/43 | 17/47 | 17/47 | 17/47 | 17/47 | 25/63 |
-| format/duration | - | - | - | - | 27/52 | 27/52 | 27/52 |
+| format/duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
 | format/ecmascript-regex | 2/3 | - | - | 6/12 | 6/12 | 6/12 | 6/12 |
 | format/email | 5/11 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
 | format/host-name | 2/15 | - | - | - | - | - | - |
 | format/hostname | - | 14/33 | 14/33 | 29/66 | 29/66 | 29/66 | 29/66 |
-| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/25 |
+| format/idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
 | format/idn-hostname | - | - | - | 43/101 | 43/101 | 43/101 | 43/101 |
 | format/ip-address | 1/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 | 11/41 |
@@ -1828,7 +1828,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | exclusiveMinimum | - | - | 0/4 | 0/4 | 0/4 | 0/4 | 0/4 |
 | extends | 0/10 | - | - | - | - | - | - |
 | format | 0/60 | 0/36 | 0/54 | 0/102 | 0/114 | 0/133 | - |
-| if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/26 |
+| if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/30 |
 | infinite-loop-detection | 0/2 | 0/2 | 0/2 | 0/2 | 0/2 | 0/2 | 0/2 |
 | items | 0/7 | 3/21 | 3/28 | 3/28 | 3/28 | 3/29 | 3/29 |
 | maxContains | - | - | - | - | 0/14 | 0/14 | 0/14 |
@@ -1848,7 +1848,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | patternProperties | 0/17 | 0/18 | 0/23 | 0/23 | 0/23 | 2/26 | 2/26 |
 | prefixItems | - | - | - | - | - | 0/11 | 0/11 |
 | properties | 0/15 | 0/24 | 0/28 | 0/28 | 0/28 | 0/28 | 0/28 |
-| propertyNames | - | - | 0/22 | 0/22 | 0/22 | 0/22 | 0/12 |
+| propertyNames | - | - | 0/22 | 0/22 | 0/22 | 0/22 | 0/22 |
 | recursiveRef | - | - | - | - | 2/34 | - | - |
 | ref | 1/27 | 1/45 | 2/70 | 2/78 | 2/81 | 2/79 | 2/79 |
 | refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
@@ -1856,7 +1856,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | type | 59/80 | 78/79 | 79/80 | 79/80 | 79/80 | 79/80 | 79/80 |
 | unevaluatedItems | - | - | - | - | 1/56 | 1/71 | 1/71 |
 | unevaluatedProperties | - | - | - | - | 20/129 | 5/129 | 20/129 |
-| uniqueItems | 0/62 | 0/69 | 0/69 | 0/69 | 0/69 | 0/69 | 0/69 |
+| uniqueItems | 0/62 | 0/65 | 0/65 | 0/65 | 0/65 | 0/65 | 0/65 |
 | vocabulary | - | - | - | - | 2/5 | 2/5 | - |
 
 
@@ -1882,12 +1882,12 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | format/color | 0/6 | - | - | - | - | - | - |
 | format/date | 0/33 | - | - | 0/81 | 0/81 | 0/81 | 0/81 |
 | format/date-time | 0/21 | 0/43 | 0/47 | 0/47 | 0/47 | 0/47 | 0/63 |
-| format/duration | - | - | - | - | 0/52 | 0/52 | 0/52 |
+| format/duration | - | - | - | - | 0/51 | 0/51 | 0/51 |
 | format/ecmascript-regex | 0/3 | - | - | 0/12 | 0/12 | 0/12 | 0/12 |
 | format/email | 0/11 | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 |
 | format/host-name | 0/15 | - | - | - | - | - | - |
 | format/hostname | - | 0/33 | 0/33 | 0/66 | 0/66 | 0/66 | 0/66 |
-| format/idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/25 |
+| format/idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/24 |
 | format/idn-hostname | - | - | - | 0/101 | 0/101 | 0/101 | 0/101 |
 | format/ip-address | 0/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 0/41 | 0/41 | 0/41 | 0/41 | 0/41 | 0/41 |
@@ -1959,7 +1959,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | exclusiveMinimum | - | - | 0/4 | 0/4 | 0/4 | 0/4 | 0/4 |
 | extends | 0/10 | - | - | - | - | - | - |
 | format | 0/60 | 0/36 | 0/54 | 0/102 | 0/114 | 0/133 | - |
-| if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/26 |
+| if-then-else | - | - | - | 0/30 | 0/30 | 0/30 | 0/30 |
 | infinite-loop-detection | 0/2 | 0/2 | 0/2 | 0/2 | 0/2 | 0/2 | 0/2 |
 | items | 0/7 | 3/21 | 3/28 | 3/28 | 3/28 | 3/29 | 3/29 |
 | maxContains | - | - | - | - | 0/14 | 0/14 | 0/14 |
@@ -1979,7 +1979,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | patternProperties | 0/17 | 0/18 | 0/23 | 0/23 | 0/23 | 3/26 | 3/26 |
 | prefixItems | - | - | - | - | - | 0/11 | 0/11 |
 | properties | 0/15 | 0/24 | 0/28 | 0/28 | 0/28 | 0/28 | 0/28 |
-| propertyNames | - | - | 0/22 | 0/22 | 0/22 | 0/22 | 0/12 |
+| propertyNames | - | - | 0/22 | 0/22 | 0/22 | 0/22 | 0/22 |
 | recursiveRef | - | - | - | - | 0/34 | - | - |
 | ref | 0/27 | 0/45 | 0/70 | 0/78 | 0/81 | 0/79 | 0/79 |
 | refRemote | 0/8 | 0/17 | 0/23 | 0/23 | 0/31 | 0/31 | 0/31 |
@@ -1987,7 +1987,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | type | 60/80 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | unevaluatedItems | - | - | - | - | 1/56 | 1/71 | 1/71 |
 | unevaluatedProperties | - | - | - | - | 18/129 | 3/129 | 18/129 |
-| uniqueItems | 0/62 | 0/69 | 0/69 | 0/69 | 0/69 | 0/69 | 0/69 |
+| uniqueItems | 0/62 | 0/65 | 0/65 | 0/65 | 0/65 | 0/65 | 0/65 |
 | vocabulary | - | - | - | - | 2/5 | 2/5 | - |
 
 
@@ -2013,12 +2013,12 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | format/color | 0/6 | - | - | - | - | - | - |
 | format/date | 0/33 | - | - | 0/81 | 0/81 | 0/81 | 0/81 |
 | format/date-time | 0/21 | 0/43 | 0/47 | 0/47 | 0/47 | 0/47 | 0/63 |
-| format/duration | - | - | - | - | 0/52 | 0/52 | 0/52 |
+| format/duration | - | - | - | - | 0/51 | 0/51 | 0/51 |
 | format/ecmascript-regex | 0/3 | - | - | 0/12 | 0/12 | 0/12 | 0/12 |
 | format/email | 0/11 | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 |
 | format/host-name | 0/15 | - | - | - | - | - | - |
 | format/hostname | - | 0/33 | 0/33 | 0/66 | 0/66 | 0/66 | 0/66 |
-| format/idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/25 |
+| format/idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/24 |
 | format/idn-hostname | - | - | - | 0/101 | 0/101 | 0/101 | 0/101 |
 | format/ip-address | 0/3 | - | - | - | - | - | - |
 | format/ipv4 | - | 0/41 | 0/41 | 0/41 | 0/41 | 0/41 | 0/41 |
