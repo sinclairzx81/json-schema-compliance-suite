@@ -1,0 +1,19 @@
+[
+  {
+    "description": "color format annotation",
+    "compatibility": "<=3",
+    "tags": [
+      "format-annotation"
+    ],
+    "schema": {
+      "format": "ipv4"
+    },
+    "tests": [
+      {
+        "description": "invalid color string is only an annotation by default",
+        "data": "#00332520",
+        "valid": true
+      }
+    ]
+  }
+]

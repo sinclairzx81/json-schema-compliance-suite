@@ -1,0 +1,19 @@
+[
+  {
+    "description": "\\a is not an ECMA 262 control escape",
+    "compatibility": "<=3,7",
+    "tags": [
+      "format-assertion"
+    ],
+    "schema": {
+      "format": "regex"
+    },
+    "tests": [
+      {
+        "description": "when used as a pattern",
+        "data": "\\a",
+        "valid": false
+      }
+    ]
+  }
+]

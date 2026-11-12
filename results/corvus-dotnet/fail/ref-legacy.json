@@ -1,0 +1,56 @@
+[
+  {
+    "description": "relative pointer ref to array",
+    "compatibility": "3,<=2019",
+    "schema": {
+      "items": [
+        {
+          "type": "integer"
+        },
+        {
+          "$ref": "#/items/0"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "mismatch array",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "ref overrides any sibling keywords",
+    "compatibility": "3,<=7",
+    "schema": {
+      "definitions": {
+        "reffed": {
+          "type": "array"
+        }
+      },
+      "properties": {
+        "foo": {
+          "$ref": "#/definitions/reffed",
+          "maxItems": 2
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "ref valid, maxItems ignored",
+        "data": {
+          "foo": [
+            1,
+            2,
+            3
+          ]
+        },
+        "valid": true
+      }
+    ]
+  }
+]

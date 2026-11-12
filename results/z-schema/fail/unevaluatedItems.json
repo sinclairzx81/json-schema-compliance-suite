@@ -1,0 +1,520 @@
+[
+  {
+    "description": "unevaluatedItems with tuple",
+    "compatibility": "=2019",
+    "schema": {
+      "items": [
+        {
+          "type": "string"
+        }
+      ],
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [
+          "foo"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with items and additionalItems",
+    "compatibility": "=2019",
+    "schema": {
+      "items": [
+        {
+          "type": "string"
+        }
+      ],
+      "additionalItems": true,
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "unevaluatedItems doesn't apply",
+        "data": [
+          "foo",
+          42
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with nested tuple",
+    "compatibility": "=2019",
+    "schema": {
+      "items": [
+        {
+          "type": "string"
+        }
+      ],
+      "allOf": [
+        {
+          "items": [
+            true,
+            {
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [
+          "foo",
+          42
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with nested items and additionalItems",
+    "compatibility": "=2019",
+    "schema": {
+      "allOf": [
+        {
+          "items": [
+            {
+              "type": "string"
+            }
+          ],
+          "additionalItems": true
+        }
+      ],
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "with no additional items",
+        "data": [
+          "foo"
+        ],
+        "valid": true
+      },
+      {
+        "description": "with additional items",
+        "data": [
+          "foo",
+          42,
+          true
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with nested unevaluatedItems",
+    "compatibility": "=2019",
+    "schema": {
+      "allOf": [
+        {
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "unevaluatedItems": true
+        }
+      ],
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "with no additional items",
+        "data": [
+          "foo"
+        ],
+        "valid": true
+      },
+      {
+        "description": "with additional items",
+        "data": [
+          "foo",
+          42,
+          true
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with anyOf",
+    "compatibility": "=2019",
+    "schema": {
+      "items": [
+        {
+          "const": "foo"
+        }
+      ],
+      "anyOf": [
+        {
+          "items": [
+            true,
+            {
+              "const": "bar"
+            }
+          ]
+        },
+        {
+          "items": [
+            true,
+            true,
+            {
+              "const": "baz"
+            }
+          ]
+        }
+      ],
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "when one schema matches and has no unevaluated items",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      },
+      {
+        "description": "when two schemas match and has no unevaluated items",
+        "data": [
+          "foo",
+          "bar",
+          "baz"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with oneOf",
+    "compatibility": "=2019",
+    "schema": {
+      "items": [
+        {
+          "const": "foo"
+        }
+      ],
+      "oneOf": [
+        {
+          "items": [
+            true,
+            {
+              "const": "bar"
+            }
+          ]
+        },
+        {
+          "items": [
+            true,
+            {
+              "const": "baz"
+            }
+          ]
+        }
+      ],
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with if/then/else",
+    "compatibility": "=2019",
+    "schema": {
+      "items": [
+        {
+          "const": "foo"
+        }
+      ],
+      "if": {
+        "items": [
+          true,
+          {
+            "const": "bar"
+          }
+        ]
+      },
+      "then": {
+        "items": [
+          true,
+          true,
+          {
+            "const": "then"
+          }
+        ]
+      },
+      "else": {
+        "items": [
+          true,
+          true,
+          true,
+          {
+            "const": "else"
+          }
+        ]
+      },
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "when if matches and it has no unevaluated items",
+        "data": [
+          "foo",
+          "bar",
+          "then"
+        ],
+        "valid": true
+      },
+      {
+        "description": "when if doesn't match and it has no unevaluated items",
+        "data": [
+          "foo",
+          42,
+          42,
+          "else"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with $ref",
+    "compatibility": "=2019",
+    "schema": {
+      "$ref": "#/$defs/bar",
+      "items": [
+        {
+          "type": "string"
+        }
+      ],
+      "unevaluatedItems": false,
+      "$defs": {
+        "bar": {
+          "items": [
+            true,
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems before $ref",
+    "compatibility": "=2019",
+    "schema": {
+      "unevaluatedItems": false,
+      "items": [
+        {
+          "type": "string"
+        }
+      ],
+      "$ref": "#/$defs/bar",
+      "$defs": {
+        "bar": {
+          "items": [
+            true,
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with $dynamicRef",
+    "compatibility": "9999",
+    "schema": {
+      "$id": "https://example.com/unevaluated-items-with-dynamic-ref/derived",
+      "$ref": "./baseSchema",
+      "$defs": {
+        "derived": {
+          "$dynamicAnchor": "addons",
+          "prefixItems": [
+            true,
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "baseSchema": {
+          "$id": "./baseSchema",
+          "$dynamicAnchor": "addons",
+          "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+          "unevaluatedItems": false,
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string"
+            }
+          ],
+          "$dynamicRef": "addons"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [
+          "foo",
+          "bar"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems with $recursiveRef",
+    "compatibility": "=2019",
+    "schema": {
+      "$id": "https://example.com/unevaluated-items-with-recursive-ref/extended-tree",
+      "$recursiveAnchor": true,
+      "$ref": "./tree",
+      "items": [
+        true,
+        true,
+        {
+          "type": "string"
+        }
+      ],
+      "$defs": {
+        "tree": {
+          "$id": "./tree",
+          "$recursiveAnchor": true,
+          "type": "array",
+          "items": [
+            {
+              "type": "number"
+            },
+            {
+              "$comment": "unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering",
+              "unevaluatedItems": false,
+              "$recursiveRef": "#"
+            }
+          ]
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [
+          1,
+          [
+            2,
+            [],
+            "b"
+          ],
+          "a"
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "item is evaluated in an uncle schema to unevaluatedItems",
+    "compatibility": "=2019",
+    "schema": {
+      "properties": {
+        "foo": {
+          "items": [
+            {
+              "type": "string"
+            }
+          ],
+          "unevaluatedItems": false
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "foo": {
+              "items": [
+                true,
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "no extra items",
+        "data": {
+          "foo": [
+            "test"
+          ]
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "unevaluatedItems can see annotations from if without then and else",
+    "compatibility": "=2019",
+    "schema": {
+      "if": {
+        "items": [
+          {
+            "const": "a"
+          }
+        ]
+      },
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "valid in case if is evaluated",
+        "data": [
+          "a"
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

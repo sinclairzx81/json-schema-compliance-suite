@@ -1,0 +1,303 @@
+[
+  {
+    "description": "root pointer ref",
+    "compatibility": "3",
+    "schema": {
+      "properties": {
+        "foo": {
+          "$ref": "#"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "foo": false
+        },
+        "valid": true
+      },
+      {
+        "description": "recursive match",
+        "data": {
+          "foo": {
+            "foo": false
+          }
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "relative pointer ref to object",
+    "compatibility": "3",
+    "schema": {
+      "properties": {
+        "foo": {
+          "type": "integer"
+        },
+        "bar": {
+          "$ref": "#/properties/foo"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "bar": 3
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "relative pointer ref to array",
+    "compatibility": "2020",
+    "schema": {
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "$ref": "#/prefixItems/0"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "match array",
+        "data": [
+          1,
+          2
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "escaped pointer ref",
+    "compatibility": "2019",
+    "schema": {
+      "$defs": {
+        "tilde~field": {
+          "type": "integer"
+        },
+        "slash/field": {
+          "type": "integer"
+        },
+        "percent%field": {
+          "type": "integer"
+        }
+      },
+      "properties": {
+        "tilde": {
+          "$ref": "#/$defs/tilde~0field"
+        },
+        "slash": {
+          "$ref": "#/$defs/slash~1field"
+        },
+        "percent": {
+          "$ref": "#/$defs/percent%25field"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "slash valid",
+        "data": {
+          "slash": 123
+        },
+        "valid": true
+      },
+      {
+        "description": "tilde valid",
+        "data": {
+          "tilde": 123
+        },
+        "valid": true
+      },
+      {
+        "description": "percent valid",
+        "data": {
+          "percent": 123
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "nested refs",
+    "compatibility": "2019",
+    "schema": {
+      "$defs": {
+        "a": {
+          "type": "integer"
+        },
+        "b": {
+          "$ref": "#/$defs/a"
+        },
+        "c": {
+          "$ref": "#/$defs/b"
+        }
+      },
+      "$ref": "#/$defs/c"
+    },
+    "tests": [
+      {
+        "description": "nested ref valid",
+        "data": 5,
+        "valid": true
+      },
+      {
+        "description": "nested ref invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "ref applies alongside sibling keywords",
+    "compatibility": "2019",
+    "schema": {
+      "$defs": {
+        "reffed": {
+          "type": "array"
+        }
+      },
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/reffed",
+          "maxItems": 2
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "ref valid, maxItems valid",
+        "data": {
+          "foo": []
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "property named $ref that is not a reference",
+    "compatibility": "3",
+    "schema": {
+      "properties": {
+        "$ref": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "property named $ref valid",
+        "data": {
+          "$ref": "a"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "property named $ref, containing an actual $ref",
+    "compatibility": "2019",
+    "schema": {
+      "properties": {
+        "$ref": {
+          "$ref": "#/$defs/is-string"
+        }
+      },
+      "$defs": {
+        "is-string": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "property named $ref valid",
+        "data": {
+          "$ref": "a"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "naive replacement of $ref with its destination is not correct",
+    "compatibility": "2019",
+    "schema": {
+      "$defs": {
+        "a_string": {
+          "type": "string"
+        }
+      },
+      "enum": [
+        {
+          "$ref": "#/$defs/a_string"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "do not evaluate the $ref inside the enum, matching any string",
+        "data": "this is a string",
+        "valid": false
+      },
+      {
+        "description": "do not evaluate the $ref inside the enum, definition exact match",
+        "data": {
+          "type": "string"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$ref to boolean schema true",
+    "compatibility": "2019",
+    "schema": {
+      "$ref": "#/$defs/bool",
+      "$defs": {
+        "bool": true
+      }
+    },
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "refs with quote",
+    "compatibility": "2019",
+    "schema": {
+      "properties": {
+        "foo\"bar": {
+          "$ref": "#/$defs/foo%22bar"
+        }
+      },
+      "$defs": {
+        "foo\"bar": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "object with numbers is valid",
+        "data": {
+          "foo\"bar": 1
+        },
+        "valid": true
+      }
+    ]
+  }
+]

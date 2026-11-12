@@ -1,0 +1,19 @@
+[
+  {
+    "description": "hostname format annotation",
+    "compatibility": "4",
+    "tags": [
+      "format-annotation"
+    ],
+    "schema": {
+      "format": "hostname"
+    },
+    "tests": [
+      {
+        "description": "invalid hostname string is only an annotation by default",
+        "data": "-a-host-name-that-starts-with--",
+        "valid": true
+      }
+    ]
+  }
+]

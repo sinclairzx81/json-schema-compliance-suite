@@ -1,0 +1,264 @@
+[
+  {
+    "description": "an array of schemas for items",
+    "compatibility": "<=2019",
+    "schema": {
+      "items": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "wrong types",
+        "data": [
+          "foo",
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "items and subitems (7)",
+    "compatibility": "<=7",
+    "schema": {
+      "definitions": {
+        "item": {
+          "type": "array",
+          "additionalItems": false,
+          "items": [
+            {
+              "$ref": "#/definitions/sub-item"
+            },
+            {
+              "$ref": "#/definitions/sub-item"
+            }
+          ]
+        },
+        "sub-item": {
+          "type": "object",
+          "properties": {
+            "foo": {
+              "type": "null"
+            }
+          }
+        }
+      },
+      "type": "array",
+      "additionalItems": false,
+      "items": [
+        {
+          "$ref": "#/definitions/item"
+        },
+        {
+          "$ref": "#/definitions/item"
+        },
+        {
+          "$ref": "#/definitions/item"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "too many items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "too many sub-items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "wrong item",
+        "data": [
+          {
+            "foo": null
+          },
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "wrong sub-item",
+        "data": [
+          [
+            {
+              "foo": 1
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "array of items with no additional items permitted",
+    "compatibility": "<=2019",
+    "schema": {
+      "items": [
+        {},
+        {},
+        {}
+      ],
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "additional items are not permitted",
+        "data": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "items validation adjusts the starting index for additionalItems",
+    "compatibility": "<=2019",
+    "schema": {
+      "items": [
+        {
+          "type": "string"
+        }
+      ],
+      "additionalItems": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "wrong type of second item",
+        "data": [
+          "x",
+          "y"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "additionalItems with heterogeneous array",
+    "compatibility": "<=2019",
+    "schema": {
+      "items": [
+        {}
+      ],
+      "additionalItems": false
+    },
+    "tests": [
+      {
+        "description": "heterogeneous invalid instance",
+        "data": [
+          "foo",
+          "bar",
+          37
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

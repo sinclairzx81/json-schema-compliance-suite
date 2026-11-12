@@ -1,0 +1,391 @@
+[
+  {
+    "description": "base URI change",
+    "compatibility": "6",
+    "schema": {
+      "$id": "http://localhost:1234/",
+      "items": {
+        "$id": "baseUriChange/",
+        "items": {
+          "$ref": "folderInteger.json"
+        }
+      }
+    },
+    "externalSchemas": {
+      "http://localhost:1234/baseUriChange/folderInteger.json": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "base URI change ref valid",
+        "data": [
+          [
+            1
+          ]
+        ],
+        "valid": true
+      },
+      {
+        "description": "base URI change ref invalid",
+        "data": [
+          [
+            "a"
+          ]
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "base URI change - change folder in subschema",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "http://localhost:1234/scope_change_defs2.json",
+      "type": "object",
+      "properties": {
+        "list": {
+          "$ref": "baseUriChangeFolderInSubschema/#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "baz": {
+          "$id": "baseUriChangeFolderInSubschema/",
+          "$defs": {
+            "bar": {
+              "type": "array",
+              "items": {
+                "$ref": "folderInteger.json"
+              }
+            }
+          }
+        }
+      }
+    },
+    "externalSchemas": {
+      "http://localhost:1234/baseUriChangeFolderInSubschema/folderInteger.json": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "string is invalid",
+        "data": {
+          "list": [
+            "a"
+          ]
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "simple URN base URI with $ref via the URN",
+    "compatibility": "6",
+    "schema": {
+      "$comment": "URIs do not have to have HTTP(s) schemes",
+      "$id": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed",
+      "minimum": 30,
+      "properties": {
+        "foo": {
+          "$ref": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "valid under the URN IDed schema",
+        "data": {
+          "foo": 37
+        },
+        "valid": true
+      },
+      {
+        "description": "invalid under the URN IDed schema",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "simple URN base URI with JSON pointer",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "URIs do not have to have HTTP(s) schemes",
+      "$id": "urn:uuid:deadbeef-1234-00ff-ff00-4321feebdaed",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with NSS",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "RFC 8141 §2.2",
+      "$id": "urn:example:1/406/47452/2",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with r-component",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "RFC 8141 §2.3.1",
+      "$id": "urn:example:foo-bar-baz-qux?+CCResolve:cc=uk",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with q-component",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "RFC 8141 §2.3.2",
+      "$id": "urn:example:weather?=op=map&lat=39.56&lon=-104.85&datetime=1969-07-21T02:56:15Z",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with URN and JSON pointer ref",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed",
+      "properties": {
+        "foo": {
+          "$ref": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - *nix",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "file:///folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - windows",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "file:///c:/folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "remote HTTP ref with different $id",
+    "compatibility": "2019",
+    "schema": {
+      "$ref": "http://localhost:1234/different-id-ref-string.json"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/different-id-ref-string.json": {
+        "$id": "http://localhost:1234/real-id-ref-string.json",
+        "$defs": {
+          "bar": {
+            "type": "string"
+          }
+        },
+        "$ref": "#/$defs/bar"
+      }
+    },
+    "tests": [
+      {
+        "description": "number is invalid",
+        "data": 1,
+        "valid": false
+      },
+      {
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "remote HTTP ref with different URN $id",
+    "compatibility": "2019",
+    "schema": {
+      "$ref": "http://localhost:1234/urn-ref-string.json"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/urn-ref-string.json": {
+        "$id": "urn:uuid:feebdaed-ffff-0000-2020-1200deadbeef",
+        "$defs": {
+          "bar": {
+            "type": "string"
+          }
+        },
+        "$ref": "#/$defs/bar"
+      }
+    },
+    "tests": [
+      {
+        "description": "number is invalid",
+        "data": 1,
+        "valid": false
+      },
+      {
+        "description": "string is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  }
+]

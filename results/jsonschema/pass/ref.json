@@ -1,0 +1,415 @@
+[
+  {
+    "description": "root pointer ref",
+    "compatibility": "3",
+    "schema": {
+      "properties": {
+        "foo": {
+          "$ref": "#"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "foo": false
+        },
+        "valid": true
+      },
+      {
+        "description": "recursive match",
+        "data": {
+          "foo": {
+            "foo": false
+          }
+        },
+        "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": false
+        },
+        "valid": false
+      },
+      {
+        "description": "recursive mismatch",
+        "data": {
+          "foo": {
+            "bar": false
+          }
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "relative pointer ref to object",
+    "compatibility": "3",
+    "schema": {
+      "properties": {
+        "foo": {
+          "type": "integer"
+        },
+        "bar": {
+          "$ref": "#/properties/foo"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "match",
+        "data": {
+          "bar": 3
+        },
+        "valid": true
+      },
+      {
+        "description": "mismatch",
+        "data": {
+          "bar": true
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "relative pointer ref to array",
+    "compatibility": "2020",
+    "schema": {
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "$ref": "#/prefixItems/0"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "match array",
+        "data": [
+          1,
+          2
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "property named $ref that is not a reference",
+    "compatibility": "3",
+    "schema": {
+      "properties": {
+        "$ref": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "property named $ref valid",
+        "data": {
+          "$ref": "a"
+        },
+        "valid": true
+      },
+      {
+        "description": "property named $ref invalid",
+        "data": {
+          "$ref": 2
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "naive replacement of $ref with its destination is not correct",
+    "compatibility": "2019",
+    "schema": {
+      "$defs": {
+        "a_string": {
+          "type": "string"
+        }
+      },
+      "enum": [
+        {
+          "$ref": "#/$defs/a_string"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "do not evaluate the $ref inside the enum, matching any string",
+        "data": "this is a string",
+        "valid": false
+      },
+      {
+        "description": "do not evaluate the $ref inside the enum, definition exact match",
+        "data": {
+          "type": "string"
+        },
+        "valid": false
+      },
+      {
+        "description": "match the enum exactly",
+        "data": {
+          "$ref": "#/$defs/a_string"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "Recursive references between schemas",
+    "compatibility": "3",
+    "schema": {
+      "$ref": "http://localhost:1234/tree"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/tree": {
+        "description": "tree of nodes",
+        "type": "object",
+        "properties": {
+          "meta": {
+            "type": "string"
+          },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "$ref": "node"
+            }
+          }
+        }
+      },
+      "http://localhost:1234/node": {
+        "description": "node",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "subtree": {
+            "$ref": "tree"
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "valid tree",
+        "data": {
+          "meta": "root",
+          "nodes": [
+            {
+              "value": 1,
+              "subtree": {
+                "meta": "child",
+                "nodes": [
+                  {
+                    "value": 1.1
+                  },
+                  {
+                    "value": 1.2
+                  }
+                ]
+              }
+            },
+            {
+              "value": 2,
+              "subtree": {
+                "meta": "child",
+                "nodes": [
+                  {
+                    "value": 2.1
+                  },
+                  {
+                    "value": 2.2
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "valid": true
+      },
+      {
+        "description": "invalid tree",
+        "data": {
+          "meta": "root",
+          "nodes": [
+            {
+              "value": 1,
+              "subtree": {
+                "meta": "child",
+                "nodes": [
+                  {
+                    "value": "string is invalid"
+                  },
+                  {
+                    "value": 1.2
+                  }
+                ]
+              }
+            },
+            {
+              "value": 2,
+              "subtree": {
+                "meta": "child",
+                "nodes": [
+                  {
+                    "value": 2.1
+                  },
+                  {
+                    "value": 2.2
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "remote ref",
+    "schema": {
+      "$ref": "http://localhost:1234/integer.json"
+    },
+    "compatibility": "3",
+    "externalSchemas": {
+      "http://localhost:1234/integer.json": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "remote ref valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "remote ref invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "fragment within remote ref",
+    "compatibility": "2019",
+    "schema": {
+      "$ref": "http://localhost:1234/subSchemas.json#/$defs/integer"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/subSchemas.json": {
+        "$defs": {
+          "integer": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "remote fragment valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "remote fragment invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "ref within remote ref",
+    "compatibility": "2019",
+    "schema": {
+      "$ref": "http://localhost:1234/subSchemas.json#/$defs/refToInteger"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/subSchemas.json": {
+        "$defs": {
+          "integer": {
+            "type": "integer"
+          },
+          "refToInteger": {
+            "$ref": "#/$defs/integer"
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "ref within ref valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "ref within ref invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "root ref in remote ref",
+    "compatibility": "2019",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "http://localhost:1234/name-defs.json#/$defs/orNull"
+        }
+      }
+    },
+    "externalSchemas": {
+      "http://localhost:1234/name-defs.json": {
+        "$defs": {
+          "orNull": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#"
+              }
+            ]
+          }
+        },
+        "type": "string"
+      }
+    },
+    "tests": [
+      {
+        "description": "string is valid",
+        "data": {
+          "name": "foo"
+        },
+        "valid": true
+      },
+      {
+        "description": "null is valid",
+        "data": {
+          "name": null
+        },
+        "valid": true
+      },
+      {
+        "description": "object is invalid",
+        "data": {
+          "name": {
+            "name": null
+          }
+        },
+        "valid": false
+      }
+    ]
+  }
+]

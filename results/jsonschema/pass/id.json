@@ -1,0 +1,135 @@
+[
+  {
+    "description": "base URI change",
+    "compatibility": "6",
+    "schema": {
+      "$id": "http://localhost:1234/",
+      "items": {
+        "$id": "baseUriChange/",
+        "items": {
+          "$ref": "folderInteger.json"
+        }
+      }
+    },
+    "externalSchemas": {
+      "http://localhost:1234/baseUriChange/folderInteger.json": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "base URI change ref valid",
+        "data": [
+          [
+            1
+          ]
+        ],
+        "valid": true
+      },
+      {
+        "description": "base URI change ref invalid",
+        "data": [
+          [
+            "a"
+          ]
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - *nix",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "file:///folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - windows",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "file:///c:/folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "retrieved nested refs resolve relative to their URI not $id",
+    "compatibility": "6",
+    "schema": {
+      "$id": "http://localhost:1234/some-id",
+      "properties": {
+        "name": {
+          "$ref": "nested/foo-ref-string.json"
+        }
+      }
+    },
+    "externalSchemas": {
+      "http://localhost:1234/nested/foo-ref-string.json": {
+        "type": "object",
+        "properties": {
+          "foo": {
+            "$ref": "string.json"
+          }
+        }
+      },
+      "http://localhost:1234/nested/string.json": {
+        "type": "string"
+      }
+    },
+    "tests": [
+      {
+        "description": "number is invalid",
+        "data": {
+          "name": {
+            "foo": 1
+          }
+        },
+        "valid": false
+      },
+      {
+        "description": "string is valid",
+        "data": {
+          "name": {
+            "foo": "a"
+          }
+        },
+        "valid": true
+      }
+    ]
+  }
+]

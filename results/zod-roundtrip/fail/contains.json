@@ -1,0 +1,414 @@
+[
+  {
+    "description": "contains keyword validation",
+    "compatibility": "6",
+    "schema": {
+      "contains": {
+        "minimum": 5
+      }
+    },
+    "tests": [
+      {
+        "description": "array without items matching schema is invalid",
+        "data": [
+          2,
+          3,
+          4
+        ],
+        "valid": false
+      },
+      {
+        "description": "empty array is invalid",
+        "data": [],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "contains keyword with const keyword",
+    "compatibility": "6",
+    "schema": {
+      "contains": {
+        "const": 5
+      }
+    },
+    "tests": [
+      {
+        "description": "array without item 5 is invalid",
+        "data": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "contains keyword with boolean schema true",
+    "compatibility": "6",
+    "schema": {
+      "contains": true
+    },
+    "tests": [
+      {
+        "description": "empty array is invalid",
+        "data": [],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "contains keyword with boolean schema false",
+    "compatibility": "6",
+    "schema": {
+      "contains": false
+    },
+    "tests": [
+      {
+        "description": "any non-empty array is invalid",
+        "data": [
+          "foo"
+        ],
+        "valid": false
+      },
+      {
+        "description": "empty array is invalid",
+        "data": [],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "items + contains",
+    "compatibility": "6",
+    "schema": {
+      "items": {
+        "multipleOf": 2
+      },
+      "contains": {
+        "multipleOf": 3
+      }
+    },
+    "tests": [
+      {
+        "description": "matches items, does not match contains",
+        "data": [
+          2,
+          4,
+          8
+        ],
+        "valid": false
+      },
+      {
+        "description": "does not match items, matches contains",
+        "data": [
+          3,
+          6,
+          9
+        ],
+        "valid": false
+      },
+      {
+        "description": "matches neither items nor contains",
+        "data": [
+          1,
+          5
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "contains with false if subschema",
+    "compatibility": "7",
+    "schema": {
+      "contains": {
+        "if": false,
+        "else": true
+      }
+    },
+    "tests": [
+      {
+        "description": "empty array is invalid",
+        "data": [],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "minContains=1 with contains",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "minContains": 1
+    },
+    "tests": [
+      {
+        "description": "empty data",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "no elements match",
+        "data": [
+          2
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "minContains=2 with contains",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "minContains": 2
+    },
+    "tests": [
+      {
+        "description": "empty data",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "all elements match, invalid minContains",
+        "data": [
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "some elements match, invalid minContains",
+        "data": [
+          1,
+          2
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "minContains=2 with contains with a decimal value",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "minContains": 2
+    },
+    "tests": [
+      {
+        "description": "one element matches, invalid minContains",
+        "data": [
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxContains = minContains",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "maxContains": 2,
+      "minContains": 2
+    },
+    "tests": [
+      {
+        "description": "empty data",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "all elements match, invalid minContains",
+        "data": [
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "all elements match, invalid maxContains",
+        "data": [
+          1,
+          1,
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxContains < minContains",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "maxContains": 1,
+      "minContains": 3
+    },
+    "tests": [
+      {
+        "description": "empty data",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "invalid minContains",
+        "data": [
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "invalid maxContains",
+        "data": [
+          1,
+          1,
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "invalid maxContains and minContains",
+        "data": [
+          1,
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "minContains = 0 with maxContains",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "minContains": 0,
+      "maxContains": 1
+    },
+    "tests": [
+      {
+        "description": "too many",
+        "data": [
+          1,
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxContains with contains",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "maxContains": 1
+    },
+    "tests": [
+      {
+        "description": "empty data",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "all elements match, invalid maxContains",
+        "data": [
+          1,
+          1
+        ],
+        "valid": false
+      },
+      {
+        "description": "some elements match, invalid maxContains",
+        "data": [
+          1,
+          2,
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxContains with contains, value with a decimal",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "maxContains": 1
+    },
+    "tests": [
+      {
+        "description": "too many elements match, invalid maxContains",
+        "data": [
+          1,
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "minContains < maxContains",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "minContains": 1,
+      "maxContains": 3
+    },
+    "tests": [
+      {
+        "description": "actual < minContains < maxContains",
+        "data": [],
+        "valid": false
+      },
+      {
+        "description": "minContains < maxContains < actual",
+        "data": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "maxContains = 0 with minContains = 0",
+    "compatibility": "2019",
+    "schema": {
+      "contains": {
+        "const": 1
+      },
+      "minContains": 0,
+      "maxContains": 0
+    },
+    "tests": [
+      {
+        "description": "one matching item",
+        "data": [
+          1
+        ],
+        "valid": false
+      }
+    ]
+  }
+]

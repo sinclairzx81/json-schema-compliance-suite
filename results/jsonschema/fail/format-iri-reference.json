@@ -1,0 +1,36 @@
+[
+  {
+    "description": "iri-reference format annotation",
+    "compatibility": "7",
+    "tags": [
+      "format-annotation"
+    ],
+    "schema": {
+      "format": "iri-reference"
+    },
+    "tests": [
+      {
+        "description": "invalid iri-reference string is only an annotation by default",
+        "data": "\\\\WINDOWS\\filëßåré",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "validation of IRI References",
+    "compatibility": "7",
+    "tags": [
+      "format-assertion"
+    ],
+    "schema": {
+      "format": "iri-reference"
+    },
+    "tests": [
+      {
+        "description": "an embedded IPv4 with a leading zero is invalid",
+        "data": "//[::ffff:192.168.0.01]/p",
+        "valid": false
+      }
+    ]
+  }
+]

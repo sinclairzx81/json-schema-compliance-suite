@@ -1,0 +1,17 @@
+[
+  {
+    "description": "large integer divisibleBy a small number",
+    "compatibility": "=3",
+    "schema": {
+      "type": "integer",
+      "divisibleBy": 1e-8
+    },
+    "tests": [
+      {
+        "description": "any integer is a multiple of 1e-8",
+        "data": 12391239123,
+        "valid": true
+      }
+    ]
+  }
+]

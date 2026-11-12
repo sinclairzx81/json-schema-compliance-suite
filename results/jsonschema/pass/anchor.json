@@ -1,0 +1,83 @@
+[
+  {
+    "description": "anchor within remote ref",
+    "compatibility": "2019",
+    "schema": {
+      "$ref": "http://localhost:1234/locationIndependentIdentifier.json#foo"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/locationIndependentIdentifier.json": {
+        "$defs": {
+          "refToInteger": {
+            "$ref": "#foo"
+          },
+          "A": {
+            "$anchor": "foo",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "remote anchor valid",
+        "data": 1,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "Location-independent identifier in remote ref",
+    "compatibility": "2019",
+    "schema": {
+      "$ref": "http://localhost:1234/locationIndependentIdentifier.json#/$defs/refToInteger"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/locationIndependentIdentifier.json": {
+        "$defs": {
+          "refToInteger": {
+            "$ref": "#foo"
+          },
+          "A": {
+            "$anchor": "foo",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "integer is valid",
+        "data": 1,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "$ref to $ref finds detached $anchor",
+    "compatibility": "2019",
+    "schema": {
+      "$ref": "http://localhost:1234/detached-ref.json#/$defs/foo"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/detached-ref.json": {
+        "$defs": {
+          "foo": {
+            "$ref": "#detached"
+          },
+          "detached": {
+            "$anchor": "detached",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      }
+    ]
+  }
+]

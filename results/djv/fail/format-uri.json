@@ -1,0 +1,72 @@
+[
+  {
+    "description": "validation of non-string uri values",
+    "schema": {
+      "format": "uri"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "uri format annotation",
+    "tags": [
+      "format-annotation"
+    ],
+    "schema": {
+      "format": "uri"
+    },
+    "tests": [
+      {
+        "description": "invalid uri string is only an annotation by default",
+        "data": "//foo.bar/?baz=qux#quux",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "validation of URIs",
+    "tags": [
+      "format-assertion"
+    ],
+    "schema": {
+      "format": "uri"
+    },
+    "tests": [
+      {
+        "description": "leading zero in an embedded IPv4 address is invalid",
+        "data": "http://[::ffff:01.2.3.4]",
+        "valid": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "description": "validation of non-string json-pointer values",
+    "compatibility": "6",
+    "schema": {
+      "format": "json-pointer"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "json-pointer format",
+    "compatibility": "6",
+    "tags": [
+      "format-annotation"
+    ],
+    "schema": {
+      "format": "json-pointer"
+    },
+    "tests": [
+      {
+        "description": "invalid json-pointer string is only an annotation by default",
+        "data": "/foo/bar~",
+        "valid": true
+      }
+    ]
+  }
+]

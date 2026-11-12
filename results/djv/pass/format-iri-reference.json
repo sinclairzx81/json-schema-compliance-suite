@@ -1,0 +1,115 @@
+[
+  {
+    "description": "validation of non-string iri-reference values",
+    "compatibility": "7",
+    "schema": {
+      "format": "iri-reference"
+    },
+    "tests": [
+      {
+        "description": "all string formats ignore integers",
+        "data": 12,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore floats",
+        "data": 13.7,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore objects",
+        "data": {},
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore arrays",
+        "data": [],
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore booleans",
+        "data": false,
+        "valid": true
+      },
+      {
+        "description": "all string formats ignore nulls",
+        "data": null,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "iri-reference format annotation",
+    "compatibility": "7",
+    "tags": [
+      "format-annotation"
+    ],
+    "schema": {
+      "format": "iri-reference"
+    },
+    "tests": [
+      {
+        "description": "invalid iri-reference string is only an annotation by default",
+        "data": "\\\\WINDOWS\\filëßåré",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "validation of IRI References",
+    "compatibility": "7",
+    "tags": [
+      "format-assertion"
+    ],
+    "schema": {
+      "format": "iri-reference"
+    },
+    "tests": [
+      {
+        "description": "a valid IRI",
+        "data": "http://ƒøø.ßår/?∂éœ=πîx#πîüx",
+        "valid": true
+      },
+      {
+        "description": "a valid protocol-relative IRI Reference",
+        "data": "//ƒøø.ßår/?∂éœ=πîx#πîüx",
+        "valid": true
+      },
+      {
+        "description": "a valid relative IRI Reference",
+        "data": "/âππ",
+        "valid": true
+      },
+      {
+        "description": "a valid IRI Reference",
+        "data": "âππ",
+        "valid": true
+      },
+      {
+        "description": "a valid IRI fragment",
+        "data": "#ƒrägmênt",
+        "valid": true
+      },
+      {
+        "description": "a valid protocol-relative IRI Reference with a compressed IPv6 host",
+        "data": "//[2001:db8::1]/p",
+        "valid": true
+      },
+      {
+        "description": "a valid relative IRI Reference with a supplementary-plane character",
+        "data": "/âππ/𐌀",
+        "valid": true
+      },
+      {
+        "description": "a query-only IRI Reference with a supplementary private-use char",
+        "data": "?q=󰀀",
+        "valid": true
+      },
+      {
+        "description": "a colon in the first segment preceded by a dot-segment",
+        "data": "./â:b",
+        "valid": true
+      }
+    ]
+  }
+]

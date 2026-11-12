@@ -1,0 +1,321 @@
+[
+  {
+    "description": "base URI change",
+    "compatibility": "6",
+    "schema": {
+      "$id": "http://localhost:1234/",
+      "items": {
+        "$id": "baseUriChange/",
+        "items": {
+          "$ref": "folderInteger.json"
+        }
+      }
+    },
+    "externalSchemas": {
+      "http://localhost:1234/baseUriChange/folderInteger.json": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "base URI change ref valid",
+        "data": [
+          [
+            1
+          ]
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "simple URN base URI with $ref via the URN",
+    "compatibility": "6",
+    "schema": {
+      "$comment": "URIs do not have to have HTTP(s) schemes",
+      "$id": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed",
+      "minimum": 30,
+      "properties": {
+        "foo": {
+          "$ref": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "valid under the URN IDed schema",
+        "data": {
+          "foo": 37
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "simple tag URI base URI with $ref via the tag URI",
+    "compatibility": "6",
+    "schema": {
+      "$comment": "URIs do not have to have HTTP(s) schemes",
+      "$id": "tag:foo.example,2025:bar/baz",
+      "minimum": 30,
+      "properties": {
+        "foo": {
+          "$ref": "tag:foo.example,2025:bar/baz"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "valid under the tag URI IDed schema",
+        "data": {
+          "foo": 37
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "simple base URI using an arbitrary URI scheme with $ref to that URI",
+    "compatibility": "6",
+    "comment": "foo is a made up scheme. Any URI scheme is allowed in a base URI, not only well known ones like http, urn or tag, so implementations need to support arbitrary schemes rather than special casing the ones they know.",
+    "schema": {
+      "$comment": "URIs do not have to have HTTP(s) schemes",
+      "$id": "foo:bar/baz",
+      "minimum": 30,
+      "properties": {
+        "foo": {
+          "$ref": "foo:bar/baz"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "valid under the arbitrary scheme IDed schema",
+        "data": {
+          "foo": 37
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "simple URN base URI with JSON pointer",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "URIs do not have to have HTTP(s) schemes",
+      "$id": "urn:uuid:deadbeef-1234-00ff-ff00-4321feebdaed",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with NSS",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "RFC 8141 §2.2",
+      "$id": "urn:example:1/406/47452/2",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with r-component",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "RFC 8141 §2.3.1",
+      "$id": "urn:example:foo-bar-baz-qux?+CCResolve:cc=uk",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with q-component",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "RFC 8141 §2.3.2",
+      "$id": "urn:example:weather?=op=map&lat=39.56&lon=-104.85&datetime=1969-07-21T02:56:15Z",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with URN and JSON pointer ref",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed",
+      "properties": {
+        "foo": {
+          "$ref": "urn:uuid:deadbeef-1234-0000-0000-4321feebdaed#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - *nix",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "file:///folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - windows",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "file:///c:/folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "retrieved nested refs resolve relative to their URI not $id",
+    "compatibility": "6",
+    "schema": {
+      "$id": "http://localhost:1234/some-id",
+      "properties": {
+        "name": {
+          "$ref": "nested/foo-ref-string.json"
+        }
+      }
+    },
+    "externalSchemas": {
+      "http://localhost:1234/nested/foo-ref-string.json": {
+        "type": "object",
+        "properties": {
+          "foo": {
+            "$ref": "string.json"
+          }
+        }
+      },
+      "http://localhost:1234/nested/string.json": {
+        "type": "string"
+      }
+    },
+    "tests": [
+      {
+        "description": "string is valid",
+        "data": {
+          "name": {
+            "foo": "a"
+          }
+        },
+        "valid": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "description": "unevaluatedItems with boolean schemas",
+    "compatibility": "2019",
+    "schema": {
+      "allOf": [
+        true
+      ],
+      "unevaluatedItems": false
+    },
+    "tests": [
+      {
+        "description": "with no unevaluated items",
+        "data": [],
+        "valid": true
+      }
+    ]
+  }
+]

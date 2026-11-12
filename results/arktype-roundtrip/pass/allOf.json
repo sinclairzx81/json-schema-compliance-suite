@@ -1,0 +1,63 @@
+[
+  {
+    "description": "allOf with boolean schemas, all true",
+    "compatibility": "6",
+    "schema": {
+      "allOf": [
+        true,
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is valid",
+        "data": "foo",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "allOf with boolean schemas, all false",
+    "compatibility": "6",
+    "schema": {
+      "allOf": [
+        false,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "any value is invalid",
+        "data": "foo",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "nested allOf, to check validation semantics",
+    "compatibility": "4",
+    "schema": {
+      "allOf": [
+        {
+          "allOf": [
+            {
+              "type": "null"
+            }
+          ]
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "null is valid",
+        "data": null,
+        "valid": true
+      },
+      {
+        "description": "anything non-null is invalid",
+        "data": 123,
+        "valid": false
+      }
+    ]
+  }
+]

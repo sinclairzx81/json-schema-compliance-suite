@@ -1,0 +1,18 @@
+[
+  {
+    "description": "propertyNames validation",
+    "compatibility": "6",
+    "schema": {
+      "propertyNames": {
+        "maxLength": 3
+      }
+    },
+    "tests": [
+      {
+        "description": "ignores null",
+        "data": null,
+        "valid": true
+      }
+    ]
+  }
+]

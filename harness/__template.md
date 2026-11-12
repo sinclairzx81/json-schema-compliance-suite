@@ -15,7 +15,7 @@ Clone the project and run the following
 ```bash
 $ npm install              # install packages
 $ npm run upgrade          # upgrade packages
-$ npm run test             # run tests
+$ npm run test             # run against the current suite revision and regenerate reports
 ```
 
 ## Tests
@@ -27,4 +27,3 @@ This tool peforms the following tests
 | **Validation** | JSON Schema is passed directly to the library and used for validation. Results indicate compliance with the official JSON Schema test suite. |
 | **Semantics** | The JSON Schema is decoded into library types and validated using the library’s internal logic. Results indicate how closely the library aligns with the formal semantics of JSON Schema. |
 | **RoundTrip** | JSON Schema is decoded then re-encoded using library provided translation API. The translated JSON Schema is then passed to CfWorker for validation. Failed tests indicate either lossy translation or serialization error.  |
-

@@ -1,0 +1,62 @@
+[
+  {
+    "description": "refs to future drafts are processed as future drafts (2020)",
+    "compatibility": "7,<=2019",
+    "schema": {
+      "type": "array",
+      "$ref": "http://localhost:1234/draft2020-12/prefixItems.json"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/draft2020-12/prefixItems.json": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "prefixItems": [
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "tests": [
+      {
+        "description": "first item is a string is valid",
+        "data": [
+          "a string",
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "refs to historic drafts are processed as historic drafts (2019)",
+    "compatibility": "2020",
+    "schema": {
+      "type": "array",
+      "$ref": "http://localhost:1234/draft2019-09/ignore-prefixItems.json"
+    },
+    "externalSchemas": {
+      "http://localhost:1234/draft2019-09/ignore-prefixItems.json": {
+        "$schema": "https://json-schema.org/draft/2019-09/schema",
+        "prefixItems": [
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "tests": [
+      {
+        "description": "first item not a string is valid",
+        "comment": "if the implementation is not processing the $ref as a 2019-09 schema, this test will fail",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

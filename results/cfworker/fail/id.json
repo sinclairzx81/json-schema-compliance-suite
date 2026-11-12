@@ -1,0 +1,101 @@
+[
+  {
+    "description": "refs with relative uris and defs",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "http://example.com/schema-relative-uri-defs1.json",
+      "properties": {
+        "foo": {
+          "$id": "schema-relative-uri-defs2.json",
+          "$defs": {
+            "inner": {
+              "properties": {
+                "bar": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "$ref": "#/$defs/inner"
+        }
+      },
+      "$ref": "schema-relative-uri-defs2.json"
+    },
+    "tests": [
+      {
+        "description": "invalid on inner field",
+        "data": {
+          "foo": {
+            "bar": 1
+          },
+          "bar": "a"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "relative refs with absolute uris and defs",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "http://example.com/schema-refs-absolute-uris-defs1.json",
+      "properties": {
+        "foo": {
+          "$id": "http://example.com/schema-refs-absolute-uris-defs2.json",
+          "$defs": {
+            "inner": {
+              "properties": {
+                "bar": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "$ref": "#/$defs/inner"
+        }
+      },
+      "$ref": "schema-refs-absolute-uris-defs2.json"
+    },
+    "tests": [
+      {
+        "description": "invalid on inner field",
+        "data": {
+          "foo": {
+            "bar": 1
+          },
+          "bar": "a"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "order of evaluation: $id and $anchor and $ref",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "$id must be evaluated before $ref to get the proper $ref destination",
+      "$id": "https://example.com/ref-and-id2/base.json",
+      "$ref": "#bigint",
+      "$defs": {
+        "bigint": {
+          "$comment": "canonical uri: https://example.com/ref-and-id2/base.json#/$defs/bigint; another valid uri for this location: https://example.com/ref-and-id2/base.json#bigint",
+          "$anchor": "bigint",
+          "maximum": 10
+        },
+        "smallint": {
+          "$comment": "canonical uri: https://example.com/ref-and-id2/#/$defs/smallint; another valid uri for this location: https://example.com/ref-and-id2/#bigint",
+          "$id": "/ref-and-id2/",
+          "$anchor": "bigint",
+          "maximum": 2
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "data is valid against first definition",
+        "data": 5,
+        "valid": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "description": "pattern with Unicode property escape requires unicode mode",
+    "compatibility": "2020",
+    "schema": {
+      "type": "string",
+      "pattern": "^\\p{Letter}+$"
+    },
+    "tests": [
+      {
+        "description": "Digits do not match",
+        "data": "123",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "pattern with Unicode property escape",
+    "compatibility": "2020",
+    "schema": {
+      "type": "string",
+      "pattern": "^\\p{Letter}+$"
+    },
+    "tests": [
+      {
+        "description": "an invalid case where the string contains digits",
+        "data": "123",
+        "valid": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "description": "ipv6 format",
+    "tags": [
+      "format-annotation"
+    ],
+    "schema": {
+      "format": "ipv6"
+    },
+    "tests": [
+      {
+        "description": "invalid ipv6 string is only an annotation by default",
+        "data": "12345::",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "validation of IPv6 addresses",
+    "tags": [
+      "format-assertion"
+    ],
+    "schema": {
+      "format": "ipv6"
+    },
+    "tests": [
+      {
+        "description": "leading whitespace is invalid",
+        "data": "  ::1",
+        "valid": false
+      },
+      {
+        "description": "trailing whitespace is invalid",
+        "data": "::1  ",
+        "valid": false
+      },
+      {
+        "description": "zone id is not a part of ipv6 address",
+        "data": "fe80::a%eth1",
+        "valid": false
+      },
+      {
+        "description": "trailing newline is invalid",
+        "data": "::1\n",
+        "valid": false
+      }
+    ]
+  }
+]

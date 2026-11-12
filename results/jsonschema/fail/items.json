@@ -1,0 +1,426 @@
+[
+  {
+    "description": "a schema given for prefixItems",
+    "compatibility": "2020",
+    "schema": {
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "wrong types",
+        "data": [
+          "foo",
+          1
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "prefixItems with boolean schemas",
+    "compatibility": "2020",
+    "schema": {
+      "prefixItems": [
+        true,
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "array with two items is invalid",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "items and subitems",
+    "compatibility": "2020",
+    "schema": {
+      "$defs": {
+        "item": {
+          "type": "array",
+          "items": false,
+          "prefixItems": [
+            {
+              "$ref": "#/$defs/sub-item"
+            },
+            {
+              "$ref": "#/$defs/sub-item"
+            }
+          ]
+        },
+        "sub-item": {
+          "type": "object",
+          "required": [
+            "foo"
+          ]
+        }
+      },
+      "type": "array",
+      "items": false,
+      "prefixItems": [
+        {
+          "$ref": "#/$defs/item"
+        },
+        {
+          "$ref": "#/$defs/item"
+        },
+        {
+          "$ref": "#/$defs/item"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "valid items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": true
+      },
+      {
+        "description": "fewer items is valid",
+        "data": [
+          [
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "items and subitems (2019)",
+    "compatibility": "=2019",
+    "schema": {
+      "$defs": {
+        "item": {
+          "type": "array",
+          "additionalItems": false,
+          "items": [
+            {
+              "$ref": "#/$defs/sub-item"
+            },
+            {
+              "$ref": "#/$defs/sub-item"
+            }
+          ]
+        },
+        "sub-item": {
+          "type": "object",
+          "required": [
+            "foo"
+          ]
+        }
+      },
+      "type": "array",
+      "additionalItems": false,
+      "items": [
+        {
+          "$ref": "#/$defs/item"
+        },
+        {
+          "$ref": "#/$defs/item"
+        },
+        {
+          "$ref": "#/$defs/item"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "valid items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": true
+      },
+      {
+        "description": "too many items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "too many sub-items",
+        "data": [
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "wrong item",
+        "data": [
+          {
+            "foo": null
+          },
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "wrong sub-item",
+        "data": [
+          [
+            {},
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            },
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": false
+      },
+      {
+        "description": "fewer items is valid",
+        "data": [
+          [
+            {
+              "foo": null
+            }
+          ],
+          [
+            {
+              "foo": null
+            }
+          ]
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "prefixItems with no additional items permitted",
+    "compatibility": "2020",
+    "schema": {
+      "prefixItems": [
+        {},
+        {},
+        {}
+      ],
+      "items": false
+    },
+    "tests": [
+      {
+        "description": "fewer number of items present (1)",
+        "data": [
+          1
+        ],
+        "valid": true
+      },
+      {
+        "description": "fewer number of items present (2)",
+        "data": [
+          1,
+          2
+        ],
+        "valid": true
+      },
+      {
+        "description": "equal number of items present",
+        "data": [
+          1,
+          2,
+          3
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "prefixItems validation adjusts the starting index for items",
+    "compatibility": "2020",
+    "schema": {
+      "prefixItems": [
+        {
+          "type": "string"
+        }
+      ],
+      "items": {
+        "type": "integer"
+      }
+    },
+    "tests": [
+      {
+        "description": "valid items",
+        "data": [
+          "x",
+          2,
+          3
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "prefixItems with heterogeneous array",
+    "compatibility": "2020",
+    "schema": {
+      "prefixItems": [
+        {}
+      ],
+      "items": false
+    },
+    "tests": [
+      {
+        "description": "valid instance",
+        "data": [
+          null
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

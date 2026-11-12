@@ -1,0 +1,39 @@
+[
+  {
+    "description": "enums in properties boolean required",
+    "compatibility": "=3",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "foo": {
+          "enum": [
+            "foo"
+          ]
+        },
+        "bar": {
+          "enum": [
+            "bar"
+          ],
+          "required": true
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "both properties are valid",
+        "data": {
+          "foo": "foo",
+          "bar": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "missing optional property is valid",
+        "data": {
+          "bar": "bar"
+        },
+        "valid": true
+      }
+    ]
+  }
+]

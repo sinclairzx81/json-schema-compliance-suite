@@ -1,0 +1,188 @@
+[
+  {
+    "description": "simple URN base URI with JSON pointer",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "URIs do not have to have HTTP(s) schemes",
+      "$id": "urn:uuid:deadbeef-1234-00ff-ff00-4321feebdaed",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with NSS",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "RFC 8141 §2.2",
+      "$id": "urn:example:1/406/47452/2",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with r-component",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "RFC 8141 §2.3.1",
+      "$id": "urn:example:foo-bar-baz-qux?+CCResolve:cc=uk",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "URN base URI with q-component",
+    "compatibility": "2019",
+    "schema": {
+      "$comment": "RFC 8141 §2.3.2",
+      "$id": "urn:example:weather?=op=map&lat=39.56&lon=-104.85&datetime=1969-07-21T02:56:15Z",
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/bar"
+        }
+      },
+      "$defs": {
+        "bar": {
+          "type": "string"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
+      {
+        "description": "a non-string is invalid",
+        "data": {
+          "foo": 12
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - *nix",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "file:///folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "$id with file URI still resolves pointers - windows",
+    "compatibility": "2019",
+    "schema": {
+      "$id": "file:///c:/folder/file.json",
+      "$defs": {
+        "foo": {
+          "type": "number"
+        }
+      },
+      "$ref": "#/$defs/foo"
+    },
+    "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
+        "description": "non-number is invalid",
+        "data": "a",
+        "valid": false
+      }
+    ]
+  }
+]

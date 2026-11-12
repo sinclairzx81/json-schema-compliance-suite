@@ -1,0 +1,80 @@
+[
+  {
+    "description": "$ref prevents a sibling $id from changing the base uri",
+    "compatibility": "6,<=7",
+    "schema": {
+      "$id": "http://localhost:1234/sibling_id/base/",
+      "definitions": {
+        "foo": {
+          "$id": "http://localhost:1234/sibling_id/foo.json",
+          "type": "string"
+        },
+        "base_foo": {
+          "$comment": "this canonical uri is http://localhost:1234/sibling_id/base/foo.json",
+          "$id": "foo.json",
+          "type": "number"
+        }
+      },
+      "allOf": [
+        {
+          "$comment": "$ref resolves to http://localhost:1234/sibling_id/base/foo.json, not http://localhost:1234/sibling_id/foo.json",
+          "$id": "http://localhost:1234/sibling_id/",
+          "$ref": "foo.json"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "$ref resolves to /definitions/base_foo, data does not validate",
+        "data": "a",
+        "valid": false
+      },
+      {
+        "description": "$ref resolves to /definitions/base_foo, data validates",
+        "data": 1,
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "$ref prevents a sibling id from changing the base uri",
+    "compatibility": "3,<=4",
+    "schema": {
+      "id": "http://localhost:1234/sibling_id/base/",
+      "definitions": {
+        "foo": {
+          "id": "http://localhost:1234/sibling_id/foo.json",
+          "type": "string"
+        },
+        "base_foo": {
+          "$comment": "this canonical uri is http://localhost:1234/sibling_id/base/foo.json",
+          "id": "foo.json",
+          "type": "number"
+        }
+      },
+      "properties": {
+        "foo": {
+          "$comment": "$ref resolves to http://localhost:1234/sibling_id/base/foo.json, not http://localhost:1234/sibling_id/foo.json",
+          "id": "http://localhost:1234/sibling_id/",
+          "$ref": "foo.json"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "$ref resolves to /definitions/base_foo, data does not validate",
+        "data": {
+          "foo": "a"
+        },
+        "valid": false
+      },
+      {
+        "description": "$ref resolves to /definitions/base_foo, data validates",
+        "data": {
+          "foo": 1
+        },
+        "valid": true
+      }
+    ]
+  }
+]

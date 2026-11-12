@@ -1,0 +1,23 @@
+[
+  {
+    "description": "patternProperties with Unicode property escape",
+    "compatibility": "2020",
+    "schema": {
+      "type": "object",
+      "patternProperties": {
+        "^\\p{Letter}+$": {
+          "type": "number"
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "Unicode letter property name matches but value type is incorrect",
+        "data": {
+          "π": "1"
+        },
+        "valid": false
+      }
+    ]
+  }
+]

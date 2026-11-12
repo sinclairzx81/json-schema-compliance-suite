@@ -1,0 +1,32 @@
+[
+  {
+    "description": "ref applies alongside sibling keywords",
+    "compatibility": "2019",
+    "schema": {
+      "$defs": {
+        "reffed": {
+          "type": "array"
+        }
+      },
+      "properties": {
+        "foo": {
+          "$ref": "#/$defs/reffed",
+          "maxItems": 2
+        }
+      }
+    },
+    "tests": [
+      {
+        "description": "ref valid, maxItems invalid",
+        "data": {
+          "foo": [
+            1,
+            2,
+            3
+          ]
+        },
+        "valid": false
+      }
+    ]
+  }
+]

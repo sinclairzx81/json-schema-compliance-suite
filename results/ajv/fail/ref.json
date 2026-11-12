@@ -1,0 +1,52 @@
+[
+  {
+    "description": "relative pointer ref to array",
+    "compatibility": "2020",
+    "schema": {
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "$ref": "#/prefixItems/0"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "mismatch array",
+        "data": [
+          1,
+          "foo"
+        ],
+        "valid": false
+      }
+    ]
+  },
+  {
+    "description": "ref creates new scope when adjacent to keywords",
+    "compatibility": "2019",
+    "schema": {
+      "$defs": {
+        "A": {
+          "unevaluatedProperties": false
+        }
+      },
+      "properties": {
+        "prop1": {
+          "type": "string"
+        }
+      },
+      "$ref": "#/$defs/A"
+    },
+    "tests": [
+      {
+        "description": "referenced subschema doesn't see annotations from properties",
+        "data": {
+          "prop1": "match"
+        },
+        "valid": false
+      }
+    ]
+  }
+]

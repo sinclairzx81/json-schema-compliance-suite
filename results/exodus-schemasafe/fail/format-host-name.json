@@ -1,0 +1,36 @@
+[
+  {
+    "description": "host-name format",
+    "compatibility": "=3",
+    "tags": [
+      "format-annotation"
+    ],
+    "schema": {
+      "format": "host-name"
+    },
+    "tests": [
+      {
+        "description": "invalid host-name string is only an annotation by default",
+        "data": "-a-host-name-that-starts-with--",
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "validation of host names",
+    "compatibility": "=3",
+    "tags": [
+      "format-assertion"
+    ],
+    "schema": {
+      "format": "host-name"
+    },
+    "tests": [
+      {
+        "description": "trailing dot",
+        "data": "example.",
+        "valid": false
+      }
+    ]
+  }
+]

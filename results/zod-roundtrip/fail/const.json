@@ -1,0 +1,60 @@
+[
+  {
+    "description": "const with array",
+    "compatibility": "6",
+    "schema": {
+      "const": [
+        {
+          "foo": "bar"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "description": "same array is valid",
+        "data": [
+          {
+            "foo": "bar"
+          }
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with [false] does not match [0]",
+    "compatibility": "6",
+    "schema": {
+      "const": [
+        false
+      ]
+    },
+    "tests": [
+      {
+        "description": "[false] is valid",
+        "data": [
+          false
+        ],
+        "valid": true
+      }
+    ]
+  },
+  {
+    "description": "const with [true] does not match [1]",
+    "compatibility": "6",
+    "schema": {
+      "const": [
+        true
+      ]
+    },
+    "tests": [
+      {
+        "description": "[true] is valid",
+        "data": [
+          true
+        ],
+        "valid": true
+      }
+    ]
+  }
+]

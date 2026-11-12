@@ -1,0 +1,19 @@
+[
+  {
+    "description": "extends simple types",
+    "compatibility": "<=3",
+    "schema": {
+      "minimum": 20,
+      "extends": {
+        "maximum": 30
+      }
+    },
+    "tests": [
+      {
+        "description": "valid",
+        "data": 25,
+        "valid": true
+      }
+    ]
+  }
+]
