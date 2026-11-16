@@ -78,6 +78,11 @@
     },
     "tests": [
       {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      },
+      {
         "data": "a",
         "description": "mismatch",
         "valid": false
@@ -135,6 +140,11 @@
     },
     "tests": [
       {
+        "data": 1,
+        "description": "match",
+        "valid": true
+      },
+      {
         "data": "a",
         "description": "mismatch",
         "valid": false
@@ -186,6 +196,13 @@
       }
     },
     "tests": [
+      {
+        "description": "a string is valid",
+        "data": {
+          "foo": "bar"
+        },
+        "valid": true
+      },
       {
         "description": "a non-string is invalid",
         "data": {
@@ -243,6 +260,11 @@
     },
     "tests": [
       {
+        "description": "remote anchor valid",
+        "data": 1,
+        "valid": true
+      },
+      {
         "description": "remote anchor invalid",
         "data": "a",
         "valid": false
@@ -297,6 +319,11 @@
     },
     "tests": [
       {
+        "description": "integer is valid",
+        "data": 1,
+        "valid": true
+      },
+      {
         "description": "string is invalid",
         "data": "foo",
         "valid": false
@@ -350,6 +377,11 @@
       }
     },
     "tests": [
+      {
+        "description": "number is valid",
+        "data": 1,
+        "valid": true
+      },
       {
         "description": "non-number is invalid",
         "data": "a",

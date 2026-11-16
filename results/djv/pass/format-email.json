@@ -132,15 +132,28 @@
         "description": "an empty string is not valid",
         "data": "",
         "valid": false
+      }
+    ]
+  },
+  {
+    "description": "validation of e-mail addresses against the RFC 5321 Mailbox rule",
+    "comment": "2020-12 changed email from RFC 5322 to the RFC 5321 Mailbox rule, which rejects these.",
+    "compatibility": "2020",
+    "tags": [
+      "format-assertion"
+    ],
+    "schema": {
+      "format": "email"
+    },
+    "tests": [
+      {
+        "description": "bracketed content that is not an address is not valid",
+        "data": "test@[RFC-5322-domain-literal]",
+        "valid": false
       },
       {
         "description": "empty brackets after the @ are not valid",
         "data": "a@[]",
-        "valid": false
-      },
-      {
-        "description": "bracketed content that is not an address is not valid",
-        "data": "test@[RFC-5322-domain-literal]",
         "valid": false
       }
     ]

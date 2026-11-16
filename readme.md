@@ -29,7 +29,7 @@ This tool peforms the following tests
 | **RoundTrip** | JSON Schema is decoded then re-encoded using library provided translation API. The translated JSON Schema is then passed to CfWorker for validation. Failed tests indicate either lossy translation or serialization error.  |
 
 ## Results
-Updated: Fri Nov 13 2026
+Updated: Tue Nov 17 2026
 
 
 ### Validation
@@ -40,15 +40,15 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11670 | 233 | 98.0% |
-| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11669 | 234 | 98.0% |
-| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 11440 | 463 | 96.1% |
-| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 11153 | 750 | 93.7% |
-| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 11143 | 760 | 93.6% |
-| [Exodus-SchemaSafe](https://github.com/ExodusMovement/schemasafe) | [Results](#Exodus-SchemaSafe-Validation) | Validation | 10618 | 1285 | 89.2% |
-| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10581 | 1322 | 88.9% |
-| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9860 | 2043 | 82.8% |
-| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8777 | 3126 | 73.7% |
+| [Corvus-Dotnet](https://github.com/corvus-dotnet/Corvus.JsonSchema#readme) | [Results](#Corvus-Dotnet-Validation) | Validation | 11610 | 233 | 98.0% |
+| [TypeBox](https://github.com/sinclairzx81/typebox) | [Results](#TypeBox-Validation) | Validation | 11609 | 234 | 98.0% |
+| [Ata](https://github.com/ata-core/ata-validator) | [Results](#Ata-Validation) | Validation | 11400 | 443 | 96.3% |
+| [ZSchema](https://github.com/zaggino/z-schema) | [Results](#ZSchema-Validation) | Validation | 11380 | 463 | 96.1% |
+| [CFWorker](https://github.com/cfworker/cfworker/blob/main/packages/json-schema/README.md) | [Results](#CFWorker-Validation) | Validation | 11083 | 760 | 93.6% |
+| [Exodus-SchemaSafe](https://github.com/ExodusMovement/schemasafe) | [Results](#Exodus-SchemaSafe-Validation) | Validation | 10558 | 1285 | 89.2% |
+| [Ajv](https://github.com/ajv-validator/ajv) | [Results](#Ajv-Validation) | Validation | 10521 | 1322 | 88.8% |
+| [JsonSchema](https://github.com/tdegrunt/jsonschema) | [Results](#JsonSchema-Validation) | Validation | 9800 | 2043 | 82.8% |
+| [Djv](https://github.com/korzio/djv) | [Results](#Djv-Validation) | Validation | 8767 | 3076 | 74.0% |
 
 
 ### Semantics
@@ -59,9 +59,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 7958 | 3945 | 66.9% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6241 | 5662 | 52.4% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1865 | 10038 | 15.7% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-Semantics) | Semantics | 7958 | 3885 | 67.2% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-Semantics) | Semantics | 6241 | 5602 | 52.7% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-Semantics) | Semantics | 1865 | 9978 | 15.8% |
 
 
 ### RoundTrip
@@ -72,9 +72,9 @@ Results show aggregate coverage across all JSON Schema versions.
 
 | Library | Results     | Test      | Passed  | Failed | Coverage |
 | :--     | :--        | :--       | :--     | :--    | :--      |
-| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 7950 | 3953 | 66.8% |
-| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6350 | 5553 | 53.4% |
-| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1567 | 10336 | 13.2% |
+| [Sury](https://github.com/DZakh/sury) | [Results](#Sury-RoundTrip) | RoundTrip | 7950 | 3893 | 67.1% |
+| [Zod](https://github.com/colinhacks/zod) | [Results](#Zod-RoundTrip) | RoundTrip | 6350 | 5493 | 53.6% |
+| [ArkType](https://github.com/arktypeio/arktype) | [Results](#ArkType-RoundTrip) | RoundTrip | 1567 | 10276 | 13.2% |
 
 
 ## Coverage
@@ -361,7 +361,7 @@ Results for @exodus/schemasafe testing Draft 3 to 2020-12. Tests use lax mode wi
 | format-date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
 | format-date-time | 46/47 | 46/47 | 46/47 | 46/47 | 46/47 | 46/47 | 54/63 |
 | format-duration | - | - | - | - | 46/51 | 46/51 | 46/51 |
-| format-email | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 |
+| format-email | 47/59 | 47/59 | 47/59 | 47/59 | 47/59 | 59/71 | 59/71 |
 | format-host-name | 27/28 | - | - | - | - | - | - |
 | format-hostname | - | 28/29 | 28/29 | 42/66 | 42/66 | 42/66 | 28/29 |
 | format-idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/24 |
@@ -601,7 +601,7 @@ Results for the jsonschema validation library.
 | format-date | 72/81 | - | - | 72/81 | 72/81 | 72/81 | 72/81 |
 | format-date-time | 36/47 | 36/47 | 36/47 | 36/47 | 36/47 | 36/47 | 44/63 |
 | format-duration | - | - | - | - | 38/51 | 38/51 | 38/51 |
-| format-email | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 | 59/71 |
+| format-email | 47/59 | 47/59 | 47/59 | 47/59 | 47/59 | 59/71 | 59/71 |
 | format-host-name | 27/28 | - | - | - | - | - | - |
 | format-hostname | - | 28/29 | 28/29 | 42/66 | 42/66 | 42/66 | 28/29 |
 | format-idn-email | - | - | - | 22/24 | 22/24 | 22/24 | 22/24 |
@@ -704,7 +704,7 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | additionalProperties | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | allOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | anchor | - | - | - | - | ✅ | ✅ | ✅ |
-| anchor-legacy | 7/14 | 7/14 | 8/14 | ✅ | - | - | - |
+| anchor-legacy | 7/14 | 7/14 | ✅ | ✅ | - | - | - |
 | anyOf | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | boolean_schema | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
 | const | - | - | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -723,9 +723,9 @@ Results for the Ata validator using the `isValidObject(...)` function.
 | format-duration | - | - | - | - | ✅ | ✅ | ✅ |
 | format-email | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format-host-name | 14/28 | - | - | - | - | - | - |
-| format-hostname | - | ✅ | ✅ | 43/66 | 43/66 | 43/66 | ✅ |
+| format-hostname | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format-idn-email | - | - | - | ✅ | ✅ | ✅ | ✅ |
-| format-idn-hostname | - | - | - | 43/101 | 43/101 | 43/101 | 43/101 |
+| format-idn-hostname | - | - | - | ✅ | ✅ | ✅ | ✅ |
 | format-ip-address | 11/41 | - | - | - | - | - | - |
 | format-ipv4 | - | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | format-ipv6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -961,7 +961,7 @@ Results for Ajv testing Draft 3 to 2020-12. Tests disable Ajv strict mode.
 | format-date | ✅ | - | - | ✅ | ✅ | ✅ | ✅ |
 | format-date-time | 43/47 | 43/47 | 43/47 | 43/47 | 43/47 | 43/47 | 51/63 |
 | format-duration | - | - | - | - | 49/51 | 49/51 | 49/51 |
-| format-email | 58/71 | 58/71 | 58/71 | 58/71 | 58/71 | 58/71 | 58/71 |
+| format-email | 46/59 | 46/59 | 46/59 | 46/59 | 46/59 | 58/71 | 58/71 |
 | format-host-name | 14/28 | - | - | - | - | - | - |
 | format-hostname | - | 28/29 | 28/29 | 42/66 | 42/66 | 42/66 | 28/29 |
 | format-idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
@@ -1081,7 +1081,7 @@ Results for the djv validation library.
 | format-date | 23/81 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format-date-time | 32/47 | 32/47 | 32/47 | 32/47 | 32/47 | 32/47 | 40/63 |
 | format-duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
-| format-email | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
+| format-email | 25/59 | 25/59 | 25/59 | 25/59 | 25/59 | 27/71 | 27/71 |
 | format-host-name | 14/28 | - | - | - | - | - | - |
 | format-hostname | - | 26/29 | 26/29 | 40/66 | 40/66 | 40/66 | 26/29 |
 | format-idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
@@ -1201,7 +1201,7 @@ Results using `S.fromJSONSchemaOrThrow(...)` to test Sury semantics against the 
 | format-date | 23/81 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format-date-time | 17/47 | 17/47 | 17/47 | 17/47 | 17/47 | 17/47 | 25/63 |
 | format-duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
-| format-email | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
+| format-email | 27/59 | 27/59 | 27/59 | 27/59 | 27/59 | 27/71 | 27/71 |
 | format-host-name | 14/28 | - | - | - | - | - | - |
 | format-hostname | - | 15/29 | 15/29 | 29/66 | 29/66 | 29/66 | 15/29 |
 | format-idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
@@ -1321,7 +1321,7 @@ Results using `S.fromJSONSchemaOrThrow(...)` and `S.toInputJSONSchemaOrThrow(...
 | format-date | 23/81 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format-date-time | 17/47 | 17/47 | 17/47 | 17/47 | 17/47 | 17/47 | 25/63 |
 | format-duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
-| format-email | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
+| format-email | 27/59 | 27/59 | 27/59 | 27/59 | 27/59 | 27/71 | 27/71 |
 | format-host-name | 14/28 | - | - | - | - | - | - |
 | format-hostname | - | 15/29 | 15/29 | 29/66 | 29/66 | 29/66 | 15/29 |
 | format-idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
@@ -1441,7 +1441,7 @@ Results using `z.fromJSONSchema(...)` to test Zod semantics against the Json Sch
 | format-date | 23/81 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format-date-time | 17/47 | 17/47 | 17/47 | 17/47 | 17/47 | 17/47 | 25/63 |
 | format-duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
-| format-email | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
+| format-email | 27/59 | 27/59 | 27/59 | 27/59 | 27/59 | 27/71 | 27/71 |
 | format-host-name | 14/28 | - | - | - | - | - | - |
 | format-hostname | - | 15/29 | 15/29 | 29/66 | 29/66 | 29/66 | 15/29 |
 | format-idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
@@ -1561,7 +1561,7 @@ Results using `z.fromJSONSchema(...)` and `z.toJSONSchema(...)` to bi-directiona
 | format-date | 23/81 | - | - | 23/81 | 23/81 | 23/81 | 23/81 |
 | format-date-time | 17/47 | 17/47 | 17/47 | 17/47 | 17/47 | 17/47 | 25/63 |
 | format-duration | - | - | - | - | 26/51 | 26/51 | 26/51 |
-| format-email | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 | 27/71 |
+| format-email | 27/59 | 27/59 | 27/59 | 27/59 | 27/59 | 27/71 | 27/71 |
 | format-host-name | 14/28 | - | - | - | - | - | - |
 | format-hostname | - | 15/29 | 15/29 | 29/66 | 29/66 | 29/66 | 15/29 |
 | format-idn-email | - | - | - | 16/24 | 16/24 | 16/24 | 16/24 |
@@ -1681,7 +1681,7 @@ Results using `jsonSchemaToType(...)` to test ArkType semantics against the Json
 | format-date | 0/81 | - | - | 0/81 | 0/81 | 0/81 | 0/81 |
 | format-date-time | 0/47 | 0/47 | 0/47 | 0/47 | 0/47 | 0/47 | 0/63 |
 | format-duration | - | - | - | - | 0/51 | 0/51 | 0/51 |
-| format-email | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 |
+| format-email | 0/59 | 0/59 | 0/59 | 0/59 | 0/59 | 0/71 | 0/71 |
 | format-host-name | 0/28 | - | - | - | - | - | - |
 | format-hostname | - | 0/29 | 0/29 | 0/66 | 0/66 | 0/66 | 0/29 |
 | format-idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/24 |
@@ -1801,7 +1801,7 @@ Results using `@ark/json-schema` to bi-directionally transform JSON Schema. The 
 | format-date | 0/81 | - | - | 0/81 | 0/81 | 0/81 | 0/81 |
 | format-date-time | 0/47 | 0/47 | 0/47 | 0/47 | 0/47 | 0/47 | 0/63 |
 | format-duration | - | - | - | - | 0/51 | 0/51 | 0/51 |
-| format-email | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 | 0/71 |
+| format-email | 0/59 | 0/59 | 0/59 | 0/59 | 0/59 | 0/71 | 0/71 |
 | format-host-name | 0/28 | - | - | - | - | - | - |
 | format-hostname | - | 0/29 | 0/29 | 0/66 | 0/66 | 0/66 | 0/29 |
 | format-idn-email | - | - | - | 0/24 | 0/24 | 0/24 | 0/24 |
